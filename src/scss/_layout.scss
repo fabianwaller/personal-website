@@ -1,0 +1,30 @@
+/*==================== REUSABLE CSS CLASSES ====================*/
+.section {
+    padding: 4rem 0;
+}
+
+.section__header {
+    margin-bottom: var(--mb-3);
+    text-align: center;
+}
+
+.section__title {
+    font-size: var(--h1-font-size);
+}
+
+.section__subtitle {
+    font-size: var(--small-font-size);
+    display: block;
+}
+
+/*==================== LAYOUT ====================*/
+
+.container {
+    max-width: 969px;
+    margin: 0 var(--mb-1-5);
+}
+
+.grid {
+    display: grid;
+    gap: var(--mb-1-5);
+}

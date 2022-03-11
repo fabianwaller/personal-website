@@ -1,0 +1,130 @@
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: var(z--fixed);
+    background-color: var(--body-color);
+}
+
+.nav {
+    max-width: 969px;
+    height: var(--header-height);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logobox {
+    display: flex;
+    align-items: center;
+}
+
+.logo__graphic {
+    height: 2rem;
+    width: 2rem;
+    margin-right: var(--mb-0-25);
+}
+
+.logo__graphic__top {
+    fill: var(--first-color-lighter);
+}
+
+.logo__graphic__bottom {
+    fill: var(--first-color);
+}
+
+.logo__text {
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+.logo__text:hover {
+    color: var(--first-color);    
+}
+
+@media screen and (max-width: 767px) {
+
+    .nav__menu {
+        position: fixed;
+        left: 0;
+        top: -100%;
+        width: 100%;
+        background-color: var(--body-color);
+        padding: 6rem var(--mb-1-5) 3rem var(--mb-1-5);
+        //box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
+        box-shadow: 0 -1px 4px var(--border-color);
+        border-radius: 0 0 var(--mb-1) var(--mb-1);
+        transition: .3s;
+    }
+
+    .nav__menu__show {
+        top: 0;
+    }
+
+}
+
+.nav__shape {
+    width: 200px;
+    height: 200px;
+    background-color: var(--first-color-shape);
+    border-radius: 50%;
+    position: absolute;
+    top: -2rem;
+    left: -2rem;
+    filter: blur(90px);
+}
+
+.nav__list {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.nav__list__external {
+    margin-top: var(--mb-1-5);
+    padding-top: var(--mb-1-5);
+    border-top: solid 1px var(--border-color);
+}
+
+.nav__link {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mb-0-25);
+    align-items: center;
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+    font-weight: var(--font-medium);
+}
+
+.nav__link:hover {
+    color: var(--first-color);
+}
+
+.nav__link__active {
+    color: var(--first-color);
+}
+
+.nav__icon {
+    font-size: 1.2rem;
+}
+
+.nav__close {
+    position: absolute;
+    right: var(--mb-1-5);
+    top: var(--mb-1-5);
+    font-size: 1.6rem;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.nav__close:hover{
+    color: var(--first-color);
+}
+
+.nav__toggle {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.nav__toggle:hover {
+    color: var(--first-color);
+}
