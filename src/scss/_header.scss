@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     z-index: var(z--fixed);
-    background-color: var(--body-color);
+    //background-color: var(--body-color);
 }
 
 .nav {
@@ -56,6 +56,8 @@
         box-shadow: 0 -1px 4px var(--border-color);
         border-radius: 0 0 var(--mb-1) var(--mb-1);
         transition: .3s;
+        z-index: 1000;
+        opacity: 0.98;
     }
 
     .nav__menu__show {
@@ -65,8 +67,8 @@
 }
 
 .nav__shape {
-    width: 200px;
-    height: 200px;
+    width: 00px;
+    height: 000px; /* 200px */
     background-color: var(--first-color-shape);
     border-radius: 50%;
     position: absolute;
@@ -111,20 +113,14 @@
     position: absolute;
     right: var(--mb-1-5);
     top: var(--mb-1-5);
-    font-size: 1.6rem;
+}
+
+.nav__close, .nav__toggle {
+    font-size: 1.75rem;
     cursor: pointer;
     color: var(--text-color);
 }
 
-.nav__close:hover{
-    color: var(--first-color);
-}
-
-.nav__toggle {
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.nav__toggle:hover {
+.nav__close:hover, .nav__toggle:hover {
     color: var(--first-color);
 }

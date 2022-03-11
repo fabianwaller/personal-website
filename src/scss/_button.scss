@@ -1,0 +1,58 @@
+/*==================== BUTTONS ====================*/
+.button {
+    display: inline-block;
+    background-color: var(--first-color);
+    color: #fff;
+    padding: 1rem 1.25rem;
+    border-radius: var(--border-radius);
+    font-weight: var(--font-medium);
+}
+
+.button:hover {
+    background-color: var(--first-color-alt);
+}
+
+.button__icon {
+    font-size: 1.125rem;
+    transition: .3s;
+}
+
+.button--white {
+    background-color: #fff;
+    color: var(--first-color);
+}
+
+.button--white:hover {
+    background-color: #fff;
+}
+
+.button--disabled {
+    background-color: var(--border-color);
+    color: var(--text-color-light);
+}
+
+.button--disabled:hover {
+    background-color: var(--border-color);
+    color: var(--text-color-light);
+}
+
+.button--flex {
+    display: inline-flex;
+    align-items: center;
+    column-gap: var(--mb-0-5);
+}
+
+.button--small {
+    padding: .75rem 1rem;
+}
+
+.button--link {
+    padding: 0;
+    background-color: transparent;
+    color: var(--first-color);
+}
+
+.button--link:hover {
+    background-color: transparent;
+    color: var(--first-color-alt);
+}
