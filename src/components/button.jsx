@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 // sample usage: <Button text='Contact' href='#contact' white='true' iconr='bx bx-message-square-dots'/>
 
-function ButtonStandard(props) {
+function ButtonLink(props) {
     return (
         <a href={props.href} className={props.classname}>
             {props.children}
@@ -11,9 +11,17 @@ function ButtonStandard(props) {
     );
 }
 
+function ButtonAction(props) {
+    return (
+        <span onClick={props.onclick} className={props.classname}>
+            {props.children}
+        </span>
+    );
+}
+
 function ButtonDisabled(props) {
     return (
-        <span className={props.classname}>
+        <span className={`${props.classname} button--disabled`}>
             {props.children}
         </span>
     );
@@ -32,7 +40,8 @@ class Button extends React.Component {
 
     render() {
         let button;
-        let classname = 'button button--flex ';
+        let classname = this.props.classname;
+        classname += ' button button--flex ';
         let iconl = this.props.iconl;
         let iconr = this.props.iconr;
 
@@ -56,7 +65,11 @@ class Button extends React.Component {
         if(this.props.disabled == 'true') {
             button = <ButtonDisabled classname={classname}>{iconl} {this.props.text} {iconr}</ButtonDisabled>
         } else {
-            button = <ButtonStandard href={this.props.href} classname={classname}>{iconl} {this.props.text} {iconr}</ButtonStandard>
+            if (this.props.href != null) {
+                button = <ButtonLink href={this.props.href} classname={classname}>{iconl} {this.props.text} {iconr}</ButtonLink>
+            } else if (this.props.onclick != null) {
+                button = <ButtonAction onclick={this.props.onclick} classname={classname}>{iconl} {this.props.text} {iconr}</ButtonAction>
+            }
         }
 
         return (

@@ -1,0 +1,60 @@
+.journey__tabs {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: var(--mb-1-5);
+}
+
+.journey__tab__inactive {
+    color: var(--text-color);
+}
+
+.journey__data {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    column-gap: var(--mb-1-5);
+}
+
+.timeline {
+    padding: 0 var(--mb-0-5);
+}
+
+.timeline__rounder {
+    display: block;
+    width: 13px;
+    height: 13px;
+    background-color: var(--first-color-lighter);
+    border-radius: 50%;
+}
+
+.timeline__line {
+    display: block;
+    width: 1px;
+    height: calc(100% - .5rem - 13px);
+    background-color: var(--first-color-lighter);
+    transform: translate(6px, .25rem);
+}
+
+.card {
+    background-color: var(--container-color);
+    border-radius: var(--border-radius);
+    padding: 1rem;
+    margin-bottom: var(--mb-1-5);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .15);
+}
+
+.card__title {
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+}
+
+.card__subtitle {
+    display: inline-block;
+    font-size: var(--small-font-size);
+    margin-bottom: var(--mb-0-5);
+    white-space: nowrap;
+}
+
+.journey__download {
+    display: flex;
+    justify-content: center;
+}
