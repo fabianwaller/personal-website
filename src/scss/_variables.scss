@@ -7,20 +7,20 @@
     /* colors */
     --hue-color: 230; // could replace but then color preview would ne be available
 
-    --first-color: hsl(230, 69%, 61%);
-    --first-color-second: hsl(230, 69%, 61%);
-    --first-color-alt: hsl(230, 57%, 53%);
-    --first-color-lighter: hsl(230, 92%, 85%);
-    --title-color: hsl(230, 8%, 15%);
-    --text-color: hsl(230, 4%, 45%);
-    --text-color-light: hsl(230, 8%, 65%);
-    --text-color-dark: hsl(230, 21%, 56%);
-    --input-color: hsl(230, 70%, 96%);
-    --border-color: hsl(230, 40%, 92%);
-    --body-color: hsl(230, 100%, 99%);
+    --first-color: hsl(240, 69%, 61%);
+    --first-color-second: hsl(240, 69%, 61%);
+    --first-color-alt: hsl(240, 57%, 53%);
+    --first-color-lighter: hsl(240, 92%, 85%);
+    --title-color: hsl(240, 8%, 15%);
+    --text-color: hsl(240, 4%, 45%);
+    --text-color-light: hsl(240, 8%, 65%);
+    --text-color-dark: hsl(240, 21%, 56%);
+    --input-color: hsl(240, 70%, 96%);
+    --border-color: hsl(240, 40%, 92%);
+    --body-color: hsl(240, 100%, 99%);
     --container-color: #fff;
-    --scroll-bar-color: hsl(230, 12%, 90%);
-    --scroll-thumb-color: hsl(230, 12%, 80%);
+    --scroll-bar-color: hsl(240, 12%, 90%);
+    --scroll-thumb-color: hsl(240, 12%, 80%);
 
 
     --accent-color: hsl(275, 74%, 64%);
@@ -73,14 +73,14 @@
 /*==================== VARIABLES DARK theme ====================*/
 @media (prefers-color-scheme: dark) {
     :root {
-        --first-color-second: hsl(230, 30%, 8%);
-        --title-color: hsl(230, 8%, 95%);
-        --text-color: hsl(230, 8%, 75%);
-        --input-color: hsl(230, 29%, 16%);
-        --border-color: hsl(230, 40%, 20%);
-        --body-color: hsl(230, 21%, 14%);
-        --container-color: hsl(230, 80%, 14%);
-        --scroll-bar-color: hsl(230, 12%, 48%);
-        --scroll-thumb-color: hsl(230, 12%, 36%);
+        --first-color-second: hsl(240, 30%, 8%);
+        --title-color: hsl(240, 8%, 95%);
+        --text-color: hsl(240, 8%, 75%);
+        --input-color: hsl(240, 29%, 16%);
+        --border-color: hsl(240, 40%, 20%);
+        --body-color: hsl(240, 21%, 14%);
+        --container-color: hsl(240, 80%, 14%);
+        --scroll-bar-color: hsl(240, 12%, 48%);
+        --scroll-thumb-color: hsl(240, 12%, 36%);
     }
 }

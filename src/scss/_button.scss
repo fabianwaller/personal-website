@@ -3,9 +3,15 @@
     display: inline-block;
     background-color: var(--first-color);
     color: #fff;
-    padding: 1rem 1.25rem;
+    padding: .95rem 1.125rem;
     border-radius: var(--border-radius);
     font-weight: var(--font-medium);
+}
+
+.button--flex {
+    display: inline-flex;
+    align-items: center;
+    column-gap: var(--mb-0-5);
 }
 
 .button:hover {
@@ -34,12 +40,6 @@
 .button--disabled:hover {
     background-color: var(--border-color);
     color: var(--text-color-light);
-}
-
-.button--flex {
-    display: inline-flex;
-    align-items: center;
-    column-gap: var(--mb-0-5);
 }
 
 .button--small {

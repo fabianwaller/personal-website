@@ -5,6 +5,8 @@ import './scss/style.scss'
 
 import Header from './components/header'
 import Home from './components/home'
+import About from './components/about'
+import Journey from './components/journey'
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <Header />
       <main className="main">
         <Home />
+        <About />
+        <Journey />
       </main>
     </div>
   );
