@@ -9,7 +9,7 @@
 
     --first-color: hsl(240, 69%, 61%);
     --first-color-second: hsl(240, 69%, 61%);
-    --first-color-alt: hsl(240, 57%, 53%);
+    --first-color-alt: hsl(240, 57%, 60%);
     --first-color-lighter: hsl(240, 92%, 85%);
     --title-color: hsl(240, 8%, 15%);
     --text-color: hsl(240, 4%, 45%);
@@ -78,7 +78,7 @@
 /*==================== VARIABLES DARK theme ====================*/
 @media (prefers-color-scheme: dark) {
     :root {
-        --first-color-second: hsl(240, 30%, 8%);
+        --first-color-second: hsl(240, 55%, 55%);
         --title-color: hsl(240, 8%, 95%);
         --text-color: hsl(240, 8%, 80%);
         --input-color: hsl(240, 13%, 7%);
