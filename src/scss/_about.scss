@@ -6,11 +6,11 @@
     gap: var(--mb-0-5);
 }
 
-.about__keyword {
+.keyword {
     display: inline-block;
     color: var(--title-color);
     padding: .5rem .75rem;
-    border: solid 1.5px var(--border-color);
+    border: solid 1.25px var(--border-color);
     border-radius: var(--border-radius);
     font-size: var(--small-font-size);
 }

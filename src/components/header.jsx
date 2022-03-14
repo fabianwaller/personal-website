@@ -18,7 +18,8 @@ class Header extends React.Component {
         super(props);
         this.toggleMenu = this.toggleMenu.bind(this);
         this.state = {
-            menu: false
+            menu: false,
+            activeClass: ''
         };
     }
 
@@ -27,9 +28,19 @@ class Header extends React.Component {
         this.setState({ menu: visible });
     }
 
+    componentDidMount(){
+        window.addEventListener('scroll', () => {
+           let activeClass = '';
+           if(window.scrollY >= 310){
+               activeClass = 'header--scroll';
+           }
+           this.setState({ activeClass });
+        });
+    }
+
     render() {
         return (
-            <header className="header" id="header">
+            <header className={`header ${this.state.activeClass}`} id="header">
                 <nav className="nav container">
                     <Logo />
 
@@ -39,6 +50,8 @@ class Header extends React.Component {
                         <ul className="nav__list grid">
                             <NavItem link="#home" active="true" icon="bx bx-home" name="Home" click={this.toggleMenu}/>
                             <NavItem link="#about" active="false" icon="bx bx-user" name="About" click={this.toggleMenu}/>
+                            <NavItem link="#journey" active="false" icon="bx bx-rocket" name="Journey" click={this.toggleMenu}/>
+                            <NavItem link="#projects" active="false" icon="bx bx-collection" name="Projects" click={this.toggleMenu}/>
                             <NavItem link="#contact" active="false" icon="bx bx-message-square-detail" name="Contact" click={this.toggleMenu}/>
                         </ul>
 

@@ -7,11 +7,11 @@ function About() {
     return (
         <Section name='about' title='About me' subtitle ='My intro'> 
                 <div className="about__keywords">
-                    <span className="about__keyword">computer science student</span>
-                    <span className="about__keyword">devleoper</span>
-                    <span className="about__keyword">productivity</span>
-                    <span className="about__keyword">reading</span>
-                    <span className="about__keyword">football</span>
+                    <span className="about__keyword keyword">computer science student</span>
+                    <span className="about__keyword keyword">devleoper</span>
+                    <span className="about__keyword keyword">productivity</span>
+                    <span className="about__keyword keyword">reading</span>
+                    <span className="about__keyword keyword">football</span>
                 </div>
                 
                 <div className="about__data">

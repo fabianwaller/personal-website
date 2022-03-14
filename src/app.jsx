@@ -7,6 +7,7 @@ import Header from './components/header'
 import Home from './components/home'
 import About from './components/about'
 import Journey from './components/journey'
+import Projects from './components/projects'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Home />
         <About />
         <Journey />
+        <Projects />
       </main>
     </div>
   );

@@ -4,7 +4,11 @@
     top: 0;
     left: 0;
     z-index: var(z--fixed);
-    //background-color: var(--body-color);
+    transition: .5s;
+}
+
+.header--scroll {
+    background-color: var(--body-color);
 }
 
 .nav {
