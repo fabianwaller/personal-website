@@ -3,7 +3,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: var(z--fixed);
+    z-index: 100;
     transition: .3s;
 }
 
@@ -67,7 +67,7 @@
         box-shadow: 0 -1px 4px var(--border-color);
         border-radius: 0 0 var(--mb-1) var(--mb-1);
         transition: .3s;
-        z-index: 1000;
+        z-index: var(z--fixed);
         background-color: hsla(var(--body-h), var(--body-s), var(--body-l), 0.9);
         -webkit-backdrop-filter: blur(20px);
         -o-backdrop-filter: blur(20px);
@@ -82,16 +82,16 @@
 
 }
 
-.nav__shape {
+/*.nav__shape {
     width: 00px;
-    height: 000px; /* 200px */
+    height: 000px; /* 200px 
     background-color: var(--first-color-shape);
     border-radius: 50%;
     position: absolute;
     top: -2rem;
     left: -2rem;
     filter: blur(90px);
-}
+}*/
 
 .nav__list {
     grid-template-columns: repeat(3, 1fr);

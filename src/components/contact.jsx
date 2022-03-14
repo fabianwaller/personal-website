@@ -7,11 +7,17 @@ import Section from './section'
 class Contact extends React.Component {
     constructor(props) {
         super(props);
+        this.onInput = this.onInput.bind(this);
         this.sendMessage = this.sendMessage.bind(this);
         this.state = {
             warnings: [false,false,false,false],
-            alerts: []
+            alerts: [],
+            textareaHeight: 55
         };
+    }
+
+    onInput() {
+        this.setState({textareaHeight: document.getElementById('message').scrollHeight})
     }
 
     sendMessage() {
@@ -43,15 +49,17 @@ class Contact extends React.Component {
         this.setState({warnings: arr});
         
 
-
         console.log(this.state);
         this.setState({alerts: alerts})
         console.log(formData);
     }
 
 
-
-    render() {          
+    render() {   
+        const style = {
+            height: (this.state.textareaHeight) + 'px'
+        };  
+        console.log(style.height);     
         return (
             <Section name='contact' title='Contact' subtitle ='get in touch'> 
 
@@ -69,7 +77,7 @@ class Contact extends React.Component {
                         <label htmlFor="subject" className='form__label'>Subject</label>
                     </div>
                     <div className="form__content">
-                        <textarea cols="0" rows="3" type="text" id="message" name="message" className={`form__input ${this.state.warnings[3] ? 'form__input--alert' : ''}`} placeholder=" "/>
+                        <textarea onChange={this.onInput} rows='10' style={style} type="text" id="message" name="message" className={`form__input ${this.state.warnings[3] ? 'form__input--alert' : ''}`} placeholder=" "/>
                         <label htmlFor="message" className='form__label'>Message</label>
                     </div>
 

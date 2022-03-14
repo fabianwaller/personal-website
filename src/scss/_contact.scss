@@ -6,6 +6,7 @@
     position: relative;
 }
 
+
 .form__input {
     -webkit-appearance: none;
     position: relative;
@@ -18,8 +19,7 @@
     padding: var(--mb-1);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    transition: 0s;
-    z-index: -1;
+    z-index: 1;
 }
 
 .form__input--alert {
@@ -51,6 +51,7 @@
 
 textarea {
     resize: none;
+    overflow-y: hidden;
 }
 
 .form__label {
@@ -62,9 +63,8 @@ textarea {
     top: 1.1rem;
     padding: 0 .25rem;
     transition: .3s;
-    z-index: 100;
     border-radius: var(--border-radius);
-    z-index: -1;
+    z-index: 1;
 }
 
 .form__input:focus ~ label,
