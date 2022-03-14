@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     z-index: var(z--fixed);
-    transition: .5s;
+    transition: .3s;
 }
 
 .header--scroll {
@@ -54,14 +54,18 @@
         left: 0;
         top: -100%;
         width: 100%;
-        background-color: var(--body-color);
         padding: 6rem var(--mb-1-5) 3rem var(--mb-1-5);
         //box-shadow: 0 -1px 4px rgba(0, 0, 0, .15);
         box-shadow: 0 -1px 4px var(--border-color);
         border-radius: 0 0 var(--mb-1) var(--mb-1);
         transition: .3s;
         z-index: 1000;
-        opacity: 0.98;
+        background-color: hsla(var(--body-h), var(--body-s), var(--body-l), 0.9);
+        -webkit-backdrop-filter: blur(20px);
+        -o-backdrop-filter: blur(20px);
+        -moz-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+        
     }
 
     .nav__menu__show {

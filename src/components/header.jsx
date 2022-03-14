@@ -36,7 +36,7 @@ class Header extends React.Component {
            }
            this.setState({ activeClass });
         });
-    }
+    } 
 
     render() {
         return (

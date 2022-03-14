@@ -74,7 +74,7 @@ function Projects() {
 
 
     return (
-        <Section name='projects' title='Projects' subtitle ='My public code repos'> 
+        <Section name='projects' title='Projects' subtitle ='public code repos'> 
             <ProjectsContainer repos={repos}/>
         </Section> 
 

@@ -15,9 +15,13 @@
     --text-color: hsl(240, 4%, 45%);
     --text-color-light: hsl(240, 8%, 65%);
     --text-color-dark: hsl(240, 21%, 56%);
-    --input-color: hsl(240, 70%, 96%);
+    --input-color: hsl(240, 70%, 98%);
     --border-color: hsl(240, 40%, 92%);
-    --body-color: hsl(240, 100%, 99%);
+
+    --body-h: 240;
+    --body-s: 100%;
+    --body-l: 99%;
+    --body-color: hsl(var(--body-h), var(--body-s), var(--body-l));
     // --container-color: #fff;
     --container-color: hsl(240, 50%, 98%);
     --scroll-bar-color: hsl(240, 12%, 90%);
@@ -77,9 +81,14 @@
         --first-color-second: hsl(240, 30%, 8%);
         --title-color: hsl(240, 8%, 95%);
         --text-color: hsl(240, 8%, 80%);
-        --input-color: hsl(240, 29%, 16%);
-        --border-color: hsl(240, 20%, 30%);
-        --body-color: hsl(240, 11%, 6%);
+        --input-color: hsl(240, 13%, 7%);
+        --border-color: hsl(240, 10%, 25%);
+
+        --body-h: 240;
+        --body-s: 11%;
+        --body-l: 6%;
+        --body-color: hsl(var(--body-h), var(--body-s), var(--body-l));
+
         --container-color: hsl(240, 13%, 9%);
         --scroll-bar-color: hsl(240, 12%, 48%);
         --scroll-thumb-color: hsl(240, 12%, 36%);

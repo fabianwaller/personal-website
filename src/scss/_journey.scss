@@ -8,6 +8,10 @@
     color: var(--text-color);
 }
 
+.journey__databox {
+    margin-bottom: var(--mb-1-5);
+}
+
 .journey__data {
     display: grid;
     grid-template-columns: max-content 1fr;
