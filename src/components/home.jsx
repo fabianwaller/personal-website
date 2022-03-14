@@ -85,7 +85,11 @@ function Home() {
                 <h3 className="home__subtitle">computer science student</h3>
                 <div>
                     <p className="home__description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.</p>
-                    <Button text='Contact' href='#contact'/>
+                    <div className='home__buttons flex'>
+                        <Button text='Contact' href='#contact'/>
+                        <Button text='Projects' href='#projects' link='true' iconr='bx bx-collection'
+                        />
+                    </div>
                 </div>
             </div>
 

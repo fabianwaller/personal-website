@@ -7,6 +7,17 @@ import Section from './section'
 import Button from './button'
 
 function ProjectsContainer({repos}) {
+    function formatDate(date) {
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        //var ampm = hours >= 12 ? 'pm' : 'am';
+        //hours = hours % 12;
+        //hours = hours ? hours : 12; // the hour '0' should be '12'
+        minutes = minutes < 10 ? '0'+ minutes : minutes;
+        let strTime = hours + ':' + minutes + ' '; //+ ampm;
+        return date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear() + " " + strTime;
+    }
+      
     if(repos == null) { return null }
     return (
         <div className='projects__container grid'>
@@ -25,7 +36,7 @@ function ProjectsContainer({repos}) {
                             {repo.stargazers_count}
                         </span>
                         <span className="project__info flex">
-                            <i className='bx bx-calendar-alt'></i>{repo.updated_at}
+                            <i className='bx bx-calendar-alt'></i>{formatDate(new Date(repo.pushed_at))}
                         </span>
                     </div>
                     <Button classname="project__link" text="" href={repo.html_url} iconl='bx bx-link-external' link='true'/>
@@ -44,16 +55,26 @@ function Projects() {
 
         async function getData() {
             const res = await fetch('https://api.github.com/users/fabianwaller/repos');
-            const data = await res.json();
-    
-            setRepos(data);
+            const data = await res.json(); 
+
+            function compare(a, b) {
+                if (new Date(a.pushed_at) < new Date(b.pushed_at)){
+                  return 1;
+                }
+                if (new Date(a.pushed_at) > new Date(b.pushed_at)){
+                  return -1;
+                }
+                return 0;
+              }
+              
+              data.sort( compare );
+                setRepos(data);
         }
     }, []);
 
 
-
     return (
-        <Section name='projects' title='Projects' subtitle ='My code'> 
+        <Section name='projects' title='Projects' subtitle ='My public code repos'> 
             <ProjectsContainer repos={repos}/>
         </Section> 
 

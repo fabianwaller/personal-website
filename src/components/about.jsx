@@ -5,7 +5,7 @@ import Section from './section'
 
 function About() {
     return (
-        <Section name='about' title='About me' subtitle ='My intro'> 
+        <Section name='about' title='About me' subtitle ='introduction of myself'> 
                 <div className="about__keywords">
                     <span className="about__keyword keyword">computer science student</span>
                     <span className="about__keyword keyword">devleoper</span>

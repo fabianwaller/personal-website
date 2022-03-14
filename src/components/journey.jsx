@@ -41,7 +41,7 @@ class Journey extends React.Component {
         } else {
             this.setState({ tab: 'education' });
         }
-        console.log(this.state);
+        //console.log(this.state);
     }
 
     render() {
