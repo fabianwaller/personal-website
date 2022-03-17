@@ -112,7 +112,6 @@ class Contact extends React.Component {
 
     constructor(props) {
         super(props);
-        this.onTextareaInput = this.onTextareaInput.bind(this);
         this.sendMessage = this.sendMessage.bind(this);
         this.state = {
             name: "",
@@ -121,12 +120,12 @@ class Contact extends React.Component {
             message: "",
             warnings: [false,false,false,false],
             alerts: [],
-            textareaHeight: 55,
+            textareaHeight: 0,
         };
     } 
 
-    onTextareaInput() {
-        this.setState({textareaHeight: document.getElementById('message').scrollHeight})
+    componentDidMount() {
+        this.setState({textareaHeight: this.divElement.scrollHeight})
     }
 
     async sendMessage() {
@@ -222,11 +221,12 @@ class Contact extends React.Component {
                         <label htmlFor="subject" className='form__label'>Subject</label>
                     </div>
                     <div className="form__content">
-                        <textarea style={style} type="text" id="message" name="message" value={this.state.message}
+                        <textarea style={style} ref={ (divElement) => { this.divElement = divElement } } type="text" id="message" name="message" value={this.state.message}
                         onChange={(e) => this.setState({message: e.target.value}, () => {
                             let arr = this.state.warnings;
                             arr[3] = isEmpty(this.state.message);
                             this.setState({warnings: arr});
+                            this.setState({textareaHeight: this.divElement.scrollHeight});
                             })} 
                         className={`form__input ${this.state.warnings[3] ? 'form__input--alert' : ''}`} placeholder=" "/>
                         <label htmlFor="message" className='form__label'>Message</label>

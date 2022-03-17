@@ -22,13 +22,13 @@
 .footer__linkbox {
     display: grid;
     grid-template-columns: repeat(2, max-content);
-    column-gap: var(--mb-3);
+    column-gap: 4rem;
 }
 
 .footer__links {
     display: flex;
     flex-direction: column;
-    row-gap: var(--mb-0-5);
+    row-gap: var(--mb-1);
 }
 
 .footer__links__tab {

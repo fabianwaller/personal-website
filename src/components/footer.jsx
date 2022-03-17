@@ -15,13 +15,16 @@ function Footer(props) {
                     <div className="footer__linkbox">
                         <ul className="footer__links">
                             <span className="footer__links__tab">Links</span>
-                            <li><a href="#about" className='footer__link'>About me</a></li>
+                            <li><a href="#about" className='footer__link'>About</a></li>
+                            <li><a href="#journey" className='footer__link'>Journey</a></li>
+                            <li><a href="#projects" className='footer__link'>Projects</a></li>
                             <li><a href="#contact" className='footer__link'>Contact</a></li>
                         </ul>
 
                         <ul className="footer__links">
                             <span className="footer__links__tab">Explore</span>
                             <li><a href="#blog" className='footer__link'>Blog</a></li>
+                            <li><a href="#tools" className='footer__link'>Tools</a></li>
                         </ul>
                     </div>
 
