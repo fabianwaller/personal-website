@@ -1,17 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-function Section(props) {
-    return (
-        <section className={`${props.name} section`} id={props.name}>
-            <h2 className="section__title">{props.title}</h2>
-            <span className="section__subtitle">{props.subtitle}</span>
+class Section extends React.Component {
+    constructor(props) {
+      super(props);
+    }
+  
+    render (){
+      return (
+        <section className={`${this.props.name} section`} id={this.props.name}>
+            <div className="section__header">
+                <h2 className="section__title">{this.props.title}</h2>
+                <span className="section__subtitle">{this.props.subtitle}</span>
+            </div>
 
-            <div className={`${props.name}__container container grid`}>
-                {props.children}
+            <div className={`${this.props.name}__container container grid`}>
+                {this.props.children}
             </div>
         </section>
-    );
-}
+      )};
+  }
   
 export default Section

@@ -51,3 +51,9 @@ img, svg {
     max-width: 100%;
     height: auto;
 }
+
+label {
+    display: flex;
+    align-items: center;
+    gap: var(--mb-0-5);
+}

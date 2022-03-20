@@ -24,7 +24,7 @@ function Footer(props) {
                         <ul className="footer__links">
                             <span className="footer__links__tab">Explore</span>
                             <li><a href="#blog" className='footer__link'>Blog</a></li>
-                            <li><a href="#tools" className='footer__link'>Tools</a></li>
+                            {/* <li><a href="#tools" className='footer__link'>Tools</a></li> */}
                         </ul>
                     </div>
 

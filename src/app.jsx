@@ -14,40 +14,52 @@ import Footer from './components/footer'
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      currentSection: 'home'
+    };
+  }
+
+  setCurrentSection = (section) => {
+    this.setState({ currentSection: section });
   }
 
   componentDidMount() {
-    /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
+    /* SCROLL SECTIONS ACTIVE LINK */
     const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+      const scrollY = window.pageYOffset
+      sections.forEach(current => {
+          const sectionHeight = current.offsetHeight
+          const sectionTop = current.offsetTop - 65;
+          let sectionId = current.getAttribute('id')
 
-    function scrollActive(){
-        const scrollY = window.pageYOffset
+          if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            this.setCurrentSection(sectionId);
+          }
+      })
+    });
 
-        sections.forEach(current =>{
-            const sectionHeight = current.offsetHeight
-            const sectionTop = current.offsetTop - 50;
-            let sectionId = current.getAttribute('id')
-
-            if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
-                let element = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
-                if(element !== null) {
-                    element.classList.add('nav__link__active');
-                }
-            } else {
-                let element = document.querySelector('.nav__menu a[href*=' + sectionId + ']');
-                if(element !== null) {
-                    element.classList.remove('nav__link__active');
-                }
-            }
-        })
+    async function getData() {
+        const res = await fetch('http://localhost:4000/api/v1/articles/');
+        const data = await res.json(); 
+        console.log(data);
     }
-    window.addEventListener('scroll', scrollActive)
+
+    getData();
+/*     const reqOptions = {
+      method: 'POST',
+      header: {'Content-Type': 'application/json'},
+      //body: JSON.stringify({title: 'react post request example'})
+    };
+    fetch('http://localhost:4000/api/v1/articles/', reqOptions)
+      .then(response => response.json())
+      .then(res => console.log(res)); */
   }
 
-  render (){
+  render () {
     return (
       <div className='App'>
-        <Header />
+        <Header activeItem={this.state.currentSection}/>
         <main className="main">
           <Home />
           <About />
@@ -59,6 +71,7 @@ class App extends React.Component {
       </div>
     )};
 }
+
 
 ReactDOM.render(
   <React.StrictMode>

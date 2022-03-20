@@ -22,6 +22,10 @@
     z-index: 1;
 }
 
+.form__input__icon__right {
+    padding-right: 3rem;
+}
+
 .form__input--alert {
     border-color: var(--text-color);
 }
@@ -64,6 +68,16 @@ textarea {
     padding: 0 .25rem;
     transition: .3s;
     border-radius: var(--border-radius);
+    z-index: 1;
+}
+
+.form__icon__right {
+    font-size: 1.65rem;
+    color: var(--text-color-light);
+    position: absolute;
+    top: 1rem;
+    right: .75rem;
+    transition: .3s;
     z-index: 1;
 }
 

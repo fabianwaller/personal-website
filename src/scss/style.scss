@@ -10,3 +10,59 @@
 @import 'projects';
 @import 'contact';
 @import 'footer';
+
+.cls-1 {
+    fill:var(--body-color);
+}
+
+.cls-2 {
+    fill:var(--body-color);
+}
+
+.cls-3 {
+    fill:var(--first-color-lighter);
+}
+
+.cls-4 {
+    fill:var(--first-color);
+}
+
+.cls-5 {
+    fill:var(--first-color);
+}
+
+.blog__title {
+    font-size: var(--h1-font-size);
+    line-height: 1;
+}
+
+.paper {
+    height: var(--h1-font-size);
+}
+
+.search__bar {
+    display: flex;
+    align-items: center;
+    gap: var(--mb-1-5);
+}
+
+.search__filter {
+    font-size: 1.65rem;
+}
+
+
+.filter {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--mb-0-5);
+}
+
+.filter__box {
+    color: var(--title-color);
+    padding: .5rem .75rem;
+    border: solid 1.25px var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: var(--small-font-size);
+}
