@@ -65,10 +65,10 @@ function Projects() {
                   return -1;
                 }
                 return 0;
-              }
+            }
               
-              data.sort( compare );
-                setRepos(data);
+            data.sort(compare);
+            setRepos(data);
         }
     }, []);
 

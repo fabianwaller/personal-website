@@ -17,19 +17,28 @@ const prefix = 'DATABASE > ';
 const app = express();
 const router = express.Router();
 
-app.use(express.static("dist"));
+//app.use(express.static("dist"));
+app.use(express.json());
 
-app.get("/", (req, res) => {
+/* app.get("/", (req, res) => {
     res.sendFile(path.join(__dirname, '/dist/index.html'));
 });
 
 app.get("/blog", (req, res) => {
     res.sendFile(path.join(__dirname, '/dist/blog.html'));
+}); */
+
+app.get('/api/hello', async (_req, res) => {
+  res.status(200).json({ message: 'Hello World!' });
 });
 
 const {getArticles, createArticle} = require('./controllers/blog');
+const {getTweets} = require('./controllers/twitter');
 
-app.route('/api/v1/articles').get(getArticles(con, null)).post(createArticle(con));
+//app.route('/api/articles').get(getArticles(con, null))
+
+app.route('/api/articles').get(getArticles(con, null)).post(createArticle(con));
+app.route('/api/tweets').get(getTweets());
 
 
 // Handle 404 - Keep this as a last route 
@@ -50,7 +59,7 @@ const connect = async () => {
     });
 
     con.query("SELECT * FROM blog", (err, result) => {
-        con.query("CREATE TABLE IF NOT EXISTS blog (title VARCHAR(255), categorie VARCHAR(255), created_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, content TEXT)")
+        con.query("CREATE TABLE IF NOT EXISTS blog (categorie VARCHAR(255), title VARCHAR(255), text TINYTEXT, created_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, content TEXT)")
         console.log(prefix + "blog table loaded");
     });
 

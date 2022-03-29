@@ -57,3 +57,11 @@ label {
     align-items: center;
     gap: var(--mb-0-5);
 }
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: var(--border-color);
+    border-radius: var(--border-radius);
+    opacity: .5;
+}

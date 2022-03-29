@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+
 import './scss/style.scss'
 
 import Header from './components/header'
@@ -10,6 +12,9 @@ import Journey from './components/journey'
 import Projects from './components/projects'
 import Contact from './components/contact'
 import Footer from './components/footer'
+
+import Blog from './components/blog/blog'
+import Post from './components/blog/post'
 
 class App extends React.Component {
   constructor(props) {
@@ -39,13 +44,6 @@ class App extends React.Component {
       })
     });
 
-    async function getData() {
-        const res = await fetch('http://localhost:4000/api/v1/articles/');
-        const data = await res.json(); 
-        console.log(data);
-    }
-
-    getData();
 /*     const reqOptions = {
       method: 'POST',
       header: {'Content-Type': 'application/json'},
@@ -59,15 +57,25 @@ class App extends React.Component {
   render () {
     return (
       <div className='App'>
-        <Header activeItem={this.state.currentSection}/>
-        <main className="main">
-          <Home />
-          <About />
-          <Journey />
-          <Projects />
-          <Contact />
-        </main>
-        <Footer />
+        <Router>
+          <Header activeItem={this.state.currentSection}/>
+          <Routes>
+            <Route path="/" element={
+              <main className="main">
+              <Home />
+              <About />
+              <Journey />
+              <Projects />
+              <Contact />
+              </main>
+            } />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/blog" element={<Blog />}/> 
+            <Route path="/blog/:postSlug" element={<Post />} />
+            <Route path="/*" element={<h1 className='container section'>404</h1>} />
+          </Routes>
+          <Footer />
+        </Router>
       </div>
     )};
 }

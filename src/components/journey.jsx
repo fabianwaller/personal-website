@@ -35,13 +35,12 @@ class Journey extends React.Component {
         };
     }
 
-    toggleTab = () => {
-        if (this.state.tab == 'education') {
-            this.setState({ tab: 'experience' });
-        } else {
-            this.setState({ tab: 'education' });
-        }
-        //console.log(this.state);
+    setEducationTab = () => {
+        this.setState({ tab: 'education' });
+    }
+
+    setExperienceTab = () => {
+        this.setState({ tab: 'experience' });
     }
 
     render() {
@@ -49,8 +48,8 @@ class Journey extends React.Component {
         let journey__data;
         if(this.state.tab == 'education') {
             journey__tabs = <div className="journey__tabs">
-                <Button classname="journey__tab" text='Education' onclick={this.toggleTab} link='true' iconl='bx bxs-graduation'/>
-                <Button classname="journey__tab journey__tab__inactive" text='Experience' onclick={this.toggleTab} link='true' iconl='bx bxs-briefcase'/>
+                <Button classname="journey__tab" text='Education' onclick={this.setEducationTab} link='true' iconl='bx bxs-graduation'/>
+                <Button classname="journey__tab journey__tab__inactive" text='Experience' onclick={this.setExperienceTab} link='true' iconl='bx bxs-briefcase'/>
             </div>;
 
             journey__data = <div>
@@ -59,8 +58,8 @@ class Journey extends React.Component {
             </div>
         } else {
             journey__tabs = <div className="journey__tabs">
-            <Button classname="journey__tab journey__tab__inactive" text='Education' onclick={this.toggleTab} link='true' iconl='bx bxs-graduation'/>
-            <Button classname="journey__tab" text='Experience' onclick={this.toggleTab} link='true' iconl='bx bxs-briefcase'/>
+            <Button classname="journey__tab journey__tab__inactive" text='Education' onclick={this.setEducationTab} link='true' iconl='bx bxs-graduation'/>
+            <Button classname="journey__tab" text='Experience' onclick={this.setExperienceTab} link='true' iconl='bx bxs-briefcase'/>
             </div>;
 
             journey__data = <div>

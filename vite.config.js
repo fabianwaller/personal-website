@@ -10,14 +10,20 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     outDir: "dist",
-    rollupOptions: {
+    /* rollupOptions: {
       input: {
         index: resolve(__dirname, 'index.html'),
         blog: resolve(__dirname, 'blog.html')
       }
-    }
+    } */
   },
   server: {
-    host: true
+    host: true,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:4000',
+        changeOrigin: true,
+      },
+    },
   }
 })

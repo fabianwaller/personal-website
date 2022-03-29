@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 const FilterBox = (props) => {
   return(
-    <div className="filter__box flex">
+    <div className={`filter__box flex ${props.active ? 'filter__box__active' : ''}`}>
       {/* <i className='button__icon bx bxs-folder'></i> */}
       {props.name}
     </div>
@@ -37,10 +37,10 @@ class Search extends React.Component {
       let filter;
       if (this.state.filterbox) filter = (
         <div className="filter">
-          <FilterBox name='producvtivity'/>
-          <FilterBox name='studying'/>
-          <FilterBox name='entrepreneurship'/>
-          <FilterBox name='money'/>
+          <FilterBox name='productivity' active={true}/>
+          <FilterBox name='studying' active={false}/>
+          <FilterBox name='entrepreneurship' active={false}/>
+          <FilterBox name='money' active={true}/>
         </div>
       )
       return (
@@ -54,6 +54,8 @@ class Search extends React.Component {
 
 
           {filter}
+
+          <hr className='divider'/>
         </div>
       )};
   }

@@ -120,7 +120,7 @@ class Contact extends React.Component {
             message: "",
             warnings: [false,false,false,false],
             alerts: [],
-            textareaHeight: 0,
+            textareaHeight: 55,
         };
     } 
 
