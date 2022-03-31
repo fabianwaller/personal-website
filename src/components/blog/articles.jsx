@@ -57,9 +57,9 @@ function TweetBox({tweets}) {
     //console.log(tweets);
 
     return (
-        <div className='projects__container grid'>
+        <div className='grid'>
              {tweets.data.map(tweet => (
-                <div key={tweet.id} className='project__container card grid'>
+                <a key={tweet.id} className='project__container card grid' href={`https://mobile.twitter.com/user/status/${tweet.id}`}>
                     <div className="project__content">
                         <span className='project__location flex'><i className='bx bxl-twitter'></i> Twitter</span>
                         <span className="project__description">{tweet.text}</span>
@@ -78,8 +78,8 @@ function TweetBox({tweets}) {
                             <i className='bx bx-calendar-alt'></i>{formatDate(new Date(tweet.created_at))}
                         </span> 
                     </div>
-                    <Button classname="project__link" text="" href={`https://mobile.twitter.com/user/status/${tweet.id}`} iconl='bx bx-link-external' link='true'/>
-                </div>
+                    <Button classname="project__link" text="" disabled='true' href={`https://mobile.twitter.com/user/status/${tweet.id}`} iconl='bx bx-link-external' link='true'/>
+                </a>
             ))}
         </div>
 

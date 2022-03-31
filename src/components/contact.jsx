@@ -2,9 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { useState , useEffect } from 'react';
 
-import { collection, addDoc } from "firebase/firestore";
+//import { collection, addDoc } from "firebase/firestore";
 
-import db from '../firebase'
+//import db from '../firebase'
 
 import Button from './button'
 import Section from './section'
@@ -131,9 +131,9 @@ class Contact extends React.Component {
     async sendMessage() {
 
         let arr = this.state.warnings;
-        arr[0] = isEmpty(this.state.name);
-        arr[1] = isEmpty(this.state.email) || !isEmail(this.state.email);
-        arr[2] = isEmpty(this.state.subject);
+        arr[0] = isEmpty(this.state.name) || this.state.name.length > 255;
+        arr[1] = isEmpty(this.state.email) || !isEmail(this.state.email) || this.state.email.length > 255;
+        arr[2] = isEmpty(this.state.subject) || this.state.subject.length > 255;
         arr[3] = isEmpty(this.state.message);
         
         this.setState({
@@ -147,13 +147,27 @@ class Contact extends React.Component {
 
         if(!error) {
             try {
-                const docRef = await addDoc(collection(db, "contacts"), {
+/*                 const docRef = await addDoc(collection(db, "contacts"), {
                     name: this.state.name,
                     email: this.state.email,
                     subject: this.state.subject,
                     message: this.state.message
                 });
-                console.log("Message sent with ID: ", docRef.id);
+                console.log("Message sent with ID: ", docRef.id); */
+
+                let reqOptions = {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        name: this.state.name,
+                        email: this.state.email,
+                        subject: this.state.subject,
+                        message: this.state.message
+                    })
+                };
+                await fetch('/api/contact/', reqOptions)
+                    .then(response => response.json())
+                    .then(res => console.log(res)); 
 
                 this.setState({
                     name: "",

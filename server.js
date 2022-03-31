@@ -1,7 +1,13 @@
-const express = require('express');
+const fs = require('fs');
 const path = require('path');
+const express = require('express');
+
 require('dotenv').config();
 const mysql = require('mysql2')
+
+const { getArticles, createArticle } = require('./controllers/blog');
+const { handleContact } = require('./controllers/contact');
+const { getTweets } = require('./controllers/twitter');
 
 const con = mysql.createConnection({
     host: process.env.DBHOST,
@@ -28,20 +34,17 @@ app.get("/blog", (req, res) => {
     res.sendFile(path.join(__dirname, '/dist/blog.html'));
 }); */
 
-app.get('/api/hello', async (_req, res) => {
+/* app.get('/api/hello', async (_req, res) => {
   res.status(200).json({ message: 'Hello World!' });
-});
+}); */
 
-const {getArticles, createArticle} = require('./controllers/blog');
-const {getTweets} = require('./controllers/twitter');
-
-//app.route('/api/articles').get(getArticles(con, null))
 
 app.route('/api/articles').get(getArticles(con, null)).post(createArticle(con));
+app.route('/api/contact').post(handleContact(con));
 app.route('/api/tweets').get(getTweets());
 
 
-// Handle 404 - Keep this as a last route 
+// handle 404 - keep this as a last route 
 router.route('*').get((req, res) => {
     res.status(404);
     return res.send({ error: '404 Not found' });
@@ -55,20 +58,28 @@ const connect = async () => {
             // show error msg on failure
             return console.error(prefix + 'ERROR. ' + err.message);
         }
-        console.log(prefix + `connected to "${process.env.DBNAME}"`);
+        console.log(prefix + `connected to database "${process.env.DBNAME}"`);
     });
-
-    con.query("SELECT * FROM blog", (err, result) => {
-        con.query("CREATE TABLE IF NOT EXISTS blog (categorie VARCHAR(255), title VARCHAR(255), text TINYTEXT, created_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, content TEXT)")
-        console.log(prefix + "blog table loaded");
-    });
-
 }
 
 const start = () => {
     app.listen(port, () => {
         connect();
+
+        con.query("CREATE TABLE IF NOT EXISTS contact (name VARCHAR(255), email VARCHAR(255), subject VARCHAR(255), message TEXT, time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)", (err, result) => {
+            console.log(prefix + "contact table loaded");
+        });
+    
+        con.query("CREATE TABLE IF NOT EXISTS blog (categorie VARCHAR(255), title VARCHAR(255), text TINYTEXT, created_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, content TEXT)", (err, result) => {
+            console.log(prefix + "blog table loaded");
+        });
+
         console.log(`SERVER > nodejs server started on port ${port}`);
+
+        console.log({
+            user: process.env.EMAIL,
+            pass: process.env.EMAILPASSWORD
+        });
     });
 }
 

@@ -6,11 +6,17 @@
 # install dependencies
 $ npm install
 
-# start dev server
+# start client server
+$ npm run client
+
+# start backend server
+$ npm run server
+
+# start fullstack dev server
 $ npm run dev
 
-# build for production
-$ npm run build
+# build client for production
+$ npm run build:client
 ```
 
 ![preview--light](/preview--light.png)

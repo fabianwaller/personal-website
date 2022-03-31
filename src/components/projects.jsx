@@ -20,9 +20,9 @@ function ProjectsContainer({repos}) {
       
     if(repos == null) { return null }
     return (
-        <div className='projects__container grid'>
+        <div>
             {repos.map(repo => (
-                <div key={repo.full_name} className='project__container card grid'>
+                <a key={repo.full_name} className='project__container card grid' href={repo.html_url}>
                     <div className="project__content">
                         <span className='project__location flex'><i className='bx bxl-github'></i> GitHub</span>
                         <h3 className="project__name">{repo.full_name}</h3>
@@ -39,8 +39,8 @@ function ProjectsContainer({repos}) {
                             <i className='bx bx-calendar-alt'></i>{formatDate(new Date(repo.pushed_at))}
                         </span>
                     </div>
-                    <Button classname="project__link" text="" href={repo.html_url} iconl='bx bx-link-external' link='true'/>
-                </div>
+                    <Button classname="project__link" disabled='true' text="" href={repo.html_url} iconl='bx bx-link-external' link='true'/>
+                </a>
             ))}
         </div>
 
