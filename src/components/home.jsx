@@ -69,7 +69,7 @@ function Home() {
 
                 <div className="home__data container">
                     <h1 className="home__title">Hello I'm Fabian</h1>
-                    {/* <h3 className="home__subtitle"></h3> */}
+                    <h3 className="home__subtitle">beta website</h3>
                     <div>
                         <p className="home__description">18 year old computer science student at Saarland University, football player and committed life long learner</p>
                         <div className='home__buttons flex'>

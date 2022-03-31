@@ -88,6 +88,12 @@
     gap: var(--mb-1-5);
 }
 
+// Extra Small devices (350px and down)
+@media screen and (max-width: 350px) {
+    .container {
+        margin: 0 var(--mb-1);
+    }
+}
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) { 
@@ -100,6 +106,9 @@
 @media (min-width: 768px) { 
     .container {
         margin: 0 5rem;
+    }
+    .section {
+        padding: 6rem 0 2rem 0;
     }
 }
 

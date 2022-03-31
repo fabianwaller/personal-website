@@ -6,8 +6,7 @@ import { useState , useEffect } from 'react';
 import Section from './section'
 import Button from './button'
 
-function ProjectsContainer({repos}) {
-    function formatDate(date) {
+function formatDate(date) {
         let hours = date.getHours();
         let minutes = date.getMinutes();
         //var ampm = hours >= 12 ? 'pm' : 'am';
@@ -16,11 +15,34 @@ function ProjectsContainer({repos}) {
         minutes = minutes < 10 ? '0'+ minutes : minutes;
         let strTime = hours + ':' + minutes + ' '; //+ ampm;
         return date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear() + " " + strTime;
-    }
-      
-    if(repos == null) { return null }
+}
+
+function Projects() {
+    const [repos, setRepos] = useState([]);
+
+    useEffect(() => {
+        getData();
+        async function getData() {
+            const res = await fetch('https://api.github.com/users/fabianwaller/repos');
+            const data = await res.json(); 
+
+            function compare(a, b) {
+                if (new Date(a.pushed_at) < new Date(b.pushed_at)){
+                  return 1;
+                }
+                if (new Date(a.pushed_at) > new Date(b.pushed_at)){
+                  return -1;
+                }
+                return 0;
+            }              
+            data.sort(compare);
+            setRepos(data);
+        }
+    });
+
+
     return (
-        <div>
+        <Section name='projects' title='Projects' subtitle ='public code repos'> 
             {repos.map(repo => (
                 <a key={repo.full_name} className='project__container card grid' href={repo.html_url}>
                     <div className="project__content">
@@ -41,41 +63,7 @@ function ProjectsContainer({repos}) {
                     </div>
                     <Button classname="project__link" disabled='true' text="" href={repo.html_url} iconl='bx bx-link-external' link='true'/>
                 </a>
-            ))}
-        </div>
-
-    );
-}
-
-function Projects() {
-    const [repos, setRepos] = useState(null);
-
-    useEffect(() => {
-        getData();
-
-        async function getData() {
-            const res = await fetch('https://api.github.com/users/fabianwaller/repos');
-            const data = await res.json(); 
-
-            function compare(a, b) {
-                if (new Date(a.pushed_at) < new Date(b.pushed_at)){
-                  return 1;
-                }
-                if (new Date(a.pushed_at) > new Date(b.pushed_at)){
-                  return -1;
-                }
-                return 0;
-            }
-              
-            data.sort(compare);
-            setRepos(data);
-        }
-    }, []);
-
-
-    return (
-        <Section name='projects' title='Projects' subtitle ='public code repos'> 
-            <ProjectsContainer repos={repos}/>
+            ))} 
         </Section> 
 
     );

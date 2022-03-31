@@ -75,11 +75,6 @@ const start = () => {
         });
 
         console.log(`SERVER > nodejs server started on port ${port}`);
-
-        console.log({
-            user: process.env.EMAIL,
-            pass: process.env.EMAILPASSWORD
-        });
     });
 }
 

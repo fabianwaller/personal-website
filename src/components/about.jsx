@@ -15,7 +15,7 @@ function About() {
                 </div>
                 
                 <div className="about__data">
-                    <p className="about__description">Currently studying computer science at Saarland University and create some stuff i like to publish on this website.</p>
+                    <p className="about__description">Currently studying computer science at Saarland University and creating some stuff i like to publish on this website.</p>
                 </div>
         </Section>
     );

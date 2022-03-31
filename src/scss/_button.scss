@@ -58,3 +58,13 @@
     background-color: transparent;
     color: var(--first-color-alt);
 }
+
+// Extra Small devices (350px and down)
+@media screen and (max-width: 350px) {
+    .button {
+        padding: .75rem 1rem;
+    }
+    .button--small {
+        padding: .5rem .75rem;
+    }
+}
