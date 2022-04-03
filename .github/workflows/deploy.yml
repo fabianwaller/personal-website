@@ -39,6 +39,7 @@ jobs:
       - name: Install environment
         run: | 
           npm ci
+          screen -wipe
           echo installed all npm packages
           cp /home/ubuntu/.env /var/www/personal-website/_work/personal-website/personal-website
           npm run build:client
