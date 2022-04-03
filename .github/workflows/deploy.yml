@@ -43,4 +43,5 @@ jobs:
           echo installed all npm packages
           cp /home/ubuntu/.env /var/www/personal-website/_work/personal-website/personal-website
           npm run build:client
-          npm run serve
+          screen -L -d -m -S server node server.js
+          echo 'server started'
