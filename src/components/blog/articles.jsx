@@ -94,13 +94,13 @@ function Articles() {
 
       //let results = [];
 
-      fetch('/api/articles')
+      fetch('/api/articles', {crossdomain: true})
         .then((response) => response.json())
         //.then((data) => console.log(data))
         .then((data) => setArticles(articles));
 
 
-      fetch('/api/tweets')
+      fetch('/api/tweets', {crossdomain: true})
         .then((response) => response.json())
         .then((data) => setTweets(data));
 

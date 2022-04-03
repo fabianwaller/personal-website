@@ -20,12 +20,13 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentSection: 'home'
+      indexSection: 'home',
+      blogSection: 'blog'
     };
   }
 
-  setCurrentSection = (section) => {
-    this.setState({ currentSection: section });
+  setIndexSection = (section) => {
+    this.setState({ indexSection: section });
   }
 
   componentDidMount() {
@@ -39,7 +40,7 @@ class App extends React.Component {
           let sectionId = current.getAttribute('id')
 
           if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            this.setCurrentSection(sectionId);
+            this.setIndexSection(sectionId);
           }
       })
     });
@@ -58,10 +59,10 @@ class App extends React.Component {
     return (
       <div className='App'>
         <Router>
-          <Header activeItem={this.state.currentSection}/>
           <Routes>
             <Route path="/" element={
               <main className="main">
+              <Header activeItem={this.state.indexSection} scroll={310}/>
               <Home />
               <About />
               <Journey />
@@ -69,11 +70,20 @@ class App extends React.Component {
               <Contact />
               </main>
             } />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/blog" element={<Blog />}/> 
-            <Route path="/blog/:postSlug" element={<Post />} />
-            <Route path="/*" element={<h1 className='container section'>404</h1>} />
+            <Route path="/blog" element={
+              <div>
+                <Header activeItem={this.state.blogSection} scroll={0}/> 
+                <Blog />
+              </div>
+            }/> 
+            <Route path="/blog/:slug" element={<Post />} />
+            <Route path="/*" element={
+              <div>
+                <Header activeItem='null'/> 
+                <h1 className='container section'>404</h1>
+              </div>} />
           </Routes>
+
           <Footer />
         </Router>
       </div>

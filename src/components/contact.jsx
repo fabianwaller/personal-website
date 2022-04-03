@@ -163,9 +163,10 @@ class Contact extends React.Component {
                         email: this.state.email,
                         subject: this.state.subject,
                         message: this.state.message
-                    })
+                    }),
+                    crossdomain: true
                 };
-                await fetch('/api/contact/', reqOptions)
+                await fetch('/api/contact', reqOptions)
                     .then(response => response.json())
                     .then(res => console.log(res)); 
 
@@ -175,7 +176,7 @@ class Contact extends React.Component {
                     subject: "",
                     message: "",
                     warnings: [false,false,false,false],
-                    alerts: ['Message sent']
+                    alerts: ['Your message was sent']
                 });
 
 

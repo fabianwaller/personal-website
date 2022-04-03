@@ -1,0 +1,86 @@
+SERVER > nodejs server started on port 4000
+DATABASE > connected to database "personalwebsite"
+DATABASE > contact table loaded
+DATABASE > blog table loaded
+node:events:505
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::4000
+[90m    at Server.setupListenHandle [as _listen2] (node:net:1372:16)[39m
+[90m    at listenInCluster (node:net:1420:12)[39m
+[90m    at Server.listen (node:net:1508:7)[39m
+    at Function.listen (/Users/fabianwaller/Documents/code/personal-website/node_modules/[4mexpress[24m/lib/application.js:618:24)
+    at Object.<anonymous> (/Users/fabianwaller/Documents/code/personal-website/server.js:67:5)
+[90m    at Module._compile (node:internal/modules/cjs/loader:1099:14)[39m
+[90m    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)[39m
+[90m    at Module.load (node:internal/modules/cjs/loader:975:32)[39m
+[90m    at Function.Module._load (node:internal/modules/cjs/loader:822:12)[39m
+[90m    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)[39m
+Emitted 'error' event on Server instance at:
+[90m    at emitErrorNT (node:net:1399:8)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:83:21)[39m {
+  code: [32m'EADDRINUSE'[39m,
+  errno: [33m-48[39m,
+  syscall: [32m'listen'[39m,
+  address: [32m'::'[39m,
+  port: [33m4000[39m
+}
+
+Node.js v17.8.0
+node:events:505
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::4000
+[90m    at Server.setupListenHandle [as _listen2] (node:net:1372:16)[39m
+[90m    at listenInCluster (node:net:1420:12)[39m
+[90m    at Server.listen (node:net:1508:7)[39m
+    at Function.listen (/Users/fabianwaller/Documents/code/personal-website/node_modules/[4mexpress[24m/lib/application.js:618:24)
+    at Object.<anonymous> (/Users/fabianwaller/Documents/code/personal-website/server.js:67:5)
+[90m    at Module._compile (node:internal/modules/cjs/loader:1099:14)[39m
+[90m    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)[39m
+[90m    at Module.load (node:internal/modules/cjs/loader:975:32)[39m
+[90m    at Function.Module._load (node:internal/modules/cjs/loader:822:12)[39m
+[90m    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)[39m
+Emitted 'error' event on Server instance at:
+[90m    at emitErrorNT (node:net:1399:8)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:83:21)[39m {
+  code: [32m'EADDRINUSE'[39m,
+  errno: [33m-48[39m,
+  syscall: [32m'listen'[39m,
+  address: [32m'::'[39m,
+  port: [33m4000[39m
+}
+
+Node.js v17.8.0
+^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[Aç^Cnode:events:505
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::4000
+[90m    at Server.setupListenHandle [as _listen2] (node:net:1372:16)[39m
+[90m    at listenInCluster (node:net:1420:12)[39m
+[90m    at Server.listen (node:net:1508:7)[39m
+    at Function.listen (/Users/fabianwaller/Documents/code/personal-website/node_modules/[4mexpress[24m/lib/application.js:618:24)
+    at Object.<anonymous> (/Users/fabianwaller/Documents/code/personal-website/server.js:67:5)
+[90m    at Module._compile (node:internal/modules/cjs/loader:1099:14)[39m
+[90m    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)[39m
+[90m    at Module.load (node:internal/modules/cjs/loader:975:32)[39m
+[90m    at Function.Module._load (node:internal/modules/cjs/loader:822:12)[39m
+[90m    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:77:12)[39m
+Emitted 'error' event on Server instance at:
+[90m    at emitErrorNT (node:net:1399:8)[39m
+[90m    at processTicksAndRejections (node:internal/process/task_queues:83:21)[39m {
+  code: [32m'EADDRINUSE'[39m,
+  errno: [33m-48[39m,
+  syscall: [32m'listen'[39m,
+  address: [32m'::'[39m,
+  port: [33m4000[39m
+}
+
+Node.js v17.8.0
+SERVER > nodejs server started on port 4000
+DATABASE > connected to database "personalwebsite"
+DATABASE > contact table loaded
+DATABASE > blog table loaded

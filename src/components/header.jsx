@@ -34,7 +34,7 @@ class Header extends React.Component {
 
     componentDidMount(){
         window.addEventListener('scroll', () => {
-            this.setState({ headerScroll: (window.scrollY >= 310) });
+            this.setState({ headerScroll: (window.scrollY >= this.props.scroll) });
         });
     } 
 

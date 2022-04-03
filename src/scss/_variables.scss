@@ -5,27 +5,27 @@
     --border-radius: .75rem;
 
     /* colors */
-    --hue-color: 230; // could replace but then color preview would ne be available
+    --hue-color: 250; // could replace but then color preview would ne be available
 
-    --first-color: hsl(240, 69%, 61%);
-    --first-color-second: hsl(240, 69%, 61%);
-    --first-color-alt: hsl(240, 57%, 60%);
+    --first-color: hsl(250, 69%, 61%);
+    --first-color-second: hsl(250, 69%, 61%);
+    --first-color-alt: hsl(250, 57%, 60%);
     --first-color-lighter: hsl(220, 61%, 85%);
-    --title-color: hsl(240, 8%, 15%);
-    --text-color: hsl(240, 4%, 45%);
-    --text-color-light: hsl(240, 8%, 65%);
-    --text-color-dark: hsl(240, 21%, 56%);
-    --input-color: hsl(240, 70%, 98%);
-    --border-color: hsl(240, 40%, 92%);
+    --title-color: hsl(250, 8%, 15%);
+    --text-color: hsl(250, 4%, 45%);
+    --text-color-light: hsl(250, 8%, 65%);
+    --text-color-dark: hsl(250, 21%, 56%);
+    --input-color: hsl(250, 70%, 98%);
+    --border-color: hsl(250, 40%, 92%);
 
-    --body-h: 240;
+    --body-h: 250;
     --body-s: 100%;
     --body-l: 99%;
     --body-color: hsl(var(--body-h), var(--body-s), var(--body-l));
     // --container-color: #fff;
-    --container-color: hsl(240, 50%, 98%);
-    --scroll-bar-color: hsl(240, 12%, 90%);
-    --scroll-thumb-color: hsl(240, 12%, 80%);
+    --container-color: hsl(250, 50%, 98%);
+    --scroll-bar-color: hsl(250, 12%, 90%);
+    --scroll-thumb-color: hsl(250, 12%, 80%);
 
 
     --accent-color: hsl(275, 74%, 64%);

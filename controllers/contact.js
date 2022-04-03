@@ -31,7 +31,7 @@ const handleContact = (con) => async (req, res) => {
     transporter.sendMail(mailOptions, (error, info) => {
         if(error) {
             console.log(error);
-            return res.json('email error')
+            res.json('email error')
         } else {
             console.log('email sent: ' + info.response);
             //res.send('success');

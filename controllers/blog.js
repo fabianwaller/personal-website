@@ -1,13 +1,11 @@
-//const { con } = require('../server');
-
-const getArticles = (con, filter) => async (req, res) => {
+const getArticles = (con, filter) => (req, res) => {
     con.query("SELECT * FROM blog", (err, results) => {
         if (err) throw err;
-        return res.json(results);
+        res.json(results);
     })
 }
 
-const createArticle = (con) => async (req, res) => {
+const createArticle = (con) => (req, res) => {
     let categorie = 'studying';
     let text = "Learning how to learn is one of those meta skills that nobody ever really teaches us."
     let content = "How to Learn Anything Faster"
@@ -19,7 +17,7 @@ const createArticle = (con) => async (req, res) => {
         console.log('blog article "' + title + '" created');
     });
 
-    return res.json('article created');
+    res.json('article created');
 }
 
 module.exports = {
