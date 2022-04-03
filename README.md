@@ -1,5 +1,7 @@
 # personal-website
 
+![badge](https://github.com/fabianwaller/personal-website/actions/workflows/deploy.yml/badge.svg)
+
 ## Setup
 
 ```bash
@@ -18,6 +20,3 @@ $ npm run dev
 # build client for production
 $ npm run build:client
 ```
-
-![preview--light](/preview--light.png)
-![preview--dark](/preview--dark.png)
