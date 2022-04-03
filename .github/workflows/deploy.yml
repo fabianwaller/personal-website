@@ -41,4 +41,5 @@ jobs:
           npm ci
           echo installed all npm packages
           cp /home/ubuntu/.env /var/www/personal-website/_work/personal-website/personal-website
+          nom run build:client
           npm run serve
