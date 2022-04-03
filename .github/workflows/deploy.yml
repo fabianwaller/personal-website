@@ -44,4 +44,5 @@ jobs:
           cp /home/ubuntu/.env /var/www/personal-website/_work/personal-website/personal-website
           npm run build:client
       - name: run server
-          run: npm run serve
+        run: |
+          npm run serve
