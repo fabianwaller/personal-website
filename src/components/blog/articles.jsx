@@ -13,12 +13,15 @@ import Button from '../button'
 
 function ArticleBox({articles}) {
     if(articles == null) { return null }
+
+    //console.log({articles});
+
     return (
         <div>
             {articles.map(article => (
 
-              <Link to={`/blog/${article.title}`} key={article.created_time}>
-                <div className='article__box grid'>
+            <Link to={`/blog/${article.slug}`} key={article.slug}>
+                <div className='article__box card'>
                     <img className="article__img" src={picture} alt="" />
 
                     <div className="article__tags flex">
@@ -27,12 +30,15 @@ function ArticleBox({articles}) {
 
                     <div className="article__content grid">
                       <h3 className="article__title">{article.title}</h3>
-                      <p className='article__text'>{article.text} <i className='bx bx-right-arrow-alt'></i></p>
+                      <p className='article__text'>{article.text}</p>
                     </div>
+
+                    <Button classname="article__link" text="read article" disabled='true' href="" iconr='bx bx-right-arrow-alt' link='true'/>
 
                 </div>
 
-              </Link>
+            </Link> 
+
 
             ))}
         </div>
@@ -53,8 +59,6 @@ function TweetBox({tweets}) {
     }
       
     if(tweets == null) { return null }
-
-    //console.log(tweets);
 
     return (
         <div className='grid'>
@@ -92,19 +96,15 @@ function Articles() {
 
     useEffect(() => {
 
-      //let results = [];
-
-      fetch('/api/articles', {crossdomain: true})
+      fetch('/api/articles')
         .then((response) => response.json())
         //.then((data) => console.log(data))
-        .then((data) => setArticles(articles));
+        .then((data) => setArticles(data));
 
 
-      fetch('/api/tweets', {crossdomain: true})
+      fetch('/api/tweets')
         .then((response) => response.json())
         .then((data) => setTweets(data));
-
-      //console.log(results);
 
     }, []);
 

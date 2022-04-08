@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 import { Outlet } from "react-router-dom";
 
-import Search from '../search'
+import Search from './search'
 import Articles from './articles'
 
 const Blog = () => {
