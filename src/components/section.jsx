@@ -19,6 +19,6 @@ class Section extends React.Component {
             </div>
         </section>
       )};
-  }
+}
   
 export default Section

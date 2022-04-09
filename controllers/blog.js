@@ -1,9 +1,19 @@
 const getArticles = (con) => (req, res) => {
-    //console.log(req.query.filter);
-    let sql = "SELECT * FROM blog";
-    if (req.query.filter != null) {
-        sql = "SELECT * FROM blog WHERE slug='" + req.query.filter + "'";
+    //console.log(req.query.categorie);
+    let sql = "SELECT * FROM blog ";
+    if (req.query.slug != null) {
+        sql += "WHERE slug='" + req.query.slug + "'";
     } 
+    if (req.query.categorie != null) {
+        if (req.query.slug != null) {
+            sql += " and ";
+        } else {
+            sql += "WHERE "
+        }
+        //sql += "categorie='" + req.query.categorie + "'";
+        sql += "categorie in (" + req.query.categorie + ")"
+    }
+    //console.log(sql);
     con.query(sql, (err, results) => {
         if (err) throw err;
         res.json(results);

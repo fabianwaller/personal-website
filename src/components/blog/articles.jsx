@@ -9,6 +9,7 @@ import { useState , useEffect } from 'react';
 import picture from '../../assets/Aurora.jpeg'
 
 import Button from '../button'
+import { handle } from 'express/lib/router';
 
 
 function ArticleBox({articles}) {
@@ -90,23 +91,39 @@ function TweetBox({tweets}) {
     );
 }
 
-function Articles() {
+function Articles(props) {
+    const [articleUrl, setArticleUrl] = useState("/api/articles");
     const [articles, setArticles] = useState(null);
     const [tweets, setTweets] = useState(null);
 
     useEffect(() => {
+        let url = "/api/articles?categorie="
 
-      fetch('/api/articles')
-        .then((response) => response.json())
-        //.then((data) => console.log(data))
-        .then((data) => setArticles(data));
+        let filterActive = false;
+        for(let key in props.categories) {
+            if(props.categories[key]) {
+                filterActive = true;
+                url += "'" + key + "',";
+            };   
+        }
+        url = url.slice(0, -1);
+        if(filterActive) setArticleUrl(url);
 
+    }, [props]);
 
-      fetch('/api/tweets')
-        .then((response) => response.json())
-        .then((data) => setTweets(data));
+    useEffect(() => {
 
-    }, []);
+        fetch(articleUrl)
+            .then((response) => response.json())
+            //.then((data) => console.log(data))
+            .then((data) => setArticles(data));
+
+        fetch('/api/tweets')
+            .then((response) => response.json())
+            .then((data) => setTweets(data));
+
+    }, [articleUrl]);
+
 
     return (
         <div className="articles__container grid"> 
