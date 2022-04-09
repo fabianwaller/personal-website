@@ -1,11 +1,11 @@
 const getArticles = (con) => (req, res) => {
     //console.log(req.query.categorie);
     let sql = "SELECT * FROM blog ";
-    if (req.query.slug != null) {
-        sql += "WHERE slug='" + req.query.slug + "'";
+    if (req.query.title != null) {
+        sql += "WHERE title LIKE '%" + req.query.title + "%'";
     } 
     if (req.query.categorie != null) {
-        if (req.query.slug != null) {
+        if (req.query.title != null) {
             sql += " and ";
         } else {
             sql += "WHERE "
@@ -22,18 +22,22 @@ const getArticles = (con) => (req, res) => {
 
 const createArticle = (con) => (req, res) => {
     let categorie = 'studying';
-    let content = `<blockquote>
-    <p>Fincancial success is not a hard science. It is a soft skill, where how you behave is more important than what you know.</p>
-    </blockquote>
-    <h3>No one is crazy</h3>
-    <p>Everyone has their own unique experience with how the world works. Things that are experienced theirself are more compelling than second-hand learned ones.</p>
-    <blockquote>
-    <p>Your personal experiences with money make up maybe 0.00000001% of what has happened in the world, but maybe 80% of how you think the world works.</p>
-    </blockquote>`
-    let text = "Fincancial success is not a hard science. It is a soft skill, where how you behave is more important than what you know."
-    let title = 'the psychology of money 2'
+    let content = `
+    <h2>First Argument</h2>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    <h2>Second Argument</h2>
+    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    <ul> 
+        <li>Point 1</li>
+        <li>Point 2</li>
+        <li>Point 3</li>
+    </ul>
+    <blockquote>This is a blockquote</blockquote>
+    `
+    let text = "Owning your data is extremely important so the internet of trust is a solution"
+    let title = 'the psychology of money'
     let imageurl = "wildsee.jpeg"
-    let slug = 'psychologyofmoney2'
+    let slug = 'psychologyofmoney'
     let sql = "INSERT INTO blog (categorie, title, imageurl, slug, text, content) VALUES ('" + categorie + "' , '" + title + "', '" + imageurl + "' , '" + slug + "' , '" + text + "', '" + content + "')"
 
     con.query(sql, (err,result) => {

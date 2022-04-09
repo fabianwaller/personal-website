@@ -7,30 +7,32 @@ import { useState , useEffect } from 'react';
 
 import Button from '../button'
 
-function ArticleBox({articles}) {
+import formatDate from "../formatdate"
+
+function ArticleBoxes({articles}) {
     if(articles == null) { return null }
 
-    //console.log({articles});
-
     return (
-        <div>
-            {articles.map(article => (
+        <div className='article__boxes'>
+            {articles.map((article, index) => (
 
-            <Link to={`/blog/${article.slug}`} key={article.slug}>
-                <div className='article__box card'>
-                    <img className="article__img" src={`http://localhost:4000/cdn/${article.imageurl}`} alt="" />
+            <Link to={`/blog/${article.slug}`} key={article.slug} className={`article__box grid ${index == 0 ? 'article__box--featured' : ''}`}>
 
+                <img className="article__img" src={`http://localhost:4000/cdn/${article.imageurl}`} alt="" />
+
+                <div className='article__content grid'>
                     <div className="article__tags flex">
-                      <span className='article__tag keyword'>{article.categorie}</span>
+                        <span className='article__tag keyword'>{article.categorie}</span>
                     </div>
 
-                    <div className="article__content grid">
-                      <h3 className="article__title">{article.title}</h3>
-                      <p className='article__text'>{article.text}</p>
-                    </div>
+                    <h3 className="article__title">{article.title}</h3>
+                    <p className='article__text'>{article.text}</p>
 
+                    <span className="project__info flex">
+                        <i className='bx bx-calendar-alt'></i>{formatDate(new Date(article.created_time))}
+                    </span> 
+                        
                     <Button classname="article__link" text="read article" disabled='true' href="" iconr='bx bx-right-arrow-alt' link='true'/>
-
                 </div>
 
             </Link> 
@@ -38,22 +40,10 @@ function ArticleBox({articles}) {
 
             ))}
         </div>
-
     );
 }
 
-function TweetBox({tweets}) {
-    function formatDate(date) {
-        let hours = date.getHours();
-        let minutes = date.getMinutes();
-        //var ampm = hours >= 12 ? 'pm' : 'am';
-        //hours = hours % 12;
-        //hours = hours ? hours : 12; // the hour '0' should be '12'
-        minutes = minutes < 10 ? '0'+ minutes : minutes;
-        let strTime = hours + ':' + minutes + ' '; //+ ampm;
-        return date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear() + " " + strTime;
-    }
-      
+function TweetBoxes({tweets}) {      
     if(tweets == null) { return null }
 
     return (
@@ -108,10 +98,23 @@ function Articles(props) {
 
     useEffect(() => {
 
-        fetch(articleUrl)
-            .then((response) => response.json())
-            //.then((data) => console.log(data))
-            .then((data) => setArticles(data));
+        getData();
+        async function getData() {
+            const res = await fetch(articleUrl);
+            const data = await res.json(); 
+
+            function compare(a, b) {
+                if (new Date(a.created_time) < new Date(b.created_time)){
+                  return 1;
+                }
+                if (new Date(a.created_time) > new Date(b.created_time)){
+                  return -1;
+                }
+                return 0;
+            }              
+            data.sort(compare);
+            setArticles(data);
+        }
 
         fetch('/api/tweets')
             .then((response) => response.json())
@@ -122,8 +125,8 @@ function Articles(props) {
 
     return (
         <div className="articles__container grid"> 
-            <ArticleBox articles={articles}/>
-            <TweetBox tweets={tweets}/>
+            <ArticleBoxes articles={articles}/>
+            <TweetBoxes tweets={tweets}/>
         </div> 
 
     );
