@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import { useParams } from "react-router";
 
-import picture from '../../assets/Aurora.jpeg'
+//import picture from '../../assets/'
 
 function Post(props) {
   let { slug } = useParams();
@@ -12,13 +12,14 @@ function Post(props) {
       title: "",
       categorie: "",
       text: "",
-      created_time: ""
+      created_time: "",
+      imageurl: "wildsee.jpeg" // replace with circle loading image
     }
   );
 
   useEffect(() => {
 
-    console.log('fetch article once')
+    //console.log('fetch article once')
 
     fetch(`/api/articles?slug=${slug}`)
           .then((response) => response.json())
@@ -35,8 +36,8 @@ function Post(props) {
     <section className="section first__section">
       <div className='article__box article__box--single container'>
 
-      <h3 className="article__title">{article.title}</h3>
-      <img className="article__img" src={picture} alt="" />
+      <h2 className="article__title">{article.title}</h2>
+      <img className="article__img" src={`http://localhost:4000/cdn/${article.imageurl}`} alt="" />
 
       <div className="article__tags flex">
         <span className='article__tag keyword'>{article.categorie}</span>

@@ -32,8 +32,9 @@ const createArticle = (con) => (req, res) => {
     </blockquote>`
     let text = "Fincancial success is not a hard science. It is a soft skill, where how you behave is more important than what you know."
     let title = 'the psychology of money 2'
+    let imageurl = "wildsee.jpeg"
     let slug = 'psychologyofmoney2'
-    let sql = "INSERT INTO blog (categorie, title, slug, text, content) VALUES ('" + categorie + "' , '" + title + "', '" + slug + "' , '" + text + "', '" + content + "')"
+    let sql = "INSERT INTO blog (categorie, title, imageurl, slug, text, content) VALUES ('" + categorie + "' , '" + title + "', '" + imageurl + "' , '" + slug + "' , '" + text + "', '" + content + "')"
 
     con.query(sql, (err,result) => {
         if (err) throw err;

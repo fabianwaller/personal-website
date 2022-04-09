@@ -5,12 +5,7 @@ import { Link } from "react-router-dom";
 
 import { useState , useEffect } from 'react';
 
-
-import picture from '../../assets/Aurora.jpeg'
-
 import Button from '../button'
-import { handle } from 'express/lib/router';
-
 
 function ArticleBox({articles}) {
     if(articles == null) { return null }
@@ -23,7 +18,7 @@ function ArticleBox({articles}) {
 
             <Link to={`/blog/${article.slug}`} key={article.slug}>
                 <div className='article__box card'>
-                    <img className="article__img" src={picture} alt="" />
+                    <img className="article__img" src={`http://localhost:4000/cdn/${article.imageurl}`} alt="" />
 
                     <div className="article__tags flex">
                       <span className='article__tag keyword'>{article.categorie}</span>
