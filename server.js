@@ -2,7 +2,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const doetnv = require('dotenv').config();
-const mysql = require('mysql')
+const mysql = require('mysql2')
 
 const { getArticles, createArticle } = require('./controllers/blog');
 const { handleContact } = require('./controllers/contact');
@@ -36,15 +36,21 @@ app.get("/blog", (req, res) => {
     res.sendFile(path.join(__dirname, '/dist/client/index.html'))
 });
 
-app.get('/api/hello', async (_req, res) => {
+app.get("/blog/*", (req, res) => {
+    res.sendFile(path.join(__dirname, '/dist/client/index.html'))
+});
+
+app.get("/cdn/:content", (req, res) => {
+    res.sendFile(path.join(__dirname, '/cdn/' + req.params.content))
+});
+
+app.get('/api/hello', async (req, res) => {
   res.status(200).json({ message: 'Hello World!' });
 });
 
-
-app.route('/api/articles').get(getArticles(con, null)).post(createArticle(con));
+app.route('/api/articles').get(getArticles(con)).post(createArticle(con));
 app.route('/api/contact').post(handleContact(con));
 app.route('/api/tweets').get(getTweets());
-
 
 // handle 404 - keep as last route 
 router.route('*').get((req, res) => {
@@ -71,7 +77,7 @@ app.listen(port, () => {
         console.log(prefix + "contact table loaded");
     });
 
-    con.query("CREATE TABLE IF NOT EXISTS blog (categorie VARCHAR(255), title VARCHAR(255), text TINYTEXT, created_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, content TEXT)", (err, result) => {
+    con.query("CREATE TABLE IF NOT EXISTS blog (slug VARCHAR(255), title VARCHAR(255), categorie VARCHAR(255), imageurl VARCHAR(255), text TINYTEXT, created_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, content TEXT)", (err, result) => {
         console.log(prefix + "blog table loaded");
     });
 

@@ -1,38 +1,63 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
+
 import { useParams } from "react-router";
 
-function Post() {
-  let { postSlug } = useParams();
+//import picture from '../../assets/'
+
+import formatDate from "../formatdate"
+
+function Post(props) {
+  let { slug } = useParams();
+
+  const [article, setArticle] = useState (
+    {
+      title: "",
+      categorie: "",
+      text: "",
+      created_time: "",
+      imageurl: "wildsee.jpeg" // replace with circle loading image
+    }
+  );
 
   useEffect(() => {
-    // Fetch post using the postSlug
-  }, [postSlug]);
+
+    //console.log('fetch article once')
+
+    fetch(`/api/articles?slug=${slug}`)
+          .then((response) => response.json())
+          //.then((data) => console.log(data[0]))
+          .then((data) => setArticle(data[0]))
+        
+  }, []);
+
+  useEffect(() => {
+    const mount = document.getElementById('article-content')
+    if(mount) mount.innerHTML=article.content;
+  }, [article]);
 
   return (
-    <div className="home">
-      <div className="container">
-        <h1 className="mt-5">This is a Post Title</h1>
-        <h6 className="mb-5">The post slug is, {postSlug}</h6>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
-        </p>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
-        </p>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
-        </p>
+    <section className="section first__section">
+
+      <div className='article__box article__box--single container grid'>
+
+        <h1 className="article__title">{article.title}</h1>
+        <img className="article__img--large" src={`http://localhost:4000/cdn/${article.imageurl}`} alt="" />
+        <p className='article__text'>{article.text}</p>
+
+        <div className="article__tags flex">
+            <span className='article__tag keyword'>{article.categorie}</span>
+        </div>
+
+        <div className="article__content" id='article-content'></div>
+
+        <span className="project__info flex">
+            article published on {formatDate(new Date(article.created_time))}
+      </span> 
+
+
       </div>
-    </div>
+
+    </section>
   );
 }
 

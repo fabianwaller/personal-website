@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 const FilterBox = (props) => {
   return(
-    <div className={`filter__box flex ${props.active ? 'filter__box__active' : ''}`}>
+    <div className={`filter__box flex ${props.active ? 'filter__box__active' : ''}`} onClick={props.onclick}>
       {/* <i className='button__icon bx bxs-folder'></i> */}
       {props.name}
     </div>
@@ -13,18 +13,10 @@ const FilterBox = (props) => {
 class Search extends React.Component {
     constructor(props) {
       super(props);
-      this.onSearchChange = this.onSearchChange.bind(this);
+      //this.onSearchChange = this.onSearchChange.bind(this);
       this.state = {
-        search: '',
         filterbox: false
       };
-    }
-
-    onSearchChange = (e) => {
-      this.setState({
-        search: e.target.value
-      });
-      console.log(this.state.search)
     }
 
     toggleFilterbox = () => {
@@ -37,16 +29,16 @@ class Search extends React.Component {
       let filter;
       if (this.state.filterbox) filter = (
         <div className="filter">
-          <FilterBox name='productivity' active={true}/>
-          <FilterBox name='studying' active={false}/>
-          <FilterBox name='entrepreneurship' active={false}/>
-          <FilterBox name='money' active={true}/>
+          <FilterBox name='productivity' active={this.props.categories.productivity} onclick={this.props.onclick}/>
+          <FilterBox name='studying' active={this.props.categories.studying} onclick={this.props.onclick}/>
+          <FilterBox name='entrepreneurship' active={this.props.categories.entrepreneurship} onclick={this.props.onclick}/>
+          <FilterBox name='money' active={this.props.categories.money} onclick={this.props.onclick}/>
         </div>
       )
       return (
         <div className="search grid">
           <div className="search__bar form__content">
-              <input type="text" id="search" name="search" value={this.state.search} onChange={this.onSearchChange} className="form__input" placeholder=" "/>
+              <input type="text" id="search" name="search" value={this.state.search} onChange={this.props.onchange} className="form__input" placeholder=" "/>
               <label htmlFor="search" className='form__label'><i className='bx bx-search'></i>Search</label>
               
               <i className='search__filter bx bx-filter' onClick={this.toggleFilterbox}></i>

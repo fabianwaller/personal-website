@@ -59,7 +59,7 @@ class App extends React.Component {
     return (
       <div className='App'>
         <Router>
-          <Routes>
+        <Routes>
             <Route path="/" element={
               <main className="main">
               <Header activeItem={this.state.indexSection} scroll={310}/>
@@ -72,11 +72,16 @@ class App extends React.Component {
             } />
             <Route path="/blog" element={
               <div>
-                <Header activeItem={this.state.blogSection} scroll={0}/> 
+                <Header activeItem={this.state.blogSection} scroll={1}/> 
                 <Blog />
               </div>
             }/> 
-            <Route path="/blog/:slug" element={<Post />} />
+            <Route exact path="/blog/:slug" element={
+              <div>
+                <Header activeItem={this.state.blogSection} scroll={1}/> 
+                <Post></Post>
+              </div>
+            } />  
             <Route path="/*" element={
               <div>
                 <Header activeItem='null'/> 
@@ -86,10 +91,9 @@ class App extends React.Component {
 
           <Footer />
         </Router>
-      </div>
+      </div> 
     )};
 }
-
 
 ReactDOM.render(
   <React.StrictMode>
