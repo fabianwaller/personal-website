@@ -21,8 +21,6 @@ function Post(props) {
 
   useEffect(() => {
 
-    //console.log('fetch article once')
-
     fetch(`/api/articles?slug=${slug}`)
           .then((response) => response.json())
           //.then((data) => console.log(data[0]))

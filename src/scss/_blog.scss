@@ -84,8 +84,12 @@
     display: grid;
     gap: var(--mb-1);
 
-    ul {
+    ul, ol {
         list-style: inside;
+    }
+
+    ol {
+        list-style-type: decimal;
     }
     
     a {
