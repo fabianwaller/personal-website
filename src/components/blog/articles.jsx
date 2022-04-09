@@ -82,8 +82,9 @@ function Articles(props) {
     const [tweets, setTweets] = useState(null);
 
     useEffect(() => {
-        let url = "/api/articles?categorie="
+        let searchUrl = "/api/articles"
 
+        let url = "?categorie="
         let filterActive = false;
         for(let key in props.categories) {
             if(props.categories[key]) {
@@ -92,7 +93,21 @@ function Articles(props) {
             };   
         }
         url = url.slice(0, -1);
-        if(filterActive) setArticleUrl(url);
+        if(filterActive) {
+            searchUrl += url 
+            url = "&title="
+        } else {
+            url = "?title="
+        }
+
+        if (props.title != "") {
+            url += props.title
+            searchUrl += url; 
+        }
+        
+        setArticleUrl(searchUrl);
+
+        //console.log(searchUrl);
 
     }, [props]);
 

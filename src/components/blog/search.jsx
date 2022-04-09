@@ -19,14 +19,6 @@ class Search extends React.Component {
       };
     }
 
-/*     onSearchChange = (e) => {
-      this.setState({
-        search: e.target.value
-      });
-      console.log(this.state.search)
-    } */
-
-
     toggleFilterbox = () => {
       this.setState({
         filterbox: !this.state.filterbox
@@ -46,7 +38,7 @@ class Search extends React.Component {
       return (
         <div className="search grid">
           <div className="search__bar form__content">
-              <input type="text" id="search" name="search" value={this.state.search} onChange={this.onSearchChange} className="form__input" placeholder=" "/>
+              <input type="text" id="search" name="search" value={this.state.search} onChange={this.props.onchange} className="form__input" placeholder=" "/>
               <label htmlFor="search" className='form__label'><i className='bx bx-search'></i>Search</label>
               
               <i className='search__filter bx bx-filter' onClick={this.toggleFilterbox}></i>

@@ -21,6 +21,13 @@ class Blog extends React.Component {
       };
     }
 
+    updateSearch = (e) => {
+      this.setState({
+        search: e.target.value
+      });
+      //console.log(this.state.search)
+    }
+
     toggleCategorie = (e) => {
         let categorie = e.target.innerHTML
         let updatedState = this.state.categories
@@ -43,9 +50,9 @@ class Blog extends React.Component {
             <div className="blog__content grid">
               <p className="blog__description">Section where you can hopefully find something valuable.</p>
 
-              <Search categories={this.state.categories} onclick={this.toggleCategorie}/>
+              <Search categories={this.state.categories} onchange={this.updateSearch} onclick={this.toggleCategorie}/>
 
-              <Articles slug={this.state.search} categories={this.state.categories}/>
+              <Articles title={this.state.search} categories={this.state.categories}/>
             </div>
 
           </div>
