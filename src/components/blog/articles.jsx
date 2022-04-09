@@ -20,7 +20,7 @@ function ArticleBoxes({articles}) {
 
                 <img className="article__img" src={`http://localhost:4000/cdn/${article.imageurl}`} alt="" />
 
-                <div className='article__content grid'>
+                <div className='article__data grid'>
                     <div className="article__tags flex">
                         <span className='article__tag keyword'>{article.categorie}</span>
                     </div>

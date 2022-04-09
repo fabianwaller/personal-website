@@ -4,6 +4,8 @@ import { useParams } from "react-router";
 
 //import picture from '../../assets/'
 
+import formatDate from "../formatdate"
+
 function Post(props) {
   let { slug } = useParams();
 
@@ -29,26 +31,32 @@ function Post(props) {
   }, []);
 
   useEffect(() => {
-    document.getElementById('content').innerHTML=article.content;
+    const mount = document.getElementById('article-content')
+    if(mount) mount.innerHTML=article.content;
   }, [article]);
 
   return (
     <section className="section first__section">
-      <div className='article__box article__box--single container'>
 
-      <h2 className="article__title">{article.title}</h2>
-      <img className="article__img" src={`http://localhost:4000/cdn/${article.imageurl}`} alt="" />
+      <div className='article__box article__box--single container grid'>
 
-      <div className="article__tags flex">
-        <span className='article__tag keyword'>{article.categorie}</span>
-      </div>
-
-      <div className="article__content grid">
+        <h1 className="article__title">{article.title}</h1>
+        <img className="article__img--large" src={`http://localhost:4000/cdn/${article.imageurl}`} alt="" />
         <p className='article__text'>{article.text}</p>
-        <p id="content"></p>
-      </div>
+
+        <div className="article__tags flex">
+            <span className='article__tag keyword'>{article.categorie}</span>
+        </div>
+
+        <div className="article__content" id='article-content'></div>
+
+        <span className="project__info flex">
+            article published on {formatDate(new Date(article.created_time))}
+      </span> 
+
 
       </div>
+
     </section>
   );
 }

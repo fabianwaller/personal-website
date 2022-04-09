@@ -17,6 +17,10 @@ body {
     color: var(--text-color);
 }
 
+p, ul, blockquote {
+    line-height: 1.6rem;
+}
+
 .stop-scrolling {
     overflow: hidden;
 }

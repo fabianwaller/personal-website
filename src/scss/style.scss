@@ -12,9 +12,3 @@
 @import 'footer';
 
 @import 'blog';
-
-blockquote {
-    border-left: solid 1px var(--text-color);
-    padding-left: 1rem;
-    margin: var(--mb-0-75) 0;
-}
