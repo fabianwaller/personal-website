@@ -43,7 +43,8 @@ request(options, function (error, response, body) {
 
   // https://manage.auth0.com/dashboard/eu/dev-qyqv5sl1/apis/62535732e1f1620040133389/test
   // log bearer token response
-  console.log(body);
+  //console.log(body);
+
 });
 
 const prefix = 'DATABASE > ';
@@ -85,6 +86,7 @@ app.use(jwtCheck);
 app.get('/authorized', function (req, res) {
     res.send('Secured Resource');
 });
+
 
 app.route('/api/articles').post(createArticle(con));
 app.route('/api/contact').post(handleContact(con));
