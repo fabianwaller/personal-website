@@ -1,7 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
-const doetnv = require('dotenv').config();
+const dotenv = require('dotenv').config();
 const mysql = require('mysql2')
 var request = require("request");
 var jwt = require('express-jwt');
@@ -44,6 +44,7 @@ request(options, function (error, response, body) {
   // https://manage.auth0.com/dashboard/eu/dev-qyqv5sl1/apis/62535732e1f1620040133389/test
   // log bearer token response
   //console.log(body);
+
 });
 
 const prefix = 'DATABASE > ';
@@ -77,8 +78,7 @@ app.get('/api/hello', async (req, res) => {
   res.status(200).json({ message: 'Hello World!' });
 });
 
-app.route('/api/articles').get(getArticles(con)).post(createArticle(con));
-app.route('/api/contact').post(handleContact(con));
+app.route('/api/articles').get(getArticles(con));
 app.route('/api/tweets').get(getTweets());
 
 app.use(jwtCheck);
@@ -86,6 +86,10 @@ app.use(jwtCheck);
 app.get('/authorized', function (req, res) {
     res.send('Secured Resource');
 });
+
+
+app.route('/api/articles').post(createArticle(con));
+app.route('/api/contact').post(handleContact(con));
 
 // handle 404 - keep as last route 
 router.route('*').get((req, res) => {
