@@ -15,7 +15,7 @@ function Post(props) {
       categorie: "",
       text: "",
       created_time: "",
-      imageurl: "wildsee.jpeg" // replace with circle loading image
+      imageurl: null 
     }
   );
 
@@ -33,13 +33,21 @@ function Post(props) {
     if(mount) mount.innerHTML=article.content;
   }, [article]);
 
+  let image = null
+
+  if(article.imageurl != null) {
+    image = <img className="article__img--large" src={`http://localhost:4000/cdn/${article.imageurl}`} alt="" />
+  }
+
   return (
     <section className="section first__section">
 
       <div className='article__box article__box--single container grid'>
 
         <h1 className="article__title">{article.title}</h1>
-        <img className="article__img--large" src={`http://localhost:4000/cdn/${article.imageurl}`} alt="" />
+
+        {image}
+        
         <p className='article__text'>{article.text}</p>
 
         <div className="article__tags flex">
