@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { useState , useEffect } from 'react';
 
+
 //import { collection, addDoc } from "firebase/firestore";
 
 //import db from '../firebase'
@@ -157,7 +158,10 @@ class Contact extends React.Component {
 
                 let reqOptions = {
                     method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + import.meta.env.VITE_API_ACCESS_TOKEN
+                    },
                     body: JSON.stringify({
                         name: this.state.name,
                         email: this.state.email,
