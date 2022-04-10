@@ -3,6 +3,9 @@ const fs = require('fs');
 const path = require('path');
 const doetnv = require('dotenv').config();
 const mysql = require('mysql2')
+var request = require("request");
+var jwt = require('express-jwt');
+var jwks = require('jwks-rsa');
 
 const { getArticles, createArticle } = require('./controllers/blog');
 const { handleContact } = require('./controllers/contact');
@@ -15,6 +18,32 @@ const con = mysql.createConnection({
     database: process.env.DBNAME,
     port: 3306,
     ssl: false
+});
+
+var jwtCheck = jwt({
+    secret: jwks.expressJwtSecret({
+        cache: true,
+        rateLimit: true,
+        jwksRequestsPerMinute: 5,
+        jwksUri: 'https://dev-qyqv5sl1.eu.auth0.com/.well-known/jwks.json'
+  }),
+  audience: 'www.fabianwaller.de/api',
+  issuer: 'https://dev-qyqv5sl1.eu.auth0.com/',
+  algorithms: ['RS256']
+});
+
+
+var options = { method: 'POST',
+  url: 'https://dev-qyqv5sl1.eu.auth0.com/oauth/token',
+  headers: { 'content-type': 'application/json' },
+  body: '{"client_id":"5pLdElBfLyBMtqA5sc1uglP1HBufq94L","client_secret":"NOBZRU8Clc5fodu_f3K5gki8a-3aJp6qW15QTD80M2cxlT8yhkXiPI9V4VoR4Fop","audience":"www.fabianwaller.de/api","grant_type":"client_credentials"}' };
+
+request(options, function (error, response, body) {
+  if (error) throw new Error(error);
+
+  // https://manage.auth0.com/dashboard/eu/dev-qyqv5sl1/apis/62535732e1f1620040133389/test
+  // log bearer token response
+  //console.log(body);
 });
 
 const prefix = 'DATABASE > ';
@@ -51,6 +80,12 @@ app.get('/api/hello', async (req, res) => {
 app.route('/api/articles').get(getArticles(con)).post(createArticle(con));
 app.route('/api/contact').post(handleContact(con));
 app.route('/api/tweets').get(getTweets());
+
+app.use(jwtCheck);
+
+app.get('/authorized', function (req, res) {
+    res.send('Secured Resource');
+});
 
 // handle 404 - keep as last route 
 router.route('*').get((req, res) => {
