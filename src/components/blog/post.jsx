@@ -36,7 +36,7 @@ function Post(props) {
   let image = null
 
   if(article.imageurl != null) {
-    image = <img className="article__img--large" src={`http://localhost:4000/cdn/${article.imageurl}`} alt="" />
+    image = <img className="article__img--large" src={`https://www.fabianwaller.de/cdn/${article.imageurl}`} alt="" />
   }
 
   return (

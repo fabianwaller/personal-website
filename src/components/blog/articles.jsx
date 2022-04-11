@@ -18,7 +18,7 @@ function ArticleBoxes({articles}) {
 
             <Link to={`/blog/${article.slug}`} key={article.slug} className={`article__box grid ${index == 0 ? 'article__box--featured' : ''}`}>
 
-                <img className="article__img" src={`http://localhost:4000/cdn/${article.imageurl}`} alt="" />
+                <img className="article__img" src={`https://www.fabianwaller.de/cdn/${article.imageurl}`} alt="" />
 
                 <div className='article__data grid'>
                     <div className="article__tags flex">
