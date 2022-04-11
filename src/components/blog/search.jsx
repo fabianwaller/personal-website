@@ -24,7 +24,7 @@ class Search extends React.Component {
         filterbox: !this.state.filterbox
       });
     }
-  
+
     render () {
       let filter;
       if (this.state.filterbox) filter = (
@@ -32,7 +32,7 @@ class Search extends React.Component {
           <FilterBox name='productivity' active={this.props.categories.productivity} onclick={this.props.onclick}/>
           <FilterBox name='studying' active={this.props.categories.studying} onclick={this.props.onclick}/>
           <FilterBox name='entrepreneurship' active={this.props.categories.entrepreneurship} onclick={this.props.onclick}/>
-          <FilterBox name='money' active={this.props.categories.money} onclick={this.props.onclick}/>
+          <FilterBox name='finance' active={this.props.categories.finance} onclick={this.props.onclick}/>
         </div>
       )
       return (
