@@ -16,7 +16,7 @@ class Blog extends React.Component {
           "productivity": true,
           "studying": true,
           "entrepreneurship" : true,
-          "money" : true
+          "finance" : true
         }
       };
     }
