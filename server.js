@@ -80,6 +80,7 @@ app.get('/api/hello', async (req, res) => {
 
 app.route('/api/articles').get(getArticles(con));
 app.route('/api/tweets').get(getTweets());
+app.route('/api/contact').post(handleContact(con));
 
 app.use(jwtCheck);
 
@@ -89,7 +90,6 @@ app.get('/authorized', function (req, res) {
 
 
 app.route('/api/articles').post(createArticle(con));
-app.route('/api/contact').post(handleContact(con));
 
 // handle 404 - keep as last route 
 router.route('*').get((req, res) => {
