@@ -5,31 +5,32 @@
     --border-radius: .75rem;
 
     /* colors */
-    --hue-color: 250; // could replace but then color preview would ne be available
+    --hue-color: 230;
 
-    --first-color: hsl(250, 69%, 61%);
-    --first-color-second: hsl(250, 69%, 61%);
-    --first-color-alt: hsl(250, 57%, 60%);
-    --first-color-lighter: hsl(220, 61%, 85%);
-    --title-color: hsl(250, 8%, 15%);
-    --text-color: hsl(250, 4%, 45%);
-    --text-color-light: hsl(250, 8%, 65%);
-    --text-color-dark: hsl(250, 21%, 56%);
-    --input-color: hsl(250, 70%, 98%);
-    --border-color: hsl(250, 40%, 92%);
+    --first-color: hsl(var(--hue-color), 69%, 61%);
+    --first-color-second: hsl(var(--hue-color), 69%, 61%);
+    --first-color-alt: hsl(var(--hue-color), 57%, 60%);
+    --first-color-lighter: hsl(var(--hue-color), 61%, 85%);
+    --title-color: hsl(var(--hue-color), 8%, 15%);
+    --text-color: hsl(var(--hue-color), 4%, 45%);
+    --text-color-light: hsl(var(--hue-color), 8%, 65%);
+    --text-color-dark: hsl(var(--hue-color), 21%, 56%);
+    --input-color: hsl(var(--hue-color), 70%, 98%);
+    --border-color: hsl(var(--hue-color), 40%, 92%);
 
-    --body-h: 250;
-    --body-s: 100%;
-    --body-l: 99%;
+    --body-h: var(--hue-color);
+    --body-s: 0%; // 100
+    --body-l: 98%; // 99
+
     --body-color: hsl(var(--body-h), var(--body-s), var(--body-l));
     // --container-color: #fff;
-    --container-color: hsl(250, 50%, 98%);
-    --scroll-bar-color: hsla(250, 12%, 90, 0%);
-    --scroll-thumb-color: hsl(250, 12%, 80%);
+    --container-color: hsl(var(--hue-color), 50%, 98%);
+    --scroll-bar-color: hsla(var(--hue-color), 12%, 90, 0%);
+    --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
 
 
     --accent-color: hsl(275, 74%, 64%);
-    
+
     --first-color-shape: hsl(253, 33%, 32%);
 
     /* font and typography */
@@ -62,7 +63,7 @@
     --z-modal: 1000;
 }
 
-/* Font sizes for larger devices */ 
+/* Font sizes for larger devices */
 @media screen and (min-width: 968px) {
     :root {
         --big-font-size: 3rem;
@@ -78,19 +79,20 @@
 /*==================== VARIABLES DARK theme ====================*/
 @media (prefers-color-scheme: dark) {
     :root {
-        --first-color-second: hsl(240, 55%, 55%);
-        --title-color: hsl(240, 8%, 95%);
-        --text-color: hsl(240, 8%, 80%);
-        --input-color: hsl(240, 13%, 7%);
-        --border-color: hsl(240, 10%, 25%);
+        --first-color-second: hsl(var(--hue-color), 55%, 55%);
+        --title-color: hsl(var(--hue-color), 8%, 95%);
+        --text-color: hsl(var(--hue-color), 8%, 80%);
+        --border-color: hsl(var(--hue-color), 10%, 25%);
 
-        --body-h: 240;
-        --body-s: 11%;
-        --body-l: 6%;
+        --body-h: var(--hue-color);
+        --body-s: 5%; // 11 , 5
+        --body-l: 10%; // 6 , 12
         --body-color: hsl(var(--body-h), var(--body-s), var(--body-l));
 
-        --container-color: hsl(240, 13%, 9%);
-        --scroll-bar-color: hsl(240, 12%, 48%);
-        --scroll-thumb-color: hsl(240, 12%, 36%);
+
+        --container-color: hsl(var(--hue-color), 8%, 12%); // 13 ,9
+        --input-color: hsl(var(--hue-color), 7%, 13%); // 13 , 7
+        --scroll-bar-color: hsl(--hue-color, 12%, 48%);
+        --scroll-thumb-color: hsl(--hue-color, 12%, 36%);
     }
 }

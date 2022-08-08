@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -8,13 +8,13 @@ const transporter = nodemailer.createTransport({
     }
 })
 
-const handleContact = (con) => async (req, res) => {
+export const handleContact = (con) => async (req, res) => {
 
     //console.log(req.body);
 
     let sql = "INSERT INTO contact (name, email, subject, message) VALUES ('" + req.body.name + "' , '" + req.body.email + "', '" + req.body.subject + "', '" + req.body.message + "')"
 
-    con.query(sql, (error,result) => {
+    con.query(sql, (error, result) => {
         if (error) {
             throw err;
         }
@@ -29,7 +29,7 @@ const handleContact = (con) => async (req, res) => {
     }
 
     transporter.sendMail(mailOptions, (error, info) => {
-        if(error) {
+        if (error) {
             console.log(error);
             res.json('email error')
         } else {
@@ -42,6 +42,6 @@ const handleContact = (con) => async (req, res) => {
     return res.json('Message sent');
 }
 
-module.exports = {
+/* module.exports = {
     handleContact,
-}
+} */

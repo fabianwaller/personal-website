@@ -1,20 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { useState , useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 import Section from './section'
 import Button from './button'
 
 function formatDate(date) {
-        let hours = date.getHours();
-        let minutes = date.getMinutes();
-        //var ampm = hours >= 12 ? 'pm' : 'am';
-        //hours = hours % 12;
-        //hours = hours ? hours : 12; // the hour '0' should be '12'
-        minutes = minutes < 10 ? '0'+ minutes : minutes;
-        let strTime = hours + ':' + minutes + ' '; //+ ampm;
-        return date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear() + " " + strTime;
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    //var ampm = hours >= 12 ? 'pm' : 'am';
+    //hours = hours % 12;
+    //hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    let strTime = hours + ':' + minutes + ' '; //+ ampm;
+    return date.getDate() + "." + (date.getMonth() + 1) + "." + date.getFullYear() + " " + strTime;
 }
 
 function Projects() {
@@ -24,17 +24,18 @@ function Projects() {
         getData();
         async function getData() {
             const res = await fetch('https://api.github.com/users/fabianwaller/repos');
-            const data = await res.json(); 
+            console.log(res);
+            const data = await res.json();
 
             function compare(a, b) {
-                if (new Date(a.pushed_at) < new Date(b.pushed_at)){
-                  return 1;
+                if (new Date(a.pushed_at) < new Date(b.pushed_at)) {
+                    return 1;
                 }
-                if (new Date(a.pushed_at) > new Date(b.pushed_at)){
-                  return -1;
+                if (new Date(a.pushed_at) > new Date(b.pushed_at)) {
+                    return -1;
                 }
                 return 0;
-            }              
+            }
             data.sort(compare);
             setRepos(data);
         }
@@ -42,7 +43,7 @@ function Projects() {
 
 
     return (
-        <Section name='projects' title='Projects' subtitle ='public code repos'> 
+        <Section name='projects' title='Projects' subtitle='public code repos'>
             {repos.map(repo => (
                 <a key={repo.full_name} className='project__container card grid' href={repo.html_url}>
                     <div className="project__content">
@@ -51,7 +52,7 @@ function Projects() {
                         <p className="project__topics">{repo.topics.map(topic => <span key={topic} className='project__topic keyword'>{topic}</span>)}</p>
                         <span className="project__description">{repo.description}</span>
                     </div>
-                    
+
                     <div className="project__footer">
                         <span className="project__info flex">
                             <i className='bx bxs-star'></i>
@@ -61,14 +62,14 @@ function Projects() {
                             <i className='bx bx-calendar-alt'></i>{formatDate(new Date(repo.pushed_at))}
                         </span>
                     </div>
-                    <Button classname="project__link" disabled='true' text="" href={repo.html_url} iconl='bx bx-link-external' link='true'/>
+                    <Button classname="project__link" disabled='true' text="" href={repo.html_url} iconl='bx bx-link-external' link='true' />
                 </a>
-            ))} 
-        </Section> 
+            ))}
+        </Section>
 
     );
 }
-  
+
 export default Projects
 
 

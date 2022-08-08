@@ -1,16 +1,25 @@
-const express = require('express');
-const fs = require('fs');
-const path = require('path');
-const dotenv = require('dotenv').config();
-const mysql = require('mysql2')
-var request = require("request");
-var jwt = require('express-jwt');
-var jwks = require('jwks-rsa');
+import express from 'express';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+import { config } from 'dotenv';
+config();
+//import mysql from 'mysql2';
+import { MongoClient } from "mongodb";
+//import request from 'request';
+//import jwt from 'express-jwt';
+//import jwks from 'jwks-rsa';
 
-const { getArticles, createArticle } = require('./controllers/blog');
+import { getArticles, createArticle } from './controllers/blog.js';
+import { handleContact } from './controllers/contact.js';
+//import { getTweets } from './controllers/twitter.js';
+
+/* const { getArticles, createArticle } = require('./controllers/blog');
 const { handleContact } = require('./controllers/contact');
-const { getTweets } = require('./controllers/twitter');
-
+const { getTweets } = require('./controllers/twitter'); */
+/* 
 const con = mysql.createConnection({
     host: process.env.DBHOST,
     user: process.env.DBUSER,
@@ -18,34 +27,36 @@ const con = mysql.createConnection({
     database: process.env.DBNAME,
     port: 3306,
     ssl: false
-});
+}); */
 
-var jwtCheck = jwt({
+/* var jwtCheck = jwt({
     secret: jwks.expressJwtSecret({
         cache: true,
         rateLimit: true,
         jwksRequestsPerMinute: 5,
         jwksUri: 'https://dev-qyqv5sl1.eu.auth0.com/.well-known/jwks.json'
-  }),
-  audience: 'www.fabianwaller.de/api',
-  issuer: 'https://dev-qyqv5sl1.eu.auth0.com/',
-  algorithms: ['RS256']
-});
+    }),
+    audience: 'www.fabianwaller.de/api',
+    issuer: 'https://dev-qyqv5sl1.eu.auth0.com/',
+    algorithms: ['RS256']
+}); */
 
 
-var options = { method: 'POST',
-  url: 'https://dev-qyqv5sl1.eu.auth0.com/oauth/token',
-  headers: { 'content-type': 'application/json' },
-  body: '{"client_id":"5pLdElBfLyBMtqA5sc1uglP1HBufq94L","client_secret":"NOBZRU8Clc5fodu_f3K5gki8a-3aJp6qW15QTD80M2cxlT8yhkXiPI9V4VoR4Fop","audience":"www.fabianwaller.de/api","grant_type":"client_credentials"}' };
+/* var options = {
+    method: 'POST',
+    url: 'https://dev-qyqv5sl1.eu.auth0.com/oauth/token',
+    headers: { 'content-type': 'application/json' },
+    body: '{"client_id":"5pLdElBfLyBMtqA5sc1uglP1HBufq94L","client_secret":"NOBZRU8Clc5fodu_f3K5gki8a-3aJp6qW15QTD80M2cxlT8yhkXiPI9V4VoR4Fop","audience":"www.fabianwaller.de/api","grant_type":"client_credentials"}'
+};
 
 request(options, function (error, response, body) {
-  if (error) throw new Error(error);
+    if (error) throw new Error(error);
 
-  // https://manage.auth0.com/dashboard/eu/dev-qyqv5sl1/apis/62535732e1f1620040133389/test
-  // log bearer token response
-  //console.log(body);
+    // https://manage.auth0.com/dashboard/eu/dev-qyqv5sl1/apis/62535732e1f1620040133389/test
+    // log bearer token response
+    //console.log(body);
 
-});
+}); */
 
 const prefix = 'DATABASE > ';
 
@@ -75,21 +86,32 @@ app.get("/cdn/:content", (req, res) => {
 });
 
 app.get('/api/hello', async (req, res) => {
-  res.status(200).json({ message: 'Hello World!' });
+    res.status(200).json({ message: 'Hello World!' });
 });
 
-app.route('/api/articles').get(getArticles(con));
-app.route('/api/tweets').get(getTweets());
-app.route('/api/contact').post(handleContact(con));
+app.get('/api/articles', async (req, res) => {
+    let mongoClient;
+    try {
+        mongoClient = await connect();
+        const db = mongoClient.db('personal-website');
+        const collection = db.collection('blog');
 
-app.use(jwtCheck);
+        res.send(await getArticles(collection));
+    } finally {
+        await mongoClient.close();
+    }
+});
+/*app.route('/api/tweets').get(getTweets());
+app.route('/api/contact').post(handleContact(con)); */
+
+//app.use(jwtCheck);
 
 app.get('/authorized', function (req, res) {
     res.send('Secured Resource');
 });
 
 
-app.route('/api/articles').post(createArticle(con));
+//app.route('/api/articles').post(createArticle(con));
 
 // handle 404 - keep as last route 
 router.route('*').get((req, res) => {
@@ -97,28 +119,45 @@ router.route('*').get((req, res) => {
     return res.send({ error: '404 Not found' });
 })
 
-const port = process.env.SERVER_PORT || 4000;
 
-const connect = () => {
-    con.connect((err) => {
-        if(err) {
-            // show error msg on failure
-            return console.error(prefix + 'ERROR. ' + err.message);
-        }
-        console.log(prefix + `connected to database "${process.env.DBNAME}"`);
-    });
+export async function connect() {
+    let mongoClient;
+    try {
+        mongoClient = new MongoClient(process.env.DB_URI);
+        //console.log('Connecting to MongoDB Atlas cluster...');
+        await mongoClient.connect();
+        //console.log('Successfully connected to MongoDB Atlas!');
+        return mongoClient;
+    } catch (err) {
+        console.log('Connection to MongoDB Atlas failed', err);
+        process.exit();
+    }
 }
 
+export async function runClusterExample() {
+    let mongoClient;
+    try {
+        mongoClient = await connect();
+        const db = mongoClient.db('personal-website');
+        const collection = db.collection('blog');
+
+        await createArticle(collection);
+
+        //console.log(await getArticles(collection));
+
+    } finally {
+        await mongoClient.close();
+    }
+}
+
+const port = process.env.SERVER_PORT || 4000;
+
 app.listen(port, () => {
-    connect();
+    //runClusterExample();
 
-    con.query("CREATE TABLE IF NOT EXISTS contact (name VARCHAR(255), email VARCHAR(255), subject VARCHAR(255), message TEXT, time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)", (err, result) => {
-        console.log(prefix + "contact table loaded");
-    });
-
-    con.query("CREATE TABLE IF NOT EXISTS blog (slug VARCHAR(255), title VARCHAR(255), categorie VARCHAR(255), imageurl VARCHAR(255), text TINYTEXT, created_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, content TEXT)", (err, result) => {
-        console.log(prefix + "blog table loaded");
-    });
+    /*     con.query("CREATE TABLE IF NOT EXISTS contact (name VARCHAR(255), email VARCHAR(255), subject VARCHAR(255), message TEXT, time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)", (err, result) => {
+            console.log(prefix + "contact table loaded");
+        }); */
 
     console.log(`SERVER > nodejs server started on port ${port}`);
 });

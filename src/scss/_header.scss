@@ -20,10 +20,20 @@
     align-items: center;
 }
 
+
 .logobox {
     display: flex;
     align-items: center;
 }
+
+/* .footer__logobox .logobox .logo__graphic {
+    height: 3rem;
+    width: 3rem;
+}
+
+.footer__logobox .logobox .logo__text {
+    font-size: var(--h3-font-size);
+} */
 
 .logo__graphic {
     height: 2rem;
@@ -53,7 +63,7 @@
 }
 
 .logo__text:hover {
-    color: var(--first-color);    
+    color: var(--first-color);
 }
 
 .nav__menu {
@@ -127,13 +137,15 @@
     top: var(--mb-1-5);
 }
 
-.nav__close, .nav__toggle {
+.nav__close,
+.nav__toggle {
     font-size: 1.75rem;
     cursor: pointer;
     color: var(--text-color);
 }
 
-.nav__close:hover, .nav__toggle:hover {
+.nav__close:hover,
+.nav__toggle:hover {
     color: var(--first-color);
 }
 
@@ -145,12 +157,10 @@
 }
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { 
-
-}
+@media (min-width: 576px) {}
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
     .header {
         background-color: hsla(var(--body-h), var(--body-s), var(--body-l), 0.9);
         -webkit-backdrop-filter: blur(20px);
@@ -158,6 +168,7 @@
         -moz-backdrop-filter: blur(20px);
         backdrop-filter: blur(20px);
     }
+
     .header--scroll {
         background-color: var(--body-color);
     }
@@ -192,14 +203,16 @@
         border-left: solid 1px var(--border-color);
     }
 
-    .nav__icon, .nav__close, .nav__toggle {
+    .nav__icon,
+    .nav__close,
+    .nav__toggle {
         display: none;
     }
 
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) { }
+@media (min-width: 992px) {}
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { }
+@media (min-width: 1200px) {}

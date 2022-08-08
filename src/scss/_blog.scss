@@ -1,5 +1,5 @@
 .blog__description {
-    text-align: center;
+    text-align: left;
     margin-bottom: var(--mb-1-5);
 }
 
@@ -46,7 +46,7 @@
 
 .article__box {
     gap: var(--mb-1);
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--mb-1-5);
     border-radius: var(--border-radius);
 }
 
@@ -54,7 +54,8 @@
     gap: var(--mb-1-5);
 }
 
-.article__img, .article__img--large {
+.article__img,
+.article__img--large {
     border-radius: var(--border-radius);
     width: 100%;
     //max-height: 15rem;
@@ -84,14 +85,15 @@
     display: grid;
     gap: var(--mb-1);
 
-    ul, ol {
+    ul,
+    ol {
         list-style: inside;
     }
 
     ol {
         list-style-type: decimal;
     }
-    
+
     a {
         text-decoration: underline;
         color: var(--first-color);
@@ -108,12 +110,10 @@
 
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { 
-
-}
+@media (min-width: 576px) {}
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
 
     .article__boxes {
         display: grid;
@@ -143,7 +143,7 @@
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) { 
+@media (min-width: 992px) {
     .article__boxes {
         grid-template-columns: repeat(3, 1fr);
         gap: var(--mb-2);
@@ -156,4 +156,4 @@
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { }
+@media (min-width: 1200px) {}

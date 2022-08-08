@@ -17,7 +17,9 @@ body {
     color: var(--text-color);
 }
 
-p, ul, blockquote {
+p,
+ul,
+blockquote {
     line-height: 1.6rem;
 }
 
@@ -25,7 +27,10 @@ p, ul, blockquote {
     overflow: hidden;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     color: var(--title-color);
     font-weight: var(--font-semi-bold);
 }
@@ -51,7 +56,8 @@ a {
     color: var(--text-color);
 }
 
-img, svg {
+img,
+svg {
     max-width: 100%;
     height: auto;
 }

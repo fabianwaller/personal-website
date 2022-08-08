@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom'
 import Button from './button'
 import Section from './section'
 
-function JourneyData (props) {
+function JourneyData(props) {
     let line;
-    if(props.last != 'true') {
+    if (props.last != 'true') {
         line = <span className="timeline__line"></span>
     }
     return (
@@ -46,35 +46,35 @@ class Journey extends React.Component {
     render() {
         let journey__tabs;
         let journey__data;
-        if(this.state.tab == 'education') {
+        if (this.state.tab == 'education') {
             journey__tabs = <div className="journey__tabs">
-                <Button classname="journey__tab" text='Education' onclick={this.setEducationTab} link='true' iconl='bx bxs-graduation'/>
-                <Button classname="journey__tab journey__tab__inactive" text='Experience' onclick={this.setExperienceTab} link='true' iconl='bx bxs-briefcase'/>
+                <Button classname="journey__tab" text='Education' onclick={this.setEducationTab} link='true' iconl='bx bxs-graduation' />
+                <Button classname="journey__tab journey__tab__inactive" text='Experience' onclick={this.setExperienceTab} link='true' iconl='bx bxs-briefcase' />
             </div>;
 
             journey__data = <div>
-                <JourneyData title='Abitur' subtitle='Peter-Wust-Gymnasium' time='2013-2021'/>
-                <JourneyData title='Informatik' subtitle='Universität des Saarlandes' time='ab Wintersemester 2021' last='true'/>
+                <JourneyData title='Abitur' subtitle='Peter-Wust-Gymnasium' time='2013 - 2021' />
+                <JourneyData title='B.Sc. Computer Science' subtitle='Saarland University' time='2021 - 2024' last='true' />
             </div>
         } else {
             journey__tabs = <div className="journey__tabs">
-            <Button classname="journey__tab journey__tab__inactive" text='Education' onclick={this.setEducationTab} link='true' iconl='bx bxs-graduation'/>
-            <Button classname="journey__tab" text='Experience' onclick={this.setExperienceTab} link='true' iconl='bx bxs-briefcase'/>
+                <Button classname="journey__tab journey__tab__inactive" text='Education' onclick={this.setEducationTab} link='true' iconl='bx bxs-graduation' />
+                <Button classname="journey__tab" text='Experience' onclick={this.setExperienceTab} link='true' iconl='bx bxs-briefcase' />
             </div>;
 
             journey__data = <div>
-                <JourneyData title='Web Development' subtitle='HTML, CSS, JS, REACT' time='2020-2022' last='true'/>
+                <JourneyData title='Web Development' subtitle='HTML, CSS, JS, REACT' time='2020-2022' last='true' />
             </div>
-        }           
+        }
         return (
-            <Section name='journey' title='My journey' subtitle ='CV'> 
+            <Section name='journey' title='My journey' subtitle='CV'>
 
                 {journey__tabs}
 
                 {journey__data}
-            
+
                 <div className="journey__download">
-                    <Button text='Download CV' href='' iconr='bx bx-download' disabled='true'/>
+                    <Button text='Download CV' href='/cdn/cv.pdf' iconr='bx bx-download' disabled='false' />
                 </div>
 
             </Section>
