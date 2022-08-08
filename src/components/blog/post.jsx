@@ -57,7 +57,7 @@ function Post(props) {
         <div className="article__content" id='article-content'></div>
 
         <span className="project__info flex">
-          article published on {formatDate(new Date(article.created_time))}
+          article published on {formatDate(new Date(article.date))}
         </span>
 
 
