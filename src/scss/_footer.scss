@@ -7,6 +7,9 @@
     background-color: var(--first-color-second);
     padding: 2rem 0 3rem 0;
     border-radius: var(--mb-1) var(--mb-1) 0 0;
+
+    background-color: var(--first-color);
+    background-image: -webkit-linear-gradient(0deg, var(--first-color), var(--accent-purple));
 }
 
 .footer__container {
@@ -58,26 +61,25 @@
 }
 
 // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { 
-
-}
+@media (min-width: 576px) {}
 
 // Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
     .footer__linkbox {
         column-gap: 4rem;
     }
+
     .footer__socials {
         gap: var(--mb-2);
     }
 }
 
 // Large devices (desktops, 992px and up)
-@media (min-width: 992px) { 
+@media (min-width: 992px) {
     .footer__linkbox {
         column-gap: 5rem;
     }
 }
 
 // Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { }
+@media (min-width: 1200px) {}

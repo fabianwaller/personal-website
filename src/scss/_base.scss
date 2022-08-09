@@ -76,6 +76,32 @@ label {
     opacity: .5;
 }
 
+.linear__gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.linear__gradient-1 {
+    color: var(--accent-pink);
+    background-image: -webkit-linear-gradient(0deg, var(--accent-pink), var(--accent-purple));
+}
+
+.linear__gradient-4 {
+    color: var(--accent-cyan);
+    background-image: -webkit-linear-gradient(0deg, var(--accent-cyan), var(--accent-green));
+}
+
+.linear__gradient-3 {
+    color: var(--accent-yellow);
+    background-image: -webkit-linear-gradient(0deg, var(--accent-yellow), var(--accent-pink));
+}
+
+.linear__gradient-2 {
+    color: var(--accent-purple);
+    background-image: -webkit-linear-gradient(0deg, var(--accent-purple), var(--accent-cyan));
+}
+
 /* ===== SCROLL BAR ===== */
 ::-webkit-scrollbar {
     width: .5rem;

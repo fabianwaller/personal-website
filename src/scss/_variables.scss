@@ -5,14 +5,14 @@
     --border-radius: .75rem;
 
     /* colors */
-    --hue-color: 230;
+    --hue-color: 250;
 
-    --first-color: hsl(var(--hue-color), 69%, 61%);
+    --first-color: hsl(var(--hue-color), 69%, 70%);
     --first-color-second: hsl(var(--hue-color), 69%, 61%);
-    --first-color-alt: hsl(var(--hue-color), 57%, 60%);
+    --first-color-alt: hsl(var(--hue-color), 57%, 70%);
     --first-color-lighter: hsl(var(--hue-color), 61%, 85%);
     --title-color: hsl(var(--hue-color), 8%, 15%);
-    --text-color: hsl(var(--hue-color), 4%, 45%);
+    --text-color: hsl(var(--hue-color), 4%, 30%);
     --text-color-light: hsl(var(--hue-color), 8%, 65%);
     --text-color-dark: hsl(var(--hue-color), 21%, 56%);
     --input-color: hsl(var(--hue-color), 70%, 98%);
@@ -20,7 +20,7 @@
 
     --body-h: var(--hue-color);
     --body-s: 0%; // 100
-    --body-l: 98%; // 99
+    --body-l: 96%; // 99
 
     --body-color: hsl(var(--body-h), var(--body-s), var(--body-l));
     // --container-color: #fff;
@@ -29,7 +29,15 @@
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
 
 
-    --accent-color: hsl(275, 74%, 64%);
+
+    --accent-yellow: hsl(60, 100%, 70%);
+    --accent-pink: hsl(330, 100%, 70%);
+    --accent-purple: hsl(250, 100%, 70%);
+    --accent-red: hsl(10, 100%, 70%);
+    --accent-orange: hsl(35, 100%, 70%);
+    --accent-green: hsl(115, 100%, 70%);
+    --accent-cyan: hsl(170, 100%, 70%);
+
 
     --first-color-shape: hsl(253, 33%, 32%);
 
@@ -85,10 +93,17 @@
         --border-color: hsl(var(--hue-color), 10%, 25%);
 
         --body-h: var(--hue-color);
-        --body-s: 5%; // 11 , 5
-        --body-l: 10%; // 6 , 12
+        --body-s: 22%; // 11 , 5
+        --body-l: 4%; // 6 , 12
         --body-color: hsl(var(--body-h), var(--body-s), var(--body-l));
 
+        --accent-yellow: hsl(60, 100%, 75%);
+        --accent-pink: hsl(330, 100%, 75%);
+        --accent-purple: hsl(250, 100%, 75%);
+        --accent-red: hsl(10, 100%, 75%);
+        --accent-orange: hsl(35, 100%, 75%);
+        --accent-green: hsl(115, 100%, 75%);
+        --accent-cyan: hsl(170, 100%, 75%);
 
         --container-color: hsl(var(--hue-color), 8%, 12%); // 13 ,9
         --input-color: hsl(var(--hue-color), 7%, 13%); // 13 , 7

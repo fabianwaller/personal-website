@@ -50,6 +50,20 @@
     border-radius: var(--border-radius);
 }
 
+.article__box-small {
+    padding: var(--mb-1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: calc(100% + 2rem);
+    position: relative;
+    left: -1rem;
+}
+
+.article__box-small:hover {
+    background-color: var(--container-color);
+}
+
 .article__box--single {
     gap: var(--mb-1-5);
 }
@@ -74,7 +88,12 @@
 }
 
 .article__data {
-    gap: var(--mb-0-5)
+    gap: var(--mb-0-5);
+}
+
+.article__data.flex {
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .article__text {

@@ -43,7 +43,7 @@ class Blog extends React.Component {
         <div className="blog__container container">
 
           <div className="section__header">
-            <h1 className="section__title">Blog</h1>
+            <h1 className="section__title linear__gradient linear__gradient-1">My personal blog</h1>
             <span className="section__subtitle">insight in my thoughts</span>
           </div>
 

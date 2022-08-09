@@ -43,7 +43,7 @@ function Projects() {
 
 
     return (
-        <Section name='projects' title='Projects' subtitle='public code repos'>
+        <Section name='projects' title='Projects' subtitle='public code repos' gradient='linear__gradient-3'>
             {repos.map(repo => (
                 <a key={repo.full_name} className='project__container card grid' href={repo.html_url}>
                     <div className="project__content">

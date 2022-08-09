@@ -16,27 +16,30 @@ function ArticleBoxes({ articles }) {
         <div className='article__boxes'>
             {articles.map((article, index) => (
 
-                <Link to={`/blog/${article.slug}`} key={article._id} className={`article__box grid ${index == 0 ? 'article__box--featured' : ''}`}>
+                <Link to={`/blog/${article.slug}`} key={article._id} className={`article__box article__box-small ${index == 0 ? 'article__box--featured' : ''}`}>
 
                     {/* <img className="article__img" src={`https://www.fabianwaller.de/cdn/${article.imageurl}`} alt="" /> */}
 
                     <div className='article__data grid'>
-                        <div className="article__tags flex">
+                        {/*                         <div className="article__tags flex">
                             <span className='article__tag keyword'>{article.categorie}</span>
+                        </div> */}
+
+                        <div>
+                            <h3 className="article__title">{article.title}</h3>
+                            <p className='article__text'>{article.text}</p>
                         </div>
 
-                        <h3 className="article__title">{article.title}</h3>
-                        <p className='article__text'>{article.text}</p>
-
-                        <span className="project__info flex">
-                            <i className='bx bx-calendar-alt'></i>{formatDate(new Date(article.date))}
-                        </span>
-
-                        <Button classname="article__link" text="read article" disabled='true' href="" iconr='bx bx-right-arrow-alt' link='true' />
+                        {/* <Button classname="article__link" text="read article" disabled='true' href="" iconr='bx bx-right-arrow-alt' link='true' /> */}
                     </div>
 
-                </Link>
 
+                    <span className="article__data flex">
+                        {/* <i className='bx bx-calendar-alt'></i>*/}
+                        {formatDate(new Date(article.date))}
+                    </span>
+
+                </Link>
 
             ))}
         </div>
@@ -115,7 +118,6 @@ function Articles(props) {
 
         getData();
         async function getData() {
-            console.log("fetch articles from" + articleUrl);
             const res = await fetch(articleUrl);
             const data = await res.json();
             console.log(data);

@@ -66,6 +66,7 @@ class App extends React.Component {
                 <Home />
                 <About />
                 <Journey />
+                <Contact />
               </main>
             } />
             <Route path="/blog" element={

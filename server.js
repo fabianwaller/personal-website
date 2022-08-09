@@ -12,8 +12,13 @@ import { MongoClient } from "mongodb";
 //import jwt from 'express-jwt';
 //import jwks from 'jwks-rsa';
 
+import nodeCache from 'node-cache';
+const cache = new NodeCache({ stdTTL: 60 });
+// each properaty that remains in the cache will have a lifetime of 60 seconds.
+
 import { getArticles, createArticle } from './controllers/blog.js';
 import { handleContact } from './controllers/contact.js';
+import NodeCache from 'node-cache';
 //import { getTweets } from './controllers/twitter.js';
 
 /* const { getArticles, createArticle } = require('./controllers/blog');
@@ -58,6 +63,19 @@ request(options, function (error, response, body) {
 
 }); */
 
+const verifyCache = (req, res, next) => {
+    try {
+        //const { id } = req.params;
+        const id = 1;
+        if (cache.has(id)) {
+            return res.status(200).json(cache.get(id));
+        }
+        return next();
+    } catch (err) {
+        throw new Error(err);
+    }
+}
+
 const prefix = 'DATABASE > ';
 
 const app = express();
@@ -89,14 +107,17 @@ app.get('/api/hello', async (req, res) => {
     res.status(200).json({ message: 'Hello World!' });
 });
 
-app.get('/api/articles', async (req, res) => {
+app.get('/api/articles', verifyCache, async (req, res) => {
     let mongoClient;
     try {
+        //const { id } = req.params;
         mongoClient = await connect();
         const db = mongoClient.db('personal-website');
         const collection = db.collection('blog');
-
-        res.send(await getArticles(collection));
+        const data = await getArticles(collection);
+        const id = 1;
+        cache.set(id, data);
+        res.status(200).json(data);
     } finally {
         await mongoClient.close();
     }

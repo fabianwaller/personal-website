@@ -20,7 +20,8 @@ function JourneyData(props) {
                 <h3 className="card__title">{props.title}</h3>
                 <span className="card__subtitle">{props.subtitle}</span>
                 <div className="flex">
-                    <i className='bx bx-calendar-alt'></i>{props.time}
+                    {/* <i className='bx bx-calendar-alt'></i> */}
+                    {props.time}
                 </div>
             </div>
         </div>
@@ -48,8 +49,8 @@ class Journey extends React.Component {
         let journey__data;
         if (this.state.tab == 'education') {
             journey__tabs = <div className="journey__tabs">
-                <Button classname="journey__tab" text='Education' onclick={this.setEducationTab} link='true' iconl='bx bxs-graduation' />
-                <Button classname="journey__tab journey__tab__inactive" text='Experience' onclick={this.setExperienceTab} link='true' iconl='bx bxs-briefcase' />
+                <Button classname="journey__tab" text='Education' onclick={this.setEducationTab} link='true' />
+                <Button classname="journey__tab journey__tab__inactive" text='Experience' onclick={this.setExperienceTab} link='true' />
             </div>;
 
             journey__data = <div>
@@ -58,8 +59,8 @@ class Journey extends React.Component {
             </div>
         } else {
             journey__tabs = <div className="journey__tabs">
-                <Button classname="journey__tab journey__tab__inactive" text='Education' onclick={this.setEducationTab} link='true' iconl='bx bxs-graduation' />
-                <Button classname="journey__tab" text='Experience' onclick={this.setExperienceTab} link='true' iconl='bx bxs-briefcase' />
+                <Button classname="journey__tab journey__tab__inactive" text='Education' onclick={this.setEducationTab} link='true' />
+                <Button classname="journey__tab" text='Experience' onclick={this.setExperienceTab} link='true' />
             </div>;
 
             journey__data = <div>
@@ -67,7 +68,7 @@ class Journey extends React.Component {
             </div>
         }
         return (
-            <Section name='journey' title='My journey' subtitle='CV'>
+            <Section name='journey' title='My journey' subtitle='CV' gradient='linear__gradient-2'>
 
                 {journey__tabs}
 

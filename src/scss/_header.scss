@@ -101,6 +101,7 @@
 
 .nav__list {
     grid-template-columns: repeat(3, 1fr);
+    gap: var(--mb-0-25);
 }
 
 .nav__list__external {
@@ -117,6 +118,8 @@
     font-size: var(--small-font-size);
     color: var(--title-color);
     font-weight: var(--font-medium);
+    border-radius: var(--border-radius);
+    padding: var(--mb-0-25) var(--mb-1);
 }
 
 .nav__link:hover {
@@ -192,6 +195,11 @@
         display: flex;
         align-items: center;
         margin-left: auto;
+    }
+
+    .nav__link:hover {
+        color: var(--first-color);
+        background-color: var(--container-color);
     }
 
     .nav__list__external {

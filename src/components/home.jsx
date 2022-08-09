@@ -68,14 +68,13 @@ function Home() {
                 </div>
 
                 <div className="home__data container">
-                    <h1 className="home__title">Hello I'm Fabian</h1>
-                    <h3 className="home__subtitle">beta website</h3>
+                    <h1 className="home__title">Fabian Waller</h1>
+                    {/* <h3 className="home__subtitle">beta website</h3> */}
                     <div>
                         <p className="home__description">18 year old computer science student at Saarland University, football player and committed learner.</p>
                         <div className='home__buttons flex'>
                             <Button text='Contact' href='#contact' />
-                            <Button text='Projects' href='#projects' link='true' iconr='bx bx-collection'
-                            />
+                            <Button text='Articles' href='/blog' link='true' iconr='bx bx-collection' />
                         </div>
                     </div>
                 </div>
