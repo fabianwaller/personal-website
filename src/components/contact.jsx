@@ -2,112 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { useState, useEffect } from 'react';
 
-
-//import { collection, addDoc } from "firebase/firestore";
-
-//import db from '../firebase'
-
 import Button from './button'
 import Section from './section'
 
-/* const Contact = () => {
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [subject, setSubject] = useState("");
-    const [message, setMessage] = useState("");
-    const [alerts, addAlert] = useState([]);
-    const [height, setHeight] = useState(0);
-    const [warnings, setWarnings] = useState([false,false,false,false]);
-
-
-    const handleWarnings = () => {
-        let arr = warnings;
-        arr[0] = isEmpty(name);
-        arr[1] = isEmpty(email);
-        arr[2] = isEmpty(subject);
-        arr[3] = isEmpty(message);
-        setWarnings(arr);
-        console.log('warnings handled');
-        console.log(warnings)
-    }
-
-    const handleSubmit = async (e) => {
-        e.preventDefault(); 
-
-        handleWarnings();
-
-        let error = false;
-        warnings.forEach(field => {
-            error = error || field;
-        })
-        
-
-        if(error) {
-            console.log('missing values');
-        } else {
-            console.log('message sent');
-        }
-        
-         try {
-            const docRef = await addDoc(collection(db, "contacts"), {
-              name: name,
-              email: email,
-              subject: subject,
-              message: message
-            });
-            console.log("Document written with ID: ", docRef.id);
-        } catch (e) {
-        console.error("Error adding document: ", e);
-        } 
-
-        setName('');
-        setEmail('');
-        setSubject('');
-        setMessage(''); 
-
-    }
-
-    useEffect(() => {
-        document.title = `You typed ${name}`;
-        console.log(warnings);
-    }, [warnings, subject]);
-
-
-    const onInput = () => {
-        setHeight(document.getElementById('message').scrollHeight);
-    }
-
-   
-    return (
-        <Section name='contact' title='Contact' subtitle ='get in touch'> 
-
-            <form className="contact__form form grid">
-                <div className="form__content">
-                    <input onInput={handleWarnings} type="text" id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} className='form__input' placeholder={email}/>
-                    <label htmlFor="name" className='form__label'>Name</label>
-                </div>
-                <div className="form__content">
-                    <input onInput={handleWarnings} type="email" id="email" name="email" value={email} onChange={(e) => setEmail(e.target.value)} className='form__input' placeholder=" "/>
-                    <label htmlFor="email" className='form__label'>Email</label>
-                </div>
-                <div className="form__content">
-                    <input onInput={handleWarnings} type="text" id="subject" name="subject" value={subject} onChange={(e) => setSubject(e.target.value)} className='form__input' placeholder=" "/>
-                    <label htmlFor="subject" className='form__label'>Subject</label>
-                </div>
-                <div className="form__content">
-                    <textarea onInput={onInput} type="text" id="message" name="message" value={message} onChange={(e) => setMessage(e.target.value)} className='form__input' placeholder=" "/>
-                    <label htmlFor="message" style={{height: {height}}} className='form__label'>Message</label>
-                </div>
-
-                <div>
-                    <Button text="Send Message" onclick={handleSubmit} disabled='false' id="form__submit" iconr='bx bx-send'/>
-                </div>
-
-            </form>
-    
-        </Section>
-    );
-} */
 
 class Contact extends React.Component {
 
@@ -148,13 +45,6 @@ class Contact extends React.Component {
 
         if (!error) {
             try {
-                /*                 const docRef = await addDoc(collection(db, "contacts"), {
-                                    name: this.state.name,
-                                    email: this.state.email,
-                                    subject: this.state.subject,
-                                    message: this.state.message
-                                });
-                                console.log("Message sent with ID: ", docRef.id); */
 
                 let reqOptions = {
                     method: 'POST',

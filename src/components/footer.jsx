@@ -17,8 +17,8 @@ function Footer(props) {
                             <span className="footer__links__tab">Links</span>
                             <li><a href="/#about" className='footer__link'>About</a></li>
                             <li><a href="/#journey" className='footer__link'>Journey</a></li>
-                            {/*                             <li><a href="/#projects" className='footer__link'>Projects</a></li>
-                            <li><a href="/#contact" className='footer__link'>Contact</a></li> */}
+                            {/* <li><a href="/#projects" className='footer__link'>Projects</a></li>*/}
+                            <li><a href="/#contact" className='footer__link'>Contact</a></li>
                         </ul>
 
                         <ul className="footer__links">

@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { application } from 'express';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -122,8 +122,9 @@ app.get('/api/articles', verifyCache, async (req, res) => {
         await mongoClient.close();
     }
 });
-/*app.route('/api/tweets').get(getTweets());
-app.route('/api/contact').post(handleContact(con)); */
+//app.route('/api/tweets').get(getTweets());
+
+app.route('/api/contact').post(handleContact());
 
 //app.use(jwtCheck);
 
@@ -162,7 +163,7 @@ export async function runClusterExample() {
         const db = mongoClient.db('personal-website');
         const collection = db.collection('blog');
 
-        await createArticle(collection);
+        //await createArticle(collection);
 
         //console.log(await getArticles(collection));
 

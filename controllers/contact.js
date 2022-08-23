@@ -1,5 +1,7 @@
 import nodemailer from 'nodemailer';
 
+import { connect } from '../server.js';
+
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -8,18 +10,26 @@ const transporter = nodemailer.createTransport({
     }
 })
 
-export const handleContact = (con) => async (req, res) => {
+export const handleContact = () => async (req, res) => {
 
-    //console.log(req.body);
+    let mongoClient;
+    try {
+        mongoClient = await connect();
+        const db = mongoClient.db('personal-website');
+        const contact = db.collection('contact');
 
-    let sql = "INSERT INTO contact (name, email, subject, message) VALUES ('" + req.body.name + "' , '" + req.body.email + "', '" + req.body.subject + "', '" + req.body.message + "')"
-
-    con.query(sql, (error, result) => {
-        if (error) {
-            throw err;
+        const data = {
+            name: req.body.name,
+            email: req.body.email,
+            subject: req.body.subject,
+            message: req.body.message
         }
-        console.log('contact "' + req.body.subject + '" received');
-    });
+
+        await contact.insertOne(data);
+
+    } finally {
+        await mongoClient.close();
+    }
 
     const mailOptions = {
         from: req.body.email,
@@ -29,15 +39,16 @@ export const handleContact = (con) => async (req, res) => {
     }
 
     transporter.sendMail(mailOptions, (error, info) => {
+
+        console.log(process.env.EMAIL);
+        console.log(process.env.EMAILPASSWORD);
+
         if (error) {
             console.log(error);
-            res.json('email error')
         } else {
             console.log('email sent: ' + info.response);
-            //res.send('success');
         }
-    })
-
+    });
 
     return res.json('Message sent');
 }
@@ -45,3 +56,15 @@ export const handleContact = (con) => async (req, res) => {
 /* module.exports = {
     handleContact,
 } */
+
+
+/*     let sql = "INSERT INTO contact (name, email, subject, message) VALUES ('" + req.body.name + "' , '" + req.body.email + "', '" + req.body.subject + "', '" + req.body.message + "')"
+ 
+    con.query(sql, (error, result) => {
+        if (error) {
+            throw err;
+        }
+        console.log('contact "' + req.body.subject + '" received');
+    });
+
+    }) */

@@ -71,27 +71,3 @@ function Projects() {
 }
 
 export default Projects
-
-
-
-
-
-/*     fetch('https://api.github.com/users/fabianwaller/repos')
-        .then(response => response.json())
-        .then(function(data) {
-            data.forEach(el => {
-                const repo = {
-                    name : el.full_name,
-                    description: el.description,
-                    url: el.html_url,
-                    updated_at: el.updated_at,
-                    stars: el.stargazers_count,
-                    watchers: el.watchers_count,
-                    topics: el.topics
-                }
-                let card = <div className="project__container card grid">
-                    <h3 className="card__title">{repo.name}</h3>
-                </div>
-
-            });
-        }); */

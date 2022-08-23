@@ -35,6 +35,14 @@ function Post(props) {
 
   let image = null
 
+  let categorie = null;
+
+  if (article.categorie != "") {
+    categorie = <div className="article__tags flex">
+      <span className='article__tag keyword'>{article.categorie}</span>
+    </div>
+  }
+
   /*   if(article.imageurl != null) {
       image = <img className="article__img--large" src={`https://www.fabianwaller.de/cdn/${article.imageurl}`} alt="" />
     } */
@@ -50,9 +58,7 @@ function Post(props) {
 
         <p className='article__text'>{article.text}</p>
 
-        <div className="article__tags flex">
-          <span className='article__tag keyword'>{article.categorie}</span>
-        </div>
+        {categorie}
 
         <div className="article__content" id='article-content'></div>
 
