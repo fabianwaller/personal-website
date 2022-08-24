@@ -21,9 +21,11 @@ function Post(props) {
 
   useEffect(() => {
 
+    console.log(`fetch /api/articles?slug=${slug}`)
+
     fetch(`/api/articles?slug=${slug}`)
       .then((response) => response.json())
-      //.then((data) => console.log(data[0]))
+      //.then((data) => console.log(data))
       .then((data) => setArticle(data[0]))
 
   }, []);
@@ -42,6 +44,7 @@ function Post(props) {
       <span className='article__tag keyword'>{article.categorie}</span>
     </div>
   }
+
 
   /*   if(article.imageurl != null) {
       image = <img className="article__img--large" src={`https://www.fabianwaller.de/cdn/${article.imageurl}`} alt="" />

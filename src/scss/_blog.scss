@@ -134,7 +134,7 @@
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
 
-    .article__boxes {
+    /*     .article__boxes {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: var(--mb-1-5);
@@ -148,29 +148,29 @@
 
     .article__box--featured .article__data .article__title {
         font-size: var(--h2-font-size);
-    }
+    } */
 
     .article__img {
         height: 25vh;
     }
 
-    .article__box--featured .article__data {
+    /*     .article__box--featured .article__data {
         grid-column: 0/1;
         height: fit-content;
         gap: var(--mb-0-75);
-    }
+    } */
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-    .article__boxes {
+    /*     .article__boxes {
         grid-template-columns: repeat(3, 1fr);
         gap: var(--mb-2);
     }
 
     .article__box--featured {
         grid-column: 1 / span 3;
-    }
+    } */
 
 }
 

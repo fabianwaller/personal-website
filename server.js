@@ -6,75 +6,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import { config } from 'dotenv';
 config();
-//import mysql from 'mysql2';
 import { MongoClient } from "mongodb";
-//import request from 'request';
-//import jwt from 'express-jwt';
-//import jwks from 'jwks-rsa';
 
-import nodeCache from 'node-cache';
-const cache = new NodeCache({ stdTTL: 60 });
-// each properaty that remains in the cache will have a lifetime of 60 seconds.
-
-import { getArticles, createArticle } from './controllers/blog.js';
+import { verifyCache, getArticles, createArticle } from './controllers/blog.js';
 import { handleContact } from './controllers/contact.js';
-import NodeCache from 'node-cache';
+
+
 //import { getTweets } from './controllers/twitter.js';
-
-/* const { getArticles, createArticle } = require('./controllers/blog');
-const { handleContact } = require('./controllers/contact');
-const { getTweets } = require('./controllers/twitter'); */
-/* 
-const con = mysql.createConnection({
-    host: process.env.DBHOST,
-    user: process.env.DBUSER,
-    password: process.env.DBPASSWORD,
-    database: process.env.DBNAME,
-    port: 3306,
-    ssl: false
-}); */
-
-/* var jwtCheck = jwt({
-    secret: jwks.expressJwtSecret({
-        cache: true,
-        rateLimit: true,
-        jwksRequestsPerMinute: 5,
-        jwksUri: 'https://dev-qyqv5sl1.eu.auth0.com/.well-known/jwks.json'
-    }),
-    audience: 'www.fabianwaller.de/api',
-    issuer: 'https://dev-qyqv5sl1.eu.auth0.com/',
-    algorithms: ['RS256']
-}); */
-
-
-/* var options = {
-    method: 'POST',
-    url: 'https://dev-qyqv5sl1.eu.auth0.com/oauth/token',
-    headers: { 'content-type': 'application/json' },
-    body: '{"client_id":"5pLdElBfLyBMtqA5sc1uglP1HBufq94L","client_secret":"NOBZRU8Clc5fodu_f3K5gki8a-3aJp6qW15QTD80M2cxlT8yhkXiPI9V4VoR4Fop","audience":"www.fabianwaller.de/api","grant_type":"client_credentials"}'
-};
-
-request(options, function (error, response, body) {
-    if (error) throw new Error(error);
-
-    // https://manage.auth0.com/dashboard/eu/dev-qyqv5sl1/apis/62535732e1f1620040133389/test
-    // log bearer token response
-    //console.log(body);
-
-}); */
-
-const verifyCache = (req, res, next) => {
-    try {
-        //const { id } = req.params;
-        const id = 1;
-        if (cache.has(id)) {
-            return res.status(200).json(cache.get(id));
-        }
-        return next();
-    } catch (err) {
-        throw new Error(err);
-    }
-}
 
 const prefix = 'DATABASE > ';
 
@@ -107,30 +45,11 @@ app.get('/api/hello', async (req, res) => {
     res.status(200).json({ message: 'Hello World!' });
 });
 
-app.get('/api/articles', verifyCache, async (req, res) => {
-    let mongoClient;
-    try {
-        //const { id } = req.params;
-        mongoClient = await connect();
-        const db = mongoClient.db('personal-website');
-        const collection = db.collection('blog');
-        const data = await getArticles(collection);
-        const id = 1;
-        cache.set(id, data);
-        res.status(200).json(data);
-    } finally {
-        await mongoClient.close();
-    }
-});
+
+
+app.route('/api/articles').get(verifyCache, getArticles());
 //app.route('/api/tweets').get(getTweets());
-
 app.route('/api/contact').post(handleContact());
-
-//app.use(jwtCheck);
-
-app.get('/authorized', function (req, res) {
-    res.send('Secured Resource');
-});
 
 
 //app.route('/api/articles').post(createArticle(con));
@@ -142,7 +61,7 @@ router.route('*').get((req, res) => {
 })
 
 
-export async function connect() {
+export async function connectCluster() {
     let mongoClient;
     try {
         mongoClient = new MongoClient(process.env.DB_URI);
@@ -159,7 +78,7 @@ export async function connect() {
 export async function runClusterExample() {
     let mongoClient;
     try {
-        mongoClient = await connect();
+        mongoClient = await connectCluster();
         const db = mongoClient.db('personal-website');
         const collection = db.collection('blog');
 

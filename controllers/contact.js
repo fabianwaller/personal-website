@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-import { connect } from '../server.js';
+import { connectCluster } from '../server.js';
 
 const transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -14,7 +14,7 @@ export const handleContact = () => async (req, res) => {
 
     let mongoClient;
     try {
-        mongoClient = await connect();
+        mongoClient = await connectCluster();
         const db = mongoClient.db('personal-website');
         const contact = db.collection('contact');
 

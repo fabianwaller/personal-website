@@ -1,48 +1,62 @@
-export async function getArticles(collection) {
-  return collection.find().toArray();
+import { connectCluster } from '../server.js';
+import NodeCache from 'node-cache';
+
+const cache = new NodeCache({ stdTTL: 60 });
+
+export const verifyCache = (req, res, next) => {
+    console.log('verify cache')
+    try {
+        let slug = req.query.slug;
+        if (slug == null) {
+            slug = 'all';
+        }
+        if (cache.has(slug)) {
+            console.log('return cached data')
+            return res.status(200).json(cache.get(slug));
+        }
+        return next();
+    } catch (err) {
+        throw new Error(err);
+    }
+}
+
+export const getArticles = () => async (req, res) => {
+    console.log('get Articles')
+    let mongoClient;
+    try {
+        mongoClient = await connectCluster();
+        const db = mongoClient.db('personal-website');
+        const collection = db.collection('blog');
+        let slug = req.query.slug;
+        let data;
+        if (slug == null) {
+            slug = 'all';
+            data = await collection.find().toArray();
+        } else {
+            slug = req.query.slug;
+            data = await collection.find({ 'slug': slug }).toArray();
+        }
+        cache.set(slug, data);
+        return res.status(200).json(data);
+    } finally {
+        await mongoClient.close();
+    }
 }
 
 export async function createArticle(collection) {
-  const data = {
-    title: 'Momo',
-    slug: 'momo',
-    categorie: '',
-    imageurl: '',
-    date: new Date(),
-    text: "What we can learn from Michael Ende's book Momo",
-    content: `<p><strong>listening to other people</strong><br>
-        Momo knows how to listen to other people and helps them to come up with good ideas.</p>
-    <p><strong>positive mindset</strong><br>
-        One must never think of one big task at one time. Always think about only the next step. Then work is fun and
-        you do your job well. And after that you're not exhausted and you can do the next thing.</p>
-    <p><strong>relax</strong><br>
-        Busy people are frantically trying to take advantage of their free hours and rush to have as much pleasure and
-        relaxation as possible. Instead, relax. It's better to just do nothing sometimes.</p>
-    <p><strong>saving time</strong><br>
-        most people don't recognize that by saving time they are saving something different. Nobody admits that his life
-        is getting poorer, colder and more uniform. The saved time seems to be stolen.</p>
-    <p>People allow themselves to save more and more time. That's enough to have less and less of it. They give up their
-        their self determination over their time.</p>
-    <p>The reception of dead time triggers an illness which is noticed little at first. One day you don't feel like
-        doing anything anymore. Nothing interests you, you get bored. But this displeasure does not disappear again, but
-        remains and slowly increases over time. You start feeling more and more grumpy, emptier and dissatisfied inside.
-        Slowly you don't feel anything anymore. You become completely indifferent and grey, the whole world seems
-        strange to you and no longer concerns you. You have lost your emotions, can can no longer be happy. You forget
-        how to laugh and how to cry. Cold inside you can no longer love anything or anyone. Once it has come to this,
-        the disease is incurable.</p>
-    <p><strong>materialism</strong><br>
-        People (especially children) don't need expensive toys. The required imagination to play with these finished
-        perfect things that have no further use case is very small.<br>
-        You don't have to own more and more things in order to not get bored and be happy.</p>
-    <p><strong>the need to only do useful things</strong><br>
-        Children are placed in children's depots (child care) where they are not allowed to come up with any ideas for
-        themselves. The games are prescribed by the invigilators and are only ones where anything useful is learned for
-        their later life. But something is definitely unlearned: to be happy, to be enthusiastic and to dream.</p>`
-  }
+    const data = {
+        title: 'Momo',
+        slug: 'momo',
+        categorie: '',
+        imageurl: '',
+        date: new Date(),
+        text: "",
+        content: ``
+    }
 
-  await collection.insertOne(data);
+    await collection.insertOne(data);
 
-  console.log("created article");
+    console.log("created article");
 }
 
 
