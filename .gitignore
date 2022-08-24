@@ -25,6 +25,4 @@ dist-ssr
 
 .env
 
-cdn
-
 screenlog.*
