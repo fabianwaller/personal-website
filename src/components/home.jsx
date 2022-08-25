@@ -71,7 +71,7 @@ function Home() {
                     <h1 className="home__title">Fabian Waller</h1>
                     {/* <h3 className="home__subtitle">beta website</h3> */}
                     <div>
-                        <p className="home__description">19 year old computer science student at Saarland University, football player and committed learner.</p>
+                        <p className="home__description">19 year old computer science student at Saarland University and football player.</p>
                         <div className='home__buttons flex'>
                             <Button text='Contact' href='#contact' />
                             <Button text='Articles' href='/blog' link='true' iconr='bx bx-collection' />

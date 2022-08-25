@@ -21,8 +21,6 @@ function Post(props) {
 
   useEffect(() => {
 
-    console.log(`fetch /api/articles?slug=${slug}`)
-
     fetch(`/api/articles?slug=${slug}`)
       .then((response) => response.json())
       //.then((data) => console.log(data))
@@ -31,8 +29,9 @@ function Post(props) {
   }, []);
 
   useEffect(() => {
-    const mount = document.getElementById('article-content')
+    const mount = document.getElementById('article-content');
     if (mount) mount.innerHTML = article.content;
+    document.title = "fabianwaller.de - " + article.title;
   }, [article]);
 
   let image = null

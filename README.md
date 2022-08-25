@@ -19,4 +19,7 @@ $ npm run dev
 
 # build client for production
 $ npm run build:client
+
+# serves the build application
+$ npm run serve
 ```

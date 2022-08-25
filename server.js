@@ -4,17 +4,14 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-import { config } from 'dotenv';
-config();
 import { MongoClient } from "mongodb";
-
 import { verifyCache, getArticles, createArticle } from './controllers/blog.js';
 import { handleContact } from './controllers/contact.js';
 
+import { config } from 'dotenv';
+config();
 
-//import { getTweets } from './controllers/twitter.js';
-
-const prefix = 'DATABASE > ';
+const prefix = 'BACKEND > ';
 
 const app = express();
 const router = express.Router();
@@ -46,13 +43,9 @@ app.get('/api/hello', async (req, res) => {
 });
 
 
-
 app.route('/api/articles').get(verifyCache, getArticles());
 //app.route('/api/tweets').get(getTweets());
 app.route('/api/contact').post(handleContact());
-
-
-//app.route('/api/articles').post(createArticle(con));
 
 // handle 404 - keep as last route 
 router.route('*').get((req, res) => {

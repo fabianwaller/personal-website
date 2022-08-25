@@ -49,19 +49,3 @@ export const handleContact = () => async (req, res) => {
 
     return res.json('Message sent');
 }
-
-/* module.exports = {
-    handleContact,
-} */
-
-
-/*     let sql = "INSERT INTO contact (name, email, subject, message) VALUES ('" + req.body.name + "' , '" + req.body.email + "', '" + req.body.subject + "', '" + req.body.message + "')"
- 
-    con.query(sql, (error, result) => {
-        if (error) {
-            throw err;
-        }
-        console.log('contact "' + req.body.subject + '" received');
-    });
-
-    }) */

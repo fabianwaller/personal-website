@@ -7,6 +7,7 @@ import Search from './search'
 import Articles from './articles'
 
 class Blog extends React.Component {
+
   constructor(props) {
     super(props);
     this.toggleCategorie = this.toggleCategorie.bind(this);
@@ -19,13 +20,13 @@ class Blog extends React.Component {
         "finance": true
       }
     };
+    document.title = "fabianwaller.de - blog";
   }
 
   updateSearch = (e) => {
     this.setState({
       search: e.target.value
     });
-    //console.log(this.state.search)
   }
 
   toggleCategorie = (e) => {
@@ -33,7 +34,6 @@ class Blog extends React.Component {
     let updatedState = this.state.categories
     updatedState[categorie] = !this.state.categories[categorie];
     this.setState(updatedState);
-    //console.log(updatedState);
   }
 
   render() {
@@ -48,7 +48,7 @@ class Blog extends React.Component {
           </div>
 
           <div className="blog__content grid">
-            <p className="blog__description">This blog will serve as a home for all my thoughts, notes and experiences, ranging from programming to math, machine learning, web development and more. Scroll down to check them out! Hopefully You can find something valuable.</p>
+            <p className="blog__description">This blog serves as a home for all my public thoughts, notes, learnings and experiences, ranging from programming to math, web development and much more. Scroll down to check them out! Hopefully You can find something valuable.</p>
 
             {/* <Search categories={this.state.categories} onchange={this.updateSearch} onclick={this.toggleCategorie} /> */}
 
