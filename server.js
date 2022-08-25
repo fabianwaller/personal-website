@@ -94,11 +94,5 @@ export async function runClusterExample() {
 const port = process.env.SERVER_PORT || 4000;
 
 app.listen(port, () => {
-    //runClusterExample();
-
-    /*     con.query("CREATE TABLE IF NOT EXISTS contact (name VARCHAR(255), email VARCHAR(255), subject VARCHAR(255), message TEXT, time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP)", (err, result) => {
-            console.log(prefix + "contact table loaded");
-        }); */
-
     console.log(`SERVER > nodejs server started on port ${port}`);
 });

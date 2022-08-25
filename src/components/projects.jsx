@@ -24,7 +24,7 @@ function Projects() {
         getData();
         async function getData() {
             const res = await fetch('https://api.github.com/users/fabianwaller/repos');
-            console.log(res);
+            //console.log(res);
             const data = await res.json();
 
             function compare(a, b) {

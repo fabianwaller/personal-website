@@ -120,13 +120,12 @@ function Articles(props) {
         async function getData() {
             const res = await fetch(articleUrl);
             const data = await res.json();
-            console.log(data);
 
             function compare(a, b) {
-                if (new Date(a.created_time) < new Date(b.created_time)) {
+                if (new Date(a.date) < new Date(b.date)) {
                     return 1;
                 }
-                if (new Date(a.created_time) > new Date(b.created_time)) {
+                if (new Date(a.date) > new Date(b.date)) {
                     return -1;
                 }
                 return 0;

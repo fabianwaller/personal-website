@@ -29,7 +29,7 @@ class Header extends React.Component {
     }
 
     setActiveItem = () => {
-        console.log('set active item');
+        //console.log('set active item');
     }
 
     componentDidMount() {

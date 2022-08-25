@@ -40,9 +40,6 @@ export const handleContact = () => async (req, res) => {
 
     transporter.sendMail(mailOptions, (error, info) => {
 
-        console.log(process.env.EMAIL);
-        console.log(process.env.EMAILPASSWORD);
-
         if (error) {
             console.log(error);
         } else {

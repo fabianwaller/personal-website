@@ -4,14 +4,12 @@ import NodeCache from 'node-cache';
 const cache = new NodeCache({ stdTTL: 60 });
 
 export const verifyCache = (req, res, next) => {
-    console.log('verify cache')
     try {
         let slug = req.query.slug;
         if (slug == null) {
             slug = 'all';
         }
         if (cache.has(slug)) {
-            console.log('return cached data')
             return res.status(200).json(cache.get(slug));
         }
         return next();
@@ -21,7 +19,6 @@ export const verifyCache = (req, res, next) => {
 }
 
 export const getArticles = () => async (req, res) => {
-    console.log('get Articles')
     let mongoClient;
     try {
         mongoClient = await connectCluster();
