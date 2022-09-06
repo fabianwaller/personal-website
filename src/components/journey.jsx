@@ -68,7 +68,7 @@ class Journey extends React.Component {
             </div>
         }
         return (
-            <Section name='journey' title='My journey' subtitle='CV' gradient='linear__gradient-2'>
+            <Section name='journey' title='My journey' subtitle='CV'>
 
                 {journey__tabs}
 

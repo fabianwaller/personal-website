@@ -1,4 +1,4 @@
-import { connectCluster } from '../server.js';
+import { connectCluster } from './cluster.js';
 import NodeCache from 'node-cache';
 
 const cache = new NodeCache({ stdTTL: 300 });

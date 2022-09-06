@@ -85,7 +85,7 @@ class Contact extends React.Component {
             height: (this.state.textareaHeight) + 'px'
         };
         return (
-            <Section name='contact' title='Contact' subtitle='get in touch' gradient='linear__gradient-3'>
+            <Section name='contact' title='Contact' subtitle='get in touch'>
 
                 <form className="contact__form form grid">
                     <div className="form__content">
