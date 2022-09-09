@@ -25,12 +25,15 @@ class App extends React.Component {
     };
   }
 
-  setIndexSection = (section) => {
+  setSection = (section) => {
     this.setState({ indexSection: section });
   }
 
   componentDidMount() {
-    /* SCROLL SECTIONS ACTIVE LINK */
+    this.scrollSectionsUpdateActiveLink();
+  }
+
+  scrollSectionsUpdateActiveLink() {
     const sections = document.querySelectorAll('section[id]');
     window.addEventListener('scroll', () => {
       const scrollY = window.pageYOffset
@@ -38,21 +41,11 @@ class App extends React.Component {
         const sectionHeight = current.offsetHeight
         const sectionTop = current.offsetTop - 65;
         let sectionId = current.getAttribute('id')
-
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          this.setIndexSection(sectionId);
+          this.setSection(sectionId);
         }
       })
     });
-
-    /*     const reqOptions = {
-          method: 'POST',
-          header: {'Content-Type': 'application/json'},
-          //body: JSON.stringify({title: 'react post request example'})
-        };
-        fetch('http://localhost:4000/api/v1/articles/', reqOptions)
-          .then(response => response.json())
-          .then(res => console.log(res)); */
   }
 
   render() {
@@ -95,7 +88,9 @@ class App extends React.Component {
   };
 }
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
   <React.StrictMode>
     <App />
