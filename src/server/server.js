@@ -1,5 +1,4 @@
 import express, { application } from 'express';
-import { MongoClient } from "mongodb";
 import { verifyCache, getArticles, createArticle } from './controllers/blog.js';
 import { handleContact } from './controllers/contact.js';
 import path from 'path';
