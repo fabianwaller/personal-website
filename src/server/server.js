@@ -1,6 +1,7 @@
 import express, { application } from 'express';
 import { verifyCache, getArticles, createArticle } from './controllers/blog.js';
 import { handleContact } from './controllers/contact.js';
+import { handleNewsletter, serveNewsletterVerification } from './controllers/newsletter.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
@@ -14,11 +15,11 @@ const prefix = 'BACKEND > ';
 const app = express();
 const router = express.Router();
 
-app.use(express.static("dist"));
+app.use(express.static("dist/client"));
 app.use(express.json());
 
-const serveIndexHtml = () => async (req, res) => {
-    res.sendFile(path.join(__dirname, '/dist/client/index.html'))
+export const serveIndexHtml = () => async (req, res) => {
+    res.sendFile(path.join(__dirname, '../../dist/client/index.html'))
 }
 
 const serveCdnContent = () => async (req, res) => {
@@ -29,9 +30,15 @@ app.route("/").get(serveIndexHtml());
 app.route("/blog").get(serveIndexHtml());
 app.route("/blog/*").get(serveIndexHtml());
 app.route("/cdn/:content").get(serveCdnContent());
+app.route("/newsletter").get(serveIndexHtml());
 
 app.route('/api/articles').get(verifyCache, getArticles());
 app.route('/api/contact').post(handleContact());
+
+app.route('/api/newsletter/signup').post(handleNewsletter());
+app.route('/api/newsletter/verify').get(serveIndexHtml());
+
+// api/newsletter/verify?code=6434d86b16bb956ac463ef0786129488
 
 // handle 404 - keep as last route 
 router.route('*').get((req, res) => {

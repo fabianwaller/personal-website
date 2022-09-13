@@ -1,5 +1,5 @@
-import nodemailer from 'nodemailer';
-import { connectCluster, disconnectCluster } from './cluster.js';
+import Cluster from './cluster.js';
+import { sendMail } from '../helpers/email.js'
 
 export const handleContact = () => async (req, res) => {
 
@@ -17,7 +17,7 @@ export const handleContact = () => async (req, res) => {
         text: `${req.body.email}: ${req.body.message}`
     }
 
-    sendContactMail(mailOptions);
+    sendMail(mailOptions);
 
     return res.json('Message sent');
 }
@@ -35,22 +35,4 @@ const insertContact = async (mongoClient) => {
     }
 
     await contact.insertOne(data);
-}
-
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.EMAIL,
-        pass: process.env.EMAILPASSWORD
-    }
-})
-
-const sendContactMail = (mailOptions) => {
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.log(error);
-        } else {
-            console.log('email sent: ' + info.response);
-        }
-    });
 }

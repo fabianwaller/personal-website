@@ -41,11 +41,21 @@ class App extends React.Component {
         const sectionHeight = current.offsetHeight
         const sectionTop = current.offsetTop - 65;
         let sectionId = current.getAttribute('id')
+
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          this.setSection(sectionId);
+          this.setIndexSection(sectionId);
         }
       })
     });
+
+    /*     const reqOptions = {
+          method: 'POST',
+          header: {'Content-Type': 'application/json'},
+          //body: JSON.stringify({title: 'react post request example'})
+        };
+        fetch('http://localhost:4000/api/v1/articles/', reqOptions)
+          .then(response => response.json())
+          .then(res => console.log(res)); */
   }
 
   render() {
@@ -59,6 +69,7 @@ class App extends React.Component {
                 <Home />
                 <About />
                 <Journey />
+                <Projects />
                 <Contact />
               </main>
             } />
@@ -87,7 +98,6 @@ class App extends React.Component {
     )
   };
 }
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

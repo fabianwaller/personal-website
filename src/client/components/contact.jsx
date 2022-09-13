@@ -5,6 +5,8 @@ import { useState, useEffect } from 'react';
 import Button from './button'
 import Section from './section'
 
+import { isEmpty, isEmail } from './formHelper'
+
 
 class Contact extends React.Component {
 
@@ -160,16 +162,5 @@ class Contact extends React.Component {
     }
 }
 
-function isEmpty(value) {
-    if (value == "" || value == null || typeof value == 'undefined') {
-        return true;
-    }
-    return (value.length < 0);
-}
-
-function isEmail(email) {
-    let regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
-    return regex.test(String(email).toLowerCase());
-}
 
 export default Contact

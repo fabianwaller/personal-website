@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { resolve } from 'path'
 
-import resolve from 'path'
+import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,13 +9,13 @@ export default defineConfig({
   assetsInclude: ["./assets/**/*.*"],
   build: {
     emptyOutDir: true,
-    outDir: "dist",
-    /* rollupOptions: {
+    outDir: "dist/client",
+    rollupOptions: {
       input: {
         index: resolve(__dirname, 'index.html'),
-        blog: resolve(__dirname, 'blog.html')
+        newsletter: resolve(__dirname, 'newsletter/index.html')
       }
-    } */
+    }
   },
   server: {
     host: true,

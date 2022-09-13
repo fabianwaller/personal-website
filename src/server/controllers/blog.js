@@ -1,4 +1,4 @@
-import { connectCluster } from './cluster.js';
+import Cluster from './cluster.js';
 import NodeCache from 'node-cache';
 
 const cache = new NodeCache({ stdTTL: 300 });
@@ -19,9 +19,9 @@ export const verifyCache = (req, res, next) => {
 }
 
 export const getArticles = () => async (req, res) => {
-    let mongoClient;
+    let cluster = new Cluster();
+    let mongoClient = cluster.getMongoClient();
     try {
-        mongoClient = await connectCluster();
         const db = mongoClient.db('personal-website');
         const collection = db.collection('blog');
         let slug = req.query.slug;
@@ -36,7 +36,7 @@ export const getArticles = () => async (req, res) => {
         cache.set(slug, data);
         return res.status(200).json(data);
     } finally {
-        await mongoClient.close();
+        cluster.disconnect();
     }
 }
 

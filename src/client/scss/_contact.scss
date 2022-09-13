@@ -4,14 +4,15 @@
 
 .form__content {
     position: relative;
+    gap: var(--mb-1);
+    align-items: center;
 }
-
 
 .form__input {
     -webkit-appearance: none;
     position: relative;
     width: 100%;
-    background-color: var(--input-color);
+    background-color: var(--body-color);
     color: var(--text-color);
     font-family: var(--body-font);
     font-size: var(--normal-font-size);
@@ -30,7 +31,7 @@
     border-color: var(--text-color);
 }
 
-.form__input--alert ~ label {
+.form__input--alert~label {
     animation-name: shake;
     animation-duration: .2s;
 }
@@ -40,13 +41,15 @@
     33% {
         transform: translateX(-.25rem);
     }
+
     66% {
         transform: translateX(.25rem);
     }
+
     100% {
         transform: translateX(0);
     }
-} 
+}
 
 .form__input:focus {
     border-width: 1.5px;
@@ -61,7 +64,7 @@ textarea {
 .form__label {
     font-size: var(--normal-font-size);
     color: var(--text-color-light);
-    background-color: var(--input-color);
+    background-color: var(--body-color);
     position: absolute;
     left: .75rem;
     top: 1.1rem;
@@ -81,8 +84,8 @@ textarea {
     z-index: 1;
 }
 
-.form__input:focus ~ label,
-.form__input:not(:placeholder-shown).form__input:not(:focus) ~ label {
+.form__input:focus~label,
+.form__input:not(:placeholder-shown).form__input:not(:focus)~label {
     top: -.65rem;
     color: var(--first-color-light);
     font-size: var(--small-font-size);
