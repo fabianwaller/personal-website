@@ -30,7 +30,7 @@ app.route("/").get(serveIndexHtml());
 app.route("/blog").get(serveIndexHtml());
 app.route("/blog/*").get(serveIndexHtml());
 app.route("/cdn/:content").get(serveCdnContent());
-app.route("/newsletter").get(serveIndexHtml());
+app.route("/newsletter").get(serveNewsletterVerification());
 
 app.route('/api/articles').get(verifyCache, getArticles());
 app.route('/api/contact').post(handleContact());

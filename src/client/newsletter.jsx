@@ -5,27 +5,27 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import './scss/style.scss'
 
+
 import Header from './components/header'
-import Home from './components/home'
-import About from './components/about'
-import Journey from './components/journey'
-import Projects from './components/projects'
-import Contact from './components/contact'
 import Footer from './components/footer'
 
-import Blog from './components/blog/blog'
-import Post from './components/blog/post'
 
-class App extends React.Component {
+class Newsletter extends React.Component {
     constructor(props) {
         super(props);
     }
 
-
     render() {
         return (
             <main className="main">
-                <Home />
+                <Header />
+                <div className="main container">
+
+                    <h2>Successfully verified your email address</h2>
+
+                    You now get new notifications directly in your inbox.
+
+                </div>
                 <Footer />
             </main>
 
@@ -37,6 +37,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
     <React.StrictMode>
-        <App />
+        <Newsletter />
     </React.StrictMode>
 );

@@ -27,11 +27,11 @@ export const handleNewsletter = () => async (req, res) => {
 
         let found = await newsletter.find({ 'email': req.body.email }).toArray();
         if (found.length > 0 && found[0].verified) {
-            return res.status(200).json('you are already subscribed');
+            return res.status(200).json('Sorry. This email is already subscribed.');
         }
         await newsletter.insertOne(data);
         sendVerificationEmail(req.body.email);
-        return res.status(200).json('subscribed. please check your inbox');
+        return res.status(200).json('Successfully signed up. Please check your inbox to verify your email.');
 
     } finally {
         cluster.disconnect();
@@ -61,9 +61,9 @@ const sendVerificationEmail = async (email) => {
 
 export const serveNewsletterVerification = () => async (req, res) => {
     console.log(req.query);
+    res.sendFile(path.join(__dirname, '../../dist/client/newsletter/index.html'))
 
-
-    return res.send({ hash: hashFromString('fabian.wallerr@gmail.com') });
+    //return res.send({ hash: hashFromString('fabian.wallerr@gmail.com') });
 }
 
 

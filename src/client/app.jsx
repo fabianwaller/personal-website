@@ -69,7 +69,6 @@ class App extends React.Component {
                 <Home />
                 <About />
                 <Journey />
-                <Projects />
                 <Contact />
               </main>
             } />
