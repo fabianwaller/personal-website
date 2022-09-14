@@ -17,6 +17,7 @@ import Blog from './components/blog/blog'
 import Post from './components/blog/post'
 
 class App extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -48,14 +49,6 @@ class App extends React.Component {
       })
     });
 
-    /*     const reqOptions = {
-          method: 'POST',
-          header: {'Content-Type': 'application/json'},
-          //body: JSON.stringify({title: 'react post request example'})
-        };
-        fetch('http://localhost:4000/api/v1/articles/', reqOptions)
-          .then(response => response.json())
-          .then(res => console.log(res)); */
   }
 
   render() {

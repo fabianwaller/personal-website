@@ -30,13 +30,13 @@ app.route("/").get(serveIndexHtml());
 app.route("/blog").get(serveIndexHtml());
 app.route("/blog/*").get(serveIndexHtml());
 app.route("/cdn/:content").get(serveCdnContent());
-app.route("/newsletter").get(serveNewsletterVerification());
+
 
 app.route('/api/articles').get(verifyCache, getArticles());
 app.route('/api/contact').post(handleContact());
 
 app.route('/api/newsletter/signup').post(handleNewsletter());
-app.route('/api/newsletter/verify').get(serveIndexHtml());
+app.route('/api/newsletter/verify').get(serveNewsletterVerification());
 
 // api/newsletter/verify?code=6434d86b16bb956ac463ef0786129488
 

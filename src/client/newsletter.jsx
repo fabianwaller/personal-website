@@ -5,10 +5,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import './scss/style.scss'
 
-
 import Header from './components/header'
 import Footer from './components/footer'
-
 
 class Newsletter extends React.Component {
     constructor(props) {
@@ -19,7 +17,7 @@ class Newsletter extends React.Component {
         return (
             <main className="main">
                 <Header />
-                <div className="main container">
+                <div className="main container section">
 
                     <h2>Successfully verified your email address</h2>
 
