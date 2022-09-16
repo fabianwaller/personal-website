@@ -2,15 +2,14 @@
   "name": "personal-website",
   "private": true,
   "version": "0.0.0",
+  "type": "module",
   "scripts": {
     "client": "vite",
-    "server": "nodemon ./src/server/server.js",
+    "server": "node ./src/server/server.js",
     "dev": "concurrently \"nodemon ./src/server/server.js\" \"npm run client\"",
-    "build:client": "vite build --outDir dist/client",
     "build": "vite build",
-    "serve": "screen -L -d -m -S server node server.js && echo 'server started'"
+    "serve": "screen -L -d -m -S server node ./dist/server/server.js && echo 'server started'"
   },
-  "type": "module",
   "proxy": "http://localhost:4000",
   "dependencies": {
     "concurrently": "^7.3.0",
@@ -32,7 +31,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
-    "sass": "^1.49.9",
-    "vite": "^2.8.0"
+    "vite": "^2.8.0",
+    "sass": "^1.49.9"
   }
 }

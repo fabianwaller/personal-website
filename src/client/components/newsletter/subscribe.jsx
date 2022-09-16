@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
 import Button from '../button'
-import { isEmpty, isEmail } from '../formHelper'
+import { isEmpty, isEmail } from '../../helpers/formHelper'
 
 
 const NewsletterSubscriptionContainer = (props) => {

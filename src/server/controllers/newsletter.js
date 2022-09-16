@@ -61,30 +61,27 @@ const sendVerificationEmail = async (email) => {
 }
 
 export const serveNewsletterVerification = () => async (req, res) => {
-    console.log(req.query.code);
-    console.log({ 'verificationCode': req.query.code });
-    let code = parseInt(req.query.code);
 
-    //res.sendFile(path.join(__dirname, '../../../dist/client/newsletter/index.html'))
+    res.sendFile(path.join(__dirname, '../../../dist/client/index.html'))
 
-
-    let cluster = new Cluster();
-    let mongoClient = cluster.getMongoClient();
-    try {
-        const db = mongoClient.db('personal-website');
-        const newsletter = db.collection('newsletter');
-
-        let found = await newsletter.find({ 'verificationCode': code }).toArray();
-        if (found.length == 1) {
-            await newsletter.updateOne({ 'verificationCode': code }, { $set: { 'verified': true } });
-            res.status(200).sendFile(path.join(__dirname, '../../../dist/client/newsletter/index.html'));
-        } else {
-            res.status(200).json('your verification code is invalid');
-        }
-
-    } finally {
-        cluster.disconnect();
-    }
+    /*     let cluster = new Cluster();
+        let mongoClient = cluster.getMongoClient();
+        try {
+            const db = mongoClient.db('personal-website');
+            const newsletter = db.collection('newsletter');
+    
+            let code = parseInt(req.query.code);
+            let found = await newsletter.find({ 'verificationCode': code }).toArray();
+            if (found.length == 1 && found[0].verified == false) {
+                await newsletter.updateOne({ 'verificationCode': code }, { $set: { 'verified': true } });
+                res.status(200).sendFile(path.join(__dirname, '../../../dist/client/newsletter/index.html'));
+            } else {
+                res.status(200).json('your verification code is invalid');
+            }
+    
+        } finally {
+            cluster.disconnect();
+        } */
 }
 
 

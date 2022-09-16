@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import Button from './button'
 import Section from './section'
 
-import { isEmpty, isEmail } from './formHelper'
+import { isEmpty, isEmail } from '../helpers/formHelper'
 
 
 class Contact extends React.Component {

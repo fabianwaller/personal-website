@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 
 //import picture from '../../assets/'
 
-import formatDate from "../formatdate"
+import formatDate from "../../helpers/formatdate"
 
 function Post(props) {
   let { slug } = useParams();

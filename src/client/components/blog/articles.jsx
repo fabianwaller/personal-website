@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 
 import Button from '../button'
 
-import formatDate from "../formatdate"
+import formatDate from "../../helpers/formatdate"
 
 function ArticleBoxes({ articles }) {
     if (articles == null) { return null }
@@ -35,7 +35,6 @@ function ArticleBoxes({ articles }) {
 
 
                     <span className="article__data flex">
-                        {/* <i className='bx bx-calendar-alt'></i>*/}
                         {formatDate(new Date(article.date))}
                     </span>
 

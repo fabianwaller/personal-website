@@ -1,6 +1,4 @@
 import { defineConfig } from 'vite'
-import { resolve } from 'path'
-
 import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
@@ -10,12 +8,11 @@ export default defineConfig({
   build: {
     emptyOutDir: true,
     outDir: "dist/client",
-    rollupOptions: {
-      input: {
-        index: resolve(__dirname, 'index.html'),
-        newsletter: resolve(__dirname, 'newsletter/index.html')
-      }
-    }
+    /*     rollupOptions: {
+          input: {
+            index: resolve(__dirname, 'index.html'),
+          }
+        } */
   },
   server: {
     host: true,

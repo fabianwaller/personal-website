@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 import Search from './search'
 import Articles from './articles'
-import NewsletterSubscriptionContainer from './subscribe'
+import NewsletterSubscriptionContainer from '../newsletter/subscribe'
 
 class Blog extends React.Component {
 

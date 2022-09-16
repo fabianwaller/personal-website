@@ -15,6 +15,7 @@ import Footer from './components/footer'
 
 import Blog from './components/blog/blog'
 import Post from './components/blog/post'
+import Newsletter from './components/newsletter/newsletter';
 
 class App extends React.Component {
 
@@ -77,6 +78,11 @@ class App extends React.Component {
                 <Post></Post>
               </div>
             } />
+            <Route path="/api/newsletter/verify" element={
+              <div>
+                <Header activeItem='null' />
+                <Newsletter />
+              </div>} />
             <Route path="/*" element={
               <div>
                 <Header activeItem='null' />

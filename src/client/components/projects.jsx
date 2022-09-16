@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import Section from './section'
 import Button from './button'
 
-import formatDate from "./formatdate"
+import formatDate from "../helpers/formatdate"
 
 function Projects() {
     const [repos, setRepos] = useState([]);
