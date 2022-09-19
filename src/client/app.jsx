@@ -12,10 +12,12 @@ import Journey from './components/journey'
 import Projects from './components/projects'
 import Contact from './components/contact'
 import Footer from './components/footer'
+import PageNotFound from './components/pageNotFound'
 
 import Blog from './components/blog/blog'
 import Post from './components/blog/post'
 import Newsletter from './components/newsletter/newsletter';
+import NewsletterSubscriptionContainer from './components/newsletter/subscribe'
 
 class App extends React.Component {
 
@@ -78,15 +80,23 @@ class App extends React.Component {
                 <Post></Post>
               </div>
             } />
-            <Route path="/api/newsletter/verify" element={
+            <Route path="/newsletter" element={
               <div>
                 <Header activeItem='null' />
+                <section className='first__section container'>
+                  <NewsletterSubscriptionContainer />
+                </section>
+              </div>} />
+            <Route path="/newsletter/verify" element={
+              <div>
+                <Header activeItem='null' />
+
                 <Newsletter />
               </div>} />
             <Route path="/*" element={
               <div>
                 <Header activeItem='null' />
-                <h1 className='container section'>404</h1>
+                <PageNotFound />
               </div>} />
           </Routes>
 
