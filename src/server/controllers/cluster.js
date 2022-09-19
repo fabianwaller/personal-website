@@ -17,11 +17,11 @@ class Cluster {
 
     async connect() {
         try {
-            console.log('Connecting to MongoDB Atlas cluster...');
+            console.log('Connecting to MongoDB cluster...');
             await this.mongoClient.connect();
             console.log('Successfully connected to MongoDB Atlas!');
         } catch (err) {
-            console.log('Connection to MongoDB Atlas failed', err);
+            console.log('Connection to MongoDB failed', err);
             process.exit();
         }
     }
