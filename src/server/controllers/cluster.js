@@ -19,7 +19,7 @@ class Cluster {
         try {
             console.log('Connecting to MongoDB cluster...');
             await this.mongoClient.connect();
-            console.log('Successfully connected to MongoDB Atlas!');
+            console.log('Successfully connected to the cluster!');
         } catch (err) {
             console.log('Connection to MongoDB failed', err);
             process.exit();

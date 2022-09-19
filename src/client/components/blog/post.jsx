@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-
 import { useParams } from "react-router";
+import formatDate from "../../helpers/formatdate"
+
 
 //import picture from '../../assets/'
-
-import formatDate from "../../helpers/formatdate"
 
 function Post(props) {
   let { slug } = useParams();
@@ -35,7 +34,6 @@ function Post(props) {
   }, [article]);
 
   let image = null
-
   let categorie = null;
 
   if (article.categorie != "") {
@@ -43,7 +41,6 @@ function Post(props) {
       <span className='article__tag keyword'>{article.categorie}</span>
     </div>
   }
-
 
   /*   if(article.imageurl != null) {
       image = <img className="article__img--large" src={`https://www.fabianwaller.de/cdn/${article.imageurl}`} alt="" />

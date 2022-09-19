@@ -1,7 +1,7 @@
 import express, { application } from 'express';
 import { verifyCache, getArticles, createArticle } from './controllers/blog.js';
 import { handleContact } from './controllers/contact.js';
-import { handleNewsletter, serveNewsletterVerification } from './controllers/newsletter.js';
+import { handleNewsletterSignup, handleNewsletterVerification } from './controllers/newsletter.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
@@ -23,20 +23,19 @@ export const serveIndexHtml = () => async (req, res) => {
 }
 
 const serveCdnContent = () => async (req, res) => {
-    res.sendFile(path.join(__dirname, '/cdn/' + req.params.content))
+    res.sendFile(path.join(__dirname, '../../cdn/' + req.params.content))
 }
-
-app.route("/").get(serveIndexHtml());
-app.route("/blog").get(serveIndexHtml());
-app.route("/blog/*").get(serveIndexHtml());
-app.route("/cdn/:content").get(serveCdnContent());
 
 
 app.route('/api/articles').get(verifyCache, getArticles());
 app.route('/api/contact').post(handleContact());
 
-app.route('/api/newsletter/signup').post(handleNewsletter());
-app.route('/api/newsletter/verify').get(serveNewsletterVerification());
+app.route('/api/newsletter/signup').post(handleNewsletterSignup());
+app.route('/api/newsletter/verify').post(handleNewsletterVerification());
+
+
+app.route("/cdn/:content").get(serveCdnContent());
+app.route("*").get(serveIndexHtml());
 
 // api/newsletter/verify?code=6434d86b16bb956ac463ef0786129488
 

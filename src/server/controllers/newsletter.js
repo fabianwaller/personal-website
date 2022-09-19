@@ -10,37 +10,33 @@ import handlebars from "handlebars";
 import { serveIndexHtml } from '../server.js';
 import { Server } from 'http';
 
-export const handleNewsletter = () => async (req, res) => {
+export const handleNewsletterSignup = () => async (req, res) => {
     let cluster = new Cluster();
     let mongoClient = cluster.getMongoClient();
+    const db = mongoClient.db('personal-website');
+    const newsletter = db.collection('newsletter');
 
     let hashCode = appendIntToInt(hashFromString(req.body.email), hashFromString(new Date().getTime().toString()))
+    const data = {
+        email: req.body.email,
+        verificationCode: hashCode,
+        verified: false,
+        signupDate: new Date()
+    }
 
     try {
-
-        const data = {
-            email: req.body.email,
-            verificationCode: hashCode,
-            verified: false,
-            signupDate: new Date()
-        }
-
-        const db = mongoClient.db('personal-website');
-        const newsletter = db.collection('newsletter');
-
-        let found = await newsletter.find({ 'email': req.body.email }).toArray();
+        let found = await newsletter.find({ 'email': data.email }).toArray();
         if (found.length == 0) {
             await newsletter.insertOne(data);
-            sendVerificationCodeToEmail(req.body.email, hashCode);
+            sendVerificationCodeToEmail(data.email, data.verificationCode);
             return res.status(200).json('Successfully signed up. Please check your inbox to verify your email.');
         } else if (found.length > 0 && !found[0].verified) {
-            await newsletter.updateOne({ 'email': req.body.email }, { $set: data });
-            sendVerificationCodeToEmail(req.body.email, hashCode);
+            await newsletter.updateOne({ 'email': data.email }, { $set: data });
+            sendVerificationCodeToEmail(data.email, data.verificationCode);
             return res.status(200).json('Please check your inbox to verify your email.');
         } else if (found.length > 0 && found[0].verified) {
             return res.status(200).json('Sorry. This email is already subscribed.');
         }
-
     } finally {
         cluster.disconnect();
     }
@@ -67,22 +63,20 @@ const sendVerificationCodeToEmail = async (email, hashCode) => {
     sendMail(mailOptions);
 }
 
-export const serveNewsletterVerification = () => async (req, res) => {
-
+export const handleNewsletterVerification = () => async (req, res) => {
     let cluster = new Cluster();
     let mongoClient = cluster.getMongoClient();
     try {
         const db = mongoClient.db('personal-website');
         const newsletter = db.collection('newsletter');
-
-        let code = parseInt(req.query.code);
+        let code = parseInt(req.body.code);
         let found = await newsletter.find({ 'verificationCode': code }).toArray();
         if (found.length == 1 && found[0].verified == false) {
-            let expirationTimestamp = addMinutesToTimestamp(found[0].signupDate.getTime(), 60);
+            let expirationTimestamp = addDaysToTimestamp(found[0].signupDate.getTime(), 1);
             let registrationTimestamp = new Date().getTime();
             if (registrationTimestamp < expirationTimestamp) {
                 await newsletter.updateOne({ 'verificationCode': code }, { $set: { 'verified': true } });
-                res.status(200).sendFile(path.join(__dirname, '../../../dist/client/index.html'));
+                res.status(200).json('Successfully verified your email address. You now get new notifications directly in your inbox.');
             } else {
                 res.status(200).json('your verification link is expired');
             }
@@ -99,6 +93,10 @@ export const serveNewsletterVerification = () => async (req, res) => {
 
 const addMinutesToTimestamp = (timestamp, minutes) => {
     return timestamp + (minutes * 60 * 1000);
+}
+
+const addDaysToTimestamp = (timestamp, days) => {
+    return timestamp + (days * 24 * 60 * 60 * 1000);
 }
 
 const hashFromString = (str) => {

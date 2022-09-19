@@ -77,7 +77,7 @@ class App extends React.Component {
             <Route exact path="/blog/:slug" element={
               <div>
                 <Header activeItem={this.state.blogSection} scroll={1} />
-                <Post></Post>
+                <Post />
               </div>
             } />
             <Route path="/newsletter" element={
@@ -90,7 +90,6 @@ class App extends React.Component {
             <Route path="/newsletter/verify" element={
               <div>
                 <Header activeItem='null' />
-
                 <Newsletter />
               </div>} />
             <Route path="/*" element={

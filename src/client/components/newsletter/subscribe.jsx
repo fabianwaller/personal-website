@@ -36,8 +36,7 @@ const NewsletterSubscriptionContainer = (props) => {
             let reqOptions = {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + import.meta.env.VITE_API_ACCESS_TOKEN
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
                     email: email
