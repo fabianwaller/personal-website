@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
 
 const Newsletter = (props) => {
 
-    const [state, setState] = useState('sending request');
+    const [state, setState] = useState('sending request...');
 
     const query = new URLSearchParams(useLocation().search);
     const code = query.get("code");

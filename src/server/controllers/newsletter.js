@@ -71,21 +71,22 @@ export const handleNewsletterVerification = () => async (req, res) => {
         const newsletter = db.collection('newsletter');
         let code = parseInt(req.body.code);
         let found = await newsletter.find({ 'verificationCode': code }).toArray();
-        if (found.length == 1 && found[0].verified == false) {
-            let expirationTimestamp = addDaysToTimestamp(found[0].signupDate.getTime(), 1);
-            let registrationTimestamp = new Date().getTime();
-            if (registrationTimestamp < expirationTimestamp) {
-                await newsletter.updateOne({ 'verificationCode': code }, { $set: { 'verified': true } });
-                res.status(200).json('Successfully verified your email address. You now get new notifications directly in your inbox.');
-            } else {
-                res.status(200).json('your verification link is expired');
-            }
-        } else if (found.length == 1 && found[0].verified == true) {
-            res.status(200).json('your are already verified');
-        } else {
-            res.status(200).json('your verification code is invalid');
+        if (found.length != 1) {
+            return res.status(200).json('your verification code is invalid');
         }
-
+        if (found[0].verified) {
+            return res.status(200).json('your are already verified');
+        }
+        let expirationTimestamp = addDaysToTimestamp(found[0].signupDate.getTime(), 1);
+        let registrationTimestamp = new Date().getTime();
+        let expired = registrationTimestamp >= expirationTimestamp;
+        if (expired) {
+            return res.status(200).json('your verification link is expired');
+        }
+        await newsletter.updateOne({ 'verificationCode': code }, { $set: { 'verified': true } });
+        return res.status(200).json('Successfully verified your email address. You now get new notifications directly in your inbox.');
+    } catch (e) {
+        return res.status(200).json('verification failed');
     } finally {
         cluster.disconnect();
     }
