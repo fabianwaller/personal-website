@@ -6,7 +6,7 @@ name: deploy server
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -17,7 +17,7 @@ jobs:
   deploy:
     # The type of runner that the job will run on
     runs-on: self-hosted
-    
+
     strategy:
       matrix:
         node-version: [14.x]
@@ -37,13 +37,13 @@ jobs:
           key: npm-${{ hashFiles('package-lock.json') }}
           restore-keys: npm-
       - name: install environment
-        run: | 
+        run: |
           npm ci
           screen -wipe
           echo installed all npm packages
           cp /home/ubuntu/.env /var/www/personal-website/_work/personal-website/personal-website
           cp /home/ubuntu/.env.local /var/www/personal-website/_work/personal-website/personal-website
-          npm run build:client
+          npm run build
       - name: run server
         run: |
           npm run serve
