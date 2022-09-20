@@ -1,0 +1,12 @@
+.newsletter__box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--mb-1-5);
+    text-align: center;
+}
+
+.newsletter__box .form__content {
+    width: 100%;
+}

@@ -12,11 +12,15 @@ import Journey from './components/journey'
 import Projects from './components/projects'
 import Contact from './components/contact'
 import Footer from './components/footer'
+import PageNotFound from './components/pageNotFound'
 
 import Blog from './components/blog/blog'
 import Post from './components/blog/post'
+import Newsletter from './components/newsletter/newsletter';
+import NewsletterSubscriptionContainer from './components/newsletter/subscribe'
 
 class App extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -41,11 +45,13 @@ class App extends React.Component {
         const sectionHeight = current.offsetHeight
         const sectionTop = current.offsetTop - 65;
         let sectionId = current.getAttribute('id')
+
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          this.setSection(sectionId);
+          this.setIndexSection(sectionId);
         }
       })
     });
+
   }
 
   render() {
@@ -71,13 +77,25 @@ class App extends React.Component {
             <Route exact path="/blog/:slug" element={
               <div>
                 <Header activeItem={this.state.blogSection} scroll={1} />
-                <Post></Post>
+                <Post />
               </div>
             } />
+            <Route path="/newsletter" element={
+              <div>
+                <Header activeItem='null' />
+                <section className='first__section container'>
+                  <NewsletterSubscriptionContainer />
+                </section>
+              </div>} />
+            <Route path="/newsletter/verify" element={
+              <div>
+                <Header activeItem='null' />
+                <Newsletter />
+              </div>} />
             <Route path="/*" element={
               <div>
                 <Header activeItem='null' />
-                <h1 className='container section'>404</h1>
+                <PageNotFound />
               </div>} />
           </Routes>
 
@@ -87,7 +105,6 @@ class App extends React.Component {
     )
   };
 }
-
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 

@@ -13,6 +13,7 @@
     display: inline-flex;
     align-items: center;
     column-gap: var(--mb-0-5);
+    height: 100%;
 }
 
 .button:hover {
@@ -64,6 +65,7 @@
     .button {
         padding: .75rem 1rem;
     }
+
     .button--small {
         padding: .5rem .75rem;
     }

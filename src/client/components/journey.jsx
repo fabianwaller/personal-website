@@ -19,10 +19,7 @@ function JourneyData(props) {
             <div className="journey__databox card">
                 <h3 className="card__title">{props.title}</h3>
                 <span className="card__subtitle">{props.subtitle}</span>
-                <div className="flex">
-                    {/* <i className='bx bx-calendar-alt'></i> */}
-                    {props.time}
-                </div>
+                <div className="flex">{props.time}</div>
             </div>
         </div>
     );

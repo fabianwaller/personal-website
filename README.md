@@ -17,8 +17,8 @@ $ npm run server
 # start fullstack dev server
 $ npm run dev
 
-# build client for production
-$ npm run build:client
+# build for production
+$ npm run build
 
 # serves the build application
 $ npm run serve

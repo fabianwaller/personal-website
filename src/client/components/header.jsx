@@ -28,10 +28,6 @@ class Header extends React.Component {
         this.setState({ menu: visible });
     }
 
-    setActiveItem = () => {
-        //console.log('set active item');
-    }
-
     componentDidMount() {
         window.addEventListener('scroll', () => {
             this.setState({ headerScroll: (window.scrollY >= this.props.scroll) });

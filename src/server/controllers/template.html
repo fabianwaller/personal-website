@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        :root {
+            --header-height: 4rem;
+            --border-radius: .75rem;
+
+            /* colors */
+            --hue-color: 230;
+
+            --first-color: hsl(var(--hue-color), 69%, 70%);
+            --first-color-second: hsl(var(--hue-color), 69%, 61%);
+            --first-color-alt: hsl(var(--hue-color), 57%, 70%);
+            --first-color-lighter: hsl(var(--hue-color), 61%, 85%);
+            --title-color: hsl(var(--hue-color), 8%, 15%);
+            --text-color: hsl(var(--hue-color), 4%, 30%);
+            --text-color-light: hsl(var(--hue-color), 8%, 65%);
+            --text-color-dark: hsl(var(--hue-color), 21%, 56%);
+            --input-color: hsl(var(--hue-color), 70%, 98%);
+            --border-color: hsl(var(--hue-color), 40%, 92%);
+
+            --body-h: var(--hue-color);
+            --body-s: 0%;
+            --body-l: 100%;
+
+            --body-color: hsl(var(--body-h), var(--body-s), var(--body-l));
+            --container-color: hsl(var(--hue-color), 50%, 98%);
+            --scroll-bar-color: hsla(var(--hue-color), 12%, 90, 0%);
+            --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+
+            --accent-yellow: hsl(60, 100%, 70%);
+            --accent-pink: hsl(330, 100%, 70%);
+            --accent-purple: hsl(250, 100%, 70%);
+            --accent-red: hsl(10, 100%, 70%);
+            --accent-orange: hsl(35, 100%, 70%);
+            --accent-green: hsl(115, 100%, 70%);
+            --accent-cyan: hsl(170, 100%, 70%);
+
+            --first-color-shape: hsl(253, 33%, 32%);
+
+            /* font and typography */
+            --body-font: 'Poppins', sans-serif;
+
+            --big-font-size: 2rem;
+            --h1-font-size: 1.5rem;
+            --h2-font-size: 1.25rem;
+            --h3-font-size: 1.125rem;
+            --normal-font-size: .938rem;
+            --small-font-size: .813rem;
+            --smaller-font-size: .75rem;
+
+            --font-medium: 500;
+            --font-semi-bold: 600;
+
+            /* margens .25rem = 4px, .5rem = 8px, ... */
+            --mb-0-25: .25rem;
+            --mb-0-5: .5rem;
+            --mb-0-75: .75rem;
+            --mb-1: 1rem;
+            --mb-1-5: 1.5rem;
+            --mb-2: 2rem;
+            --mb-2-5: 2.5rem;
+            --mb-3: 3rem;
+
+            /* z-index */
+            --z-tooltip: 10;
+            --z-fixed: 100;
+            --z-modal: 1000;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --first-color-second: hsl(var(--hue-color), 55%, 55%);
+                --title-color: hsl(var(--hue-color), 8%, 95%);
+                --text-color: hsl(var(--hue-color), 8%, 80%);
+                --border-color: hsl(var(--hue-color), 10%, 25%);
+                --body-h: var(--hue-color);
+                --body-s: 22%;
+                --body-l: 4%;
+                --body-color: hsl(var(--body-h), var(--body-s), var(--body-l));
+                --accent-yellow: hsl(60, 100%, 75%);
+                --accent-pink: hsl(330, 100%, 75%);
+                --accent-purple: hsl(250, 100%, 75%);
+                --accent-red: hsl(10, 100%, 75%);
+                --accent-orange: hsl(35, 100%, 75%);
+                --accent-green: hsl(115, 100%, 75%);
+                --accent-cyan: hsl(170, 100%, 75%);
+                --container-color: hsl(var(--hue-color), 8%, 12%);
+                --input-color: hsl(var(--hue-color), 7%, 13%);
+                --scroll-bar-color: hsl(--hue-color, 12%, 48%);
+                --scroll-thumb-color: hsl(--hue-color, 12%, 36%)
+            }
+        }
+
+
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            font-size: var(--normal-font-size);
+            color: var(--text-color);
+        }
+
+        p,
+        ul,
+        blockquote {
+            line-height: 1.6rem;
+        }
+
+        .stop-scrolling {
+            overflow: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            color: var(--title-color);
+            font-weight: var(--font-semi-bold);
+        }
+
+        h1 {
+            font-size: var(--h1-font-size);
+        }
+
+        h2 {
+            font-size: var(--h2-font-size);
+        }
+
+        h3 {
+            font-size: var(--h3-font-size);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+        }
+
+        img,
+        svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .newsletter__container {
+            display: flex;
+            flex-direction: column;
+            gap: var(--mb-1-5);
+        }
+
+        .logobox {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo__graphic {
+            height: 3rem;
+            width: 3rem;
+            margin-right: var(--mb-0-25)
+        }
+
+        .logo__graphic__top {
+            fill: var(--first-color-lighter)
+        }
+
+        .logo__graphic__bottom {
+            fill: var(--first-color)
+        }
+
+        .logo__graphic__top--white,
+        .logo__graphic__bottom--white {
+            fill: #fff
+        }
+
+        .logo__text {
+            color: var(--title-color);
+            font-weight: var(--font-medium);
+            font-size: var(--normal-font-size);
+        }
+
+        .logo__text:hover {
+            color: var(--first-color)
+        }
+
+        /*==================== BUTTONS ====================*/
+        .button {
+            display: inline-block;
+            background-color: var(--first-color);
+            color: #fff;
+            padding: .95rem 1.125rem;
+            border-radius: var(--border-radius);
+            font-weight: var(--font-medium);
+            cursor: pointer;
+            width: fit-content;
+        }
+
+        .button--flex {
+            display: inline-flex;
+            align-items: center;
+            column-gap: var(--mb-0-5);
+            height: 100%;
+        }
+
+        .button:hover {
+            background-color: var(--first-color-alt);
+        }
+
+        .button__icon {
+            font-size: 1.125rem;
+            transition: .3s;
+        }
+
+        .button--white {
+            background-color: #fff;
+            color: var(--first-color);
+        }
+
+        .button--white:hover {
+            background-color: #fff;
+        }
+
+        .button--disabled {
+            background-color: var(--border-color);
+            color: var(--text-color-light);
+        }
+
+        .button--disabled:hover {
+            background-color: var(--border-color);
+            color: var(--text-color-light);
+        }
+
+        .button--small {
+            padding: .75rem 1rem;
+        }
+
+        .button--link {
+            padding: 0;
+            background-color: transparent;
+            color: var(--first-color);
+        }
+
+        .button--link:hover {
+            background-color: transparent;
+            color: var(--first-color-alt);
+        }
+
+        .footer__copyright {
+            font-size: var(--smaller-font-size);
+            color: var(--text-color-light);
+        }
+
+        @media screen and (max-width: 350px) {
+            .button {
+                padding: .75rem 1rem;
+            }
+
+            .button--small {
+                padding: .5rem .75rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="newsletter__container">
+        <a href="https://www.fabianwaller.de" class="logobox">
+            <svg class="logo__graphic" width="78" height="74" viewBox="0 0 78 74" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path class="logo__graphic__bottom br"
+                    d="M43.1746 30.0684L68.5683 47.8492V47.8492C58.7482 61.8738 39.4183 65.2822 25.3937 55.4621V55.4621L43.1746 30.0684Z" />
+                <path class="logo__graphic__bottom bl"
+                    d="M13.1066 46.8583C17.8582 40.0722 27.2114 38.423 33.9975 43.1747V43.1747L25.3938 55.462L13.1066 46.8583V46.8583Z" />
+                <path class="logo__graphic__top tl"
+                    d="M33.9973 43.1746L8.6036 25.3937V25.3937C18.4237 11.3691 37.7536 7.96074 51.7782 17.7808V17.7808L33.9973 43.1746Z" />
+                <path class="logo__graphic__top tr"
+                    d="M64.0656 26.3848C59.3139 33.1709 49.9607 34.8201 43.1746 30.0685V30.0685L51.7783 17.7812L64.0656 26.3848V26.3848Z" />
+            </svg>
+            <span class="logo__text">Fabian</span>
+
+        </a>
+
+
+        <h2>Verify your email address</h2>
+
+        Please confirm your newsletter subscription with the button below.
+        If you don't confirm, you won't receive any emails from me.
+
+
+        <a href="http://localhost:3000/newsletter/verify?code={{verificationCode}}" class="button button--flex ">Verify
+            email address</a>
+
+
+        <p class="footer__copyright">This link will expire in 1 day. If you did not make this request you can ignore
+            this email.
+            For questions please contact me at fabian.wallerr@gmail.com</p>
+
+
+    </div>
+
+</body>
+
+</html>
+
+<!-- <strong>Just one more thing to do:</strong>
+{{username}} will be added to the mailing list.
+ -->
+
+<!-- Thank you for subscribing to Pratham Prasoon's newsletter!
+
+You will receive updates straight to your inbox, but you can also check out the profile page for past and future issues.
+
+Hope you enjoy the content as much as I do making it.
+
+Stay awesome! -->
