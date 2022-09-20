@@ -48,7 +48,7 @@ const sendVerificationCodeToEmail = async (email, hashCode) => {
     const source = fs.readFileSync(filePath, 'utf-8').toString();
     const template = handlebars.compile(source);
     const replacements = {
-        verificationCode: hashCode
+        verificationLink: process.env.SERVER + '/newsletter/verify?code=' + hashCode
     };
     const htmlToSend = template(replacements);
 
