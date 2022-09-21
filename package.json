@@ -10,15 +10,19 @@
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build",
     "build:server": "cp -r ./src/server ./dist/",
-    "serve": "screen -L -d -m -S server node ./dist/server/server.js && echo 'server started'"
+    "serve": "screen -L -d -m -S server node ./dist/server/server.js && echo 'server started'",
+    "test": "mocha"
   },
   "proxy": "http://localhost:4000",
   "dependencies": {
+    "chai": "^4.3.6",
+    "chai-http": "^4.3.0",
     "concurrently": "^7.3.0",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "fs": "^0.0.1-security",
     "handlebars": "^4.7.7",
+    "mocha": "^10.0.0",
     "mongodb": "^4.9.1",
     "node-cache": "^5.1.2",
     "node-fetch": "^3.2.10",
@@ -29,11 +33,12 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "request": "^2.88.2",
+    "supertest": "^6.2.4",
     "url": "^0.11.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
-    "vite": "^2.8.0",
-    "sass": "^1.49.9"
+    "sass": "^1.49.9",
+    "vite": "^2.8.0"
   }
 }
