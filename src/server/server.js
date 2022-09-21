@@ -12,6 +12,9 @@ config();
 
 const prefix = 'BACKEND > ';
 
+//import router from './routes.js';
+//app.use(router);
+
 const app = express();
 const router = express.Router();
 
@@ -37,6 +40,11 @@ app.route('/api/newsletter/verify').post(handleNewsletterVerification());
 app.route("/cdn/:content").get(serveCdnContent());
 app.route("*").get(serveIndexHtml());
 
+app.route('/api/helloworld').get((req, res) => {
+    res.status(200);
+    return res.send('Hello World!');
+});
+
 // api/newsletter/verify?code=6434d86b16bb956ac463ef0786129488
 
 // handle 404 - keep as last route 
@@ -51,4 +59,4 @@ app.listen(port, () => {
     console.log(`SERVER > nodejs server started on port ${port}`);
 });
 
-export default app
+export default app;
