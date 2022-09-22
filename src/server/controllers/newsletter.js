@@ -7,7 +7,7 @@ import Cluster from './cluster.js';
 import { sendMail } from '../helpers/email.js'
 import handlebars from "handlebars";
 
-import { serveIndexHtml } from '../server.js';
+import { serveApp } from '../controllers/app.js';
 import { Server } from 'http';
 
 export const handleNewsletterSignup = () => async (req, res) => {
@@ -44,7 +44,7 @@ export const handleNewsletterSignup = () => async (req, res) => {
 }
 
 const sendVerificationCodeToEmail = async (email, hashCode) => {
-    const filePath = path.join(__dirname, 'template.html');
+    const filePath = path.join(__dirname, '../assets/template.html');
     const source = fs.readFileSync(filePath, 'utf-8').toString();
     const template = handlebars.compile(source);
     const replacements = {

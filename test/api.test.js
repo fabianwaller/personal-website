@@ -9,3 +9,10 @@ describe('GET /api/articles', () => {
     });
 
 });
+
+describe('GET /api/*', () => {
+    it('should return 404', async () => {
+        const res = await request(app).get('/api/dnfjvknasdd')
+        expect(res.status).to.equal(404)
+    })
+})
