@@ -46,4 +46,6 @@ class Cluster {
     }
 }
 
+// make a collection class with collection name parameter as constructor argument
+
 export default Cluster
