@@ -47,7 +47,7 @@ class App extends React.Component {
         let sectionId = current.getAttribute('id')
 
         if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          this.setIndexSection(sectionId);
+          this.setSection(sectionId);
         }
       })
     });
@@ -65,7 +65,6 @@ class App extends React.Component {
                 <Home />
                 <About />
                 <Journey />
-                <Contact />
               </main>
             } />
             <Route path="/blog" element={
