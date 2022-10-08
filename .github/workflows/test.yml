@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  test:
     runs-on: [self-hosted, test-runner]
 
     strategy:
@@ -31,11 +31,4 @@ jobs:
           echo installed all npm packages
           npm run build
           cp /home/ubuntu/.testenv /var/www/personal-website-test/_work/personal-website/personal-website
-
-  test:
-    runs-on: [self-hosted, test-runner]
-
-    steps:
-      - name: run tests
-        run: |
           npm run test
