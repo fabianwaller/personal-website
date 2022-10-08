@@ -37,5 +37,5 @@ jobs:
           npm i
           echo installed all npm packages
           npm run build
-          cp /home/ubuntu/.env /var/www/personal-website/_work/personal-website/personal-website/test
+          cp /home/ubuntu/.testenv /var/www/personal-website/_work/personal-website/personal-website/test
           npm run test
