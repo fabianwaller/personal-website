@@ -29,17 +29,9 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - name: cache dependencies
-
-        uses: actions/cache@v3.0.1
-        with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('package-lock.json') }}
-          restore-keys: npm-
       - name: install environment
         run: |
           npm i
           echo installed all npm packages
           npm run build
-          cp /home/ubuntu/.testenv /var/www/personal-website/_work/personal-website/personal-website/test
           npm run test
