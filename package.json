@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "client": "vite",
-    "server": "node ./src/server/server.js",
-    "dev": "concurrently \"nodemon ./src/server/server.js\" \"npm run client\"",
-    "build": "npm run build:client && npm run build:server",
+    "server": "nodemon ./src/server/server.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build:client": "vite build",
     "build:server": "cp -r ./src/server ./dist/",
+    "build": "npm run build:client && npm run build:server",
     "serve": "screen -L -d -m -S server node ./dist/server/server.js && echo 'server started'",
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --forceExit"
   },

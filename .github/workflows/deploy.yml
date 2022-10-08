@@ -45,7 +45,6 @@ jobs:
           screen -wipe
           echo installed all npm packages
           cp /home/ubuntu/.env /var/www/personal-website/_work/personal-website/personal-website
-          cp /home/ubuntu/.env.local /var/www/personal-website/_work/personal-website/personal-website
           npm run build
       - name: run server
         run: |

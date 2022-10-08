@@ -1,8 +1,12 @@
-# personal-website
+# Personal-Website
 
-![badge](https://github.com/fabianwaller/personal-website/actions/workflows/deploy.yml/badge.svg)
+## Test runner
 
 [![run tests](https://github.com/fabianwaller/personal-website/actions/workflows/test.yml/badge.svg?branch=dev)](https://github.com/fabianwaller/personal-website/actions/workflows/test.yml)
+
+## Deploy runner
+
+![badge](https://github.com/fabianwaller/personal-website/actions/workflows/deploy.yml/badge.svg)
 
 ## Setup
 
@@ -10,18 +14,15 @@
 # install dependencies
 $ npm install
 
-# start client server
-$ npm run client
-
-# start backend server
-$ npm run server
-
 # start fullstack dev server
 $ npm run dev
 
 # build for production
 $ npm run build
 
-# serves the build application
+# test application
+$ npm run test
+
+# serves the built application
 $ npm run serve
 ```
