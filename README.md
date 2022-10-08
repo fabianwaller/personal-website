@@ -8,6 +8,8 @@
 
 ![badge](https://github.com/fabianwaller/personal-website/actions/workflows/deploy.yml/badge.svg)
 
+[![run tests](https://github.com/fabianwaller/personal-website/actions/workflows/test.yml/badge.svg?branch=dev)](https://github.com/fabianwaller/personal-website/actions/workflows/test.yml)
+
 ## Setup
 
 ```bash
