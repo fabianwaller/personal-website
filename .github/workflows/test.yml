@@ -32,15 +32,10 @@ jobs:
           key: npm-${{ hashFiles('package-lock.json') }}
           restore-keys: npm-
       - name: install environment
+        working-directory: ./test
         run: |
           npm i
           echo installed all npm packages
           npm run build
-        env:
-          SERVER_PORT: ${{ secrets.SERVER_PORT }}
-          DB_URI: ${{ secrets.DB_URI }}
-          SERVER: ${{ secrets.SERVER }}
-          EMAIL: ${{ secrets.EMAIL }}
-          EMAILPASSWORD: ${{ secrets.EMAILPASSWORD }}
-          MAILLIST: ${{ secrets.MAILLIST }}
-      - run: npm run test
+          cp /home/ubuntu/.env /var/www/personal-website/_work/personal-website/personal-website/test
+          npm run test
