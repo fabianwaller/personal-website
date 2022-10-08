@@ -16,6 +16,10 @@ export const handleNewsletterSignup = () => async (req, res) => {
     const db = mongoClient.db('personal-website');
     const newsletter = db.collection('newsletter');
 
+    if (req.body.email == undefined) {
+        return res.status(400).send('email is undefined');
+    }
+
     let hashCode = appendIntToInt(hashFromString(req.body.email), hashFromString(new Date().getTime().toString()))
     const data = {
         email: req.body.email,
@@ -32,10 +36,14 @@ export const handleNewsletterSignup = () => async (req, res) => {
             return res.status(200).json('Successfully signed up. Please check your inbox to verify your email.');
         } else if (found.length > 0 && !found[0].verified) {
             await newsletter.updateOne({ 'email': data.email }, { $set: data });
-            sendVerificationCodeToEmail(data.email, data.verificationCode);
-            return res.status(200).json('Please check your inbox to verify your email.');
+            if (req.body.debug) {
+                return res.status(200).json(data.verificationCode);
+            } else {
+                sendVerificationCodeToEmail(data.email, data.verificationCode);
+                return res.status(200).json('Please check your inbox to verify your email.');
+            }
         } else if (found.length > 0 && found[0].verified) {
-            return res.status(200).json('Sorry. This email is already subscribed.');
+            return res.status(400).json('Sorry. This email is already subscribed.');
         }
     } finally {
         cluster.disconnect();
@@ -64,6 +72,9 @@ const sendVerificationCodeToEmail = async (email, hashCode) => {
 }
 
 export const handleNewsletterVerification = () => async (req, res) => {
+    if (req.body.code == undefined) {
+        return res.status(400).json('code is undefined');
+    }
     let cluster = new Cluster();
     let mongoClient = cluster.getMongoClient();
     try {
