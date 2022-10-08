@@ -48,7 +48,7 @@ class Header extends React.Component {
                             <NavItem link="/#about" active={this.props.activeItem == 'about'} icon="bx bx-user" name="About" click={this.toggleMenu} />
                             <NavItem link="/#journey" active={this.props.activeItem == 'journey'} icon="bx bx-rocket" name="Journey" click={this.toggleMenu} />
                             {/* <NavItem link="/#projects" active={this.props.activeItem == 'projects'} icon="bx bx-collection" name="Projects" click={this.toggleMenu}/> */}
-                            <NavItem link="/#contact" active={this.props.activeItem == 'contact'} icon="bx bx-message-square-detail" name="Contact" click={this.toggleMenu} />
+                            {/* <NavItem link="/#contact" active={this.props.activeItem == 'contact'} icon="bx bx-message-square-detail" name="Contact" click={this.toggleMenu} /> */}
                         </ul>
 
                         <ul className="nav__list nav__list__external grid">
