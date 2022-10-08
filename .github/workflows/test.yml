@@ -5,11 +5,14 @@ name: run tests
 
 on:
   push:
-    branches: ["dev"]
+    branches: [dev]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     strategy:
       matrix:
@@ -18,11 +21,20 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: setup nodejs ${{ matrix.node-version }}
         uses: actions/setup-node@v3
-      - name: Build
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: cache dependencies
+        uses: actions/cache@v3.0.1
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('package-lock.json') }}
+          restore-keys: npm-
+      - name: install environment
         run: |
           npm i
+          echo installed all npm packages
           npm run build
         env:
           SERVER_PORT: ${{ secrets.SERVER_PORT }}
