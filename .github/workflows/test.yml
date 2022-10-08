@@ -5,11 +5,14 @@ name: run tests
 
 on:
   push:
-    branches: ["dev"]
+    branches: [dev]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  test:
+    runs-on: [self-hosted, test-runner]
 
     strategy:
       matrix:
@@ -18,17 +21,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: setup nodejs ${{ matrix.node-version }}
         uses: actions/setup-node@v3
-      - name: Build
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: install environment
         run: |
           npm i
+          echo installed all npm packages
           npm run build
-        env:
-          SERVER_PORT: ${{ secrets.SERVER_PORT }}
-          DB_URI: ${{ secrets.DB_URI }}
-          SERVER: ${{ secrets.SERVER }}
-          EMAIL: ${{ secrets.EMAIL }}
-          EMAILPASSWORD: ${{ secrets.EMAILPASSWORD }}
-          MAILLIST: ${{ secrets.MAILLIST }}
-      - run: npm run test
+          cp /home/ubuntu/.testenv /var/www/personal-website-test/_work/personal-website/personal-website/.env
+          npm run test
