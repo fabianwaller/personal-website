@@ -5,14 +5,26 @@ config();
 class Cluster {
 
     mongoClient;
+    database;
+    contactCollection;
 
     constructor() {
         this.mongoClient = new MongoClient(process.env.DB_URI);
+        this.database = this.mongoClient.db('personal-website');
+        this.contactCollection = this.database.collection('contact');
         this.connect();
     }
 
     getMongoClient() {
         return this.mongoClient;
+    }
+
+    getDatabase() {
+        return this.database;
+    }
+
+    getContactCollection() {
+        return this.contactCollection;
     }
 
     async connect() {
@@ -22,27 +34,13 @@ class Cluster {
             console.log('Successfully connected to the cluster!');
         } catch (err) {
             console.log('Connection to MongoDB failed', err);
-            process.exit();
+            //process.exit();
         }
     }
 
     async disconnect() {
+        console.log('Disconnect cluster');
         await this.mongoClient.close();
-    }
-
-    async runClusterExample() {
-        let mongoClient;
-        try {
-            mongoClient = await connectCluster();
-            const db = mongoClient.db('personal-website');
-            const collection = db.collection('blog');
-
-            //await createArticle(collection);
-            //console.log(await getArticles(collection));
-
-        } finally {
-            await mongoClient.close();
-        }
     }
 }
 
