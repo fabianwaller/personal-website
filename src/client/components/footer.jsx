@@ -18,7 +18,6 @@ function Footer(props) {
                             <li><a href="/#about" className='footer__link'>About</a></li>
                             <li><a href="/#journey" className='footer__link'>Journey</a></li>
                             {/* <li><a href="/#projects" className='footer__link'>Projects</a></li>*/}
-                            <li><a href="/#contact" className='footer__link'>Contact</a></li>
                         </ul>
 
                         <ul className="footer__links">
@@ -29,6 +28,7 @@ function Footer(props) {
                     </div>
 
                     <div className="footer__socials">
+                        <a href="/contact" className="footer__social"><i className='bx bxs-envelope'></i></a>
                         <a href="https://github.com/fabianwaller" target="_blank" className="footer__social"><i className="bx bxl-github"></i></a>
                         <a href="https://twitter.com/fabianwallerr" target="_blank" className="footer__social"><i className="bx bxl-twitter"></i></a>
                         <a href="https://www.linkedin.com/in/fabian-waller-974840213/" target="_blank" className="footer__social"><i className="bx bxl-linkedin"></i></a>

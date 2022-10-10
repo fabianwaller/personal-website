@@ -67,6 +67,12 @@ class App extends React.Component {
                 <Journey />
               </main>
             } />
+            <Route path="/contact" element={
+              <div>
+                <Header scroll={1} />
+                <Contact />
+              </div>
+            } />
             <Route path="/blog" element={
               <div>
                 <Header activeItem={this.state.blogSection} scroll={1} />
