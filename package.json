@@ -11,7 +11,7 @@
     "build:server": "cp -r ./src/server ./dist/",
     "build": "npm run build:client && npm run build:server",
     "serve": "screen -L -d -m -S server node ./dist/server/server.js && echo 'server started'",
-    "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --forceExit"
+    "test": "DOTENV_CONFIG_PATH=.testenv cross-env NODE_OPTIONS=--experimental-vm-modules jest --setupFiles=dotenv/config --forceExit"
   },
   "proxy": "http://localhost:4000",
   "dependencies": {
