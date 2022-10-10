@@ -19,8 +19,8 @@ app.use(router);
 
 const port = process.env.SERVER_PORT || 4000;
 
-app.listen(port, () => {
+const server = app.listen(0, () => {
     console.log(prefix + `nodejs server started on port ${port}`);
 });
 
-export default app;
+export default server;
