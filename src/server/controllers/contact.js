@@ -2,37 +2,37 @@ import Cluster from './cluster.js';
 import { sendMail } from '../helpers/email.js'
 
 export const handleContact = () => async (req, res) => {
+    let cluster = new Cluster;
+    const collection = cluster.getContactCollection();
 
-    let mongoClient;
     try {
-        insertContact(mongoClient);
+        await saveAndSendContact(collection, req.body);
+    } catch (err) {
+        return res.status(400).json('Message not sent');
     } finally {
-        disconnectCluster(mongoClient);
+        cluster.disconnect();
     }
-
-    const mailOptions = {
-        from: req.body.email,
-        to: process.env.MAILLIST,
-        subject: `${req.body.subject}`,
-        text: `${req.body.email}: ${req.body.message}`
-    }
-
-    sendMail(mailOptions);
-
-    return res.json('Message sent');
+    return res.status(200).json('Message sent');
 }
 
-const insertContact = async (mongoClient) => {
-    mongoClient = await connectCluster();
-    const db = mongoClient.db('personal-website');
-    const contact = db.collection('contact');
-
+const saveAndSendContact = async (collection, body) => {
     const data = {
-        name: req.body.name,
-        email: req.body.email,
-        subject: req.body.subject,
-        message: req.body.message
+        name: body.name,
+        email: body.email,
+        message: body.message
+    };
+
+    if (data.name == null || data.email == null || data.message == null) {
+        throw new Error('Missing required contact fields');
     }
 
-    await contact.insertOne(data);
+    sendMail({
+        from: data.name,
+        to: process.env.MAILLIST,
+        subject: `web contact`,
+        text: `${data.email}: ${data.message}`
+    });
+
+    await collection.insertOne(data);
 }
+
