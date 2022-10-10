@@ -25,5 +25,6 @@ dist-ssr
 
 .env
 test.env
+*.env
 
 screenlog.*

@@ -19,7 +19,7 @@ app.use(router);
 
 const port = process.env.SERVER_PORT || 4000;
 
-const server = app.listen(0, () => {
+const server = app.listen(port, () => {
     console.log(prefix + `nodejs server started on port ${port}`);
 });
 
