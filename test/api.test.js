@@ -9,7 +9,6 @@ describe('GET /api/articles', () => {
     })
 })
 
-
 describe('GET /api/newsletter/signup without email', () => {
     it('should return 400 Bad Request', async () => {
         const res = await request(server).post('/api/newsletter/signup')
