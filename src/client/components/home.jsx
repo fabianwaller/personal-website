@@ -11,7 +11,7 @@ function Home() {
 
             <div className='home__container grid'>
 
-                <div className="home__img">
+                {/*                 <div className="home__img">
                     <svg preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" className='start__blob__svg'>
                         <defs>
                             <linearGradient id='gradient' x1='0%' y1='0%' x2='0%' y2='100%'>
@@ -65,17 +65,23 @@ function Home() {
                         </path>}
                         <image mask="url(#mask)" xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref={picture} width="800" height="800" x='-160' y='-135' />
                     </svg>
-                </div>
+                </div> */}
 
                 <div className="home__data container">
                     <h1 className="home__title">Fabian Waller</h1>
-                    <div>
-                        <p className="home__description">19 year old computer science student at Saarland University and football player.</p>
-                        <div className='home__buttons flex'>
-                            <Button text='Contact' href='#contact' />
-                            <Button text='Articles' href='/blog' link='true' iconr='bx bx-collection' />
+                    <p className="home__description">19 year old computer science student at Saarland University and football player.</p>
+                    <span className='flex'>Press
+                        <div className="flex">
+                            <i className='bx bx-command command__container'></i>
+                            <span className="command__container">K</span>
                         </div>
-                    </div>
+                        to start
+                        <i className='bx bx-right-arrow-alt'></i>
+                    </span>
+                    {/*                     <div className='home__buttons flex'>
+                        <Button text='Contact' href='#contact' />
+                        <Button text='Articles' href='/blog' link='true' iconr='bx bx-collection' />
+                    </div> */}
                 </div>
 
             </div>

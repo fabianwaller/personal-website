@@ -28,10 +28,19 @@ class Header extends React.Component {
         this.setState({ menu: visible });
     }
 
+
+    onKeyDown = (e) => {
+        if (e.metaKey == true && e.key === 'k') {
+            console.log('cmd + k')
+            this.toggleMenu();
+        }
+    }
+
     componentDidMount() {
         window.addEventListener('scroll', () => {
             this.setState({ headerScroll: (window.scrollY >= this.props.scroll) });
         });
+        document.addEventListener('keydown', this.onKeyDown, true);
     }
 
     render() {
