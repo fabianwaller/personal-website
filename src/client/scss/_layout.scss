@@ -50,7 +50,7 @@
 .card {
     background-color: var(--container-color);
     border-radius: var(--border-radius);
-    padding: 1rem;
+    padding: var(--mb-1) var(--mb-1-5);
     //margin-bottom: var(--mb-1-5);
     box-shadow: 0 2px 4px rgba(0, 0, 0, .05);
 }
@@ -80,7 +80,7 @@
 /*==================== LAYOUT ====================*/
 
 .container {
-    max-width: 969px;
+    max-width: 869px;
     margin: 0 var(--mb-1-5);
 }
 
