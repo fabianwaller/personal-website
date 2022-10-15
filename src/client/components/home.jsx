@@ -1,11 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+import ShortcutMenu from './shortcutMenu'
+
 import picture from '../assets/blob-img-new.png'
 
 import Button from './button'
 
-function Home() {
+const Home = () => {
     return (
         <section className='home' id='home'>
 
@@ -70,14 +72,8 @@ function Home() {
                 <div className="home__data container">
                     <h1 className="home__title">Fabian Waller</h1>
                     <p className="home__description">19 year old computer science student at Saarland University and football player.</p>
-                    <span className='flex'>Press
-                        <div className="flex">
-                            <i className='bx bx-command command__container'></i>
-                            <span className="command__container">K</span>
-                        </div>
-                        to start
-                        <i className='bx bx-right-arrow-alt'></i>
-                    </span>
+
+                    <ShortcutMenu />
                     {/*                     <div className='home__buttons flex'>
                         <Button text='Contact' href='#contact' />
                         <Button text='Articles' href='/blog' link='true' iconr='bx bx-collection' />

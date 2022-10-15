@@ -86,13 +86,13 @@
 
 .command__container {
     background-color: var(--container-color);
-    padding: 0.35rem;
-    height: 1.75rem;
-    width: 1.75rem;
+    padding: 0.25rem 0.45rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: var(--border-radius);
+    border-radius: .5rem;
+    align-self: stretch;
+    margin: 0 .075rem;
 }
 
 .home__buttons {
