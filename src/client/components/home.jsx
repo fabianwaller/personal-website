@@ -7,7 +7,7 @@ import Button from './button'
 
 function Home() {
     return (
-        <section className='home first__section' id='home'>
+        <section className='home' id='home'>
 
             <div className='home__container grid'>
 
