@@ -39,8 +39,10 @@ const Commands = (props) => {
 
     useEffect(() => {
         window.addEventListener('keydown', handleCommandsWindow);
+        window.addEventListener('click', handleCommandsWindowClick);
         return () => {
             window.removeEventListener("keydown", handleCommandsWindow)
+            window.removeEventListener('click', handleCommandsWindowClick);
         }
     }, []);
 
@@ -66,8 +68,16 @@ const Commands = (props) => {
         if (e.metaKey == true && e.key === 'k') {
             document.body.style.overflow = 'hidden';
             setCommandsActive(true);
+            return;
+        } else if (e.key == 'Escape') {
+            document.body.style.overflow = 'unset';
+            setCommandsActive(false);
         }
-        else if (e.key == 'Escape') {
+    }
+
+    const handleCommandsWindowClick = (e) => {
+        let escapeClick = e.target == document.getElementById('modalBackground')
+        if (escapeClick) {
             document.body.style.overflow = 'unset';
             setCommandsActive(false);
         }
@@ -96,7 +106,7 @@ const Commands = (props) => {
 
     return (
         <>
-            <div className={`modal__background ${hideClass}`}>
+            <div className={`modal__background ${hideClass}`} id='modalBackground'>
                 <div className="modal__container container grid">
                     <input type="text" ref={inputReference} id="search" name="search" value={search} onChange={(e) => setSearch(e.target.value)} className="search__input" placeholder="Search" />
 

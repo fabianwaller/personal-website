@@ -44,7 +44,7 @@
 .list {
     display: flex;
     flex-direction: column;
-    gap: 0;
+    gap: var(--mb-0-25);
 }
 
 .list__item {
