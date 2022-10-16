@@ -19,6 +19,8 @@ import Post from './components/blog/post'
 import Newsletter from './components/newsletter/newsletter';
 import NewsletterSubscriptionContainer from './components/newsletter/subscribe'
 
+import Commands from './components/commands';
+
 class App extends React.Component {
 
   constructor(props) {
@@ -51,18 +53,20 @@ class App extends React.Component {
         }
       })
     });
-
   }
 
   render() {
+    let commandModal = this.state.commands ? <Commands currentCommandIndex={this.state.currentCommand} /> : null;
+
     return (
       <div className='App' onKeyDown={this.onKeyDown}>
+        <Commands />
         <Router>
           <Routes>
             <Route path="/" element={
               <main className="main">
                 <Header activeItem={this.state.indexSection} scroll={310} />
-                <Home />
+                <Home activateCommandsModal={this.activateCommandsModal} />
                 <About />
                 <Journey />
               </main>

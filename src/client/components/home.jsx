@@ -7,7 +7,7 @@ import picture from '../assets/blob-img-new.png'
 
 import Button from './button'
 
-const Home = () => {
+const Home = (props) => {
     return (
         <section className='home' id='home'>
 

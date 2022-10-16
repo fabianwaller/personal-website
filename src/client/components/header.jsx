@@ -24,23 +24,14 @@ class Header extends React.Component {
     }
 
     toggleMenu = () => {
-        const visible = !this.state.menu;
-        this.setState({ menu: visible });
-    }
-
-
-    onKeyDown = (e) => {
-        if (e.metaKey == true && e.key === 'k') {
-            console.log('cmd + k')
-            this.toggleMenu();
-        }
+        const toggled = !this.state.menu;
+        this.setState({ menu: toggled });
     }
 
     componentDidMount() {
         window.addEventListener('scroll', () => {
             this.setState({ headerScroll: (window.scrollY >= this.props.scroll) });
         });
-        document.addEventListener('keydown', this.onKeyDown, true);
     }
 
     render() {
@@ -57,12 +48,10 @@ class Header extends React.Component {
                             <NavItem link="/#about" active={this.props.activeItem == 'about'} icon="bx bx-user" name="About" click={this.toggleMenu} />
                             <NavItem link="/#journey" active={this.props.activeItem == 'journey'} icon="bx bx-rocket" name="Journey" click={this.toggleMenu} />
                             {/* <NavItem link="/#projects" active={this.props.activeItem == 'projects'} icon="bx bx-collection" name="Projects" click={this.toggleMenu}/> */}
-                            {/* <NavItem link="/#contact" active={this.props.activeItem == 'contact'} icon="bx bx-message-square-detail" name="Contact" click={this.toggleMenu} /> */}
                         </ul>
 
                         <ul className="nav__list nav__list__external grid">
                             <NavItem link="/blog" active={this.props.activeItem == 'blog'} icon="bx bx-news" name="Blog" click={this.toggleMenu} />
-                            {/* <NavItem link="#tools" active={this.props.activeItem == 'tools'} icon="bx bx-category-alt" name="Tools" click={this.toggleMenu}/> */}
                         </ul>
 
                         <i className="bx bx-x nav__close" id="nav-close" onClick={this.toggleMenu}></i>

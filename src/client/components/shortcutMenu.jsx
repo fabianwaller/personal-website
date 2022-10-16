@@ -1,4 +1,4 @@
-const shortcutMenu = () => {
+const ShortcutMenu = () => {
 
     const isMac = /(Mac)/i.test(navigator.userAgent)
     const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent)
@@ -24,17 +24,16 @@ const shortcutMenu = () => {
         );
     }
 
-
-
-
     return (
-        <span className='flex'>
-            {action}
-            {hotkey}
-            to start
-            <i className='bx bx-right-arrow-alt'></i>
-        </span>
+        <>
+            <span className='flex'>
+                {action}
+                {hotkey}
+                to start
+                <i className='bx bx-right-arrow-alt'></i>
+            </span>
+        </>
     )
 }
 
-export default shortcutMenu
+export default ShortcutMenu
