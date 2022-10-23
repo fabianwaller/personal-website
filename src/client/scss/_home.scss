@@ -1,15 +1,8 @@
-.home__container {
-    height: calc(100vh - var(--header-height));
-    //background-color: #ff00ff;
-}
-
-
 .blob {
     position: relative;
     overflow: visible;
     //background-color: blue;
 }
-
 
 #stopo {
     stop-color: var(--first-color-lighter);

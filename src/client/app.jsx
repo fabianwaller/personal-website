@@ -120,7 +120,6 @@ class App extends React.Component {
               <div>
                 <Header activeItem='null' />
                 <PageNotFound />
-                <Footer />
               </div>} />
           </Routes>
         </Router>

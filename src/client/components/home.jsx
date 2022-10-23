@@ -12,7 +12,7 @@ const Home = (props) => {
     return (
         <section className='home' id='home'>
 
-            <div className='home__container container'>
+            <div className='container full-screen'>
 
                 <div className="blob">
 

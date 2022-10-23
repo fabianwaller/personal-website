@@ -22,6 +22,17 @@
     display: block;
 }
 
+.full-screen {
+    height: calc(100vh - var(--header-height));
+}
+
+.centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 
 /* ===== timeline ===== */
 
