@@ -65,7 +65,7 @@ class Journey extends React.Component {
             </div>
         }
         return (
-            <Section name='journey' title='My journey' subtitle='CV'>
+            <Section name='journey first__section' title='My journey' subtitle='CV'>
 
                 {journey__tabs}
 

@@ -9,7 +9,7 @@ function Footer(props) {
             <div className="footer__background">
                 <div className="footer__container container grid">
                     <div className="footer__logobox">
-                        <Logo type='white' />
+                        <Logo />
                     </div>
 
                     <div className="footer__linkbox">

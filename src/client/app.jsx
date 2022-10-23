@@ -19,6 +19,8 @@ import Post from './components/blog/post'
 import Newsletter from './components/newsletter/newsletter';
 import NewsletterSubscriptionContainer from './components/newsletter/subscribe'
 
+import Commands from './components/commands';
+
 class App extends React.Component {
 
   constructor(props) {
@@ -34,7 +36,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.scrollSectionsUpdateActiveLink();
+    //this.scrollSectionsUpdateActiveLink();
   }
 
   scrollSectionsUpdateActiveLink() {
@@ -51,38 +53,53 @@ class App extends React.Component {
         }
       })
     });
-
   }
 
   render() {
     return (
-      <div className='App'>
+      <div className='App' onKeyDown={this.onKeyDown}>
+        <Commands />
         <Router>
           <Routes>
             <Route path="/" element={
               <main className="main">
-                <Header activeItem={this.state.indexSection} scroll={310} />
-                <Home />
-                <About />
-                <Journey />
+                <Header activeItem='home' scroll={310} />
+                <Home activateCommandsModal={this.activateCommandsModal} />
               </main>
+            } />
+            <Route path="/about" element={
+              <div>
+                <Header activeItem='about' scroll={1} />
+                <About />
+                <Footer />
+              </div>
+            } />
+            <Route path="/journey" element={
+              <div>
+                <Header activeItem='journey' scroll={1} />
+                <Journey />
+                <Footer />
+              </div>
             } />
             <Route path="/contact" element={
               <div>
                 <Header scroll={1} />
                 <Contact />
+                <Footer />
               </div>
             } />
             <Route path="/blog" element={
               <div>
-                <Header activeItem={this.state.blogSection} scroll={1} />
+                <Header activeItem='blog' scroll={1} />
                 <Blog />
+                <Footer />
               </div>
             } />
             <Route exact path="/blog/:slug" element={
               <div>
-                <Header activeItem={this.state.blogSection} scroll={1} />
+                <Header activeItem='blog' scroll={1} />
                 <Post />
+                <Footer />
               </div>
             } />
             <Route path="/newsletter" element={
@@ -91,11 +108,13 @@ class App extends React.Component {
                 <section className='first__section container'>
                   <NewsletterSubscriptionContainer />
                 </section>
+                <Footer />
               </div>} />
             <Route path="/newsletter/verify" element={
               <div>
                 <Header activeItem='null' />
                 <Newsletter />
+                <Footer />
               </div>} />
             <Route path="/*" element={
               <div>
@@ -103,8 +122,6 @@ class App extends React.Component {
                 <PageNotFound />
               </div>} />
           </Routes>
-
-          <Footer />
         </Router>
       </div>
     )
