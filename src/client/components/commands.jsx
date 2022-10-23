@@ -8,7 +8,7 @@ const actions = [
         shortcut: ['h'],
         section: 'General',
         perform: 'goToLink',
-        link: '/#home',
+        link: '/',
         icon: 'contact'
     },
     {
@@ -17,7 +17,7 @@ const actions = [
         shortcut: ['a'],
         section: 'General',
         perform: 'goToLink',
-        link: '/#about',
+        link: '/about',
         icon: 'contact'
     },
     {
@@ -26,7 +26,7 @@ const actions = [
         shortcut: ['j'],
         section: 'General',
         perform: 'goToLink',
-        link: '/#journey',
+        link: '/journey',
         icon: 'contact'
     },
     {
@@ -116,11 +116,24 @@ const Commands = (props) => {
 
     const handleCommandRunning = (e) => {
         if (e.key == 'Enter') {
-            if (actions[currentCommand].perform == 'goToLink') {
-                goToLink(actions[currentCommand].link)
-            }
-            escapeCommands();
+            performAction(actions[currentCommand]);
         }
+    }
+
+    const handleCommandRunningClick = (e) => {
+        e.preventDefault();
+        actions.forEach(action => {
+            if (action.id == e.target.id) {
+                performAction(action);
+            }
+        })
+    }
+
+    const performAction = (action) => {
+        if (action.perform == 'goToLink') {
+            goToLink(action.link)
+        }
+        escapeCommands();
     }
 
     const goToLink = (link) => {
@@ -133,15 +146,15 @@ const Commands = (props) => {
         <>
             <div className={`modal__background ${hideClass}`} id='modalBackground'>
                 <div className="modal__container container grid">
-                    <input type="text" ref={inputReference} id="search" name="search" value={search} onChange={(e) => setSearch(e.target.value)} className="search__input" placeholder="Search" />
+                    <input type="text" ref={inputReference} id="search" name="search" value={search} onChange={(e) => setSearch(e.target.value)} className="search__input" autoComplete="off" placeholder="Search" />
 
                     <hr className='divider' />
 
                     <div className="list">
                         {actions.map(action => (
-                            <a key={action.id} className='list__item' id={action.id}>
+                            <div key={action.id} className='list__item' id={action.id} onClick={handleCommandRunningClick}>
                                 {action.name}
-                            </a>
+                            </div>
                         ))}
                     </div>
 
