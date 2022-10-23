@@ -44,9 +44,9 @@ class Header extends React.Component {
                         <div className="nav__shape"></div>
 
                         <ul className="nav__list grid">
-                            <NavItem link="/#home" active={this.props.activeItem == 'home'} icon="bx bx-home" name="Home" click={this.toggleMenu} />
-                            <NavItem link="/#about" active={this.props.activeItem == 'about'} icon="bx bx-user" name="About" click={this.toggleMenu} />
-                            <NavItem link="/#journey" active={this.props.activeItem == 'journey'} icon="bx bx-rocket" name="Journey" click={this.toggleMenu} />
+                            <NavItem link="/" active={this.props.activeItem == 'home'} icon="bx bx-home" name="Home" click={this.toggleMenu} />
+                            <NavItem link="/about" active={this.props.activeItem == 'about'} icon="bx bx-user" name="About" click={this.toggleMenu} />
+                            <NavItem link="/journey" active={this.props.activeItem == 'journey'} icon="bx bx-rocket" name="Journey" click={this.toggleMenu} />
                             {/* <NavItem link="/#projects" active={this.props.activeItem == 'projects'} icon="bx bx-collection" name="Projects" click={this.toggleMenu}/> */}
                         </ul>
 
