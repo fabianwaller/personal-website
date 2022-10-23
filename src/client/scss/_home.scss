@@ -1,59 +1,29 @@
 .home__container {
-    gap: var(--mb-1-5);
+    height: calc(100vh - var(--header-height));
+    //background-color: #ff00ff;
 }
 
-.home__img {
+
+.blob {
     position: relative;
-    width: 1rem;
-    height: 35vh;
     overflow: visible;
-    margin: 0 auto;
-    z-index: -1;
-    margin-bottom: var(--mb-3);
-    left: -1rem;
+    //background-color: blue;
 }
 
-/* .start__blob {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    overflow: visible;
-    z-index: -1;
-} */
-
-
-.start__blob__svg {
-    display: inline-block;
-    position: absolute;
-    transform: scale(.75);
-    overflow: visible;
-    top: -5rem;
-    left: -10.5rem;
-    z-index: -1;
-}
 
 #stopo {
-    //stop-color: rgb(254, 0, 242);
     stop-color: var(--first-color-lighter);
 }
 
 #stopb {
-    //stop-color: rgb(251, 2, 128);
     stop-color: var(--first-color);
 }
 
-.start__blob__svg:nth-child(1) {
+.blob__svg:nth-child(1) {
+    position: absolute;
+    z-index: -1;
     filter: blur(20px);
 }
-
-/*.container img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    -webkit-mask-image: url(#mask);
-    mask-image: url(#mask);
-  }*/
-
 
 .home__title {
     font-size: var(--big-font-size);
@@ -70,16 +40,16 @@
 }
 
 .home__data {
-    height: calc(100vh - var(--header-height));
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: var(--mb-1);
+    //background-color: green;
 }
 
 .home__description {
     position: relative;
-    width: 75%;
+    //width: 75%;
 }
 
 .command__container {
@@ -93,13 +63,10 @@
     margin: 0 .075rem;
 }
 
-.home__buttons {
-    gap: var(--mb-1-5);
-}
 
 // Extra Small devices (350px and down)
 @media screen and (max-width: 350px) {
-    .home__img {
+    /*     .home__img {
         height: 30vh;
     }
 
@@ -107,30 +74,30 @@
         transform: scale(.6);
         top: -3rem;
         left: -9rem;
-    }
+    } */
 }
 
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) and (orientation : landscape) {
-    .home__img {
+    /*     .home__img {
         height: 40vh;
-    }
+    } */
 
-    .start__blob__svg {
+    /*     .start__blob__svg {
         transform: scale(.6);
         top: -5rem;
         left: -9rem;
-    }
+    } */
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) {
-    .start__blob__svg {
+    /*     .start__blob__svg {
         transform: scale(1);
         top: -2rem;
         left: -15rem;
-    }
+    } */
 }
 
 // Large devices (desktops, 992px and up)
