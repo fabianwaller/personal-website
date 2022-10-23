@@ -3,84 +3,100 @@ import { render } from "react-dom"
 
 const actions = [
     {
-        id: 'contact',
-        name: 'Contact me',
-        shortcut: ['c'],
-        keywords: 'contact',
+        id: 'action-home',
+        name: 'Home',
+        shortcut: ['h'],
         section: 'General',
         perform: 'goToLink',
+        link: '/#home',
         icon: 'contact'
     },
     {
-        id: 'email',
-        name: 'Email me',
-        shortcut: ['c'],
-        keywords: 'contact',
+        id: 'action-about',
+        name: 'About',
+        shortcut: ['a'],
         section: 'General',
         perform: 'goToLink',
+        link: '/#about',
         icon: 'contact'
     },
     {
-        id: 'blog',
+        id: 'action-journey',
+        name: 'Journey',
+        shortcut: ['j'],
+        section: 'General',
+        perform: 'goToLink',
+        link: '/#journey',
+        icon: 'contact'
+    },
+    {
+        id: 'action-blog',
         name: 'Blog',
-        shortcut: ['c'],
-        keywords: 'contact',
+        shortcut: ['b'],
         section: 'General',
         perform: 'goToLink',
-        icon: 'contact'
+        link: '/blog',
+        icon: 'blog'
     }
 ]
 
 const Commands = (props) => {
-    const [commandsActive, setCommandsActive] = useState(false);
-    const [currentCommand, setCurrentCommand] = useState(0);
-    const inputReference = useRef(null);
-    const [search, setSearch] = useState('');
+    const [commandsActive, setCommandsActive] = useState(false)
+    const [currentCommand, setCurrentCommand] = useState(0)
+    const inputReference = useRef(null)
+    const [search, setSearch] = useState('')
 
     useEffect(() => {
-        window.addEventListener('keydown', handleCommandsWindow);
-        window.addEventListener('click', handleCommandsWindowClick);
+        window.addEventListener('keydown', handleCommandsKeyboardPress)
+        window.addEventListener('click', handleCommandsEscapeClick)
         return () => {
-            window.removeEventListener("keydown", handleCommandsWindow)
-            window.removeEventListener('click', handleCommandsWindowClick);
+            window.removeEventListener('keydown', handleCommandsKeyboardPress)
+            window.removeEventListener('click', handleCommandsEscapeClick)
         }
     }, []);
 
     useEffect(() => {
         if (commandsActive) {
-            inputReference.current.focus();
+            inputReference.current.focus()
         }
     }, [commandsActive])
 
     useEffect(() => {
         window.addEventListener('keydown', handleCommandSelection);
+        window.addEventListener('keydown', handleCommandRunning)
         actions.forEach(action => {
             document.getElementById(action.id).classList.remove('list__item--active');
         })
         document.getElementById(actions[currentCommand].id).classList.add('list__item--active');
         return () => {
-            window.removeEventListener("keydown", handleCommandSelection)
+            window.removeEventListener('keydown', handleCommandSelection)
+        }
+        return () => {
+            window.removeEventListener('keydown', handleCommandRunning)
         }
     }, [currentCommand])
 
 
-    const handleCommandsWindow = (e) => {
+    const handleCommandsKeyboardPress = (e) => {
         if (e.metaKey == true && e.key === 'k') {
             document.body.style.overflow = 'hidden';
             setCommandsActive(true);
             return;
         } else if (e.key == 'Escape') {
-            document.body.style.overflow = 'unset';
-            setCommandsActive(false);
+            escapeCommands();
         }
     }
 
-    const handleCommandsWindowClick = (e) => {
+    const handleCommandsEscapeClick = (e) => {
         let escapeClick = e.target == document.getElementById('modalBackground')
         if (escapeClick) {
-            document.body.style.overflow = 'unset';
-            setCommandsActive(false);
+            escapeCommands();
         }
+    }
+
+    const escapeCommands = () => {
+        document.body.style.overflow = 'unset';
+        setCommandsActive(false);
     }
 
     const handleCommandSelection = (e) => {
@@ -95,6 +111,15 @@ const Commands = (props) => {
             if (currentCommand > 0) {
                 setCurrentCommand(currentCommand - 1);
             }
+        }
+    }
+
+    const handleCommandRunning = (e) => {
+        if (e.key == 'Enter') {
+            if (actions[currentCommand].perform == 'goToLink') {
+                goToLink(actions[currentCommand].link)
+            }
+            escapeCommands();
         }
     }
 

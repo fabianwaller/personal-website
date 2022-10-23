@@ -50,6 +50,9 @@
 .list__item {
     padding: var(--mb-0-5);
     border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: var(--mb-0-5);
 }
 
 .list__item--active {

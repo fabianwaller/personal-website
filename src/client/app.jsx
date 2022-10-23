@@ -56,8 +56,6 @@ class App extends React.Component {
   }
 
   render() {
-    let commandModal = this.state.commands ? <Commands currentCommandIndex={this.state.currentCommand} /> : null;
-
     return (
       <div className='App' onKeyDown={this.onKeyDown}>
         <Commands />
