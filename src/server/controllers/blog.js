@@ -18,23 +18,29 @@ export const verifyCache = (req, res, next) => {
     }
 }
 
-export const getArticles = () => async (req, res) => {
+export const sendArticles = () => async (req, res) => {
+    let slug = req.query.slug;
+    if (slug == null) {
+        slug = 'all';
+    }
+    let data = await getArticles(slug)
+    return res.status(200).json(data);
+}
+
+export const getArticles = async (slug) => {
     let cluster = new Cluster();
     let mongoClient = cluster.getMongoClient();
     try {
         const db = mongoClient.db('personal-website');
         const collection = db.collection('blog');
-        let slug = req.query.slug;
         let data;
-        if (slug == null) {
-            slug = 'all';
+        if (slug == 'all') {
             data = await collection.find().toArray();
         } else {
-            slug = req.query.slug;
             data = await collection.find({ 'slug': slug }).toArray();
         }
         cache.set(slug, data);
-        return res.status(200).json(data);
+        return data;
     } finally {
         cluster.disconnect();
     }

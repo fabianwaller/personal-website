@@ -1,40 +1,70 @@
+import { getArticles } from "./blog.js";
+
 const actions = [
     {
         id: 'action-home',
         name: 'Home',
-        shortcut: ['h'],
         section: 'Link',
         perform: 'goToLink',
         link: '/',
-        icon: 'contact'
+        icon: 'bx bx-home'
     },
     {
         id: 'action-about',
         name: 'About',
-        shortcut: ['a'],
         section: 'Link',
         perform: 'goToLink',
         link: '/about',
-        icon: 'contact'
+        icon: 'bx bx-user'
     },
     {
         id: 'action-journey',
         name: 'Journey',
-        shortcut: ['j'],
         section: 'Link',
         perform: 'goToLink',
         link: '/journey',
-        icon: 'contact'
+        icon: 'bx bx-rocket'
     },
     {
         id: 'action-blog',
         name: 'Blog',
-        shortcut: ['b'],
         section: 'Link',
         perform: 'goToLink',
         link: '/blog',
-        icon: 'blog'
-    }
+        icon: 'bx bx-news'
+    },
+    {
+        id: 'action-contact',
+        name: 'Contact',
+        section: 'Link',
+        perform: 'goToLink',
+        link: '/contact',
+        icon: 'bx bxs-envelope'
+    },
+    {
+        id: 'action-github',
+        name: 'Github',
+        section: 'Link',
+        perform: 'goToLink',
+        link: 'https://github.com/fabianwaller',
+        icon: 'bx bxl-github'
+    },
+    {
+        id: 'action-twitter',
+        name: 'Twitter',
+        section: 'Link',
+        perform: 'goToLink',
+        link: 'https://twitter.com/fabianwallerr',
+        icon: 'bx bxl-twitter'
+    },
+    {
+        id: 'action-linkedin',
+        name: 'LinkedIn',
+        section: 'Link',
+        perform: 'goToLink',
+        link: 'https://www.linkedin.com/in/fabian-waller-974840213/',
+        icon: 'bx bxl-linkedin'
+    },
 ]
 
 export const getCommands = () => async (req, res) => {
