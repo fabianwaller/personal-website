@@ -1,50 +1,12 @@
 import { useEffect, useState, useRef } from "react"
 import { render } from "react-dom"
 
-const actions = [
-    {
-        id: 'action-home',
-        name: 'Home',
-        shortcut: ['h'],
-        section: 'General',
-        perform: 'goToLink',
-        link: '/',
-        icon: 'contact'
-    },
-    {
-        id: 'action-about',
-        name: 'About',
-        shortcut: ['a'],
-        section: 'General',
-        perform: 'goToLink',
-        link: '/about',
-        icon: 'contact'
-    },
-    {
-        id: 'action-journey',
-        name: 'Journey',
-        shortcut: ['j'],
-        section: 'General',
-        perform: 'goToLink',
-        link: '/journey',
-        icon: 'contact'
-    },
-    {
-        id: 'action-blog',
-        name: 'Blog',
-        shortcut: ['b'],
-        section: 'General',
-        perform: 'goToLink',
-        link: '/blog',
-        icon: 'blog'
-    }
-]
-
 const Commands = (props) => {
     const [commandsActive, setCommandsActive] = useState(false)
     const [currentCommand, setCurrentCommand] = useState(0)
     const inputReference = useRef(null)
     const [search, setSearch] = useState('')
+    const [actions, setActions] = useState([])
 
     useEffect(() => {
         window.addEventListener('keydown', handleCommandsKeyboardPress)
@@ -65,25 +27,33 @@ const Commands = (props) => {
     }, [commandsActive])
 
     useEffect(() => {
-        window.addEventListener('keydown', handleCommandSelection);
+        fetch(`/api/commands`)
+            .then((response) => response.json())
+            .then((data) => setActions(data))
+    }, [search])
+
+    useEffect(() => {
+        window.addEventListener('keydown', handleCommandSelection)
         window.addEventListener('keydown', handleCommandRunning)
-        actions.forEach(action => {
-            document.getElementById(action.id).classList.remove('list__item--active');
-        })
-        document.getElementById(actions[currentCommand].id).classList.add('list__item--active');
+        if (actions[currentCommand]) {
+            actions.forEach(action => {
+                document.getElementById(action.id).classList.remove('list__item--active');
+            })
+            document.getElementById(actions[currentCommand].id).classList.add('list__item--active');
+
+        }
         return () => {
             window.removeEventListener('keydown', handleCommandSelection)
         }
         return () => {
             window.removeEventListener('keydown', handleCommandRunning)
         }
-    }, [currentCommand])
+    }, [actions, currentCommand])
 
 
     const handleCommandsKeyboardPress = (e) => {
         if (e.metaKey == true && e.key === 'k') {
             document.body.style.overflow = 'hidden';
-            console.log('triggered')
             setCommandsActive(true);
             return;
         } else if (e.key == 'Escape') {
