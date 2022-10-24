@@ -1,3 +1,5 @@
+import Button from './button.jsx';
+
 const ShortcutMenu = () => {
 
     const isMac = /(Mac)/i.test(navigator.userAgent)
@@ -24,9 +26,13 @@ const ShortcutMenu = () => {
         );
     }
 
+    const dispatchHotkey = () => {
+        window.dispatchEvent(new KeyboardEvent('keydown', { 'metaKey': 'true', 'key': 'k' }));
+    }
+
     return (
         <>
-            <span className='flex'>
+            <span className='button button--flex button--link' link='true' onClick={dispatchHotkey}>
                 {action}
                 {hotkey}
                 to start

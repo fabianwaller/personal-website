@@ -48,16 +48,19 @@ const Commands = (props) => {
 
     useEffect(() => {
         window.addEventListener('keydown', handleCommandsKeyboardPress)
-        window.addEventListener('click', handleCommandsEscapeClick)
         return () => {
             window.removeEventListener('keydown', handleCommandsKeyboardPress)
-            window.removeEventListener('click', handleCommandsEscapeClick)
         }
     }, []);
 
     useEffect(() => {
         if (commandsActive) {
             inputReference.current.focus()
+            window.addEventListener('click', handleCommandsEscapeClick)
+            return () => {
+                window.removeEventListener('keydown', handleCommandsKeyboardPress)
+                window.removeEventListener('click', handleCommandsEscapeClick)
+            }
         }
     }, [commandsActive])
 
@@ -80,6 +83,7 @@ const Commands = (props) => {
     const handleCommandsKeyboardPress = (e) => {
         if (e.metaKey == true && e.key === 'k') {
             document.body.style.overflow = 'hidden';
+            console.log('triggered')
             setCommandsActive(true);
             return;
         } else if (e.key == 'Escape') {
