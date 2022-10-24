@@ -4,12 +4,11 @@
 }
 
 .footer__background {
-    background-color: var(--first-color-second);
+    //background-color: var(--first-color);
+    //background-image: -webkit-linear-gradient(270deg, var(--first-color), var(--accent-purple));
     padding: 2rem 0 3rem 0;
+    border-top: 1px solid var(--border-color);
     border-radius: var(--mb-1) var(--mb-1) 0 0;
-
-    background-color: var(--first-color);
-    background-image: -webkit-linear-gradient(0deg, var(--first-color), var(--accent-purple));
 }
 
 .footer__container {
@@ -18,8 +17,6 @@
 
 .footer__container div .logobox .logo__text {
     display: block;
-    //font-size: var(--h1-font-size);
-    //font-weight: var(--font-semi-bold);
 }
 
 .footer__linkbox {
@@ -53,12 +50,6 @@
     color: var(--text-color-light);
 }
 
-.footer__container div .logobox .logo__text,
-.footer__links__tab,
-.footer__link,
-.footer__social {
-    color: #fff;
-}
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {}

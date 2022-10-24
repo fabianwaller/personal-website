@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     z-index: 100;
-    transition: .3s;
+    // transition: .3s;
 }
 
 .header--scroll {
@@ -13,7 +13,6 @@
 }
 
 .nav {
-    max-width: 969px;
     height: var(--header-height);
     display: flex;
     justify-content: space-between;
@@ -137,12 +136,13 @@
 .nav__close {
     position: absolute;
     right: var(--mb-1-5);
-    top: var(--mb-1-5);
+    top: var(--mb-2);
 }
 
 .nav__close,
 .nav__toggle {
     font-size: 1.75rem;
+    line-height: 0;
     cursor: pointer;
     color: var(--text-color);
 }
