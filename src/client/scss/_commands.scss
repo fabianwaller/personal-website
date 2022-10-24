@@ -52,7 +52,14 @@
     border-radius: var(--border-radius);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: var(--mb-0-5);
+}
+
+.list__section {
+    padding: 0 var(--mb-0-5);
+    color: var(--text-color-light);
+    font-size: var(--small-font-size);
 }
 
 .list__item--active {

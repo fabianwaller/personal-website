@@ -27,7 +27,7 @@ const Commands = (props) => {
     }, [commandsActive])
 
     useEffect(() => {
-        fetch(`/api/commands`)
+        fetch(`/api/commands?search=${search}`)
             .then((response) => response.json())
             .then((data) => setActions(data))
     }, [search])
@@ -116,6 +116,12 @@ const Commands = (props) => {
 
     let hideClass = commandsActive ? '' : 'modal__background--hide';
 
+    let items = actions.map(action => (
+        <div key={action.id} className='list__item' id={action.id} onClick={handleCommandRunningClick}>
+            {action.name}
+        </div>
+    ))
+
     return (
         <>
             <div className={`modal__background ${hideClass}`} id='modalBackground'>
@@ -125,11 +131,7 @@ const Commands = (props) => {
                     <hr className='divider' />
 
                     <div className="list">
-                        {actions.map(action => (
-                            <div key={action.id} className='list__item' id={action.id} onClick={handleCommandRunningClick}>
-                                {action.name}
-                            </div>
-                        ))}
+                        {items}
                     </div>
 
 

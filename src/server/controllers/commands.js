@@ -3,7 +3,7 @@ const actions = [
         id: 'action-home',
         name: 'Home',
         shortcut: ['h'],
-        section: 'General',
+        section: 'Link',
         perform: 'goToLink',
         link: '/',
         icon: 'contact'
@@ -12,7 +12,7 @@ const actions = [
         id: 'action-about',
         name: 'About',
         shortcut: ['a'],
-        section: 'General',
+        section: 'Link',
         perform: 'goToLink',
         link: '/about',
         icon: 'contact'
@@ -21,7 +21,7 @@ const actions = [
         id: 'action-journey',
         name: 'Journey',
         shortcut: ['j'],
-        section: 'General',
+        section: 'Link',
         perform: 'goToLink',
         link: '/journey',
         icon: 'contact'
@@ -30,7 +30,7 @@ const actions = [
         id: 'action-blog',
         name: 'Blog',
         shortcut: ['b'],
-        section: 'General',
+        section: 'Link',
         perform: 'goToLink',
         link: '/blog',
         icon: 'blog'
@@ -38,6 +38,18 @@ const actions = [
 ]
 
 export const getCommands = () => async (req, res) => {
-    console.log('getCommands');
-    return res.status(200).json(actions);
+    let filteredActions = [];
+    let search = req.query.search;
+    if (search == '') {
+        filteredActions = actions;
+    } else {
+        filteredActions = actions.filter(action => action.name.toLowerCase().includes(search.toLowerCase()));
+    }
+
+    filteredActions.sort((a, b) => {
+        if (a.section < b.section) { return -1; }
+        if (a.section > b.section) { return 1; }
+        return 0;
+    });
+    return res.status(200).json(filteredActions);
 }
