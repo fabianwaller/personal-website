@@ -121,13 +121,6 @@ const Commands = (props) => {
 
     let hideClass = commandsActive ? '' : 'modal__background--hide';
 
-    let items = actions.map(action => (
-        <div key={action.id} className='list__item' id={action.id} onClick={handleCommandRunningClick}>
-            <i className={action.icon}></i>
-            {action.name}
-        </div>
-    ))
-
     return (
         <>
             <div className={`modal__background ${hideClass}`} id='modalBackground'>
@@ -137,7 +130,12 @@ const Commands = (props) => {
                     <hr className='divider' />
 
                     <div className="list">
-                        {items}
+                        {actions.map(action => (
+                            <div key={action.id} className='list__item' id={action.id} onClick={handleCommandRunningClick}>
+                                <i className={action.icon}></i>
+                                {action.name}
+                            </div>
+                        ))}
                     </div>
 
 
