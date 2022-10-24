@@ -8,6 +8,8 @@ const Commands = (props) => {
     const [search, setSearch] = useState('')
     const [actions, setActions] = useState([])
 
+    const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent)
+
     useEffect(() => {
         window.addEventListener('keydown', handleCommandsKeyboardPress)
         return () => {
@@ -17,7 +19,9 @@ const Commands = (props) => {
 
     useEffect(() => {
         if (commandsActive) {
-            inputReference.current.focus()
+            if (!isMobile) {
+                inputReference.current.focus()
+            }
             window.addEventListener('click', handleCommandsEscapeClick)
             return () => {
                 window.removeEventListener('keydown', handleCommandsKeyboardPress)
@@ -30,6 +34,7 @@ const Commands = (props) => {
         fetch(`/api/commands?search=${search}`)
             .then((response) => response.json())
             .then((data) => setActions(data))
+        setCurrentCommand(0)
     }, [search])
 
     useEffect(() => {
@@ -118,6 +123,7 @@ const Commands = (props) => {
 
     let items = actions.map(action => (
         <div key={action.id} className='list__item' id={action.id} onClick={handleCommandRunningClick}>
+            <i className={action.icon}></i>
             {action.name}
         </div>
     ))

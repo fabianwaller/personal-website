@@ -24,6 +24,7 @@ class Header extends React.Component {
     }
 
     toggleMenu = () => {
+        window.dispatchEvent(new KeyboardEvent('keydown', { 'key': 'Escape' }));
         const toggled = !this.state.menu;
         this.setState({ menu: toggled });
     }
