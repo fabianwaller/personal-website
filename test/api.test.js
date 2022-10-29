@@ -47,10 +47,3 @@ describe('GET /api/*', () => {
         expect(res.status).to.equal(404)
     })
 })
-
-describe('GET /cdn/:content', () => {
-    it('should return 200 OK and a pdf file', async () => {
-        const res = await request(server).get('/cdn/cv.pdf')
-        expect(res.status).to.equal(200)
-    })
-})
