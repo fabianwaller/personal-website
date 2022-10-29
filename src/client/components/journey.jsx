@@ -9,6 +9,11 @@ function JourneyData(props) {
     if (props.last != 'true') {
         line = <span className="timeline__line"></span>
     }
+
+    let time;
+    if (props.time) {
+        time = <div className="flex">{props.time}</div>
+    }
     return (
         <div className="journey__data">
             <div className="journey__timeline timeline">
@@ -17,9 +22,11 @@ function JourneyData(props) {
             </div>
 
             <div className="journey__databox card">
-                <h3 className="card__title">{props.title}</h3>
-                <span className="card__subtitle">{props.subtitle}</span>
-                <div className="flex">{props.time}</div>
+                <div>
+                    <h3 className="card__title">{props.title}</h3>
+                    <span className="card__subtitle">{props.subtitle}</span>
+                </div>
+                {time}
             </div>
         </div>
     );
@@ -61,7 +68,7 @@ class Journey extends React.Component {
             </div>;
 
             journey__data = <div>
-                <JourneyData title='Web Development' subtitle='HTML, CSS, JS, REACT' time='2020-2022' last='true' />
+                <JourneyData title='Web Development' subtitle='ReactJS, NodeJS, CSS' last='true' />
             </div>
         }
         return (
@@ -70,10 +77,6 @@ class Journey extends React.Component {
                 {journey__tabs}
 
                 {journey__data}
-
-                <div className="journey__download">
-                    <Button text='Download CV' href='/cdn/cv.pdf' iconr='bx bx-download' disabled='false' />
-                </div>
 
             </Section>
         );
