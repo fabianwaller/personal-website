@@ -10,6 +10,8 @@
 
 .journey__databox {
     margin-bottom: var(--mb-1-5);
+    display: grid;
+    gap: var(--mb-0-25);
 }
 
 .journey__data {
