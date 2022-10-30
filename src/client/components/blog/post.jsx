@@ -8,39 +8,23 @@ import formatDate from "../../helpers/formatdate"
 function Post(props) {
   let { slug } = useParams();
 
-  const [article, setArticle] = useState(
-    {
-      title: "",
-      categorie: "",
-      text: "",
-      created_time: "",
-      imageurl: null
-    }
-  );
+  const [article, setArticle] = useState({});
 
   useEffect(() => {
 
     fetch(`/api/articles?slug=${slug}`)
       .then((response) => response.json())
-      //.then((data) => console.log(data))
       .then((data) => setArticle(data[0]))
 
   }, []);
 
   useEffect(() => {
     const mount = document.getElementById('article-content');
-    if (mount) mount.innerHTML = article.content;
+    if (mount) mount.innerHTML = article.html;
     document.title = "fabianwaller.de - " + article.title;
   }, [article]);
 
   let image = null
-  let categorie = null;
-
-  if (article.categorie != "") {
-    categorie = <div className="article__tags flex">
-      <span className='article__tag keyword'>{article.categorie}</span>
-    </div>
-  }
 
   /*   if(article.imageurl != null) {
       image = <img className="article__img--large" src={`https://www.fabianwaller.de/cdn/${article.imageurl}`} alt="" />
@@ -55,16 +39,13 @@ function Post(props) {
 
         {image}
 
-        <p className='article__text'>{article.text}</p>
-
-        {categorie}
+        <p className='article__text'>{article.description}</p>
 
         <div className="article__content" id='article-content'></div>
 
         <span className="project__info flex">
-          article published on {formatDate(new Date(article.date))}
+          article published on {formatDate(new Date(article.createdAt))}
         </span>
-
 
       </div>
 

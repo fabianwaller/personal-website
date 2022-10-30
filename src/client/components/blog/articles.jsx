@@ -27,7 +27,7 @@ function ArticleBoxes({ articles }) {
 
                         <div>
                             <h3 className="article__title">{article.title}</h3>
-                            <p className='article__text'>{article.text}</p>
+                            <p className='article__text'>{article.description}</p>
                         </div>
 
                         {/* <Button classname="article__link" text="read article" disabled='true' href="" iconr='bx bx-right-arrow-alt' link='true' /> */}
@@ -35,7 +35,7 @@ function ArticleBoxes({ articles }) {
 
 
                     <span className="article__data flex">
-                        {formatDate(new Date(article.date))}
+                        {formatDate(new Date(article.createdAt))}
                     </span>
 
                 </Link>

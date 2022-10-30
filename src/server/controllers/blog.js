@@ -1,5 +1,7 @@
 import Cluster from './cluster.js';
 import NodeCache from 'node-cache';
+import Article from '../models/article.js';
+import mongoose from 'mongoose';
 
 const cache = new NodeCache({ stdTTL: 300 });
 
@@ -28,36 +30,39 @@ export const sendArticles = () => async (req, res) => {
 }
 
 export const getArticles = async (slug) => {
-    let cluster = new Cluster();
-    let mongoClient = cluster.getMongoClient();
-    try {
-        const db = mongoClient.db('personal-website');
-        const collection = db.collection('blog');
-        let data;
-        if (slug == 'all') {
-            data = await collection.find().toArray();
-        } else {
-            data = await collection.find({ 'slug': slug }).toArray();
-        }
-        cache.set(slug, data);
-        return data;
-    } finally {
-        cluster.disconnect();
+    mongoose.connect(process.env.DB_URI + "/personal-website",
+        { useNewUrlParser: true, useUnifiedTopology: true }
+    );
+
+    let data;
+    if (slug == 'all') {
+        data = await Article.find({});
+    } else {
+        data = await Article.find({ 'slug': slug });
     }
+    cache.set(slug, data);
+    return data;
+
 }
 
-export async function createArticle(collection) {
-    const data = {
-        title: 'Momo',
-        slug: 'momo',
-        categorie: '',
-        imageurl: '',
-        date: new Date(),
-        text: "",
-        content: ``
+export const createArticle = () => async (req, res) => {
+    mongoose.connect(process.env.DB_URI + "/personal-website",
+        { useNewUrlParser: true, useUnifiedTopology: true }
+    );
+
+    let article = new Article(req.body);
+
+    let validationError = article.validateSync();
+
+    if (validationError) {
+        return res.status(400).json(validationError);
     }
 
-    await collection.insertOne(data);
+    let savingError = await article.save();
 
-    console.log("created article");
+    if (savingError) {
+        return res.status(400).json(savingError);
+    }
+
+    return res.status(200).json("created article");
 }

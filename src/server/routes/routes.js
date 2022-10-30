@@ -10,6 +10,9 @@ import { serveCdnContent } from '../controllers/cdn.js';
 const router = express.Router();
 
 router.route('/api/articles').get(verifyCache, sendArticles());
+router.route('/api/articles').post(createArticle());
+
+
 router.route('/api/contact').post(handleContact());
 router.route('/api/commands').get(getCommands());
 
