@@ -68,11 +68,9 @@ const actions = [
 ]
 
 export const getCommands = () => async (req, res) => {
-    let filteredActions = [];
+    let filteredActions = actions;
     let search = req.query.search;
-    if (search == '') {
-        filteredActions = actions;
-    } else {
+    if (search != '') {
         filteredActions = actions.filter(action => action.name.toLowerCase().includes(search.toLowerCase()));
     }
 
@@ -81,5 +79,6 @@ export const getCommands = () => async (req, res) => {
         if (a.section > b.section) { return 1; }
         return 0;
     });
+
     return res.status(200).json(filteredActions);
 }

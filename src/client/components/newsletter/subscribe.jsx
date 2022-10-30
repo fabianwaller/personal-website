@@ -56,7 +56,7 @@ const NewsletterSubscriptionContainer = (props) => {
 
     return (
         <div className="article__box newsletter__box">
-            <h3 className='linear__gradient linear__gradient-2'>Enter your email address<br />and get notifications</h3>
+            <h3>Enter your email address<br />and get notifications</h3>
             <span className='section__subtitle'>Your email is never shared and will be immediately deleted when you unsubscribe</span>
 
             <div className="form__content flex">
