@@ -1,4 +1,4 @@
-import { getArticles } from "./blog.js";
+import { findArticles } from "./blog.js";
 
 const actions = [
     {
