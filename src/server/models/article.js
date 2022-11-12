@@ -21,10 +21,12 @@ const articleSchema = new mongoose.Schema({
         default: Date.now
     },
     description: {
-        type: String
+        type: String,
+        required: [true, 'Description is required'],
     },
     markdown: {
-        type: String
+        type: String,
+        required: [true, 'Markdown is required'],
     },
     html: {
         type: String

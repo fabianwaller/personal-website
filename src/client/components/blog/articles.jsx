@@ -78,40 +78,10 @@ function TweetBoxes({ tweets }) {
     );
 }
 
-function Articles(props) {
+const Articles = (props) => {
     const [articleUrl, setArticleUrl] = useState("/api/articles");
     const [articles, setArticles] = useState(null);
     const [tweets, setTweets] = useState(null);
-
-    useEffect(() => {
-        let searchUrl = "/api/articles"
-
-        /*         let url = "?categorie="
-                let filterActive = false;
-                for (let key in props.categories) {
-                    if (props.categories[key]) {
-                        filterActive = true;
-                        url += "'" + key + "',";
-                    };
-                }
-                url = url.slice(0, -1);
-                if (filterActive) {
-                    searchUrl += url
-                    url = "&title="
-                } else {
-                    url = "?title="
-                }
-        
-                if (props.title != "") {
-                    url += props.title
-                    searchUrl += url;
-                } */
-
-        setArticleUrl(searchUrl);
-
-        //console.log(searchUrl);
-
-    }, [props]);
 
     useEffect(() => {
 
@@ -121,10 +91,10 @@ function Articles(props) {
             const data = await res.json();
 
             function compare(a, b) {
-                if (new Date(a.date) < new Date(b.date)) {
+                if (new Date(a.createdAt) < new Date(b.createdAt)) {
                     return 1;
                 }
-                if (new Date(a.date) > new Date(b.date)) {
+                if (new Date(a.createdAt) > new Date(b.createdAt)) {
                     return -1;
                 }
                 return 0;
