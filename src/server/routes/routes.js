@@ -1,5 +1,5 @@
 import express from 'express';
-import { createArticle, sendArticles, verifyCache } from '../controllers/blog.js';
+import { createArticle, getArticles, verifyCache } from '../controllers/blog.js';
 import { handleContact } from '../controllers/contact.js';
 import { getCommands } from '../controllers/commands.js';
 import { handle404PageNotFound } from '../controllers/errors.js';
@@ -9,7 +9,10 @@ import { serveCdnContent } from '../controllers/cdn.js';
 
 const router = express.Router();
 
-router.route('/api/articles').get(verifyCache, sendArticles());
+router.route('/api/articles').get(verifyCache, getArticles());
+router.route('/api/articles').post(createArticle());
+
+
 router.route('/api/contact').post(handleContact());
 router.route('/api/commands').get(getCommands());
 
