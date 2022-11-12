@@ -52,19 +52,10 @@ export const findArticles = async (slug) => {
 }
 
 export const createArticle = () => async (req, res) => {
-    console.log(req.headers);
     mongoose.connect(process.env.DB_URI + "/personal-website",
         { useNewUrlParser: true, useUnifiedTopology: true }
     );
 
-    let data = await fs.readFile(__dirname + '/../../../articles/momo.md', 'utf8', (err, data) => {
-        if (err) {
-            console.error(err)
-            return
-        }
-        console.log(data);
-        return data;
-    });
 
     //let article = new Article(req.body);
 

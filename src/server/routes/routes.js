@@ -7,11 +7,12 @@ import { handleNewsletterSignup, handleNewsletterVerification } from '../control
 import { serveApp } from '../controllers/app.js';
 import { serveCdnContent } from '../controllers/cdn.js';
 
+import { authenticate } from '../controllers/auth.js'
+
 const router = express.Router();
 
 router.route('/api/articles').get(verifyCache, getArticles());
-router.route('/api/articles').post(createArticle());
-
+router.route('/api/articles').post(authenticate, createArticle());
 
 router.route('/api/contact').post(handleContact());
 router.route('/api/commands').get(getCommands());
