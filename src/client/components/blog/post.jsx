@@ -12,9 +12,14 @@ function Post(props) {
 
   useEffect(() => {
 
-    fetch(`/api/articles?slug=${slug}`)
-      .then((response) => response.json())
-      .then((data) => setArticle(data[0]))
+    getData();
+    async function getData() {
+      let data = await (await fetch(`/api/articles?slug=${slug}`)).json()
+      if (data.length == 0) {
+        window.location.href = "/404"
+      }
+      setArticle(data[0])
+    }
 
   }, []);
 

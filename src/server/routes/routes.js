@@ -7,7 +7,7 @@ import { handleNewsletterSignup, handleNewsletterVerification } from '../control
 import { serveApp } from '../controllers/app.js';
 import { serveCdnContent } from '../controllers/cdn.js';
 
-import { authenticate } from '../controllers/auth.js'
+import authenticate from '../helpers/auth.js'
 
 const router = express.Router();
 
