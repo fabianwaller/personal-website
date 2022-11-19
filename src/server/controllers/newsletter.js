@@ -77,16 +77,16 @@ export const handleNewsletterVerification = () => async (req, res) => {
         let found = await newsletter.find({ 'code': code }).toArray();
 
         if (found.length != 1) {
-            return res.status(200).json('your verification code is invalid');
+            return res.status(200).json('Sorry. Your verification code is invalid');
         }
         if (found[0].verified) {
-            return res.status(200).json('your are already verified');
-        }
-        let expirationTimestamp = addDaysToTimestamp(found[0].signupDate.getTime(), 1);
-        let registrationTimestamp = new Date().getTime();
-        let expired = registrationTimestamp >= expirationTimestamp;
-        if (expired) {
-            return res.status(200).json('your verification link is expired');
+            let expirationTimestamp = addDaysToTimestamp(found[0].signupDate.getTime(), 1);
+            let registrationTimestamp = new Date().getTime();
+            let expired = registrationTimestamp >= expirationTimestamp;
+            if (expired) {
+                return res.status(200).json('Sorry. Your verification link is expired');
+            }
+            return res.status(200).json('Sorry. You are already verified');
         }
         await newsletter.updateOne({ 'code': code }, { $set: { 'verified': true } });
         return res.status(200).json('Successfully verified your email address. You now get new notifications directly in your inbox.');
@@ -100,11 +100,11 @@ export const handleNewsletterVerification = () => async (req, res) => {
 export const sendNewsletter = async (article) => {
     try {
         const cluster = new Cluster();
-        const newsletter = cluster.getCollection(Collect.newsletter);
+        const newsletter = cluster.getCollection(Collection.newsletter);
         let subscribers = await newsletter.find({ 'verified': true }).toArray();
         subscribers.forEach((subscriber) => {
             let id = subscriber._id;
-            let footer = '<br><a href="http://localhost:3000/newsletter/unsubscribe?id=' + id + '" style="margin: 0 auto; text-decoration: none;">unsubscribe</a>';
+            let footer = '<br><a href="' + process.env.CLIENT + '/newsletter/unsubscribe?id=' + id + '" style="margin: 0 auto; text-decoration: none;">unsubscribe</a>';
             const mailOptions = {
                 from: process.env.EMAIL,
                 to: subscriber.email,
@@ -128,16 +128,13 @@ export const handleNewsletterUnsubscription = () => async (req, res) => {
     const cluster = new Cluster();
     const newsletter = cluster.getCollection(Collection.newsletter);
     try {
-        let result = await newsletter.deleteOne({ '_id': ObjectId(id) });
+        let result = await newsletter.deleteOne({ '_id': new ObjectId(id) });
         if (result.deletedCount == 0) {
             return res.status(200).json(invalidLinkMsg);
         }
         return res.status(200).json('Successfully unsubscribed from newsletter');
-    } catch (e) {
-        console.log(e)
+    } catch (err) {
         return res.status(200).json('unsubscription failed');
-    } finally {
-        cluster.disconnect();
     }
 }
 

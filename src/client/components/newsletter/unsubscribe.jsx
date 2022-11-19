@@ -6,10 +6,13 @@ import { useLocation } from "react-router-dom";
 export const Unsubscribe = (props) => {
 
     const [state, setState] = useState('sending request...');
-
-    const query = new URLSearchParams(useLocation().search);
+    const [query, setQuery] = useState(new URLSearchParams(useLocation().search));
 
     const makePostRequest = async () => {
+        const id = query.get("id");
+        if (id == null) {
+            return window.location.href = "/newsletter";
+        }
         try {
             let reqOptions = {
                 method: 'POST',
@@ -17,7 +20,7 @@ export const Unsubscribe = (props) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    id: query.get("id")
+                    id: id
                 }),
                 crossdomain: true
             };
@@ -31,7 +34,7 @@ export const Unsubscribe = (props) => {
 
     useEffect(() => {
         makePostRequest();
-    }, []);
+    }, [query]);
 
 
     return (

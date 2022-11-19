@@ -10,6 +10,10 @@ export const Verify = (props) => {
     const query = new URLSearchParams(useLocation().search);
 
     const makePostRequest = async () => {
+        const code = query.get("code");
+        if (code == null) {
+            return window.location.href = "/newsletter";
+        }
         try {
             let reqOptions = {
                 method: 'POST',
@@ -17,7 +21,7 @@ export const Verify = (props) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    code: query.get("code")
+                    code: code
                 }),
                 crossdomain: true
             };
@@ -37,9 +41,9 @@ export const Verify = (props) => {
     return (
         <div className="main container section">
 
-            <h2>
+            <h3>
                 {state}
-            </h2>
+            </h3>
 
         </div>
     );
