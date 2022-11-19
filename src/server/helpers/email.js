@@ -1,12 +1,13 @@
 import nodemailer from 'nodemailer';
 
 const transporter = nodemailer.createTransport({
-    host: 'smtp.strato.de',
-    port: 465,
-    secure: true,
+    service: process.env.EMAIL_SERVICE,
+    //host: process.env.EMAIL_HOST,
+    //port: process.env.EMAIL_PORT,
+    //secure: false,
     auth: {
         user: process.env.EMAIL,
-        pass: process.env.EMAILPASSWORD
+        pass: process.env.EMAIL_PASSWORD
     }
 })
 

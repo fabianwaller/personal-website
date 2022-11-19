@@ -58,15 +58,15 @@ const Contact = (props) => {
                     }),
                     crossdomain: true
                 };
-                await fetch('/api/contact', reqOptions)
-                    .then(response => response.json())
-                    .then(res => console.log(res));
+
+                let response = await fetch('/api/contact', reqOptions);
+                let data = await response.json();
 
                 setName("");
                 setEmail("");
                 setMessage("");
                 setWarnings([false, false, false]);
-                setAlerts(['Your message was sent']);
+                setAlerts([data]);
 
             } catch (e) {
                 console.error("Message not sent: ", e);

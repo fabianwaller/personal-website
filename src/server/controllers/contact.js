@@ -9,11 +9,11 @@ export const handleContact = () => async (req, res) => {
     try {
         await saveAndSendContact(collection, req.body);
     } catch (err) {
-        return res.status(400).json('Message not sent');
+        return res.status(400).json('Your message could not be sent. Please try again later.');
     } finally {
         cluster.disconnect();
     }
-    return res.status(200).json('Message sent');
+    return res.status(200).json('Your message has been sent.');
 }
 
 const saveAndSendContact = async (collection, body) => {
@@ -31,8 +31,8 @@ const saveAndSendContact = async (collection, body) => {
     sendMail({
         from: process.env.EMAIL,
         to: process.env.EMAIL,
-        subject: `web contact`,
-        text: `${data.email}: ${data.message}`
+        subject: `${data.email} web contact`,
+        text: data.message
     });
 
     await collection.insertOne(data);
