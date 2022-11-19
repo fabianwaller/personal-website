@@ -8,6 +8,7 @@ import formatDate from "../../helpers/formatdate"
 function Post(props) {
   let { slug } = useParams();
 
+  let node = React.createRef();
   const [article, setArticle] = useState({});
 
   useEffect(() => {
@@ -23,10 +24,20 @@ function Post(props) {
 
   }, []);
 
+  const renderMath = () => {
+    window.MathJax.Hub.Queue([
+      "Typeset",
+      window.MathJax.Hub,
+      node.current
+    ]);
+  }
+
   useEffect(() => {
     const mount = document.getElementById('article-content');
     if (mount) mount.innerHTML = article.html;
     document.title = "fabianwaller.de - " + article.title;
+
+    renderMath();
   }, [article]);
 
   let image = null
@@ -36,7 +47,7 @@ function Post(props) {
     } */
 
   return (
-    <section className="section first__section">
+    <section className="section first__section" ref={node}>
 
       <div className='article__box article__box--single container grid'>
 
