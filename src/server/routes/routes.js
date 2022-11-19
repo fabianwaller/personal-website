@@ -3,7 +3,7 @@ import { createArticle, deleteArticle, getArticles, verifyCache } from '../contr
 import { handleContact } from '../controllers/contact.js';
 import { getCommands } from '../controllers/commands.js';
 import { handle404PageNotFound } from '../controllers/errors.js';
-import { handleNewsletterSignup, handleNewsletterVerification } from '../controllers/newsletter.js';
+import { sendNewsletter, handleNewsletterSignup, handleNewsletterVerification, handleNewsletterUnsubscription } from '../controllers/newsletter.js';
 import { serveApp } from '../controllers/app.js';
 import { serveCdnContent } from '../controllers/cdn.js';
 
@@ -20,6 +20,7 @@ router.route('/api/commands').get(getCommands());
 
 router.route('/api/newsletter/signup').post(handleNewsletterSignup());
 router.route('/api/newsletter/verify').post(handleNewsletterVerification());
+router.route('/api/newsletter/unsubscribe').post(handleNewsletterUnsubscription());
 
 router.route('/api/*').get(handle404PageNotFound());
 router.route("/cdn/:content").get(serveCdnContent());

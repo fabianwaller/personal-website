@@ -16,7 +16,8 @@ import PageNotFound from './components/pageNotFound'
 
 import Blog from './components/blog/blog'
 import Post from './components/blog/post'
-import Newsletter from './components/newsletter/newsletter';
+import { Verify } from './components/newsletter/verify'
+import { Unsubscribe } from './components/newsletter/unsubscribe'
 import NewsletterSubscriptionContainer from './components/newsletter/subscribe'
 
 import Commands from './components/commands';
@@ -113,7 +114,13 @@ class App extends React.Component {
             <Route path="/newsletter/verify" element={
               <div>
                 <Header activeItem='null' />
-                <Newsletter />
+                <Verify />
+                <Footer />
+              </div>} />
+            <Route path="/newsletter/unsubscribe" element={
+              <div>
+                <Header activeItem='null' />
+                <Unsubscribe />
                 <Footer />
               </div>} />
             <Route path="/*" element={

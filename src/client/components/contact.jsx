@@ -58,7 +58,6 @@ const Contact = (props) => {
                     }),
                     crossdomain: true
                 };
-                console.log(reqOptions.body);
                 await fetch('/api/contact', reqOptions)
                     .then(response => response.json())
                     .then(res => console.log(res));

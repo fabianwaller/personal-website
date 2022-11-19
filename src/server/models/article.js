@@ -33,13 +33,13 @@ const articleSchema = new mongoose.Schema({
     }
 });
 
-articleSchema.pre('save', function (next) {
+articleSchema.pre('save', async function (next) {
     if (this.title) {
         this.slug = slugify(this.title, { lower: true, strict: true })
     }
 
     let markdownConverter = new showdown.Converter();
-    this.html = markdownConverter.makeHtml(this.markdown);
+    this.html = await markdownConverter.makeHtml(this.markdown);
 
     next();
 });

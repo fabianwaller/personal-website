@@ -1,4 +1,4 @@
-import Cluster from './cluster.js';
+import Cluster from '../helpers/cluster.js';
 import NodeCache from 'node-cache';
 import Article from '../models/article.js';
 import mongoose from 'mongoose';
@@ -6,6 +6,7 @@ import mongoose from 'mongoose';
 import * as fs from 'fs'
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { sendNewsletter } from './newsletter.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 //import { readFile } from 'fs'
@@ -63,9 +64,8 @@ export const createArticle = () => async (req, res) => {
         return res.status(400).json(validationError);
     }
     let savingError = await article.save();
-    if (savingError) {
-        return res.status(400).json(savingError);
-    }
+
+    await sendNewsletter(article);
 
     return res.status(200).json("created article");
 }

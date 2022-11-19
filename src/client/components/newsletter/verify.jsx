@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom'
 import { useParams } from "react-router";
 import { useLocation } from "react-router-dom";
 
-const Newsletter = (props) => {
+export const Verify = (props) => {
 
     const [state, setState] = useState('sending request...');
 
     const query = new URLSearchParams(useLocation().search);
-    const code = query.get("code");
 
     const makePostRequest = async () => {
         try {
@@ -18,7 +17,7 @@ const Newsletter = (props) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    code: code
+                    code: query.get("code")
                 }),
                 crossdomain: true
             };
@@ -45,5 +44,3 @@ const Newsletter = (props) => {
         </div>
     );
 }
-
-export default Newsletter
