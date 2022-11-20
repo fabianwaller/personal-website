@@ -21,16 +21,10 @@ function ArticleBoxes({ articles }) {
                     {/* <img className="article__img" src={`https://www.fabianwaller.de/cdn/${article.imageurl}`} alt="" /> */}
 
                     <div className='article__data grid'>
-                        {/*                         <div className="article__tags flex">
-                            <span className='article__tag keyword'>{article.categorie}</span>
-                        </div> */}
-
                         <div>
                             <h3 className="article__title">{article.title}</h3>
                             <p className='article__text'>{article.description}</p>
                         </div>
-
-                        {/* <Button classname="article__link" text="read article" disabled='true' href="" iconr='bx bx-right-arrow-alt' link='true' /> */}
                     </div>
 
 

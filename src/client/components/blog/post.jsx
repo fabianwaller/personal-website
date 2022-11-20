@@ -47,7 +47,7 @@ function Post(props) {
     } */
 
   return (
-    <section className="section first__section" ref={node}>
+    <section className="section" ref={node}>
 
       <div className='article__box article__box--single container grid'>
 

@@ -5,7 +5,7 @@ import Section from './section'
 
 function About() {
     return (
-        <Section name='about first__section' title='About me' subtitle='introduction of myself'>
+        <Section name='about' title='About me' subtitle='introduction of myself'>
             <div className="about__keywords">
                 <span className="about__keyword keyword">computer science student</span>
                 <span className="about__keyword keyword">developer</span>
@@ -15,7 +15,9 @@ function About() {
             </div>
 
             <div className="about__data">
-                <p className="about__description">Currently studying computer science at Saarland University and creating some stuff I like to publish on this website.</p>
+                <p className="about__description">Currently studying computer science at Saarland University and
+                    sharing my learnings and projects on this website.
+                </p>
             </div>
         </Section>
     );

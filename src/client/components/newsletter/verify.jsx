@@ -40,11 +40,9 @@ export const Verify = (props) => {
 
     return (
         <div className="main container section">
-
             <h3>
                 {state}
             </h3>
-
         </div>
     );
 }

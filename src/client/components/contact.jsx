@@ -75,7 +75,7 @@ const Contact = (props) => {
     }
 
     return (
-        <Section name='contact first__section' title='Contact' subtitle='Email me. Like in the old days.'>
+        <Section name='contact' title='Contact' subtitle='Email me. Like in the old days.'>
 
             <form className="contact__form form grid">
                 <div className="form__content">

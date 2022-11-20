@@ -39,11 +39,9 @@ export const Unsubscribe = (props) => {
 
     return (
         <div className="main container section">
-
-            <p>
+            <h3>
                 {state}
-            </p>
-
+            </h3>
         </div>
     );
 }

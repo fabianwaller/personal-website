@@ -106,7 +106,7 @@ class App extends React.Component {
             <Route path="/newsletter" element={
               <div>
                 <Header activeItem='null' />
-                <section className='first__section container'>
+                <section className='container'>
                   <NewsletterSubscriptionContainer />
                 </section>
                 <Footer />
