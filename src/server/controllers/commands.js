@@ -34,6 +34,14 @@ const actions = [
         icon: 'bx bx-news'
     },
     {
+        id: 'action-newsletter',
+        name: 'Newsletter',
+        section: 'Link',
+        perform: 'goToLink',
+        link: '/newsletter',
+        icon: 'bx bxs-bell'
+    },
+    {
         id: 'action-contact',
         name: 'Contact',
         section: 'Link',
