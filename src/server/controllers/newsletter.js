@@ -105,7 +105,7 @@ export const sendNewsletter = async (article) => {
         let subscribers = await newsletter.find({ 'verified': true }).toArray();
         subscribers.forEach((subscriber) => {
             let id = subscriber._id;
-            let footer = '<br><a href="' + process.env.CLIENT + '/newsletter/unsubscribe?id=' + id + '" style="margin: 0 auto; text-decoration: none;">unsubscribe</a>';
+            let footer = '<br><a href="' + process.env.SERVER + '/newsletter/unsubscribe?id=' + id + '" style="margin: 0 auto; text-decoration: none;">unsubscribe</a>';
             const mailOptions = {
                 from: process.env.EMAIL,
                 to: subscriber.email,
