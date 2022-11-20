@@ -102,7 +102,7 @@ const Contact = (props) => {
                                 arr[1] = false;
                             } else {
                                 arr[1] = true;
-                                newAlerts = ['please enter a valid email address'];
+                                newAlerts = ['Please enter a valid email address'];
                             }
                             setWarnings(arr);
                             setAlerts(newAlerts);

@@ -1,15 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+
 
 import Button from '../button'
 import Section from '../section'
 import { isEmpty, isEmail } from '../../helpers/formHelper'
-import Alertbox from '../alertbox'
-
 
 const NewsletterSubscriptionContainer = (props) => {
     const [email, setEmail] = useState(" ");
     const [emailWarning, setEmailWarning] = useState(false);
     const [alerts, setAlerts] = useState([]);
+
+    useEffect(() => {
+        console.log(alerts)
+    }, [alerts])
 
     const onEmailChange = (event) => {
         setEmail(event.target.value)
@@ -24,7 +27,7 @@ const NewsletterSubscriptionContainer = (props) => {
     const checkIfInputIsValid = () => {
         if (isEmpty(email) || !isEmail(email)) {
             setEmailWarning(true);
-            setAlerts(['please enter a valid email address']);
+            setAlerts(['Please enter a valid email address']);
             return false;
         }
         setEmailWarning(false);
@@ -59,14 +62,21 @@ const NewsletterSubscriptionContainer = (props) => {
         <Section name='newsletter'
             title='Newsletter'
             subtitle='Sign up for my newsletter to get new articles with curated content that I believe are worth reading directly in your inbox.'
-            children={<div>
+            children={<div className='newsletter__box'>
                 <div className="form__content flex">
                     <input type="email" id="email" name="email" placeholder=" " className={`form__input ${emailWarning ? 'form__input--alert' : ''}`}
                         value={email} onChange={(e) => onEmailChange(e)} />
                     <label htmlFor="email" className='form__label'>Email</label>
                     <Button text="" id="newsletter__submit" onclick={onSubmit} iconr='bx bxs-bell' />
                 </div>
-                <Alertbox alerts={alerts} />
+                <ul className="alertbox" id="contact__alertbox">
+                    {alerts.map(alert => (
+                        <div key={alert} className='alertbox__alert'>
+                            {alert}
+                        </div>
+                    ))}
+                </ul>
+
             </div>}
         />
 
