@@ -1,4 +1,4 @@
-import { getArticles } from "./blog.js";
+import { findArticles } from "./blog.js";
 
 const actions = [
     {
@@ -32,6 +32,14 @@ const actions = [
         perform: 'goToLink',
         link: '/blog',
         icon: 'bx bx-news'
+    },
+    {
+        id: 'action-newsletter',
+        name: 'Newsletter',
+        section: 'Link',
+        perform: 'goToLink',
+        link: '/newsletter',
+        icon: 'bx bxs-bell'
     },
     {
         id: 'action-contact',
@@ -68,11 +76,9 @@ const actions = [
 ]
 
 export const getCommands = () => async (req, res) => {
-    let filteredActions = [];
+    let filteredActions = actions;
     let search = req.query.search;
-    if (search == '') {
-        filteredActions = actions;
-    } else {
+    if (search != '') {
         filteredActions = actions.filter(action => action.name.toLowerCase().includes(search.toLowerCase()));
     }
 
@@ -81,5 +87,6 @@ export const getCommands = () => async (req, res) => {
         if (a.section > b.section) { return 1; }
         return 0;
     });
+
     return res.status(200).json(filteredActions);
 }

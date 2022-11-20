@@ -5,6 +5,11 @@
     align-items: center;
     gap: var(--mb-1-5);
     text-align: center;
+    margin-bottom: 0;
+}
+
+.newsletter__container {
+    margin: 0;
 }
 
 .newsletter__box .form__content {

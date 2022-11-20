@@ -3,14 +3,17 @@ import ReactDOM from 'react-dom'
 import { useParams } from "react-router";
 import { useLocation } from "react-router-dom";
 
-const Newsletter = (props) => {
+export const Verify = (props) => {
 
     const [state, setState] = useState('sending request...');
 
     const query = new URLSearchParams(useLocation().search);
-    const code = query.get("code");
 
     const makePostRequest = async () => {
+        const code = query.get("code");
+        if (code == null) {
+            return window.location.href = "/newsletter";
+        }
         try {
             let reqOptions = {
                 method: 'POST',
@@ -37,13 +40,9 @@ const Newsletter = (props) => {
 
     return (
         <div className="main container section">
-
-            <h2>
+            <h3>
                 {state}
-            </h2>
-
+            </h3>
         </div>
     );
 }
-
-export default Newsletter

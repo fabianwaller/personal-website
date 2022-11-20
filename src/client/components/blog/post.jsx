@@ -8,46 +8,46 @@ import formatDate from "../../helpers/formatdate"
 function Post(props) {
   let { slug } = useParams();
 
-  const [article, setArticle] = useState(
-    {
-      title: "",
-      categorie: "",
-      text: "",
-      created_time: "",
-      imageurl: null
-    }
-  );
+  let node = React.createRef();
+  const [article, setArticle] = useState({});
 
   useEffect(() => {
 
-    fetch(`/api/articles?slug=${slug}`)
-      .then((response) => response.json())
-      //.then((data) => console.log(data))
-      .then((data) => setArticle(data[0]))
+    getData();
+    async function getData() {
+      let data = await (await fetch(`/api/articles?slug=${slug}`)).json()
+      if (data.length == 0) {
+        window.location.href = "/404"
+      }
+      setArticle(data[0])
+    }
 
   }, []);
 
+  const renderMath = () => {
+    window.MathJax.Hub.Queue([
+      "Typeset",
+      window.MathJax.Hub,
+      node.current
+    ]);
+  }
+
   useEffect(() => {
     const mount = document.getElementById('article-content');
-    if (mount) mount.innerHTML = article.content;
+    if (mount) mount.innerHTML = article.html;
     document.title = "fabianwaller.de - " + article.title;
+
+    renderMath();
   }, [article]);
 
   let image = null
-  let categorie = null;
-
-  if (article.categorie != "") {
-    categorie = <div className="article__tags flex">
-      <span className='article__tag keyword'>{article.categorie}</span>
-    </div>
-  }
 
   /*   if(article.imageurl != null) {
       image = <img className="article__img--large" src={`https://www.fabianwaller.de/cdn/${article.imageurl}`} alt="" />
     } */
 
   return (
-    <section className="section first__section">
+    <section className="section" ref={node}>
 
       <div className='article__box article__box--single container grid'>
 
@@ -55,16 +55,13 @@ function Post(props) {
 
         {image}
 
-        <p className='article__text'>{article.text}</p>
-
-        {categorie}
+        <p className='article__text'>{article.description}</p>
 
         <div className="article__content" id='article-content'></div>
 
         <span className="project__info flex">
-          article published on {formatDate(new Date(article.date))}
+          article published on {formatDate(new Date(article.createdAt))}
         </span>
-
 
       </div>
 

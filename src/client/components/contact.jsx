@@ -58,16 +58,15 @@ const Contact = (props) => {
                     }),
                     crossdomain: true
                 };
-                console.log(reqOptions.body);
-                await fetch('/api/contact', reqOptions)
-                    .then(response => response.json())
-                    .then(res => console.log(res));
+
+                let response = await fetch('/api/contact', reqOptions);
+                let data = await response.json();
 
                 setName("");
                 setEmail("");
                 setMessage("");
                 setWarnings([false, false, false]);
-                setAlerts(['Your message was sent']);
+                setAlerts([data]);
 
             } catch (e) {
                 console.error("Message not sent: ", e);
@@ -76,7 +75,7 @@ const Contact = (props) => {
     }
 
     return (
-        <Section name='contact first__section' title='Contact' subtitle='Email me. Like in the old days.'>
+        <Section name='contact' title='Contact' subtitle='Email me. Like in the old days.'>
 
             <form className="contact__form form grid">
                 <div className="form__content">

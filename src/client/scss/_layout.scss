@@ -1,11 +1,6 @@
 /*==================== REUSABLE CSS CLASSES ====================*/
 .section {
-    padding: 4rem 0;
-}
-
-.first__section {
-    padding-bottom: 2rem;
-    padding-top: 2rem;
+    padding: var(--mb-2) 0;
 }
 
 .section__header {
@@ -120,12 +115,9 @@
     }
 
     .section {
-        padding: 6rem 0 2rem 0;
+        padding: var(--mb-3) 0;
     }
 
-    .first__section {
-        padding-top: 3rem;
-    }
 }
 
 // Large devices (desktops, 992px and up)

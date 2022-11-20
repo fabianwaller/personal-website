@@ -1,17 +1,16 @@
 import { MongoClient } from "mongodb";
 import { config } from 'dotenv';
+import Collection from './collection.js'
 config();
 
 class Cluster {
 
     mongoClient;
     database;
-    contactCollection;
 
     constructor() {
         this.mongoClient = new MongoClient(process.env.DB_URI);
         this.database = this.mongoClient.db('personal-website');
-        this.contactCollection = this.database.collection('contact');
         this.connect();
     }
 
@@ -23,27 +22,25 @@ class Cluster {
         return this.database;
     }
 
-    getContactCollection() {
-        return this.contactCollection;
+    getCollection(collection) {
+        return this.database.collection(collection);
     }
 
     async connect() {
         try {
-            console.log('Connecting to MongoDB cluster...');
             await this.mongoClient.connect();
-            console.log('Successfully connected to the cluster!');
-        } catch (err) {
-            console.log('Connection to MongoDB failed', err);
-            //process.exit();
+        } catch (error) {
+            console.log('Connection to cluster failed', error);
         }
     }
 
     async disconnect() {
-        console.log('Disconnect cluster');
-        await this.mongoClient.close();
+        try {
+            await this.mongoClient.close();
+        } catch (error) {
+            console.log('Failed to disconnect from cluster', error);
+        }
     }
 }
-
-// make a collection class with collection name parameter as constructor argument
 
 export default Cluster

@@ -21,21 +21,15 @@ function ArticleBoxes({ articles }) {
                     {/* <img className="article__img" src={`https://www.fabianwaller.de/cdn/${article.imageurl}`} alt="" /> */}
 
                     <div className='article__data grid'>
-                        {/*                         <div className="article__tags flex">
-                            <span className='article__tag keyword'>{article.categorie}</span>
-                        </div> */}
-
                         <div>
                             <h3 className="article__title">{article.title}</h3>
-                            <p className='article__text'>{article.text}</p>
+                            <p className='article__text'>{article.description}</p>
                         </div>
-
-                        {/* <Button classname="article__link" text="read article" disabled='true' href="" iconr='bx bx-right-arrow-alt' link='true' /> */}
                     </div>
 
 
                     <span className="article__data flex">
-                        {formatDate(new Date(article.date))}
+                        {formatDate(new Date(article.createdAt))}
                     </span>
 
                 </Link>
@@ -78,40 +72,10 @@ function TweetBoxes({ tweets }) {
     );
 }
 
-function Articles(props) {
+const Articles = (props) => {
     const [articleUrl, setArticleUrl] = useState("/api/articles");
     const [articles, setArticles] = useState(null);
     const [tweets, setTweets] = useState(null);
-
-    useEffect(() => {
-        let searchUrl = "/api/articles"
-
-        /*         let url = "?categorie="
-                let filterActive = false;
-                for (let key in props.categories) {
-                    if (props.categories[key]) {
-                        filterActive = true;
-                        url += "'" + key + "',";
-                    };
-                }
-                url = url.slice(0, -1);
-                if (filterActive) {
-                    searchUrl += url
-                    url = "&title="
-                } else {
-                    url = "?title="
-                }
-        
-                if (props.title != "") {
-                    url += props.title
-                    searchUrl += url;
-                } */
-
-        setArticleUrl(searchUrl);
-
-        //console.log(searchUrl);
-
-    }, [props]);
 
     useEffect(() => {
 
@@ -121,10 +85,10 @@ function Articles(props) {
             const data = await res.json();
 
             function compare(a, b) {
-                if (new Date(a.date) < new Date(b.date)) {
+                if (new Date(a.createdAt) < new Date(b.createdAt)) {
                     return 1;
                 }
-                if (new Date(a.date) > new Date(b.date)) {
+                if (new Date(a.createdAt) > new Date(b.createdAt)) {
                     return -1;
                 }
                 return 0;

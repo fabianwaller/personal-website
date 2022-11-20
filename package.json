@@ -24,6 +24,7 @@
     "handlebars": "^4.7.7",
     "mocha": "^10.0.0",
     "mongodb": "^4.9.1",
+    "mongoose": "^6.7.0",
     "node-cache": "^5.1.2",
     "node-fetch": "^3.2.10",
     "nodemailer": "^6.7.7",
@@ -33,6 +34,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.3.0",
     "request": "^2.88.2",
+    "showdown": "^2.1.0",
+    "slugify": "^1.6.5",
     "url": "^0.11.0"
   },
   "devDependencies": {

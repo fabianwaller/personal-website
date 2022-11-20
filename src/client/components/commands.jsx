@@ -121,12 +121,7 @@ const Commands = (props) => {
 
     let hideClass = commandsActive ? '' : 'modal__background--hide';
 
-    let items = actions.map(action => (
-        <div key={action.id} className='list__item' id={action.id} onClick={handleCommandRunningClick}>
-            <i className={action.icon}></i>
-            {action.name}
-        </div>
-    ))
+    let currentSection;
 
     return (
         <>
@@ -137,7 +132,20 @@ const Commands = (props) => {
                     <hr className='divider' />
 
                     <div className="list">
-                        {items}
+                        {actions.map(action => {
+                            let section;
+                            if (currentSection != action.section) {
+                                currentSection = action.section;
+                                section = <span className="list__section" >{action.section}</span >;
+                            }
+                            return (<div key={actions.indexOf(action)}>
+                                {section}
+                                <div className='list__item' id={action.id} onClick={handleCommandRunningClick}>
+                                    <i className={action.icon}></i>
+                                    {action.name}
+                                </div>
+                            </div>)
+                        })}
                     </div>
                     
 
@@ -146,6 +154,8 @@ const Commands = (props) => {
         </>
     )
 }
+
+//             return <span className="list__section" >Section</span >
 
 export default Commands
 

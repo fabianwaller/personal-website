@@ -46,8 +46,9 @@
 
 .article__box {
     gap: var(--mb-1);
-    margin-bottom: var(--mb-1-5);
+    margin-bottom: var(--mb-1);
     border-radius: var(--border-radius);
+    transition: var(--transition);
 }
 
 .article__box-small {
