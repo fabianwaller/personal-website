@@ -24,20 +24,11 @@ function Post(props) {
 
   }, []);
 
-  const renderMath = () => {
-    window.MathJax.Hub.Queue([
-      "Typeset",
-      window.MathJax.Hub,
-      node.current
-    ]);
-  }
-
   useEffect(() => {
     const mount = document.getElementById('article-content');
     if (mount) mount.innerHTML = article.html;
     document.title = "fabianwaller.de - " + article.title;
 
-    renderMath();
   }, [article]);
 
   let image = null
