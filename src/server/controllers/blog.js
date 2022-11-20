@@ -38,7 +38,7 @@ export const getArticles = () => async (req, res) => {
 }
 
 export const findArticles = async (slug) => {
-    mongoose.connect(process.env.MONGOOSE_URI,
+    mongoose.connect(process.env.DB_URI + "/personal-website",
         { useNewUrlParser: true, useUnifiedTopology: true }
     );
 
