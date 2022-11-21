@@ -1,7 +1,10 @@
 import Cluster from '../helpers/cluster.js';
 import NodeCache from 'node-cache';
-import Article from '../models/article.js';
+import Collection from '../helpers/collection.js';
 import mongoose from 'mongoose';
+
+import showdown from 'showdown';
+import slugify from 'slugify';
 
 import * as fs from 'fs'
 import path from 'path';
@@ -9,9 +12,8 @@ import { fileURLToPath } from 'url';
 import { sendNewsletter } from './newsletter.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-//import { readFile } from 'fs'
 
-const cache = new NodeCache({ stdTTL: 300 });
+const cache = new NodeCache({ stdTTL: 600 });
 
 export const verifyCache = (req, res, next) => {
     try {
@@ -38,46 +40,66 @@ export const getArticles = () => async (req, res) => {
 }
 
 export const findArticles = async (slug) => {
-    mongoose.connect(process.env.DB_URI + "/personal-website",
-        { useNewUrlParser: true, useUnifiedTopology: true }
-    );
+    try {
+        const cluster = new Cluster();
+        const blog = cluster.getCollection(Collection.blog);
 
-    let data;
-    if (slug == 'all') {
-        data = await Article.find({});
-    } else {
-        data = await Article.find({ 'slug': slug });
+
+        let data;
+        if (slug == 'all') {
+            data = await blog.find({}).toArray();
+        } else {
+            data = await blog.find({ 'slug': slug }).toArray();
+        }
+        cache.set(slug, data);
+        return data;
+
+
+    } catch (e) {
+        console.log(e)
     }
-    cache.set(slug, data);
-    return data;
+
+
 }
 
 export const createArticle = () => async (req, res) => {
-    mongoose.connect(process.env.DB_URI + "/personal-website",
-        { useNewUrlParser: true, useUnifiedTopology: true }
-    );
+    try {
+        const cluster = new Cluster();
+        const blog = cluster.getCollection(Collection.blog);
 
-    let article = new Article(req.body);
+        let markdownConverter = new showdown.Converter();
 
-    let validationError = article.validateSync();
-    if (validationError) {
-        return res.status(400).json(validationError);
+        let article = {
+            title: req.body.title,
+            slug: slugify(req.body.title, { lower: true, strict: true }),
+            createdAt: new Date(),
+            editedAt: new Date(),
+            description: req.body.description,
+            markdown: req.body.markdown,
+            html: await markdownConverter.makeHtml(req.body.markdown)
+        }
+
+        await blog.insertOne(article);
+        await sendNewsletter(article);
+
+        return res.status(200).json("created article");
+    } catch (e) {
+        console.log(e)
     }
-    let savingError = await article.save();
-
-    await sendNewsletter(article);
-
-    return res.status(200).json("created article");
 }
 
 export const deleteArticle = () => async (req, res) => {
-    mongoose.connect(process.env.DB_URI + "/personal-website",
-        { useNewUrlParser: true, useUnifiedTopology: true }
-    );
+    try {
+        const cluster = new Cluster();
+        const blog = cluster.getCollection(Collection.blog);
 
-    let result = await Article.deleteOne({ 'slug': req.body.slug });
-    if (result.deletedCount == 0) {
-        return res.status(400).json('article deletion failed');
+        let result = await blog.deleteOne({ 'slug': req.body.slug });
+        if (result.deletedCount == 0) {
+            return res.status(400).json('article deletion failed');
+        }
+        return res.status(200).json('deleted article ' + req.body.slug);
+
+    } catch (e) {
+        console.log(e)
     }
-    return res.status(200).json('deleted article ' + req.body.slug);
 }
