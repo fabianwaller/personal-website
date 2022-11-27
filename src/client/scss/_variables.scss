@@ -104,7 +104,7 @@
         --accent-green: hsl(115, 100%, 75%);
         --accent-cyan: hsl(170, 100%, 75%);
 
-        --container-color: hsl(var(--hue-color), 8%, 12%);
+        --container-color: hsl(var(--body-h), 8%, 6%);
         --input-color: hsl(var(--hue-color), 7%, 13%);
         --scroll-bar-color: hsl(--hue-color, 12%, 48%);
         --scroll-thumb-color: hsl(--hue-color, 12%, 36%);
