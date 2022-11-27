@@ -23,7 +23,7 @@
     --body-l: 96%;
 
     --body-color: hsl(var(--body-h), var(--body-s), var(--body-l));
-    --container-color: hsl(var(--hue-color), 50%, 98%);
+    --container-color: hsl(var(--body-h), 10%, var(--body-l));
     --scroll-bar-color: hsla(var(--hue-color), 12%, 90, 0%);
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
 
