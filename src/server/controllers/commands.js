@@ -26,6 +26,14 @@ const actions = [
         icon: 'bx bx-rocket'
     },
     {
+        id: 'action-projects',
+        name: 'Projects',
+        section: 'Link',
+        perform: 'goToLink',
+        link: '/projects',
+        icon: 'bx bx-collection'
+    },
+    {
         id: 'action-blog',
         name: 'Blog',
         section: 'Link',
