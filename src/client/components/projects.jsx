@@ -15,8 +15,8 @@ function Projects() {
         getData();
         async function getData() {
             const res = await fetch('https://api.github.com/users/fabianwaller/repos');
-            //console.log(res);
             const data = await res.json();
+            console.log(data)
 
             function compare(a, b) {
                 if (new Date(a.pushed_at) < new Date(b.pushed_at)) {
@@ -30,11 +30,11 @@ function Projects() {
             data.sort(compare);
             setRepos(data);
         }
-    });
+    }, []);
 
 
     return (
-        <Section name='projects' title='Projects' subtitle='public code repos' gradient='linear__gradient-3'>
+        <Section name='projects' title='Projects' subtitle='public code repos'>
             {repos.map(repo => (
                 <a key={repo.full_name} className='project__container card grid' href={repo.html_url}>
                     <div className="project__content">

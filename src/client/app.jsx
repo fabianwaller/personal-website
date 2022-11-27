@@ -82,6 +82,13 @@ class App extends React.Component {
                 <Footer />
               </div>
             } />
+            <Route path="/projects" element={
+              <div>
+                <Header scroll={1} />
+                <Projects />
+                <Footer />
+              </div>
+            } />
             <Route path="/contact" element={
               <div>
                 <Header scroll={1} />
