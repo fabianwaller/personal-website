@@ -84,7 +84,7 @@ class App extends React.Component {
             } />
             <Route path="/projects" element={
               <div>
-                <Header scroll={1} />
+                <Header activeItem='projects' scroll={1} />
                 <Projects />
                 <Footer />
               </div>

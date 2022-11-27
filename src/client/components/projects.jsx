@@ -16,7 +16,6 @@ function Projects() {
         async function getData() {
             const res = await fetch('https://api.github.com/users/fabianwaller/repos');
             const data = await res.json();
-            console.log(data)
 
             function compare(a, b) {
                 if (new Date(a.pushed_at) < new Date(b.pushed_at)) {

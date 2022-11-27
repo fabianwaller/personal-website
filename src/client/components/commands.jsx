@@ -49,8 +49,6 @@ const Commands = (props) => {
         }
         return () => {
             window.removeEventListener('keydown', handleCommandSelection)
-        }
-        return () => {
             window.removeEventListener('keydown', handleCommandRunning)
         }
     }, [actions, currentCommand])
@@ -147,7 +145,7 @@ const Commands = (props) => {
                             </div>)
                         })}
                     </div>
-                    
+
 
                 </div>
             </div>
