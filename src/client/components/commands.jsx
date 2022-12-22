@@ -42,10 +42,11 @@ const Commands = (props) => {
         window.addEventListener('keydown', handleCommandRunning)
         if (actions[currentCommand]) {
             actions.forEach(action => {
-                document.getElementById(action.id).classList.remove('list__item--active');
+                const element = document.getElementById(action.id)
+                element.classList.remove('list__item--active');
             })
-            document.getElementById(actions[currentCommand].id).classList.add('list__item--active');
-
+            const element = document.getElementById(actions[currentCommand].id)
+            element.classList.add('list__item--active');
         }
         return () => {
             window.removeEventListener('keydown', handleCommandSelection)
@@ -115,6 +116,10 @@ const Commands = (props) => {
 
     const goToLink = (link) => {
         window.location.href = link;
+    }
+
+    const copyLink = (link) => {
+        navigator.clipboard.writeText(link)
     }
 
     let hideClass = commandsActive ? '' : 'modal__background--hide';
