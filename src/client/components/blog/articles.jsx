@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import ReactDOM from 'react-dom'
 
 import { Link } from "react-router-dom";
@@ -9,7 +9,10 @@ import Button from '../button'
 
 import formatDate from "../../helpers/formatdate"
 
-function ArticleBoxes({ articles }) {
+
+import scrollObserver from '../../helpers/scrollObserver'
+
+const ArticleBoxes = ({ articles }) => {
     if (articles == null) { return null }
 
     return (
@@ -96,10 +99,6 @@ const Articles = (props) => {
             data.sort(compare);
             setArticles(data);
         }
-
-        /*         fetch('/api/tweets')
-                    .then((response) => response.json())
-                    .then((data) => setTweets(data)); */
 
     }, [articleUrl]);
 
