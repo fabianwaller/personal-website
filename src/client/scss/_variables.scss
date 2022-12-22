@@ -22,10 +22,14 @@
     --body-s: 0%;
     --body-l: 96%;
 
+    --glass-opacity: .6;
     --body-color: hsl(var(--body-h), var(--body-s), var(--body-l));
     --container-color: hsl(var(--body-h), 10%, var(--body-l));
     --scroll-bar-color: hsla(var(--hue-color), 12%, 90, 0%);
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+
+    --shadow-color: rgba(0, 0, 0, .05);
+    --shadow-color-intense: rgba(0, 0, 0, .1);
 
     --accent-yellow: hsl(60, 100%, 70%);
     --accent-pink: hsl(330, 100%, 70%);
@@ -95,6 +99,9 @@
         --body-s: 22%;
         --body-l: 4%;
         --body-color: hsl(var(--body-h), var(--body-s), var(--body-l));
+
+        --shadow-color: hsla(var(--body-h), var(--body-s), 70%, .1);
+        --shadow-color-intense: hsla(var(--body-h), var(--body-s), 90%, .1);
 
         --accent-yellow: hsl(60, 100%, 75%);
         --accent-pink: hsl(330, 100%, 75%);

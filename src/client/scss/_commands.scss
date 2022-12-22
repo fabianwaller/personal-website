@@ -23,8 +23,12 @@
     border: 1px solid var(--border-color);
     padding: var(--mb-0-5);
     gap: var(--mb-0-5);
-    background-color: var(--body-color);
+    background-color: hsla(var(--body-h), var(--body-s), var(--body-l), var(--glass-opacity));
     overflow-y: scroll;
+
+    // glassmorphism effect
+    box-shadow: 0 0 1rem 0 var(--shadow-color);
+    backdrop-filter: blur(.6rem);
 }
 
 .search__input {
@@ -35,7 +39,7 @@
     font-size: var(--normal-font-size);
     outline: none;
     border: none;
-    background-color: var(--body-color);
+    background-color: hsla(var(--body-h), var(--body-s), var(--body-l), var(--glass-opacity));
     z-index: 1;
     padding: var(--mb-0-5);
     border-radius: var(--border-radius);
@@ -45,8 +49,26 @@
     display: flex;
     flex-direction: column;
     gap: var(--mb-0-25);
+    padding: 0;
+    margin: 0;
     height: 100%;
     overflow-y: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.modal__container::-webkit-scrollbar,
+.list::-webkit-scrollbar {
+    display: none;
+
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.modal__container::-webkit-scrollbar,
+.list::-webkit-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .list__item {
@@ -63,12 +85,10 @@
     font-size: var(--small-font-size);
 }
 
-.list__item--active {
-    background-color: var(--container-color);
-}
-
+.list__item--active,
 .list__item:hover {
-    background-color: var(--container-color);
+    background-color: var(--first-color-lighter);
+    color: var(--body-color);
     cursor: pointer;
 }
 
