@@ -10,9 +10,9 @@ const NewsletterSubscriptionContainer = (props) => {
     const [emailWarning, setEmailWarning] = useState(false);
     const [alerts, setAlerts] = useState([]);
 
-    useEffect(() => {
-        console.log(alerts)
-    }, [alerts])
+    /*     useEffect(() => {
+            console.log(alerts)
+        }, [alerts]) */
 
     const onEmailChange = (event) => {
         setEmail(event.target.value)

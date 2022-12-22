@@ -35,7 +35,7 @@ const ShortcutMenu = () => {
             <span className='button button--flex button--link' link='true' onClick={dispatchHotkey}>
                 {action}
                 {hotkey}
-                to start
+                for shortcuts
                 <i className='bx bx-right-arrow-alt'></i>
             </span>
         </>
