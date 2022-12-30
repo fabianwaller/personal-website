@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react'
-
-
 import Button from '../button'
 import Section from '../section'
 import { isEmpty, isEmail } from '../../helpers/formHelper'
@@ -9,10 +7,6 @@ const NewsletterSubscriptionContainer = (props) => {
     const [email, setEmail] = useState(" ");
     const [emailWarning, setEmailWarning] = useState(false);
     const [alerts, setAlerts] = useState([]);
-
-    /*     useEffect(() => {
-            console.log(alerts)
-        }, [alerts]) */
 
     const onEmailChange = (event) => {
         setEmail(event.target.value)
@@ -51,8 +45,6 @@ const NewsletterSubscriptionContainer = (props) => {
                 .then(response => response.json())
                 .then(res => setAlerts([res]));
 
-
-
         } catch (e) {
             console.error("Message not sent: ", e);
         }
@@ -76,7 +68,6 @@ const NewsletterSubscriptionContainer = (props) => {
                         </div>
                     ))}
                 </ul>
-
             </div>}
         />
 
