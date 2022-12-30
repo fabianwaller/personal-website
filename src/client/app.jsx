@@ -38,26 +38,6 @@ class App extends React.Component {
     this.setState({ indexSection: section });
   }
 
-  componentDidMount() {
-    //this.scrollSectionsUpdateActiveLink();
-  }
-
-  scrollSectionsUpdateActiveLink() {
-    const sections = document.querySelectorAll('section[id]');
-    window.addEventListener('scroll', () => {
-      const scrollY = window.pageYOffset
-      sections.forEach(current => {
-        const sectionHeight = current.offsetHeight
-        const sectionTop = current.offsetTop - 65;
-        let sectionId = current.getAttribute('id')
-
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          this.setSection(sectionId);
-        }
-      })
-    });
-  }
-
   render() {
     return (
       <div className='App' onKeyDown={this.onKeyDown}>
@@ -114,7 +94,7 @@ class App extends React.Component {
             } />
             <Route path="/newsletter" element={
               <div>
-                <Header activeItem='null' />
+                <Header activeItem='null' scroll={1} />
                 <section className='container'>
                   <NewsletterSubscriptionContainer />
                 </section>
@@ -122,19 +102,19 @@ class App extends React.Component {
               </div>} />
             <Route path="/newsletter/verify" element={
               <div>
-                <Header activeItem='null' />
+                <Header activeItem='null' scroll={1} />
                 <Verify />
                 <Footer />
               </div>} />
             <Route path="/newsletter/unsubscribe" element={
               <div>
-                <Header activeItem='null' />
+                <Header activeItem='null' scroll={1} />
                 <Unsubscribe />
                 <Footer />
               </div>} />
             <Route path="/*" element={
               <div>
-                <Header activeItem='null' />
+                <Header activeItem='null' scroll={1} />
                 <PageNotFound />
               </div>} />
           </Routes>
