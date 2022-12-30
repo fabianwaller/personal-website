@@ -2,12 +2,6 @@ import server from '../src/server/server.js'
 import request from 'supertest'
 import { expect } from 'chai';
 
-describe('GET /api/articles', () => {
-    it('should return 200 OK and be an array', async () => {
-        const res = await request(server).get('/api/articles')
-        expect(res.status).to.equal(200)
-    })
-})
 
 /*
 describe('GET /api/newsletter/signup without email', () => {
@@ -40,14 +34,15 @@ describe('GET /api/newsletter/verify', () => {
         expect(res.status).to.equal(400)
     })
 })
-
+*/
 
 describe('GET /api/*', () => {
     it('should return 404', async () => {
         const res = await request(server).get('/api/dnfjvknasdd')
         expect(res.status).to.equal(404)
     })
-
+})
+/*
     describe('POST /api/contact without data', () => {
     it('should return 400 Bad Request', async () => {
         const res = await request(server).post('/api/contact')
@@ -61,4 +56,4 @@ describe('POST /api/contact with data', () => {
         const res = await request(server).post('/api/contact').send(data);
         expect(res.status).to.equal(200)
     })
-}) */
+})*/

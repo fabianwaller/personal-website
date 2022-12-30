@@ -20,6 +20,8 @@ import { Verify } from './components/newsletter/verify'
 import { Unsubscribe } from './components/newsletter/unsubscribe'
 import NewsletterSubscriptionContainer from './components/newsletter/subscribe'
 
+import scrollObserver from './helpers/scrollObserver'
+
 import Commands from './components/commands';
 
 class App extends React.Component {
