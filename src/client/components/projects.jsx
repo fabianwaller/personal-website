@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 
 import Section from './section'
 import Button from './button'
@@ -35,7 +35,8 @@ function Projects() {
     return (
         <Section name='projects' title='Projects' subtitle='public code repos'>
             {repos.map(repo => (
-                <a key={repo.full_name} className='project__container card grid' href={repo.html_url}>
+                // open in new tab
+                <a key={repo.full_name} className='project__container card grid' href={repo.html_url} target='_blank'>
                     <div className="project__content">
                         <span className='project__location flex'><i className='bx bxl-github'></i> GitHub</span>
                         <h3 className="project__name">{repo.full_name}</h3>
