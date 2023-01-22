@@ -8,6 +8,11 @@
     text-align: center;
 }
 
+.section__title,
+.section__subtitle {
+    font-family: var(--title-font);
+}
+
 .section__subtitle {
     font-size: var(--small-font-size);
     display: block;
