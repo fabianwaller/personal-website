@@ -1,7 +1,5 @@
 import server from '../src/server/server.js'
 import request from 'supertest'
-import { expect } from 'chai';
-
 
 /*
 describe('GET /api/newsletter/signup without email', () => {
@@ -36,12 +34,6 @@ describe('GET /api/newsletter/verify', () => {
 })
 */
 
-describe('GET /api/*', () => {
-    it('should return 404', async () => {
-        const res = await request(server).get('/api/dnfjvknasdd')
-        expect(res.status).to.equal(404)
-    })
-})
 /*
     describe('POST /api/contact without data', () => {
     it('should return 400 Bad Request', async () => {
@@ -57,3 +49,13 @@ describe('POST /api/contact with data', () => {
         expect(res.status).to.equal(200)
     })
 })*/
+
+
+describe('GET /api/*', () => {
+    it('should return 404', async () => {
+        const res = await request(server).get('/api/dnfjvknasdd')
+        console.log(res.status)
+        expect(res.status).toBe(404)
+        expect(res.body).toEqual({error: '404 not found'})
+    })
+})
