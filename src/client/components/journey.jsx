@@ -41,11 +41,11 @@ class Journey extends React.Component {
     }
 
     setEducationTab = () => {
-        this.setState({ tab: 'education' });
+        this.setState({tab: 'education'});
     }
 
     setExperienceTab = () => {
-        this.setState({ tab: 'experience' });
+        this.setState({tab: 'experience'});
     }
 
     render() {
@@ -58,8 +58,8 @@ class Journey extends React.Component {
             </div>;
 
             journey__data = <div>
-                <JourneyData title='Abitur' subtitle='Peter-Wust-Gymnasium' time='2013 - 2021' />
-                <JourneyData title='B.Sc. Computer Science' subtitle='Saarland University' time='2021 - 2024' last='true' />
+                <JourneyData title='Bachelor of Computer Science' subtitle='University of Saarland, Saarbrücken, Germany' time='2021 - 2024' />
+                <JourneyData title='Abitur' subtitle='Peter-Wust-Gymnasium' time='2013 - 2021' last='true' />
             </div>
         } else {
             journey__tabs = <div className="journey__tabs">
@@ -68,7 +68,7 @@ class Journey extends React.Component {
             </div>;
 
             journey__data = <div>
-                <JourneyData title='Web Development' subtitle='ReactJS, NodeJS, CSS' last='true' />
+                <JourneyData title='Fullstack application development' subtitle='ReactJS, NodeJS, Express, MySQL, MongoDB' last='true' />
             </div>
         }
         return (
