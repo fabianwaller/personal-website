@@ -8,12 +8,12 @@ import slugify from 'slugify';
 
 import * as fs from 'fs'
 import path from 'path';
-import { fileURLToPath } from 'url';
-import { sendNewsletter } from './newsletter.js';
+import {fileURLToPath} from 'url';
+import {sendNewsletter} from './newsletter.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const cache = new NodeCache({ stdTTL: 600 });
+const cache = new NodeCache({stdTTL: 600});
 
 export const verifyCache = (req, res, next) => {
     try {
@@ -30,12 +30,23 @@ export const verifyCache = (req, res, next) => {
     }
 }
 
+const compareArticles = (a, b) => {
+    if (new Date(a.createdAt) < new Date(b.createdAt)) {
+        return 1;
+    }
+    if (new Date(a.createdAt) > new Date(b.createdAt)) {
+        return -1;
+    }
+    return 0;
+}
+
 export const getArticles = () => async (req, res) => {
     let slug = req.query.slug;
     if (slug == null) {
         slug = 'all';
     }
     let data = await findArticles(slug)
+    data.sort(compareArticles);
     return res.status(200).json(data);
 }
 
@@ -49,14 +60,14 @@ export const findArticles = async (slug) => {
         if (slug == 'all') {
             data = await blog.find({}).toArray();
         } else {
-            data = await blog.find({ 'slug': slug }).toArray();
+            data = await blog.find({'slug': slug}).toArray();
         }
         cache.set(slug, data);
         return data;
 
 
-    } catch (e) {
-        console.log(e)
+    } catch (error) {
+        console.log(error)
     }
 
 
@@ -71,7 +82,7 @@ export const createArticle = () => async (req, res) => {
 
         let article = {
             title: req.body.title,
-            slug: slugify(req.body.title, { lower: true, strict: true }),
+            slug: slugify(req.body.title, {lower: true, strict: true}),
             createdAt: new Date(),
             editedAt: new Date(),
             description: req.body.description,
@@ -82,9 +93,10 @@ export const createArticle = () => async (req, res) => {
         await blog.insertOne(article);
         await sendNewsletter(article);
 
-        return res.status(200).json("created article");
-    } catch (e) {
-        console.log(e)
+        return res.status(200).json("created article " + article.title);
+
+    } catch (error) {
+        console.log(error)
     }
 }
 
@@ -93,13 +105,13 @@ export const deleteArticle = () => async (req, res) => {
         const cluster = new Cluster();
         const blog = cluster.getCollection(Collection.blog);
 
-        let result = await blog.deleteOne({ 'slug': req.body.slug });
+        let result = await blog.deleteOne({'slug': req.body.slug});
         if (result.deletedCount == 0) {
             return res.status(400).json('article deletion failed');
         }
         return res.status(200).json('deleted article ' + req.body.slug);
 
-    } catch (e) {
-        console.log(e)
+    } catch (error) {
+        console.log(error)
     }
 }

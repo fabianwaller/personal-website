@@ -1,11 +1,10 @@
-import express, { application } from 'express';
+import express, {application} from 'express';
 import router from './routes/routes.js';
 import path from 'path';
-import { fileURLToPath } from 'url';
+import {fileURLToPath} from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-import { config } from 'dotenv';
-import { Server } from 'http';
+import {config} from 'dotenv';
 config();
 
 const prefix = 'SERVER > ';

@@ -1,17 +1,18 @@
 import express from 'express';
-import { createArticle, deleteArticle, getArticles, verifyCache } from '../controllers/blog.js';
-import { handleContact } from '../controllers/contact.js';
-import { getCommands } from '../controllers/commands.js';
-import { handle404PageNotFound } from '../controllers/errors.js';
-import { sendNewsletter, handleNewsletterSignup, handleNewsletterVerification, handleNewsletterUnsubscription } from '../controllers/newsletter.js';
-import { serveApp } from '../controllers/app.js';
-import { serveCdnContent } from '../controllers/cdn.js';
+import {createArticle, deleteArticle, getArticles, verifyCache} from '../controllers/blog.js';
+import {handleContact} from '../controllers/contact.js';
+import {getCommands} from '../controllers/commands.js';
+import {handle404PageNotFound} from '../controllers/errors.js';
+import {sendNewsletter, handleNewsletterSignup, handleNewsletterVerification, handleNewsletterUnsubscription} from '../controllers/newsletter.js';
+import {serveApp} from '../controllers/app.js';
+import {serveCdnContent} from '../controllers/cdn.js';
 
 import authenticate from '../helpers/auth.js'
 
 const router = express.Router();
 
-router.route('/api/articles').get(verifyCache, getArticles());
+//router.route('/api/articles').get(verifyCache, getArticles());
+router.route('/api/articles').get(getArticles());
 router.route('/api/articles').post(authenticate, createArticle());
 router.route('/api/articles').delete(authenticate, deleteArticle());
 

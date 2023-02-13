@@ -1,9 +1,9 @@
-import React, { useRef } from 'react'
+import React, {useRef} from 'react'
 import ReactDOM from 'react-dom'
 
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
-import { useState, useEffect } from 'react';
+import {useState, useEffect} from 'react';
 
 import Button from '../button'
 
@@ -12,8 +12,8 @@ import formatDate from "../../helpers/formatdate"
 
 import scrollObserver from '../../helpers/scrollObserver'
 
-const ArticleBoxes = ({ articles }) => {
-    if (articles == null) { return null }
+const ArticleBoxes = ({articles}) => {
+    if (articles == null) {return null}
 
     return (
         <div className='article__boxes'>
@@ -42,8 +42,8 @@ const ArticleBoxes = ({ articles }) => {
     );
 }
 
-function TweetBoxes({ tweets }) {
-    if (tweets == null) { return null }
+function TweetBoxes({tweets}) {
+    if (tweets == null) {return null}
 
     return (
         <div className='grid'>
@@ -86,17 +86,6 @@ const Articles = (props) => {
         async function getData() {
             const res = await fetch(articleUrl);
             const data = await res.json();
-
-            function compare(a, b) {
-                if (new Date(a.createdAt) < new Date(b.createdAt)) {
-                    return 1;
-                }
-                if (new Date(a.createdAt) > new Date(b.createdAt)) {
-                    return -1;
-                }
-                return 0;
-            }
-            data.sort(compare);
             setArticles(data);
         }
 
