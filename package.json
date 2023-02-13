@@ -6,7 +6,7 @@
   "scripts": {
     "client": "vite",
     "server": "nodemon ./src/server/server.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "brew services start mongodb-community && concurrently \"npm run server\" \"npm run client\"",
     "build:client": "vite build",
     "build:server": "cp -r ./src/server ./dist/",
     "build": "npm run build:client && npm run build:server",
