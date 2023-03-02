@@ -1,0 +1,136 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  /* color: inherit; */
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+}
+
+.blob {
+  position: relative;
+  overflow: visible;
+}
+
+#stopo {
+  stop-color: var(--first-color-lighter);
+}
+
+#stopb {
+  stop-color: var(--first-color);
+}
+
+.blob__svg:nth-child(1) {
+  position: absolute;
+  z-index: -1;
+  filter: blur(20px);
+}
+
+.home__title {
+  font-size: var(--big-font-size);
+  line-height: 1;
+}
+
+.home__subtitle,
+.blog__subtitle {
+  font-size: var(--h3-font-size);
+  color: var(--text-color);
+  font-weight: var(--font-medium);
+  line-height: 1;
+}
+
+.home__data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--mb-1);
+  padding-bottom: var(--header-height);
+}
+
+.home__description {
+  position: relative;
+}
+
+.command__container {
+  background-color: var(--container-color);
+  padding: 0.25rem 0.45rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: .5rem;
+  align-self: stretch;
+  margin: 0 .075rem;
+}
+
+
+/* Extra Small devices (350px and down) */
+@media screen and (max-width: 350px) {
+  /*     .home__img {
+      height: 30vh;
+  }
+
+  .start__blob__svg {
+      transform: scale(.6);
+      top: -3rem;
+      left: -9rem;
+  } */
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (orientation : landscape) {
+  /*     .home__img {
+      height: 40vh;
+  } */
+
+  /*     .start__blob__svg {
+      transform: scale(.6);
+      top: -5rem;
+      left: -9rem;
+  } */
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  /*     .start__blob__svg {
+      transform: scale(1);
+      top: -2rem;
+      left: -15rem;
+  } */
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}

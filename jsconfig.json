@@ -1,8 +1,0 @@
-// provides vs code autocomplete for jest functions
-{
-    "typeAcquisition": {
-        "include": [
-            "jest",
-        ]
-    },
-}
