@@ -1,5 +1,4 @@
 import React from 'react'
-import {useState, useEffect} from 'react';
 
 import Layout from '../../components/layout';
 import NewsletterSubscriptionContainer from '../../components/newsletterSubscriptionContainer'

@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react'
-import ReactDOM from 'react-dom'
-import {useParams} from "react-router";
 import {useLocation} from "react-router-dom";
 import Layout from '../../components/layout';
 

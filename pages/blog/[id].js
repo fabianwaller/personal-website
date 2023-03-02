@@ -1,11 +1,10 @@
 import Layout from '../../components/layout';
 import {getAllPostIds, getPostData} from '../../lib/posts';
 import Head from 'next/head';
-import Date from '../../components/date';
 import utilStyles from '../../styles/utils.module.css';
+import formatDate from '../../lib/formatdate'
 
 export async function getStaticProps({params}) {
-    // Add the "await" keyword like this:
     const postData = await getPostData(params.id);
 
     return {
@@ -22,19 +21,40 @@ export async function getStaticPaths() {
         fallback: false,
     };
 }
-export default function Post({postData}) {
+
+const Post = ({postData}) => {
     return (
-        <Layout>
+        <Layout page='blog'>
             <Head>
                 <title>{postData.title}</title>
             </Head>
-            <article>
+            {/* <article>
                 <h1 className={utilStyles.headingXl}>{postData.title}</h1>
                 <div className={utilStyles.lightText}>
-                    {/* <Date dateString={postData.date} /> */}
+                    <Date dateString={postData.date} />
                 </div>
                 <div dangerouslySetInnerHTML={{__html: postData.contentHtml}} />
+            </article> */}
+
+            <article className="section">
+
+                <div className='article__box article__box--single container grid'>
+
+                    <h1 className="article__title">{postData.title}</h1>
+
+                    <p className='article__text'>{postData.description}</p>
+
+                    <div className="article__content" id='article-content' dangerouslySetInnerHTML={{__html: postData.contentHtml}} />
+
+                    <span className="project__info flex">
+                        article published on {formatDate(new Date(postData.date))}
+                    </span>
+
+                </div>
+
             </article>
         </Layout>
     );
 }
+
+export default Post

@@ -1,20 +1,24 @@
 import React, {useEffect, useState} from 'react'
-import ReactDOM from 'react-dom'
-import {useParams} from "react-router";
-import {useLocation} from "react-router-dom";
+import {useRouter} from 'next/router'
 import Layout from '../../components/layout';
 
 const Verify = (props) => {
-
+    const router = useRouter()
     const [state, setState] = useState('sending request...');
+    const [code, setCode] = useState('');
 
-    const query = new URLSearchParams(useLocation().search);
+    useEffect(() => {
+        setCode(router.query.code);
+    }, [router])
+
+    useEffect(() => {
+        makePostRequest();
+    }, [code])
 
     const makePostRequest = async () => {
-        const code = query.get("code");
-        if (code == null) {
-            return window.location.href = "/newsletter";
-        }
+        // if (code == undefined) {
+        //     router.push('/newsletter')
+        // }
         try {
             let reqOptions = {
                 method: 'POST',
@@ -33,11 +37,6 @@ const Verify = (props) => {
             console.error(e);
         }
     }
-
-    useEffect(() => {
-        makePostRequest();
-    }, []);
-
 
     return (
         <Layout page='newsletter/verify'>

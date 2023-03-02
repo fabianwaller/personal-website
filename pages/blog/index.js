@@ -36,8 +36,6 @@ const Blog = ({allPostsData}) => {
                         <Articles allPostsData={allPostsData} />
                     </div>
 
-                    <NewsletterSubscriptionContainer />
-
                 </div>
 
             </section>
