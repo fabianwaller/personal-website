@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {useRouter} from 'next/router'
 import Layout from '../../components/layout';
 
-const Verify = (props) => {
+const Verify = () => {
     const router = useRouter()
     const [state, setState] = useState('sending request');
     const [code, setCode] = useState();

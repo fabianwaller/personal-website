@@ -1,14 +1,11 @@
 import React from 'react'
-
 import {useState, useEffect} from 'react';
-
 import Section from '../components/section'
 import Button from '../components/button'
 import Layout from '../components/layout'
-
 import formatDate from "../lib/formatdate"
 
-function Projects() {
+const Projects = () => {
     const [repos, setRepos] = useState([]);
 
     useEffect(() => {

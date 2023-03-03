@@ -1,7 +1,6 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 
-function Logo(props) {
+const Logo = (props) => {
     let bottomclass = 'logo__graphic__bottom'
     let topclass = 'logo__graphic__top'
     if (props.type == 'white') {

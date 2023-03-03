@@ -1,13 +1,8 @@
 import Head from 'next/head';
-import Link from 'next/link';
-import Date from '../components/date';
 import Layout, {siteTitle} from '../components/layout';
 import Header from '../components/header'
 import React from 'react'
 import ShortcutMenu from '../components/shortcutMenu'
-import Image from 'next/image';
-import picture from '../public/images/profile-picture.png'
-
 
 const Home = () => {
   return (

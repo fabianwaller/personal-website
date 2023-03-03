@@ -7,8 +7,7 @@ import Layout from '../components/layout';
 
 import {isEmpty, isEmail} from '../lib/formHelper'
 
-
-const Contact = (props) => {
+const Contact = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");

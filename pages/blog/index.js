@@ -1,11 +1,6 @@
-import React, {useEffect} from 'react'
-import Link from 'next/link';
+import React from 'react'
 import Layout from '../../components/layout'
-import utilStyles from '../../styles/utils.module.css';
-
 import Articles from '../../components/articles'
-import NewsletterSubscriptionContainer from '../../components/newsletterSubscriptionContainer'
-
 import {getSortedPostsData} from '../../lib/posts';
 
 export async function getStaticProps() {

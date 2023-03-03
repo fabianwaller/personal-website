@@ -31,14 +31,12 @@ const ShortcutMenu = () => {
     }
 
     return (
-        <>
-            <span className='button button--flex button--link' link='true' onClick={dispatchHotkey}>
-                {action}
-                {hotkey}
-                for shortcuts
-                <i className='bx bx-right-arrow-alt'></i>
-            </span>
-        </>
+        <span className='button button--flex button--link' link='true' onClick={dispatchHotkey}>
+            {action}
+            {hotkey}
+            for shortcuts
+            <i className='bx bx-right-arrow-alt'></i>
+        </span>
     )
 }
 

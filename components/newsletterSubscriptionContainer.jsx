@@ -3,7 +3,7 @@ import Button from './button'
 import Section from './section'
 import {isEmpty, isEmail} from '../lib/formHelper'
 
-const NewsletterSubscriptionContainer = (props) => {
+const NewsletterSubscriptionContainer = () => {
     const [email, setEmail] = useState(" ");
     const [emailWarning, setEmailWarning] = useState(false);
     const [alerts, setAlerts] = useState([]);
