@@ -50,6 +50,7 @@ const sendVerificationLinkToEmail = async (email, link) => {
     const filePath = path.join(process.cwd(), 'public', 'template.html')
     console.log(filePath)
     const fileContents = fs.readFileSync(filePath, 'utf8').toString()
+    console.log(fileContents)
 
 
     const template = handlebars.compile(fileContents);
