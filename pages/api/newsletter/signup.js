@@ -45,9 +45,14 @@ export default async function handleNewsletterSignup(req, res) {
 }
 
 const sendVerificationLinkToEmail = async (email, link) => {
-    const filePath = path.resolve('./public', 'template.html');
-    const source = fs.readFileSync(filePath, 'utf-8').toString();
-    const template = handlebars.compile(source);
+    //const filePath = path.resolve('./public', 'template.html');
+
+    const filePath = path.join(process.cwd(), 'public', 'template.html')
+    console.log(filePath)
+    const fileContents = fs.readFileSync(filePath, 'utf8').toString()
+
+
+    const template = handlebars.compile(fileContents);
     const replacements = {
         verificationLink: link,
         email: process.env.EMAIL
