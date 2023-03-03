@@ -1,6 +1,6 @@
 ---
 title: 'Heuristics for clean code'
-description: 'Next.js has two forms of pre-rendering'
+description: 'To write new code we have to read old code. So making it easy to read actually makes it easier to write.'
 date: '2020-10-10'
 ---
 

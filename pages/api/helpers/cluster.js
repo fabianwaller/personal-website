@@ -9,7 +9,7 @@ class Cluster {
     database;
 
     constructor() {
-        this.mongoClient = new MongoClient(process.env.DB_URI);
+        this.mongoClient = new MongoClient(process.env.MONGODB_URI);
         this.database = this.mongoClient.db('personal-website');
         this.connect();
     }
