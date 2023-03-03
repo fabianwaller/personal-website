@@ -16,7 +16,7 @@
 # install dependencies
 $ npm install
 
-# start fullstack dev server
+# start dev server
 $ npm run dev
 
 # build for production
@@ -24,7 +24,4 @@ $ npm run build
 
 # test application
 $ npm run test
-
-# serves the built application
-$ npm run serve
 ```
