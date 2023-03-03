@@ -1,0 +1,14 @@
+.newsletter__box {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mb-1-5);
+    margin-bottom: 0;
+}
+
+.newsletter__container {
+    margin: 0;
+}
+
+.newsletter__box .form__content {
+    width: 100%;
+}

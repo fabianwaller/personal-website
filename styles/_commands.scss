@@ -1,0 +1,125 @@
+.modal__background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: hsla(var(--body-h), var(--body-s), var(--body-l), .9);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    z-index: var(--z-modal);
+}
+
+.modal__background--hide {
+    display: none;
+}
+
+.modal__container {
+    margin-top: var(--mb-1-5);
+    margin-bottom: var(--mb-1-5);
+    width: 100%;
+    max-height: calc(100vh - var(--header-height) - 2*var(--mb-1-5));
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    padding: var(--mb-0-5);
+    gap: var(--mb-0-5);
+    background-color: hsla(var(--body-h), var(--body-s), var(--body-l), var(--glass-opacity));
+
+    overflow-y: scroll;
+
+    // glassmorphism effect
+    box-shadow: 0 0 1rem 0 var(--shadow-color);
+    backdrop-filter: blur(.6rem);
+}
+
+.search__input {
+    -webkit-appearance: none;
+    width: 100%;
+    color: var(--text-color);
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+    outline: none;
+    border: none;
+    background-color: transparent;
+    z-index: 1;
+    padding: var(--mb-0-5);
+    border-radius: var(--border-radius);
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mb-0-25);
+    padding: 0;
+    margin: 0;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.modal__container::-webkit-scrollbar,
+.list::-webkit-scrollbar {
+    display: none;
+
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.modal__container::-webkit-scrollbar,
+.list::-webkit-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.list__item {
+    padding: var(--mb-0-5);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    gap: var(--mb-0-5);
+}
+
+.list__section {
+    padding: 0 var(--mb-0-5);
+    color: var(--text-color-light);
+    font-size: var(--small-font-size);
+}
+
+.list__item--active,
+.list__item:hover {
+    background-color: var(--first-color-lighter);
+    color: var(--body-color);
+    cursor: pointer;
+}
+
+@keyframes tada-animation {
+    0% {
+        transform: scale(1);
+    }
+
+    10%,
+    20% {
+        transform: scale(.9) rotate(-2deg);
+    }
+
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: scale(1.1) rotate(3deg);
+    }
+
+    40%,
+    60%,
+    80% {
+        transform: scale(1.1) rotate(-3deg);
+    }
+
+    100% {
+        transform: scale(1) rotate(0);
+    }
+}
+
+.list__item:hover i,
+.list__item--active i {
+    animation: tada-animation 2s;
+    animation-iteration-count: 1;
+}
