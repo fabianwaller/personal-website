@@ -1,8 +1,8 @@
-import path from 'path';
 import {fileURLToPath} from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 import fs from 'fs'
+import path from 'path';
 import Cluster from '../helpers/cluster.js';
 import {sendMail} from '../helpers/email.js'
 import handlebars from 'handlebars';
@@ -45,7 +45,7 @@ export default async function handleNewsletterSignup(req, res) {
 }
 
 const sendVerificationLinkToEmail = async (email, link) => {
-    const filePath = path.join(__dirname, '../../../public/template.html');
+    const filePath = path.resolve('./public', 'template.html');
     const source = fs.readFileSync(filePath, 'utf-8').toString();
     const template = handlebars.compile(source);
     const replacements = {
