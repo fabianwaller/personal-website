@@ -1,15 +1,15 @@
 import React from 'react'
 
-const Section = () => {
+const Section = (props) => {
   return (
-    <section className={`${this.props.name} section`} id={this.props.name}>
+    <section className={`${props.name} section`} id={props.name}>
       <div className="section__header">
-        <h1 className={`section__title ${this.props.gradient}`}>{this.props.title}</h1>
-        <span className="section__subtitle">{this.props.subtitle}</span>
+        <h1 className={`section__title ${props.gradient}`}>{props.title}</h1>
+        <span className="section__subtitle">{props.subtitle}</span>
       </div>
 
-      <div className={`${this.props.name}__container container grid`}>
-        {this.props.children}
+      <div className={`${props.name}__container container grid`}>
+        {props.children}
       </div>
     </section>
   )
