@@ -1,8 +1,4 @@
 import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/layout.module.css'
-import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
 import Header from './header';
 import Footer from './footer';
 
@@ -12,7 +8,7 @@ export const siteTitle = 'fabianwaller';
 
 const Layout = (props) => {
     return (
-        <div className={styles.container}>
+        <div>
             <Head>
                 <meta
                     name="description"
