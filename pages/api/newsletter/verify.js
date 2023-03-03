@@ -1,8 +1,6 @@
-import path from 'path';
-import {fileURLToPath} from 'url';
-const __filename = fileURLToPath(import.meta.url);
 import Cluster from '../helpers/cluster.js';
 import Collection from '../helpers/collection.js';
+import addDaysToTimestamp from '../../../lib/dateHelper.js'
 
 export default async function handleNewsletterVerification(req, res) {
     if (req.body.code == undefined) {
@@ -34,8 +32,4 @@ export default async function handleNewsletterVerification(req, res) {
     } finally {
         cluster.disconnect();
     }
-}
-
-const addDaysToTimestamp = (timestamp, days) => {
-    return timestamp + (days * 24 * 60 * 60 * 1000);
 }

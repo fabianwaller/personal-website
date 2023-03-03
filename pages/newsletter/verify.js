@@ -4,21 +4,23 @@ import Layout from '../../components/layout';
 
 const Verify = (props) => {
     const router = useRouter()
-    const [state, setState] = useState('sending request...');
-    const [code, setCode] = useState('');
+    const [state, setState] = useState('sending request');
+    const [code, setCode] = useState();
 
     useEffect(() => {
-        setCode(router.query.code);
+        setCode(router.query.code)
     }, [router])
 
     useEffect(() => {
-        makePostRequest();
+        if (router.isReady) {
+            makePostRequest();
+        }
     }, [code])
 
     const makePostRequest = async () => {
-        // if (code == undefined) {
-        //     router.push('/newsletter')
-        // }
+        if (code == undefined) {
+            router.push('/newsletter')
+        }
         try {
             let reqOptions = {
                 method: 'POST',
@@ -39,12 +41,12 @@ const Verify = (props) => {
     }
 
     return (
-        <Layout page='newsletter/verify'>
-            <div className="main container section">
+        <Layout page='newsletter'>
+            <section className="main container section">
                 <h3>
                     {state}
                 </h3>
-            </div>
+            </section>
         </Layout>
     );
 }

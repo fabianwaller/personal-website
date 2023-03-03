@@ -1,14 +1,23 @@
 import React, {useEffect, useState} from 'react'
-import {useLocation} from "react-router-dom";
+import {useRouter} from 'next/router'
 import Layout from '../../components/layout';
 
-export const Unsubscribe = (props) => {
+const Unsubscribe = (props) => {
+    const router = useRouter()
+    const [state, setState] = useState('sending request');
+    const [id, setId] = useState();
 
-    const [state, setState] = useState('sending request...');
-    const [query, setQuery] = useState(new URLSearchParams(useLocation().search));
+    useEffect(() => {
+        setId(router.query.id)
+    }, [router])
+
+    useEffect(() => {
+        if (router.isReady) {
+            makePostRequest();
+        }
+    }, [id])
 
     const makePostRequest = async () => {
-        const id = query.get("id");
         if (id == null) {
             return window.location.href = "/newsletter";
         }
@@ -31,13 +40,8 @@ export const Unsubscribe = (props) => {
         }
     }
 
-    useEffect(() => {
-        makePostRequest();
-    }, [query]);
-
-
     return (
-        <Layout page='newsletter/unsubscribe'>
+        <Layout page='newsletter'>
             <div className="main container section">
                 <h3>
                     {state}
@@ -46,3 +50,5 @@ export const Unsubscribe = (props) => {
         </Layout>
     );
 }
+
+export default Unsubscribe

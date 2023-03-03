@@ -6,11 +6,8 @@ import fs from 'fs'
 import Cluster from '../helpers/cluster.js';
 import {sendMail} from '../helpers/email.js'
 import handlebars from 'handlebars';
-
-import {ObjectId} from 'mongodb';
-
 import Collection from '../helpers/collection.js';
-
+import getVerificationCode from '../../../lib/verificationCode.js';
 
 export default async function handleNewsletterSignup(req, res) {
     const cluster = new Cluster();
@@ -22,7 +19,7 @@ export default async function handleNewsletterSignup(req, res) {
 
     const data = {
         email: req.body.email,
-        code: appendIntToInt(hashFromString(req.body.email), hashFromString(new Date().getTime().toString())),
+        code: getVerificationCode(req.body.email),
         verified: false,
         signupDate: new Date()
     }
@@ -42,7 +39,6 @@ export default async function handleNewsletterSignup(req, res) {
     } finally {
         cluster.disconnect();
     }
-    return res.json('subscribed');
 }
 
 const sendVerificationCodeToEmail = async (email, code) => {
@@ -65,19 +61,4 @@ const sendVerificationCodeToEmail = async (email, code) => {
     }
 
     sendMail(mailOptions);
-}
-
-const hashFromString = (str) => {
-    let hash = 0;
-    if (str.length == 0) return hash;
-    for (let i = 0; i < str.length; i++) {
-        let char = str.charCodeAt(i);
-        hash = ((hash << 5) - hash) + char;
-        hash = hash & hash; // convert to 32 bit integer
-    }
-    return hash;
-}
-
-const appendIntToInt = (int1, int2) => {
-    return parseInt(int1.toString() + int2.toString());
 }
