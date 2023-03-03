@@ -50,7 +50,7 @@ const sendVerificationLinkToEmail = async (email, link) => {
     const filePath = path.join(process.cwd(), 'public', 'template.html')
     console.log(filePath)
     const fileContents = fs.readFileSync(filePath, 'utf8').toString()
-    console.log(fileContents)
+    //console.log(fileContents)
 
 
     const template = handlebars.compile(fileContents);
@@ -66,7 +66,7 @@ const sendVerificationLinkToEmail = async (email, link) => {
         to: email,
         subject: `Verify your email`,
         text: `please verify your newsletter subscription with the link below`,
-        html: htmlToSend
+        html: `<a href='${replacements.verificationLink}' class="button button--flex ">Verify</a>`
     }
 
     sendMail(mailOptions);
