@@ -1,38 +1,40 @@
 import React from 'react'
-import {useState, useEffect} from 'react';
 import Section from '../components/section'
 import Button from '../components/button'
 import Layout from '../components/layout'
 import formatDate from "../lib/formatdate"
 
-const Projects = () => {
-    const [repos, setRepos] = useState([]);
+const getData = async () => {
+    const res = await fetch('https://api.github.com/users/fabianwaller/repos');
+    const data = await res.json();
 
-    useEffect(() => {
-        getData();
-        async function getData() {
-            const res = await fetch('https://api.github.com/users/fabianwaller/repos');
-            const data = await res.json();
+    data.sort(compare);
+    return data
+}
 
-            function compare(a, b) {
-                if (new Date(a.pushed_at) < new Date(b.pushed_at)) {
-                    return 1;
-                }
-                if (new Date(a.pushed_at) > new Date(b.pushed_at)) {
-                    return -1;
-                }
-                return 0;
-            }
-            data.sort(compare);
-            setRepos(data);
+const compare = (a, b) => {
+    if (new Date(a.pushed_at) < new Date(b.pushed_at)) {
+        return 1;
+    }
+    if (new Date(a.pushed_at) > new Date(b.pushed_at)) {
+        return -1;
+    }
+    return 0;
+}
+
+export const getServerSideProps = async () => {
+    return {
+        props: {
+            repos: await getData()
         }
-    }, []);
+    }
+}
 
-
+const Projects = (props) => {
     return (
         <Layout page='projects'>
             <Section name='projects' title='Projects' subtitle='public code repos'>
-                {repos.map(repo => (
+                {props.repos.map(repo => (
                     <a key={repo.full_name} className='project__container card grid' href={repo.html_url} target='_blank'>
                         <div className="project__content">
                             <span className='project__location flex'><i className='bx bxl-github'></i> GitHub</span>
