@@ -1,5 +1,5 @@
 import Cluster from './helpers/cluster.js';
-import {sendMail} from './helpers/email.js'
+import sendMail from './helpers/email.js'
 import Collection from './helpers/collection.js';
 
 export default async function handleContact(req, res) {

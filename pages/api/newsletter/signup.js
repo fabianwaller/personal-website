@@ -36,7 +36,6 @@ export default async function handleNewsletterSignup(req, res) {
             await newsletter.updateOne({'email': data.email}, {$set: data});
         }
         const verificationLink = 'http://' + req.headers.host + '/newsletter/verify?code=' + data.code;
-        console.log(verificationLink)
         await sendVerificationLinkToEmail(data.email, verificationLink);
         return res.status(200).json('Please check your inbox to verify your email.');
     } finally {
@@ -46,17 +45,13 @@ export default async function handleNewsletterSignup(req, res) {
 
 const sendVerificationLinkToEmail = async (email, link) => {
     const filePath = path.join(process.cwd(), 'public', 'template.html')
-    console.log(filePath)
     const fileContents = fs.readFileSync(filePath, 'utf8').toString()
-    console.log(fileContents)
-
 
     const template = handlebars.compile(fileContents);
     const replacements = {
         verificationLink: link,
         email: process.env.EMAIL
     };
-    console.log(replacements.verificationLink)
     const htmlToSend = template(replacements);
 
     sendMail({
@@ -64,6 +59,6 @@ const sendVerificationLinkToEmail = async (email, link) => {
         to: email,
         subject: `Verify your email`,
         text: `please verify your newsletter subscription with the link below`,
-        html: `<a href='${replacements.verificationLink}' class="button button--flex ">Verify</a>`
+        html: htmlToSend
     });
 }

@@ -26,8 +26,8 @@ export default async function handleNewsletterVerification(req, res) {
         }
         await newsletter.updateOne({'code': code}, {$set: {'verified': true}});
         return res.status(200).json('Successfully verified your email address. You now get new notifications directly in your inbox.');
-    } catch (e) {
-        console.log(e)
+    } catch (err) {
+        console.log(err)
         return res.status(200).json('verification failed');
     } finally {
         cluster.disconnect();
