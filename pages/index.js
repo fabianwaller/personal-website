@@ -1,5 +1,4 @@
-import Head from 'next/head';
-import Layout, {siteTitle} from '../components/layout';
+import Layout from '../components/layout';
 import Header from '../components/header'
 import React from 'react'
 import ShortcutMenu from '../components/shortcutMenu'
@@ -7,9 +6,6 @@ import ShortcutMenu from '../components/shortcutMenu'
 const Home = () => {
   return (
     <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
 
       <Header activeItem='home' scroll={310} />
       <section className='home' id='home'>

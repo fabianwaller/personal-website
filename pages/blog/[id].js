@@ -26,6 +26,10 @@ const Post = ({postData}) => {
         <Layout page='blog'>
             <Head>
                 <title>{postData.title}</title>
+                <meta
+                    name="description"
+                    content={postData.description}
+                />
             </Head>
 
             <article className="section">
