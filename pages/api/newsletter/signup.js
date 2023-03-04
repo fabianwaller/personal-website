@@ -4,7 +4,7 @@ const __dirname = path.dirname(__filename);
 import fs from 'fs'
 import path from 'path';
 import Cluster from '../helpers/cluster.js';
-import {sendMail} from '../helpers/email.js'
+import sendMail from '../helpers/email.js'
 import handlebars from 'handlebars';
 import Collection from '../helpers/collection.js';
 import getVerificationCode from '../../../lib/verificationCode.js';
