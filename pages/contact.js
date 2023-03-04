@@ -48,7 +48,7 @@ const Contact = () => {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        // 'Authorization': 'Bearer ' + import.meta.env.VITE_API_ACCESS_TOKEN
+                        'Authorization': 'Bearer ' + process.env.BEARER_TOKEN
                     },
                     body: JSON.stringify({
                         name: name,

@@ -37,7 +37,7 @@ export default async function handleNewsletterSignup(req, res) {
         }
         const verificationLink = 'http://' + req.headers.host + '/newsletter/verify?code=' + data.code;
         console.log(verificationLink)
-        sendVerificationLinkToEmail(data.email, verificationLink);
+        await sendVerificationLinkToEmail(data.email, verificationLink);
         return res.status(200).json('Please check your inbox to verify your email.');
     } finally {
         cluster.disconnect();
@@ -45,12 +45,10 @@ export default async function handleNewsletterSignup(req, res) {
 }
 
 const sendVerificationLinkToEmail = async (email, link) => {
-    //const filePath = path.resolve('./public', 'template.html');
-
     const filePath = path.join(process.cwd(), 'public', 'template.html')
     console.log(filePath)
     const fileContents = fs.readFileSync(filePath, 'utf8').toString()
-    //console.log(fileContents)
+    console.log(fileContents)
 
 
     const template = handlebars.compile(fileContents);
@@ -61,13 +59,11 @@ const sendVerificationLinkToEmail = async (email, link) => {
     console.log(replacements.verificationLink)
     const htmlToSend = template(replacements);
 
-    const mailOptions = {
+    sendMail({
         from: process.env.EMAIL,
         to: email,
         subject: `Verify your email`,
         text: `please verify your newsletter subscription with the link below`,
         html: `<a href='${replacements.verificationLink}' class="button button--flex ">Verify</a>`
-    }
-
-    sendMail(mailOptions);
+    });
 }
