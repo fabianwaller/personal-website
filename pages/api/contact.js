@@ -4,6 +4,7 @@ import Collection from './helpers/collection.js';
 
 export default async function handleContact(req, res) {
     let cluster = new Cluster;
+    await cluster.connect();
     const collection = cluster.getCollection(Collection.contact)
 
     try {
@@ -11,7 +12,7 @@ export default async function handleContact(req, res) {
     } catch (err) {
         return res.status(400).json('Your message could not be sent. Please try again later.');
     } finally {
-        cluster.disconnect();
+        await cluster.disconnect();
     }
     return res.status(200).json('Your message has been sent.');
 }
@@ -28,7 +29,7 @@ const saveAndSendContact = async (collection, body) => {
         throw new Error('Missing required contact fields');
     }
 
-    await sendMail({
+    sendMail({
         from: process.env.EMAIL,
         to: process.env.EMAIL,
         subject: `${data.email} web contact`,

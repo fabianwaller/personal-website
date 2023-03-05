@@ -5,9 +5,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
-    "bigtest": "DOTENV_CONFIG_PATH=.env cross-env NODE_OPTIONS=--experimental-vm-modules jest --setupFiles=dotenv/config --coverage --forceExit",
-    "devtest": "DOTENV_CONFIG_PATH=.env cross-env NODE_OPTIONS=--experimental-vm-modules jest --setupFiles=dotenv/config --watchAll --verbose"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --coverage --forceExit"
   },
   "dependencies": {
     "@vercel/analytics": "^0.1.11",

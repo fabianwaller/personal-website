@@ -11,7 +11,6 @@ class Cluster {
     constructor() {
         this.mongoClient = new MongoClient(process.env.MONGODB_URI);
         this.database = this.mongoClient.db('personal-website');
-        this.connect();
     }
 
     getMongoClient() {

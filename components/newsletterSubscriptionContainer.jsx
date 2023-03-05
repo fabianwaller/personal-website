@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Button from './button'
 import Section from './section'
 import {isEmpty, isEmail} from '../lib/formHelper'
