@@ -15,7 +15,7 @@ const Document = () => {
 
                 {/* <!-- Favicons --> */}
                 <link rel="icon" href="/logo.svg" type="image/svg+xml" />
-                <link rel="mask-icon" href="mask-icon.svg" color="#000000" />
+                <link rel="mask-icon" href="mask-icon.svg" color="#7e8fe7" />
                 <link rel="apple-touch-icon" href="logo.png" />
                 {/* <meta name="theme-color" content="#ffffff" /> */}
                 <link rel="manifest" href="manifest.json"></link>
