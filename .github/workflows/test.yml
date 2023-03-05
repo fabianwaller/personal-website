@@ -10,8 +10,9 @@ on:
     branches: ["dev"]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
+    environment: Preview
 
     strategy:
       matrix:
