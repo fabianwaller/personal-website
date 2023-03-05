@@ -30,4 +30,4 @@ jobs:
       - run: npm run build
       - run: npm run test
       - name: Use environment variable
-        run: echo ${{ process.env.MONGODB_URI }}
+        run: echo ${{env.MONGODB_URI }}
