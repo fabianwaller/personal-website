@@ -12,7 +12,7 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
-    environment: Preview
+    environment: Testing
 
     strategy:
       matrix:
@@ -29,3 +29,5 @@ jobs:
       - run: npm install
       - run: npm run build
       - run: npm run test
+      - name: Use environment variable
+        run: echo ${{ process.env.MONGODB_URI }}
