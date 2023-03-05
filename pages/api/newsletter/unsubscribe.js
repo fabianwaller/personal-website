@@ -9,7 +9,9 @@ export default async function handleNewsletterUnsubscription(req, res) {
         return res.status(400).json(invalidLinkMsg);
     }
     const cluster = new Cluster();
+    await cluster.connect();
     const newsletter = cluster.getCollection(Collection.newsletter);
+
     try {
         let result = await newsletter.deleteOne({'_id': new ObjectId(id)});
         if (result.deletedCount == 0) {

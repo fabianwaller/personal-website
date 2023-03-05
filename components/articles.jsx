@@ -38,21 +38,6 @@ function TweetBoxes({tweets}) {
 
 const Articles = ({allPostsData}) => {
 
-    // const [articleUrl, setArticleUrl] = useState("/api/articles");
-    // const [articles, setArticles] = useState(null);
-    // const [tweets, setTweets] = useState(null);
-
-    // useEffect(() => {
-
-    //     getData();
-    //     async function getData() {
-    //         const res = await fetch(articleUrl);
-    //         const data = await res.json();
-    //         setArticles(data);
-    //     }
-
-    // }, [articleUrl]);
-
     return (
         <div className='article__boxes'>
 

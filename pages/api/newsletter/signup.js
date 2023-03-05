@@ -5,14 +5,16 @@ import sendMail from '../helpers/email.js'
 import handlebars from 'handlebars';
 import Collection from '../helpers/collection.js';
 import getVerificationCode from '../../../lib/verificationCode.js';
+import {isEmail} from '../../../lib/formHelper.js';
 
 
 export default async function handleNewsletterSignup(req, res) {
     const cluster = new Cluster();
+    await cluster.connect();
     const newsletter = cluster.getCollection(Collection.newsletter);
 
-    if (req.body.email == undefined) {
-        return res.status(400).send('email is undefined');
+    if (!isEmail(req.body.email)) {
+        return res.status(400).json('invalid email address')
     }
 
     const data = {
@@ -33,14 +35,14 @@ export default async function handleNewsletterSignup(req, res) {
             await newsletter.updateOne({'email': data.email}, {$set: data});
         }
         const verificationLink = 'http://' + req.headers.host + '/newsletter/verify?code=' + data.code;
-        await sendVerificationLinkToEmail(data.email, verificationLink);
+        sendVerificationLinkToEmail(data.email, verificationLink);
         return res.status(200).json('Please check your inbox to verify your email.');
     } finally {
-        cluster.disconnect();
+        await cluster.disconnect();
     }
 }
 
-const sendVerificationLinkToEmail = async (email, link) => {
+const sendVerificationLinkToEmail = (email, link) => {
     const filePath = path.join(process.cwd(), 'public', 'template.html')
     const fileContents = fs.readFileSync(filePath, 'utf8').toString()
 

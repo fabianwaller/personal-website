@@ -4,12 +4,6 @@
 
 [![run tests](https://github.com/fabianwaller/personal-website/actions/workflows/test.yml/badge.svg?branch=dev)](https://github.com/fabianwaller/personal-website/actions/workflows/test.yml)
 
-## Deploy runner
-
-![badge](https://github.com/fabianwaller/personal-website/actions/workflows/deploy.yml/badge.svg)
-
-[![run tests](https://github.com/fabianwaller/personal-website/actions/workflows/test.yml/badge.svg?branch=dev)](https://github.com/fabianwaller/personal-website/actions/workflows/test.yml)
-
 ## Setup
 
 ```bash
@@ -22,6 +16,9 @@ $ npm run dev
 # build for production
 $ npm run build
 
-# test application
+# start production server
+$ npm run start
+
+# run tests
 $ npm run test
 ```

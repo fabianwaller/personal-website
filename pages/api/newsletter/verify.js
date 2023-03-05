@@ -7,7 +7,9 @@ export default async function handleNewsletterVerification(req, res) {
         return res.status(400).json('code is undefined');
     }
     const cluster = new Cluster();
+    await cluster.connect();
     const newsletter = cluster.getCollection(Collection.newsletter);
+
     try {
         let code = parseInt(req.body.code);
         let found = await newsletter.find({'code': code}).toArray();
