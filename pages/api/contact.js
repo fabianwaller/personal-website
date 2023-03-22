@@ -29,7 +29,7 @@ const saveAndSendContact = async (collection, body) => {
         throw new Error('Missing required contact fields');
     }
 
-    await sendMail({
+    sendMail({
         from: process.env.EMAIL,
         to: process.env.EMAIL,
         subject: `${data.email} web contact`,
