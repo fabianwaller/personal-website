@@ -42,7 +42,7 @@ export default async function handleNewsletterSignup(req, res) {
     }
 }
 
-const sendVerificationLinkToEmail = (email, link) => {
+const sendVerificationLinkToEmail = async (email, link) => {
     const filePath = path.join(process.cwd(), 'public', 'template.html')
     const fileContents = fs.readFileSync(filePath, 'utf8').toString()
 
@@ -53,7 +53,7 @@ const sendVerificationLinkToEmail = (email, link) => {
     };
     const htmlToSend = template(replacements);
 
-    sendMail({
+    await sendMail({
         from: process.env.EMAIL,
         to: email,
         subject: `Verify your email`,
