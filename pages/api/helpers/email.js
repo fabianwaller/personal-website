@@ -1,7 +1,7 @@
 import nodemailer from 'nodemailer';
 
 
-const sendMail = (mailOptions) => {
+const sendMail = async (mailOptions) => {
     const transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
         port: process.env.EMAIL_PORT,
@@ -11,6 +11,7 @@ const sendMail = (mailOptions) => {
             pass: process.env.EMAIL_PASSWORD
         }
     })
+
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             console.log(error)
