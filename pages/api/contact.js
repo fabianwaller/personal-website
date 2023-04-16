@@ -2,7 +2,6 @@ import TelegramBot from 'node-telegram-bot-api';
 
 const botToken = process.env.TELEGRAM_BOT_TOKEN;
 const chatId = process.env.TELEGRAM_CHAT_ID;
-const telegramBot = new TelegramBot(botToken);
 
 export default async function handleContact(req, res) {
     try {
@@ -15,16 +14,10 @@ export default async function handleContact(req, res) {
 }
 
 const sendContact = async (body) => {
-    const data = {
-        name: body.name,
-        email: body.email,
-        message: body.message,
-        date: new Date()
-    };
-
-    if (data.name == null || data.email == null || data.message == null) {
+    if (body.name == null || body.email == null || body.message == null) {
         throw new Error('Missing required contact fields');
     }
 
-    telegramBot.sendMessage(chatId, `Name: ${data.name} \nEmail: ${data.email} \nMessage: ${data.message}`)
+    const telegramBot = new TelegramBot(botToken);
+    await telegramBot.sendMessage(chatId, `Name: ${body.name} \nEmail: ${body.email} \nMessage: ${body.message}`)
 }
