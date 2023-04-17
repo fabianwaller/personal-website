@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [19.x]
+        node-version: [18.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -36,3 +36,5 @@ jobs:
           EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
           EMAIL: ${{ secrets.EMAIL }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
