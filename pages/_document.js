@@ -22,6 +22,20 @@ const Document = () => {
 
                 {/* <!-- Icons --> */}
                 <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet' type="text/css" />
+
+
+                {/* <!-- Google tag (gtag.js) --> */}
+                <script async src="https://www.googletagmanager.com/gtag/js?id=G-133HYRMPNS"></script>
+                <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+                            gtag('config', 'G-133HYRMPNS');
+                        `
+                    }}
+                />
             </Head>
             <body>
                 <Main />
