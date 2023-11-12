@@ -21,7 +21,7 @@ const Footer = () => {
                         <ul className="footer__links">
                             <span className="footer__links__tab">Explore</span>
                             <li><a href="/blog" className='footer__link'>Blog</a></li>
-                            <li><a href="/newsletter" className='footer__link'>Newsletter</a></li>
+                            {/* <li><a href="/newsletter" className='footer__link'>Newsletter</a></li> */}
                         </ul>
                     </div>
 
