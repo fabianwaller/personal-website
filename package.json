@@ -24,10 +24,5 @@
     "remark": "^14.0.3",
     "remark-html": "^15.0.2",
     "sass": "^1.69.5"
-  },
-  "devDependencies": {
-    "eslint": "^8.53.0",
-    "eslint-config-google": "^0.14.0",
-    "eslint-plugin-react": "^7.33.2"
   }
 }
