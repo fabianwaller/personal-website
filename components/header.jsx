@@ -44,7 +44,7 @@ const Header = (props) => {
 
                     <ul className="nav__list nav__list__external grid">
                         <NavItem link="/blog" active={props.activeItem == 'blog'} icon="bx bx-news" name="Blog" click={toggleMenu} />
-                        <NavItem link="/newsletter" active={props.activeItem == 'newsletter'} icon="bx bx-bell" name="Newsletter" click={toggleMenu} />
+                        {/* <NavItem link="/newsletter" active={props.activeItem == 'newsletter'} icon="bx bx-bell" name="Newsletter" click={toggleMenu} /> */}
                     </ul>
 
                     <i className="bx bx-x nav__close" id="nav-close" onClick={toggleMenu}></i>

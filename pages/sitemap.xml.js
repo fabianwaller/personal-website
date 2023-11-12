@@ -17,9 +17,6 @@ function generateSiteMap(posts) {
        <loc>https://www.fabianwaller.de/projects</loc>
      </url>
      <url>
-       <loc>https://www.fabianwaller.de/newsletter</loc>
-     </url>
-     <url>
        <loc>https://www.fabianwaller.de/contact</loc>
      </url>
      ${posts
