@@ -48,6 +48,7 @@ const Contact = () => {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        // eslint-disable-next-line no-undef
                         'Authorization': 'Bearer ' + process.env.BEARER_TOKEN
                     },
                     body: JSON.stringify({
@@ -76,7 +77,7 @@ const Contact = () => {
     return (
         <Layout page='contact'>
 
-            <Section name='contact' title='Contact' subtitle='Email me. Like in the old days.'>
+            <Section name='contact' title='Contact' subtitle='Send me a message.'>
 
                 <form className="contact__form form grid">
                     <div className="form__content">

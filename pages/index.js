@@ -66,7 +66,7 @@ const Home = () => {
 
           <div className="home__data">
             <h1 className="home__title">Fabian Waller</h1>
-            <p className="home__description">19 year old computer science student at Saarland University and football player.</p>
+            <p className="home__description">20 year old computer science student at Saarland University interested in fullstack web development and football player.</p>
             <ShortcutMenu />
           </div>
 
