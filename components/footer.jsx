@@ -1,5 +1,9 @@
 import React from 'react'
 import Logo from './logo'
+import { BiSolidEnvelope as Envelope} from "react-icons/bi";
+import { BiLogoGithub as Github } from "react-icons/bi";
+import { BsTwitterX as Twitter } from "react-icons/bs";
+import { BiLogoLinkedin as LinkedIn} from "react-icons/bi";
 
 const Footer = () => {
     return (
@@ -26,10 +30,10 @@ const Footer = () => {
                     </div>
 
                     <div className="footer__socials">
-                        <a href="/contact" className="footer__social"><i className='bx bxs-envelope'></i></a>
-                        <a href="https://github.com/fabianwaller" target="_blank" className="footer__social"><i className="bx bxl-github"></i></a>
-                        <a href="https://twitter.com/fabianwallerr" target="_blank" className="footer__social"><i className="bx bxl-twitter"></i></a>
-                        <a href="https://www.linkedin.com/in/fabian-waller-974840213/" target="_blank" className="footer__social"><i className="bx bxl-linkedin"></i></a>
+                        <a href="/contact" className="footer__social"><Envelope/></a>
+                        <a href="https://github.com/fabianwaller" target="_blank" className="footer__social"><Github /></a>
+                        <a href="https://twitter.com/fabianwallerr" target="_blank" className="footer__social"><Twitter/></a>
+                        <a href="https://www.linkedin.com/in/fabian-waller-974840213/" target="_blank" className="footer__social"><LinkedIn/></a>
                     </div>
 
                     <p className="footer__copyright">&#169; Fabian Waller. All rights reserved.</p>
