@@ -99,7 +99,7 @@ routes [@Backbone]. The widespread presence of PoPs around the world
 ensures that users can access a high-speed server in their proximity,
 ideally within their local ISP's network, as shown in
 
-![overview](http://fabianwaller.de/cdn/overview.png)
+![overview](https://www.fabianwaller.de/cdn/overview.png)
 
 *The edge servers are located in global distributed Points of Presence
 (PoPs), which are interconnected by an optimised transport system.
@@ -113,7 +113,7 @@ cache.*
 
 The CDN components shown in
 
-![overview](http://fabianwaller.de/cdn/system_components.png)
+![overview](https://www.fabianwaller.de/cdn/system_components.png)
 *When a user requests content, the mapping system translates
 the domain name into the IP address of an optimal edge server. The edge
 server then checks its cache for the requested content. If the content
@@ -258,7 +258,7 @@ the origin server can generate a small dynamic page that references
 cachable fragments, allowing the final HTML page to be assembled and
 served at the edge. [@Akamai]
 
-![places](http://fabianwaller.de/cdn/places.png)
+![places](https://www.fabianwaller.de/cdn/places.png)
 *Edge functions can run at different logical locations,
 namely viewer request (before caching), origin request (after caching),
 origin response (before caching origin response) and viewer response
@@ -344,7 +344,7 @@ benefits, such as
     the edge, playing a key role in providing robust Distributed Denial
     of Service (DDoS) protection, particularly against large-scale
     attacks, as shown in 
-    ![security](http://fabianwaller.de/cdn/ddos.png)
+    ![security](https://www.fabianwaller.de/cdn/ddos.png)
     *Web requests are distributed across the different CDN
     servers. In contrast to a centralised origin server, DDOS attacks do not
     block the system for other visitors because the load is balanced across
@@ -362,7 +362,7 @@ benefits, such as
     CDN is one of high distribution. By having copies of content across
     many PoPs, a CDN is resilient to multiple hardware failures compared
     to centralised origin servers, as shown in
-        ![availability](http://fabianwaller.de/cdn/stale_if_error.png)
+        ![availability](https://www.fabianwaller.de/cdn/stale_if_error.png)
         *By having cached copies of content available in many
     locations, a CDN can withstand many more hardware failures than the
     origin server alone by potentially serving outdated cached content.
@@ -405,7 +405,7 @@ benefits, such as
     one of the reasons why many modern applications even send dynamic,
     uncacheable HTTP content via a CDN. [@BYTE_BYTE_GO_CDN]
 
-     ![availability](http://fabianwaller.de/cdn/ssl_termination.png)
+     ![availability](https://www.fabianwaller.de/cdn/ssl_termination.png)
      *By terminating the secure connection at the edge, the
     latency for the user to establish an encrypted connection to the edge
     server is significantly reduced. The connection to the origin server is
@@ -461,4 +461,4 @@ highly performant by moving application logic closer to the user.
 
 ---
 
-To visit the full report including all references, please visit [report](http://fabianwaller.de/cdn/report.pdf).
+To visit the full report including all references, please visit [report](https://www.fabianwaller.de/cdn/report.pdf).
