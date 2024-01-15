@@ -51,7 +51,7 @@ class Journey extends React.Component {
     render() {
         return (
             <Layout page='journey'>
-                <Section name='journey' title='My journey' subtitle='CV'>
+                <Section name='journey' title='My journey' subtitle='resume'>
 
                     <div className="journey__tabs">
                         <Button classname={`journey__tab ${this.state.tab != 'education' ? "journey__tab__inactive" : null}`} text='Education' onclick={this.setEducationTab} link='true' />
@@ -65,8 +65,7 @@ class Journey extends React.Component {
                         </div>
                     ) : (
                         <div>
-                            <JourneyData title='Fullstack web application development' subtitle='React, Next, Node, Express, SQL, NoSQL' />
-                            <JourneyData title='Programming languages' subtitle='Java, C, Typescript' last='true' />
+                            {/*  <JourneyData title='Fullstack web and mobile application development' subtitle='React, React Native, NextJs, Node, Express, Typescript, Javascript, HTML/CSS, SQL, NoSQL'  last='true'/> */}
                         </div>
                     )}
                 </Section>
