@@ -135,6 +135,12 @@ const Commands = () => {
                     <hr className='divider' />
 
                     <div className="list">
+                    {actions.length == 0 ? (
+                        <div className='list__item'>
+                            No results found
+                        </div>
+                        ) : null
+                    }
                         {actions.map(action => {
                             let section;
                             if (currentSection != action.section) {
