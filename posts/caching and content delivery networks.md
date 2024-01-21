@@ -99,7 +99,7 @@ routes [@Backbone]. The widespread presence of PoPs around the world
 ensures that users can access a high-speed server in their proximity,
 ideally within their local ISP's network, as shown in
 
-![overview](https://www.fabianwaller.de/cdn/overview.png)
+![overview](${url}/cdn/overview-Invert_B.png)
 
 *The edge servers are located in global distributed Points of Presence
 (PoPs), which are interconnected by an optimised transport system.
@@ -113,7 +113,7 @@ cache.*
 
 The CDN components shown in
 
-![overview](https://www.fabianwaller.de/cdn/system_components.png)
+![overview](${url}/cdn/system_components-Invert_B.png)
 *When a user requests content, the mapping system translates
 the domain name into the IP address of an optimal edge server. The edge
 server then checks its cache for the requested content. If the content
@@ -258,22 +258,22 @@ the origin server can generate a small dynamic page that references
 cachable fragments, allowing the final HTML page to be assembled and
 served at the edge. [@Akamai]
 
-![places](https://www.fabianwaller.de/cdn/places.png)
+![places](${url}/cdn/places-Invert_B.png)
 *Edge functions can run at different logical locations,
 namely viewer request (before caching), origin request (after caching),
 origin response (before caching origin response) and viewer response
 (before sending the origin/cached response).*
 
 As visualised in the figure above, application logic can also run in different
-logical places for different purposes, such as content paywalls,
+logical places for different purposes, such as content paywalls for a news site,
 permanent redirects, image formatting and setting user cookies for
 analytics. Why these functions are best executed at these locations is
 explained below.
 
-1.  If caching is done on a per-user basis (based on an authentication
-    token), it may result in rarely returning a cached result, as users
+1.  If caching for a news website is done on a per-user basis (based on an authentication token), 
+    it may result in rarely returning a cached result, as users
     may only visit the site once a day. Instead, it is recommended to
-    remove the authentication token, extract the subscription level and
+    remove the authentication token, extract the subscription level (premium or free) and
     set a header containing this information before caching the request.
     This header can then be cached, resulting in a cached response
     returned to all users with the same subscription level.
@@ -344,7 +344,7 @@ benefits, such as
     the edge, playing a key role in providing robust Distributed Denial
     of Service (DDoS) protection, particularly against large-scale
     attacks, as shown in 
-    ![security](https://www.fabianwaller.de/cdn/ddos.png)
+    ![security](${url}/cdn/ddos-Invert_B.png)
     *Web requests are distributed across the different CDN
     servers. In contrast to a centralised origin server, DDOS attacks do not
     block the system for other visitors because the load is balanced across
@@ -362,7 +362,7 @@ benefits, such as
     CDN is one of high distribution. By having copies of content across
     many PoPs, a CDN is resilient to multiple hardware failures compared
     to centralised origin servers, as shown in
-        ![availability](https://www.fabianwaller.de/cdn/stale_if_error.png)
+        ![availability](${url}/cdn/stale_if_error-Invert_B.png)
         *By having cached copies of content available in many
     locations, a CDN can withstand many more hardware failures than the
     origin server alone by potentially serving outdated cached content.
@@ -405,7 +405,7 @@ benefits, such as
     one of the reasons why many modern applications even send dynamic,
     uncacheable HTTP content via a CDN. [@BYTE_BYTE_GO_CDN]
 
-     ![availability](https://www.fabianwaller.de/cdn/ssl_termination.png)
+     ![availability](${url}/cdn/ssl_termination-Invert_B.png)
      *By terminating the secure connection at the edge, the
     latency for the user to establish an encrypted connection to the edge
     server is significantly reduced. The connection to the origin server is
@@ -461,4 +461,4 @@ highly performant by moving application logic closer to the user.
 
 ---
 
-To visit the full report including all references, please visit [report](https://www.fabianwaller.de/cdn/report.pdf).
+To visit the full report including all references, please visit [report](${url}/cdn/report.pdf).
