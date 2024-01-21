@@ -59,12 +59,12 @@ class Journey extends React.Component {
                     </div>
 
                     {this.state.tab == 'education' ? (
-                        <div>
+                        <div className='container'>
                             <JourneyData title='Bachelor of Computer Science' subtitle='University of Saarland, Saarbrücken, Germany' time='2021 - 2024' />
                             <JourneyData title='Abitur' subtitle='Peter-Wust-Gymnasium' time='2013 - 2021' last='true' />
                         </div>
                     ) : (
-                        <div>
+                        <div className='container'>
                             {/*  <JourneyData title='Fullstack web and mobile application development' subtitle='React, React Native, NextJs, Node, Express, Typescript, Javascript, HTML/CSS, SQL, NoSQL'  last='true'/> */}
                         </div>
                     )}
