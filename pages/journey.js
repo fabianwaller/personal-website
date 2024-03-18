@@ -65,7 +65,10 @@ class Journey extends React.Component {
                         </div>
                     ) : (
                         <div className='container'>
-                            {/*  <JourneyData title='Fullstack web and mobile application development' subtitle='React, React Native, NextJs, Node, Express, Typescript, Javascript, HTML/CSS, SQL, NoSQL'  last='true'/> */}
+                             {/* <JourneyData title='UX Software Engineering Intern' subtitle='React, React Native, NextJs, Node, Express, Typescript, Javascript, HTML/CSS, SQL, NoSQL'   */}
+                             <JourneyData title='UX Software Engineering Intern' subtitle='at Ergosign Saarbrücken, Germany'  
+                             time='Aug - Oct 2024'
+                             last='true'/>
                         </div>
                     )}
                 </Section>
