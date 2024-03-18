@@ -127,6 +127,14 @@
 
 }
 
+.underline {
+    text-decoration: underline;
+}
+
+.hover_anchor:hover {
+    color: var(--first-color);
+}
+
 
 
 // Small devices (landscape phones, 576px and up)
