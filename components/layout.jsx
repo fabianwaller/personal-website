@@ -1,12 +1,13 @@
 import Head from 'next/head';
 import Header from './header';
 import Footer from './footer';
-import Commands from './commands';
+import {CommandDialogDemo} from './commands';
 
 const Layout = (props) => {
     return (
         <div>
-            <Commands />
+            <CommandDialogDemo />
+            
 
             {!props.home && (
                 <Header activeItem={props.page} scroll={1} />

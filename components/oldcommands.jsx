@@ -1,6 +1,6 @@
-import {useEffect, useState, useRef} from "react"
+import { useEffect, useState, useRef } from "react"
 
-const Commands = () => {
+const OldCommands = () => {
     const [commandsActive, setCommandsActive] = useState(false)
     const [currentCommand, setCurrentCommand] = useState(0)
     const inputReference = useRef(null)
@@ -135,12 +135,12 @@ const Commands = () => {
                     <hr className='divider' />
 
                     <div className="list">
-                    {actions.length == 0 ? (
-                        <div className='list__item'>
-                            No results found
-                        </div>
+                        {actions.length == 0 ? (
+                            <div className='list__item'>
+                                No results found
+                            </div>
                         ) : null
-                    }
+                        }
                         {actions.map(action => {
                             let section;
                             if (currentSection != action.section) {
@@ -166,23 +166,59 @@ const Commands = () => {
 
 //             return <span className="list__section" >Section</span >
 
-export default Commands
+
+import {
+    Command,
+    CommandDialog,
+    CommandEmpty,
+    CommandGroup,
+    CommandInput,
+    CommandItem,
+    CommandList,
+    CommandSeparator,
+    CommandShortcut,
+} from "./ui/command"
+
+
+const Commands = () => {
+    return (
+        <Command>
+            <CommandInput placeholder="Type a command or search..." />
+            <CommandList>
+                <CommandEmpty>No results found.</CommandEmpty>
+                <CommandGroup heading="Suggestions">
+                    <CommandItem>Calendar</CommandItem>
+                    <CommandItem>Search Emoji</CommandItem>
+                    <CommandItem>Calculator</CommandItem>
+                </CommandGroup>
+                <CommandSeparator />
+                <CommandGroup heading="Settings">
+                    <CommandItem>Profile</CommandItem>
+                    <CommandItem>Billing</CommandItem>
+                    <CommandItem>Settings</CommandItem>
+                </CommandGroup>
+            </CommandList>
+        </Command>
+
+    )
+}
 
 
 
 /*    const activateCommandsModal = () => {
-        document.body.style.overflow = 'hidden';
-        // compensate for missing scroll bar
-        document.body.style.paddingRight = `0.5rem`;
-        document.getElementById('header').style.paddingRight = `0.5rem`;
-        setCommandsActive(true);
-    }
+    document.body.style.overflow = 'hidden';
+    // compensate for missing scroll bar
+    document.body.style.paddingRight = `0.5rem`;
+    document.getElementById('header').style.paddingRight = `0.5rem`;
+    setCommandsActive(true);
+}
 
-    const deactivateCommandsModal = () => {
-        document.body.style.overflow = 'unset';
-        document.body.style.paddingRight = `0rem`;
-        document.getElementById('header').style.paddingRight = `0rem`;
-        setCommandsActive(false);
-    }
+const deactivateCommandsModal = () => {
+    document.body.style.overflow = 'unset';
+    document.body.style.paddingRight = `0rem`;
+    document.getElementById('header').style.paddingRight = `0rem`;
+    setCommandsActive(false);
+}
 
-    */
+*/
+// export default Commands
