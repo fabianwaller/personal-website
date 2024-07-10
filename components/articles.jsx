@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Button from './button'
 import formatDate from "../lib/formatdate"
 
-function TweetBoxes({tweets}) {
-    if (tweets == null) {return null}
+function TweetBoxes({ tweets }) {
+    if (tweets == null) { return null }
 
     return (
         <div className='grid'>
@@ -36,7 +36,7 @@ function TweetBoxes({tweets}) {
     );
 }
 
-const Articles = ({allPostsData}) => {
+const Articles = ({ allPostsData }) => {
 
     return (
         <div className='article__boxes'>
@@ -50,10 +50,9 @@ const Articles = ({allPostsData}) => {
                         </div>
                     </div>
 
-
-                    <span className="article__data flex">
+                    {/* <span className="article__data flex">
                         {formatDate(new Date(post.date))}
-                    </span>
+                    </span> */}
                 </Link>
             ))}
         </div>

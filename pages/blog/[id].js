@@ -1,9 +1,9 @@
 import Layout from '../../components/layout';
-import {getAllPostIds, getPostData} from '../../lib/posts';
+import { getAllPostIds, getPostData } from '../../lib/posts';
 import Head from 'next/head';
 import formatDate from '../../lib/formatdate'
 
-export async function getStaticProps({params}) {
+export async function getStaticProps({ params }) {
     const postData = await getPostData(params.id);
 
     return {
@@ -21,7 +21,7 @@ export async function getStaticPaths() {
     };
 }
 
-const Post = ({postData}) => {
+const Post = ({ postData }) => {
     return (
         <Layout page='blog'>
             <Head>
@@ -40,11 +40,11 @@ const Post = ({postData}) => {
 
                     <p className='article__text'>{postData.description}</p>
 
-                    <div className="article__content" id='article-content' dangerouslySetInnerHTML={{__html: postData.contentHtml}} />
+                    <div className="article__content" id='article-content' dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
 
-                    <span className="project__info flex">
+                    {/* <span className="project__info flex">
                         article published on {formatDate(new Date(postData.date))}
-                    </span>
+                    </span> */}
 
                 </div>
 
