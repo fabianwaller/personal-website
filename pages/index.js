@@ -2,6 +2,15 @@ import Layout from '../components/layout';
 import Header from '../components/header'
 import React from 'react'
 import ShortcutMenu from '../components/shortcutMenu'
+import { parse, differenceInYears } from 'date-fns';
+
+const BIRTHDAY = '08-06-2003'
+
+const calculateAge = (birthday) => {
+  const dateFormat = 'dd-MM-yyyy';
+  const birthDate = parse(birthday, dateFormat, new Date());
+  return differenceInYears(new Date(), birthDate);
+}
 
 const Home = () => {
   return (
@@ -66,7 +75,7 @@ const Home = () => {
 
           <div className="home__data">
             <h1 className="home__title">Fabian Waller</h1>
-            <p className="home__description">20 year old computer science student at Saarland University interested in fullstack web development and football player.</p>
+            <p className="home__description">{calculateAge(BIRTHDAY)} year old computer science student at Saarland University interested in fullstack development and football player.</p>
             <ShortcutMenu />
           </div>
 
