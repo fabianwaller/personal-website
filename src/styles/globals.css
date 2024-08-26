@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* --background: 0 0% 90%; */
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    /* --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%; */
+    /* --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%; */
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+
+    --header-height: 4rem;
+
+    /* colors */
+    --hue-color: 230;
+
+
+    --primary: var(--hue-color), 69%, 70%;
+    --primary-foreground: var(--hue-color), 61%, 80%;
+    --secondary: var(--hue-color), 69%, 61%;
+    --first-color-alt: hsl(var(--hue-color), 57%, 70%);
+    --title-color: hsl(var(--hue-color), 8%, 15%);
+    --text-color: hsl(var(--hue-color), 4%, 30%);
+    --text-color-light: hsl(var(--hue-color), 8%, 65%);
+    --text-color-dark: hsl(var(--hue-color), 21%, 56%);
+    --input-color: hsl(var(--hue-color), 70%, 98%);
+    --border-color: hsl(var(--hue-color), 40%, 92%);
+
+    --body-h: var(--hue-color);
+    --body-s: 0%;
+    --body-l: 96%;
+
+    --glass-opacity: .6;
+    --background: var(--body-h), var(--body-s), var(--body-l);
+    --container-color: hsl(var(--body-h), 10%, var(--body-l));
+    --scroll-bar-color: hsla(var(--hue-color), 12%, 90, 0%);
+    --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+
+    --shadow-color: rgba(0, 0, 0, .05);
+    --shadow-color-intense: rgba(0, 0, 0, .1);
+
+    --accent-yellow: hsl(60, 100%, 70%);
+    --accent-pink: hsl(330, 100%, 70%);
+    --accent-purple: hsl(250, 100%, 70%);
+    --accent-red: hsl(10, 100%, 70%);
+    --accent-orange: hsl(35, 100%, 70%);
+    --accent-green: hwb(115 40% 0%);
+    --accent-cyan: hsl(170, 100%, 70%);
+
+    --first-color-shape: hsl(253, 33%, 32%);
+
+    /* font and typography */
+    --body-font: 'Poppins', sans-serif;
+
+    --big-font-size: 2rem;
+    --h1-font-size: 1.75rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1.125rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    --font-medium: 500;
+    --font-semi-bold: 600;
+
+    /* margens .25rem = 4px, .5rem = 8px, ... */
+    --mb-0-25: .25rem;
+    --mb-0-5: .5rem;
+    --mb-0-75: .75rem;
+    --mb-1: 1rem;
+    --mb-1-5: 1.5rem;
+    --mb-2: 2rem;
+    --mb-2-5: 2.5rem;
+    --mb-3: 3rem;
+    --mb-4: 4rem;
+
+    /* z-index */
+    --z-tooltip: 10;
+    --z-fixed: 100;
+    --z-modal: 1000;
+
+    --transition: .3s
+  }
+
+  .dark {
+    /* --background: 222.2 84% 4.9%; */
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Font sizes for larger devices */
+@media screen and (min-width: 968px) {
+  :root {
+      --big-font-size: 3rem;
+      --h1-font-size: 2.25rem;
+      --h2-font-size: 1.5rem;
+      --h3-font-size: 1.25rem;
+      --normal-font-size: 1rem;
+      --small-font-size: .875rem;
+      --smaller-font-size: .813rem;
+  }
+}
+
+/*==================== VARIABLES DARK theme ====================*/
+@media (prefers-color-scheme: dark) {
+  :root {
+      --first-color-second: hsl(var(--hue-color), 55%, 55%);
+      --title-color: hsl(var(--hue-color), 8%, 95%);
+      --text-color: hsl(var(--hue-color), 8%, 80%);
+      --border-color: hsl(var(--hue-color), 10%, 25%);
+
+      --body-h: var(--hue-color);
+      --body-s: 22%;
+      --body-l: 4%;
+      --background: var(--body-h), var(--body-s), var(--body-l);
+
+      --shadow-color: hsla(var(--body-h), var(--body-s), 70%, .1);
+      --shadow-color-intense: hsla(var(--body-h), var(--body-s), 90%, .1);
+
+      --accent-yellow: hsl(60, 100%, 75%);
+      --accent-pink: hsl(330, 100%, 75%);
+      --accent-purple: hsl(250, 100%, 75%);
+      --accent-red: hsl(10, 100%, 75%);
+      --accent-orange: hsl(35, 100%, 75%);
+      --accent-green: hsl(115, 100%, 75%);
+      --accent-cyan: hsl(170, 100%, 75%);
+
+      --container-color: hsl(var(--body-h), 8%, 6%);
+      --input-color: hsl(var(--hue-color), 7%, 13%);
+      --scroll-bar-color: hsl(--hue-color, 12%, 48%);
+      --scroll-thumb-color: hsl(--hue-color, 12%, 36%);
+  }
+}
+
+
+#stopo {
+  stop-color: var(--primary-foreground);
+}
+
+#stopb {
+  stop-color: var(--primary);
+}
+
+.blob__svg:nth-child(1) {
+  position: absolute;
+  z-index: -1;
+  filter: blur(20px);
+}
