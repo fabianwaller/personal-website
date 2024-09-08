@@ -33,7 +33,6 @@ import { FaXTwitter as Twitter, FaGithub as Github, FaLinkedin as LinkedIn } fro
 import { useEffect, useState } from "react"
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 export function CommandMenu() {
     const router = useRouter()
@@ -46,7 +45,6 @@ export function CommandMenu() {
 
     useEffect(() => {
         const down = (e: KeyboardEvent) => {
-            console.log(e.key)
             if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
                 e.preventDefault()
                 toggle()
@@ -57,8 +55,10 @@ export function CommandMenu() {
         return () => document.removeEventListener("keydown", down)
     }, [])
 
-    const isMac = /(Mac)/i.test(navigator.userAgent)
-    const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent)
+    // const isMac = /(Mac)/i.test(navigator.userAgent)
+    // const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent)
+    const isMac = true
+    const isMobile = false
 
     let action;
     let cmd;
