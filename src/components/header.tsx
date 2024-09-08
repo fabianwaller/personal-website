@@ -1,13 +1,13 @@
 import Logo from "./logo"
-import { NavigationMenuDemo } from "./navigation"
+import { Navigation } from "./navigation"
 
 const Header = () => {
     return (
-        <header className="container fixed top-0 left-0 z-50" id="header">
+        <header className="container fixed top-0 left-0 right-0 z-50 w-ful" id="header">
             <nav className="h-header-height flex items-center justify-between">
                 <Logo />
 
-                <NavigationMenuDemo />
+                <Navigation />
             </nav>
         </header>
     )

@@ -4,7 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 
 import { cn } from "@/lib/utils"
-// import { Icons } from "@/components/icons"
+
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -14,9 +14,6 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
-
-
-import { Separator } from "./ui/separator"
 
 const components: { title: string; href: string; description: string }[] = [
     {
@@ -56,7 +53,8 @@ const components: { title: string; href: string; description: string }[] = [
     },
 ]
 
-export function NavigationMenuDemo() {
+export function Navigation() {
+
     return (
         <NavigationMenu>
             <NavigationMenuList>
@@ -68,20 +66,18 @@ export function NavigationMenuDemo() {
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>About</NavigationMenuTrigger>
-                    <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                            {components.map((component) => (
-                                <ListItem
-                                    key={component.title}
-                                    title={component.title}
-                                    href={component.href}
-                                >
-                                    {component.description}
-                                </ListItem>
-                            ))}
-                        </ul>
-                    </NavigationMenuContent>
+                    <Link href="/about" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            About
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>
+                <NavigationMenuItem>
+                    <Link href="/journey" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            Journey
+                        </NavigationMenuLink>
+                    </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
@@ -98,13 +94,6 @@ export function NavigationMenuDemo() {
                             ))}
                         </ul>
                     </NavigationMenuContent>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                    <Link href="/docs" legacyBehavior passHref>
-                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                            Journey
-                        </NavigationMenuLink>
-                    </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Blog</NavigationMenuTrigger>

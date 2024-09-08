@@ -18,12 +18,12 @@
     --secondary-foreground: 222.2 47.4% 11.2%; */
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%; */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
+    /* --border: 214.3 31.8% 91.4%; 
+    --input: 214.3 31.8% 91.4%;  */
     --ring: 222.2 84% 4.9%;
     --radius: 0.5rem;
     --chart-1: 12 76% 61%;
@@ -41,13 +41,15 @@
     --primary: var(--hue-color), 69%, 70%;
     --primary-foreground: var(--hue-color), 61%, 80%;
     --secondary: var(--hue-color), 69%, 61%;
-    --first-color-alt: hsl(var(--hue-color), 57%, 70%);
-    --title-color: hsl(var(--hue-color), 8%, 15%);
-    --text-color: hsl(var(--hue-color), 4%, 30%);
-    --text-color-light: hsl(var(--hue-color), 8%, 65%);
-    --text-color-dark: hsl(var(--hue-color), 21%, 56%);
-    --input-color: hsl(var(--hue-color), 70%, 98%);
-    --border-color: hsl(var(--hue-color), 40%, 92%);
+    --accent: var(--hue-color), 40%, 96.1%;
+    --accent-foreground: var(--hue-color), 47.4%, 41.2%;
+    --first-color-alt: var(--hue-color), 57%, 70%;
+    --title-color: var(--hue-color), 8%, 15%;
+    --text-color: var(--hue-color), 4%, 30%;
+    --text-color-light:var(--hue-color), 8%, 65%;
+    --text-color-dark: var(--hue-color), 21%, 56%;
+    --input: var(--hue-color), 70%, 98%;
+    --border: var(--hue-color), 40%, 92%;
 
     --body-h: var(--hue-color);
     --body-s: 0%;
@@ -184,19 +186,4 @@
       --scroll-bar-color: hsl(--hue-color, 12%, 48%);
       --scroll-thumb-color: hsl(--hue-color, 12%, 36%);
   }
-}
-
-
-#stopo {
-  stop-color: var(--primary-foreground);
-}
-
-#stopb {
-  stop-color: var(--primary);
-}
-
-.blob__svg:nth-child(1) {
-  position: absolute;
-  z-index: -1;
-  filter: blur(20px);
 }
