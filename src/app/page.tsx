@@ -1,3 +1,4 @@
+import { CommandMenu } from "@/components/CommandMenu";
 import HeroBlob from "@/components/heroblob/heroblob";
 import TypographyH1 from "@/components/ui/TypographyH1";
 import { parse, differenceInYears } from 'date-fns';
@@ -21,7 +22,7 @@ export default function Home() {
         <div className="flex flex-col justify-center gap-4" style={{ paddingBottom: 'var(--header-height))' }}>
           <TypographyH1>Fabian Waller</TypographyH1>
           <p className="relative">{calculateAge(BIRTHDAY)} year old computer science student at Saarland University interested in fullstack development and football player.</p>
-          {/* <ShortcutMenu /> */}
+          <CommandMenu />
         </div>
 
       </div>
