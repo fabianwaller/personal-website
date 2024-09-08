@@ -48,7 +48,7 @@ const HeroBlob = () => (
       M430.5,295.5Q375,341,345,395Q315,449,254.5,436Q194,423,148,390Q102,357,59,303.5Q16,250,58.5,196Q101,142,144,99Q187,56,246,68.5Q305,81,357.5,107.5Q410,134,448,192Q486,250,430.5,295.5Z
       '></animate>
             </path>
-            <image mask="url(#mask)" xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="/images/profile-picture.png" width="400" height="400" x='30' y='105' />
+            <image mask="url(#mask)" xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref="/images/profile.png" width="800" height="800" x='-150' y='75' />
         </svg>
 
     </div>

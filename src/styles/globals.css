@@ -35,10 +35,10 @@
     --header-height: 4rem;
 
     /* colors */
-    --hue-color: 230;
+    --hue-color: 166;
 
 
-    --primary: var(--hue-color), 69%, 70%;
+    --primary: var(--hue-color), 49%, 60%;
     --primary-foreground: var(--hue-color), 61%, 80%;
     --secondary: var(--hue-color), 69%, 61%;
     --accent: var(--hue-color), 40%, 96.1%;
@@ -46,7 +46,7 @@
     --first-color-alt: var(--hue-color), 57%, 70%;
     --title-color: var(--hue-color), 8%, 15%;
     --text-color: var(--hue-color), 4%, 30%;
-    --text-color-light:var(--hue-color), 8%, 65%;
+    --text-color-light: var(--hue-color), 8%, 65%;
     --text-color-dark: var(--hue-color), 21%, 56%;
     --input: var(--hue-color), 70%, 98%;
     --border: var(--hue-color), 40%, 92%;
@@ -139,6 +139,7 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
@@ -147,43 +148,43 @@
 /* Font sizes for larger devices */
 @media screen and (min-width: 968px) {
   :root {
-      --big-font-size: 3rem;
-      --h1-font-size: 2.25rem;
-      --h2-font-size: 1.5rem;
-      --h3-font-size: 1.25rem;
-      --normal-font-size: 1rem;
-      --small-font-size: .875rem;
-      --smaller-font-size: .813rem;
+    --big-font-size: 3rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: .875rem;
+    --smaller-font-size: .813rem;
   }
 }
 
 /*==================== VARIABLES DARK theme ====================*/
 @media (prefers-color-scheme: dark) {
   :root {
-      --first-color-second: hsl(var(--hue-color), 55%, 55%);
-      --title-color: hsl(var(--hue-color), 8%, 95%);
-      --text-color: hsl(var(--hue-color), 8%, 80%);
-      --border-color: hsl(var(--hue-color), 10%, 25%);
+    --first-color-second: hsl(var(--hue-color), 55%, 55%);
+    --title-color: hsl(var(--hue-color), 8%, 95%);
+    --text-color: hsl(var(--hue-color), 8%, 80%);
+    --border-color: hsl(var(--hue-color), 10%, 25%);
 
-      --body-h: var(--hue-color);
-      --body-s: 22%;
-      --body-l: 4%;
-      --background: var(--body-h), var(--body-s), var(--body-l);
+    --body-h: var(--hue-color);
+    --body-s: 22%;
+    --body-l: 4%;
+    --background: var(--body-h), var(--body-s), var(--body-l);
 
-      --shadow-color: hsla(var(--body-h), var(--body-s), 70%, .1);
-      --shadow-color-intense: hsla(var(--body-h), var(--body-s), 90%, .1);
+    --shadow-color: hsla(var(--body-h), var(--body-s), 70%, .1);
+    --shadow-color-intense: hsla(var(--body-h), var(--body-s), 90%, .1);
 
-      --accent-yellow: hsl(60, 100%, 75%);
-      --accent-pink: hsl(330, 100%, 75%);
-      --accent-purple: hsl(250, 100%, 75%);
-      --accent-red: hsl(10, 100%, 75%);
-      --accent-orange: hsl(35, 100%, 75%);
-      --accent-green: hsl(115, 100%, 75%);
-      --accent-cyan: hsl(170, 100%, 75%);
+    --accent-yellow: hsl(60, 100%, 75%);
+    --accent-pink: hsl(330, 100%, 75%);
+    --accent-purple: hsl(250, 100%, 75%);
+    --accent-red: hsl(10, 100%, 75%);
+    --accent-orange: hsl(35, 100%, 75%);
+    --accent-green: hsl(115, 100%, 75%);
+    --accent-cyan: hsl(170, 100%, 75%);
 
-      --container-color: hsl(var(--body-h), 8%, 6%);
-      --input-color: hsl(var(--hue-color), 7%, 13%);
-      --scroll-bar-color: hsl(--hue-color, 12%, 48%);
-      --scroll-thumb-color: hsl(--hue-color, 12%, 36%);
+    --container-color: hsl(var(--body-h), 8%, 6%);
+    --input-color: hsl(var(--hue-color), 7%, 13%);
+    --scroll-bar-color: hsl(--hue-color, 12%, 48%);
+    --scroll-thumb-color: hsl(--hue-color, 12%, 36%);
   }
 }
