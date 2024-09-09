@@ -10,12 +10,32 @@ const config = {
   ],
   prefix: "",
   theme: {
+    screens: {
+      'xs': '350px',
+      'sm': '640px',
+      // => @media (min-width: 640px) { ... }
+
+      'md': '768px',
+      // => @media (min-width: 768px) { ... }
+
+      'lg': '1024px',
+      // => @media (min-width: 1024px) { ... }
+
+      'xl': '1280px',
+      // => @media (min-width: 1280px) { ... }
+
+      '2xl': '1536px',
+      // => @media (min-width: 1536px) { ... }
+    },
     container: {
       center: true,
-      padding: "8rem",
+      padding: "1rem",
       screens: {
         "2xl": "1400px",
       },
+    },
+    maxWidth: {
+      'custom': 'calc(748px - var(--mb-3))',
     },
     extend: {
       colors: {
@@ -57,6 +77,9 @@ const config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+      },
+      borderWidth: {
+        '1-25': '1.25px',
       },
       keyframes: {
         "accordion-down": {

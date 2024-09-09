@@ -5,9 +5,3 @@
 .stopb {
   stop-color: hsl(var(--primary));
 }
-
-.blob__svg:nth-child(1) {
-  position: absolute;
-  z-index: -1;
-  filter: blur(20px);
-}

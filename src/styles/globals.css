@@ -75,7 +75,7 @@
     --first-color-shape: hsl(253, 33%, 32%);
 
     /* font and typography */
-    --body-font: 'Poppins', sans-serif;
+    /* --body-font: 'Poppins', sans-serif; */
 
     --big-font-size: 2rem;
     --h1-font-size: 1.75rem;
@@ -160,7 +160,7 @@
 
 /*==================== VARIABLES DARK theme ====================*/
 @media (prefers-color-scheme: dark) {
-  :root {
+  /* :root {
     --first-color-second: hsl(var(--hue-color), 55%, 55%);
     --title-color: hsl(var(--hue-color), 8%, 95%);
     --text-color: hsl(var(--hue-color), 8%, 80%);
@@ -186,5 +186,5 @@
     --input-color: hsl(var(--hue-color), 7%, 13%);
     --scroll-bar-color: hsl(--hue-color, 12%, 48%);
     --scroll-thumb-color: hsl(--hue-color, 12%, 36%);
-  }
+  } */
 }

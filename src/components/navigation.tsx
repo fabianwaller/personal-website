@@ -56,7 +56,7 @@ const components: { title: string; href: string; description: string }[] = [
 export function Navigation() {
 
     return (
-        <NavigationMenu>
+        <NavigationMenu className="justify-end">
             <NavigationMenuList>
                 <NavigationMenuItem>
                     <Link href="/" legacyBehavior passHref>

@@ -28,6 +28,8 @@ import {
     CommandShortcut,
 } from "@/components/ui/command"
 
+import { useSearchParams } from 'next/navigation'
+
 import { FaXTwitter as Twitter, FaGithub as Github, FaLinkedin as LinkedIn } from "react-icons/fa6";
 
 import { useEffect, useState } from "react"
@@ -59,6 +61,12 @@ export function CommandMenu() {
     // const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent)
     const isMac = true
     const isMobile = false
+
+    const searchParams = useSearchParams()
+
+    const search = searchParams.get('viewport')
+
+    console.log(search)
 
     let action;
     let cmd;

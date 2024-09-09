@@ -1,14 +1,30 @@
+"use client"
+
+import { useEffect, useState } from "react";
+import Container from "./Container"
 import Logo from "./logo"
 import { Navigation } from "./navigation"
 
 const Header = () => {
-    return (
-        <header className="container fixed top-0 left-0 right-0 z-50 w-ful" id="header">
-            <nav className="h-header-height flex items-center justify-between">
-                <Logo />
+    const [headerScroll, setHeaderScroll] = useState(false);
 
-                <Navigation />
-            </nav>
+    const breakpoint = 1
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            setHeaderScroll(window.scrollY >= breakpoint)
+        });
+    }, [])
+
+    return (
+        <header className={`fixed w-full z-50 bg-background ${headerScroll ? "bg-background shadow-sm" : ""}`} id="header" >
+            <Container>
+                <nav className="h-header-height flex items-center justify-between">
+                    <Logo />
+
+                    <Navigation />
+                </nav>
+            </Container>
         </header>
     )
 }
