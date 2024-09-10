@@ -116,6 +116,10 @@ const config = {
       gridTemplateColumns: {
         '2-max': 'repeat(2, max-content)',
       },
+      boxShadow: {
+        custom: '0 0 .25rem var(--shadow-color)',
+        hover: '0 0 .5rem var(--shadow-color-intense)',
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
