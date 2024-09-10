@@ -23,9 +23,6 @@ export default function Home() {
         <div className="flex flex-col justify-center gap-4 pb-header">
           <TypographyH1>Fabian Waller</TypographyH1>
           <p className="relative">{calculateAge(BIRTHDAY)} year old computer science student at Saarland University interested in fullstack development and football player.</p>
-          <Suspense>
-            <CommandMenu />
-          </Suspense>
         </div>
       </Container>
     </section>

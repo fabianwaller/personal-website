@@ -4,6 +4,9 @@ import "@/styles/globals.css"
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
+import { CommandMenuProvider } from "@/provider/CommandMenuContext";
+import { Suspense } from "react";
+import { CommandMenu } from "@/components/CommandMenu";
 
 const fontSans = Poppins({
   weight: "500",
@@ -19,6 +22,7 @@ export const metadata: Metadata = {
 
 
 export default function RootLayout({ children }: { children: React.ReactNode; }) {
+
   return (
     <html lang="en">
       <head>
@@ -36,10 +40,15 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
-          <main className="flex min-h-screen flex-col items-center justify-between pt-header">
-            {children}
-          </main>
+          <CommandMenuProvider>
+            <Suspense>
+              <CommandMenu />
+            </Suspense>
+            <Header />
+            <main className="flex min-h-screen flex-col items-center justify-between pt-header">
+              {children}
+            </main>
+          </CommandMenuProvider>
         </ThemeProvider>
       </body>
     </html>
