@@ -69,6 +69,14 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        text: {
+          normal: "hsl(var(--text-color))",
+          light: "hsl(var(--text-color-light))",
+          dark: "hsl(var(--text-color-dark))",
+        },
+        title: {
+          normal: "hsl(var(--title-color))"
+        }
       },
       maxWidth: {
         'custom': 'calc(748px - var(--mb-3))',
@@ -82,7 +90,7 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       borderWidth: {
-        '1-25': '1.25px',
+        // '1-25': '1.25px',
       },
       keyframes: {
         "accordion-down": {
@@ -104,7 +112,10 @@ const config = {
       height: {
         "header-height": 'var(--header-height)',
         "page-minus-header": 'calc(100vh - var(--header-height))'
-      }
+      },
+      gridTemplateColumns: {
+        '2-max': 'repeat(2, max-content)',
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

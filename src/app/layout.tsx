@@ -7,6 +7,7 @@ import Header from "@/components/header";
 import { CommandMenuProvider } from "@/provider/CommandMenuContext";
 import { Suspense } from "react";
 import { CommandMenu } from "@/components/CommandMenu";
+import Footer from "@/components/Footer";
 
 const fontSans = Poppins({
   weight: "500",
@@ -30,7 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
       </head>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased text-text-normal",
           fontSans.variable,
         )}
       >
@@ -45,9 +46,10 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
               <CommandMenu />
             </Suspense>
             <Header />
-            <main className="flex min-h-screen flex-col items-center justify-between pt-header">
+            <main className="flex flex-col items-center justify-between pt-header">
               {children}
             </main>
+            <Footer />
           </CommandMenuProvider>
         </ThemeProvider>
       </body>

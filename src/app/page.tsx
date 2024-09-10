@@ -1,9 +1,9 @@
-import { CommandMenu } from "@/components/CommandMenu";
+import Column from "@/components/Column";
+import { CommandMenuButton } from "@/components/CommandMenu";
 import Container from "@/components/Container";
 import HeroBlob from "@/components/heroblob/heroblob";
 import TypographyH1 from "@/components/ui/TypographyH1";
 import { parse, differenceInYears } from 'date-fns';
-import { Suspense } from "react";
 
 const BIRTHDAY = '08-06-2003'
 
@@ -16,14 +16,13 @@ const calculateAge = (birthday: string) => {
 export default function Home() {
   return (
     <section id="home">
-
       <Container className={`p-0 `} fullScreen>
         <HeroBlob />
-
-        <div className="flex flex-col justify-center gap-4 pb-header">
+        <Column className="items-start">
           <TypographyH1>Fabian Waller</TypographyH1>
           <p className="relative">{calculateAge(BIRTHDAY)} year old computer science student at Saarland University interested in fullstack development and football player.</p>
-        </div>
+          <CommandMenuButton />
+        </Column>
       </Container>
     </section>
   );

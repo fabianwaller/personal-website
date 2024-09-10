@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   :root {
     /* --background: 0 0% 90%; */
@@ -188,3 +184,128 @@
     --scroll-thumb-color: hsl(--hue-color, 12%, 36%);
   } */
 }
+
+/*==================== BASE ====================*/
+/* * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+p,
+ul,
+blockquote {
+  line-height: 1.6rem;
+}
+
+.stop-scrolling {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+h1 {
+  font-size: var(--h1-font-size);
+}
+
+h2 {
+  font-size: var(--h2-font-size);
+}
+
+h3 {
+  font-size: var(--h3-font-size);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+img,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: var(--mb-0-5);
+}
+
+hr,
+.divider {
+  border: none;
+  height: 1px;
+  background-color: var(--border-color);
+  border-radius: var(--border-radius);
+  opacity: .5;
+}
+
+.linear__gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.linear__gradient-1 {
+  color: var(--accent-pink);
+  background-image: -webkit-linear-gradient(0deg, var(--accent-pink), var(--accent-purple));
+}
+
+.linear__gradient-4 {
+  color: var(--accent-cyan);
+  background-image: -webkit-linear-gradient(0deg, var(--accent-cyan), var(--accent-green));
+}
+
+.linear__gradient-3 {
+  color: var(--accent-yellow);
+  background-image: -webkit-linear-gradient(0deg, var(--accent-yellow), var(--accent-pink));
+}
+
+.linear__gradient-2 {
+  color: var(--accent-purple);
+  background-image: -webkit-linear-gradient(0deg, var(--accent-purple), var(--accent-cyan));
+}
+
+/* ===== SCROLL BAR ===== */
+::-webkit-scrollbar {
+  width: .5rem;
+  background-color: var(--scroll-bar-color);
+  border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-color);
+  border-radius: var(--border-radius);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-color-light);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

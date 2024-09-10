@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const Keyword = ({ children }: { children: React.ReactNode }) => (
-    <span className="inline-block text-title-color py-2 px-4 rounded-lg text-sm border-solid border-1-25 divide-border" >{children}</span>
+    <span className="inline-block py-2 px-4 rounded-lg text-sm border-solid border-2 divide-border text-title-normal" >{children}</span>
 )
 
 export default function About() {

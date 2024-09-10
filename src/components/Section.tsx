@@ -2,6 +2,7 @@ import React from 'react'
 import { cn } from '@/lib/utils'
 import Container from './Container'
 import TypographyH2 from './ui/TypographyH2'
+import Subtitle from './ui/Subtitle'
 
 type SectionProps = {
     name: string,
@@ -17,7 +18,7 @@ const Section: React.FC<SectionProps> = (props) => {
         <section className="py-8" id={props.name}>
             <div className="mb-12 text-center">
                 <TypographyH2 className={`section__title ${props.gradient}`}>{props.title}</TypographyH2>
-                <span className="text-sm block">{props.subtitle}</span>
+                <Subtitle>{props.subtitle}</Subtitle>
             </div>
 
             <Container className={cn([`p-0`, props.className])}>
