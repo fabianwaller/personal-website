@@ -29,13 +29,10 @@ const config = {
     },
     container: {
       center: true,
-      padding: "1rem",
+      // padding: "1rem",
       screens: {
         "2xl": "1400px",
       },
-    },
-    maxWidth: {
-      'custom': 'calc(748px - var(--mb-3))',
     },
     extend: {
       colors: {
@@ -73,6 +70,12 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+      maxWidth: {
+        'custom': 'calc(748px - var(--mb-3))',
+      },
+      padding: {
+        'header': "var(--header-height)"
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -100,6 +103,7 @@ const config = {
       },
       height: {
         "header-height": 'var(--header-height)',
+        "page-minus-header": 'calc(100vh - var(--header-height))'
       }
     },
   },

@@ -11,10 +11,16 @@ const Header = () => {
     const breakpoint = 1
 
     useEffect(() => {
-        window.addEventListener('scroll', () => {
-            setHeaderScroll(window.scrollY >= breakpoint)
-        });
-    }, [])
+        const handleScroll = () => {
+            setHeaderScroll(window.scrollY >= breakpoint);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     return (
         <header className={`fixed w-full z-50 bg-background ${headerScroll ? "bg-background shadow-sm" : ""}`} id="header" >

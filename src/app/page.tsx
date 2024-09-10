@@ -17,19 +17,15 @@ export default function Home() {
   return (
     <section id="home">
 
-      <Container className={`p-0`}>
-        <div className="container w-full p-0" style={{ height: 'calc(100vh - var(--header-height))' }}>
+      <Container className={`p-0 `} fullScreen>
+        <HeroBlob />
 
-          <HeroBlob />
-
-          <div className="flex flex-col justify-center gap-4" style={{ paddingBottom: 'var(--header-height))' }}>
-            <TypographyH1>Fabian Waller</TypographyH1>
-            <p className="relative">{calculateAge(BIRTHDAY)} year old computer science student at Saarland University interested in fullstack development and football player.</p>
-            <Suspense>
-              <CommandMenu />
-            </Suspense>
-          </div>
-
+        <div className="flex flex-col justify-center gap-4 pb-header">
+          <TypographyH1>Fabian Waller</TypographyH1>
+          <p className="relative">{calculateAge(BIRTHDAY)} year old computer science student at Saarland University interested in fullstack development and football player.</p>
+          <Suspense>
+            <CommandMenu />
+          </Suspense>
         </div>
       </Container>
     </section>

@@ -1,6 +1,10 @@
 import React from 'react'
 
-const Logo = ({ white }: { white?: boolean }) => {
+type LogoProps = {
+    white?: boolean
+}
+
+const Logo: React.FC<LogoProps> = ({ white }) => {
     return (
         <a href="/" className="flex items-center">
             <svg className="h-8 w-8 mr-1" width="78" height="74" viewBox="0 0 78 74" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -11,7 +15,7 @@ const Logo = ({ white }: { white?: boolean }) => {
             </svg>
             <span className="logo__text font-medium hover:text-primary">Fabian</span>
         </a>
-    );
+    )
 }
 
 export default Logo
