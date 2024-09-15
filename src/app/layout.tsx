@@ -13,7 +13,8 @@ const fontSans = Poppins({
   weight: "500",
   subsets: ["latin"],
   variable: "--font-sans",
-  display: "swap",
+  fallback: ["sans-serif"],
+  // display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -31,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
       </head>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased text-text-normal",
+          "box-border min-h-screen bg-background font-sans antialiased text-text-normal",
           fontSans.variable,
         )}
       >

@@ -1,14 +1,14 @@
 import { cn } from "@/lib/utils"
 
-type ColumnProps = {
+type XStackProps = {
     children: React.ReactNode
     className?: string
 }
 
-const Column: React.FC<ColumnProps> = ({ children, className }) => (
+const XStack: React.FC<XStackProps> = ({ children, className }) => (
     <div className={cn(["flex flex-col items-center justify-center gap-4", className])}>
         {children}
     </div >
 )
 
-export default Column
+export default XStack

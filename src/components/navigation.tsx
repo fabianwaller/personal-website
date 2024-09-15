@@ -56,7 +56,7 @@ const components: { title: string; href: string; description: string }[] = [
 export function Navigation() {
 
     return (
-        <NavigationMenu className="justify-end">
+        <NavigationMenu className="justify-end hidden md:block">
             <NavigationMenuList>
                 <NavigationMenuItem>
                     <Link href="/" legacyBehavior passHref>
@@ -80,6 +80,13 @@ export function Navigation() {
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
+                    <Link href="/projects" legacyBehavior passHref>
+                        <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                            Projects
+                        </NavigationMenuLink>
+                    </Link>
+                </NavigationMenuItem>
+                {/* <NavigationMenuItem>
                     <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
@@ -94,7 +101,7 @@ export function Navigation() {
                             ))}
                         </ul>
                     </NavigationMenuContent>
-                </NavigationMenuItem>
+                </NavigationMenuItem> */}
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Blog</NavigationMenuTrigger>
                     <NavigationMenuContent>

@@ -92,6 +92,10 @@ const config = {
       borderWidth: {
         // '1-25': '1.25px',
       },
+      height: {
+        "header-height": 'var(--header-height)',
+        "page-minus-header": 'calc(100vh - var(--header-height))'
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -109,16 +113,19 @@ const config = {
       fontFamily: {
         sans: ["var(--font-sans)", "sans"],
       },
-      height: {
-        "header-height": 'var(--header-height)',
-        "page-minus-header": 'calc(100vh - var(--header-height))'
-      },
       gridTemplateColumns: {
+        '1-max': '1fr max-content',
         '2-max': 'repeat(2, max-content)',
+      },
+      gridTemplateRows: {
+        '1-max': 'repeat(1, 1fr)',
       },
       boxShadow: {
         custom: '0 0 .25rem var(--shadow-color)',
         hover: '0 0 .5rem var(--shadow-color-intense)',
+      },
+      spacing: {
+        "icon-small": "4"
       }
     },
   },

@@ -23,7 +23,7 @@ const Header = () => {
     }, []);
 
     return (
-        <header className={`fixed w-full z-50 bg-background ${headerScroll ? "bg-background shadow-sm" : ""}`} id="header" >
+        <header className={`fixed w-full z-50 bg-background ${headerScroll ? "shadow-sm" : ""}`} id="header" >
             <Container>
                 <nav className="h-header-height flex items-center justify-between">
                     <Logo />
