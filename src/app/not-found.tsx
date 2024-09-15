@@ -8,9 +8,9 @@ const PageNotFound = () => {
     return (
         <Container fullScreen center>
             <XStack>
-                <TypographyH1>404</TypographyH1>
+                <TypographyH1> 404 - Page Not Found</TypographyH1>
                 <div className="block">
-                    <TypographySmall>This page could not be found. It does not exist or was removed.</TypographySmall>
+                    <TypographySmall>The page you are looking for does not exist.</TypographySmall>
                 </div>
             </XStack>
         </Container>

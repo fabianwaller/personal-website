@@ -43,6 +43,8 @@ const JourneyData: React.FC<JourneyDataProps> = ({ title, description, time, las
 
 const JourneyTabs = () => {
     return (
+
+
         <Tabs defaultValue="education" className="w-[500px]">
             <TabsList className="bg-background grid w-full grid-cols-2 mb-6">
                 <TabsTrigger value="education">Education</TabsTrigger>

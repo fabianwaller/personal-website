@@ -91,10 +91,14 @@ const config = {
       },
       borderWidth: {
         // '1-25': '1.25px',
+        "1": "1px",
       },
       height: {
         "header-height": 'var(--header-height)',
         "page-minus-header": 'calc(100vh - var(--header-height))'
+      },
+      width: {
+        "full-plus": 'calc(100% + var(--mb-2))',
       },
       keyframes: {
         "accordion-down": {
@@ -126,10 +130,48 @@ const config = {
       },
       spacing: {
         "icon-small": "4"
-      }
+      },
+      typography: ({ theme }) => ({
+        custom: {
+          css: {
+            '--tw-prose-body': "hsl(var(--text-color))",
+            '--tw-prose-headings': "hsl(var(--title-color))",
+            '--tw-prose-lead': theme('colors.pink[700]'),
+            '--tw-prose-links': theme('colors.pink[900]'),
+            '--tw-prose-bold': "hsl(var(--text-color))",
+            '--tw-prose-counters': theme('colors.pink[600]'),
+            '--tw-prose-bullets': theme('colors.pink[400]'),
+            '--tw-prose-hr': theme('colors.pink[300]'),
+            '--tw-prose-quotes': "hsl(var(--title-color))",
+            '--tw-prose-quote-borders': "hsl(var(--primary))",
+            '--tw-prose-captions': theme('colors.pink[700]'),
+            '--tw-prose-code': theme('colors.pink[900]'),
+            '--tw-prose-pre-code': "hsl(var(--title-color))",
+            '--tw-prose-pre-bg': "hsl(var(--card-foreground))",
+            '--tw-prose-th-borders': theme('colors.pink[300]'),
+            '--tw-prose-td-borders': theme('colors.pink[200]'),
+            '--tw-prose-invert-body': theme('colors.pink[200]'),
+            '--tw-prose-invert-headings': theme('colors.white'),
+            '--tw-prose-invert-lead': theme('colors.pink[300]'),
+            '--tw-prose-invert-links': theme('colors.white'),
+            '--tw-prose-invert-bold': theme('colors.white'),
+            '--tw-prose-invert-counters': theme('colors.pink[400]'),
+            '--tw-prose-invert-bullets': theme('colors.pink[600]'),
+            '--tw-prose-invert-hr': theme('colors.pink[700]'),
+            '--tw-prose-invert-quotes': theme('colors.pink[100]'),
+            '--tw-prose-invert-quote-borders': theme('colors.pink[700]'),
+            '--tw-prose-invert-captions': theme('colors.pink[400]'),
+            '--tw-prose-invert-code': theme('colors.white'),
+            '--tw-prose-invert-pre-code': theme('colors.pink[300]'),
+            '--tw-prose-invert-pre-bg': 'rgb(0 0 0 / 50%)',
+            '--tw-prose-invert-th-borders': theme('colors.pink[600]'),
+            '--tw-prose-invert-td-borders': theme('colors.pink[700]'),
+          },
+        },
+      }),
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography')],
 } satisfies Config
 
 export default config
