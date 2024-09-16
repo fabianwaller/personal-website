@@ -118,7 +118,7 @@ export function CommandMenu() {
                     </CommandGroup>
                     <CommandSeparator />
                     <CommandGroup heading="Links">
-                        <CommandItem onSelect={() => handleSelect('/home')}>
+                        <CommandItem onSelect={() => handleSelect('/')}>
                             <House className="mr-2 h-4 w-4" />
                             <span>Home</span>
                         </CommandItem>

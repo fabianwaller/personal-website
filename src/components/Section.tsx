@@ -24,7 +24,7 @@ const Section: React.FC<SectionProps> = (props) => {
                 </div>
             </Container>
 
-            <Container className={cn([`p-0 `, props.className])}>
+            <Container className={cn([`p-0`, props.className])}>
                 {props.children}
             </Container>
         </section>

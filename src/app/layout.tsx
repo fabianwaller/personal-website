@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Poppins } from "next/font/google"
-import "@/styles/globals.css"
+import { Poppins } from "next/font/google";
+import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import Header from "@/components/header";
@@ -8,13 +8,14 @@ import { CommandMenuProvider } from "@/provider/CommandMenuContext";
 import { Suspense } from "react";
 import { CommandMenu } from "@/components/CommandMenu";
 import Footer from "@/components/Footer";
+import { Toaster } from "@/components/ui/toaster";
 
 const fontSans = Poppins({
   weight: "500",
   subsets: ["latin"],
   variable: "--font-sans",
   fallback: ["sans-serif"],
-  // display: "swap",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
@@ -32,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
       </head>
       <body
         className={cn(
-          "box-border min-h-screen bg-background font-sans antialiased text-text-normal",
+          "box-border min-h-screen bg-background font-sans antialiased text-text-normal max-w-full overflow-x-hidden",
           fontSans.variable,
         )}
       >
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
             <main className="flex flex-col items-center justify-between pt-header">
               {children}
             </main>
+            <Toaster />
             <Footer />
           </CommandMenuProvider>
         </ThemeProvider>

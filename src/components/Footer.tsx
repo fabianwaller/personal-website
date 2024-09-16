@@ -1,10 +1,21 @@
+"use client"
+
 import { Mail } from "lucide-react";
 import { FaXTwitter as Twitter, FaGithub as Github, FaLinkedin as LinkedIn } from "react-icons/fa6"
 import Container from "./Container";
 import Logo from "./logo"
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Button } from "./ui/button";
+import { navigationItems } from "./navigation";
 
 const Footer: React.FC = () => {
+    const pathname = usePathname()
+
+    if (pathname == "/") {
+        return null
+    }
+
     return (
         <footer className="mt-8 relative">
             <div className="pt-8 pb-12 border-solid border-t-1 rounded-t-xl">
@@ -17,15 +28,22 @@ const Footer: React.FC = () => {
                     <div className="grid grid-cols-2-max gap-x-16">
                         <ul className="flex flex-col gap-y-4">
                             <span className="block font-semibold mb-4">Links</span>
-                            <li><a href="/about" className='footer__link'>About</a></li>
-                            <li><a href="/journey" className='footer__link'>Journey</a></li>
-                            <li><a href="/projects" className='footer__link'>Projects</a></li>
+                            {navigationItems.map((item) => (
+                                <li key={item.href} >
+                                    <Link href={item.href}>
+                                        <span className="hover:text-primary-foreground">{item.title}</span>
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
 
                         <ul className="flex flex-col gap-y-4">
                             <span className="block font-semibold mb-4">Explore</span>
-                            <li><a href="/blog" className='footer__link'>Blog</a></li>
-                            {/* <li><a href="/newsletter" className='footer__link'>Newsletter</a></li> */}
+                            <li>
+                                <Link href={"/contact"}>
+                                    <span className="hover:text-primary-foreground">Contact</span>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
