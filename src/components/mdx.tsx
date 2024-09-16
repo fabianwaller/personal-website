@@ -51,7 +51,7 @@ function RoundedImage(props) {
 }
 
 function Code({ children, ...props }) {
-  return <StyledCode language={''} {...props}>{children}</StyledCode>
+  return <StyledCode {...props}>{children}</StyledCode>
 }
 
 function slugify(str) {
