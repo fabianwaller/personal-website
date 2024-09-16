@@ -10,7 +10,6 @@ type SectionProps = {
     subtitle: string,
     headerClassName?: string
     headerAlign?: 'left' | 'center'
-    headerSpace?: 'small' | 'large'
     children?: React.ReactNode
     className?: string
 }
@@ -18,7 +17,7 @@ type SectionProps = {
 const Section: React.FC<SectionProps> = (props) => {
     return (
         <section className="py-8 w-full" id={props.name}>
-            <Container className={props.headerSpace == "small" ? "mb-4" : "mb-12"}>
+            <Container className={"mb-12"}>
                 <div className={props.headerAlign == "left" ? "text-left" : "text-center"}>
                     <TypographyH2 className={props.headerClassName}>{props.title}</TypographyH2>
                     <Subtitle>{props.subtitle}</Subtitle>

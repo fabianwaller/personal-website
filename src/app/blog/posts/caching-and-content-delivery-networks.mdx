@@ -10,7 +10,7 @@ bibliography:
 - literature.bib
 ---
 
-# Introduction
+## Introduction
 
 In modern web applications, ensuring predictable end-to-end system
 quality and performance is crucial. Even minor performance issues can
@@ -70,7 +70,7 @@ how entire applications can be made highly performant by moving
 application logic closer to the user, and the additional benefits of a
 recovery-oriented design philosophy.
 
-# Overview
+## Overview
 
 An origin server is the server that hosts the original version of the
 content. This can be a web server, an application server, a dedicated
@@ -86,7 +86,7 @@ performance of Web services to users, as it aims to minimise bottlenecks
 in the middle mile and ensure fast retrieval of cached content when
 available.
 
-## Virtual Networks
+### Virtual Networks
 
 A CDN, defined as a geographically distributed network of Points of
 Presence (PoPs) [@POP] where edge servers are hosted in data centres
@@ -99,7 +99,7 @@ routes [@Backbone]. The widespread presence of PoPs around the world
 ensures that users can access a high-speed server in their proximity,
 ideally within their local ISP's network, as shown in
 
-![overview](${url}/cdn/overview-Invert_B.png)
+![overview](/cdn/overview-Invert_B.png)
 
 *The edge servers are located in global distributed Points of Presence
 (PoPs), which are interconnected by an optimised transport system.
@@ -109,11 +109,11 @@ mapped to the optimal (closest) edge server, which then retrieves the
 content from the origin server if it is not already in its
 cache.*
 
-## System Components of a Delivery Network
+### System Components of a Delivery Network
 
 The CDN components shown in
 
-![overview](${url}/cdn/system_components-Invert_B.png)
+![overview](/cdn/system_components-Invert_B.png)
 *When a user requests content, the mapping system translates
 the domain name into the IP address of an optimal edge server. The edge
 server then checks its cache for the requested content. If the content
@@ -165,7 +165,7 @@ analytics based on the collected data, such as audience demographic
 reports and insights into user interactions with the application,
 traffic metrics, monitoring, alerting, reporting and billing. [@Akamai]
 
-## Difference from other caching problems
+### Difference from other caching problems
 
 While all caching mechanisms share the overarching goal of reducing
 latency and improving access times, they are specifically designed for
@@ -181,7 +181,7 @@ use of a database buffer to speed up dynamic data retrieval, a CDN to
 deliver web content quickly, and each user's local browser cache to
 store static content that does not change frequently.
 
-## Cache Distribution
+### Cache Distribution
 
 Web caches store content on servers that have the greatest demand for
 the requested content. They are filled based on user requests (pull
@@ -216,13 +216,13 @@ in optimised communication from origin to end user, making even origin
 server downloads through the high performance overlay almost as
 efficient as cached files.
 
-# High Performance Application Delivery Networks
+## High Performance Application Delivery Networks
 
 In addition to static files, entire web applications and other
 non-cacheable dynamic content benefit from using a CDN in two primary
 ways.
 
-## High Performance Overlay Network
+### High Performance Overlay Network
 
 First, a CDN takes advantage of the speed of the Internet for
 long-distance communications by using the CDN transport system as a
@@ -230,7 +230,7 @@ high-performance overlay network. It traverses the Internet and reaches
 a CDN machine close to the customer's origin server, usually within the
 same network or even the same data centre, so that latencies are low.
 
-## Edge computing
+### Edge computing
 
 Second, developers can push application logic from the origin server to
 the edge of the Internet. CDN customers can deploy functions to the
@@ -258,7 +258,8 @@ the origin server can generate a small dynamic page that references
 cachable fragments, allowing the final HTML page to be assembled and
 served at the edge. [@Akamai]
 
-![places](${url}/cdn/places-Invert_B.png)
+![places](/cdn/places-Invert_B.png)
+
 *Edge functions can run at different logical locations,
 namely viewer request (before caching), origin request (after caching),
 origin response (before caching origin response) and viewer response
@@ -300,12 +301,12 @@ With modern web frameworks, it is also easy to run all site
 functionality in edge functions only, without using an origin server at
 all. [@NDC_OSLO]
 
-# Benefits
+## Benefits
 
 The recovery-orientated design philosophy outlined below has a number of
 useful by-products.
 
-## Design Principles
+### Design Principles
 
 The entire CDN design is based on the assumption that problems such as
 machine, cluster, connectivity and network failures will occur at some
@@ -335,7 +336,7 @@ designed for **performance**, they optimise end-user performance,
 improve cache hit rates, effectively manage network resource utilisation
 and promote energy efficiency throughout the system.
 
-## Additional Benefits
+### Additional Benefits
 
 In addition to these improvements, a CDN brings other significant
 benefits, such as
@@ -344,7 +345,7 @@ benefits, such as
     the edge, playing a key role in providing robust Distributed Denial
     of Service (DDoS) protection, particularly against large-scale
     attacks, as shown in 
-    ![security](${url}/cdn/ddos-Invert_B.png)
+    ![security](/cdn/ddos-Invert_B.png)
     *Web requests are distributed across the different CDN
     servers. In contrast to a centralised origin server, DDOS attacks do not
     block the system for other visitors because the load is balanced across
@@ -362,7 +363,7 @@ benefits, such as
     CDN is one of high distribution. By having copies of content across
     many PoPs, a CDN is resilient to multiple hardware failures compared
     to centralised origin servers, as shown in
-        ![availability](${url}/cdn/stale_if_error-Invert_B.png)
+        ![availability](/cdn/stale_if_error-Invert_B.png)
         *By having cached copies of content available in many
     locations, a CDN can withstand many more hardware failures than the
     origin server alone by potentially serving outdated cached content.
@@ -405,7 +406,7 @@ benefits, such as
     one of the reasons why many modern applications even send dynamic,
     uncacheable HTTP content via a CDN. [@BYTE_BYTE_GO_CDN]
 
-     ![availability](${url}/cdn/ssl_termination-Invert_B.png)
+     ![availability](/cdn/ssl_termination-Invert_B.png)
      *By terminating the secure connection at the edge, the
     latency for the user to establish an encrypted connection to the edge
     server is significantly reduced. The connection to the origin server is
@@ -439,7 +440,7 @@ benefits, such as
     bundles, transforming image files into modern formats such as webp,
     and compressing content. [@ImageOptimisation] [@BYTE_BYTE_GO_CDN]
 
-# Conclusion
+## Conclusion
 
 Using a CDN platform provides the desired predictable end-to-end system
 quality and performance. CDNs were created to reduce the bandwidth
@@ -461,4 +462,4 @@ highly performant by moving application logic closer to the user.
 
 ---
 
-To visit the full report including all references, please visit [report](${url}/cdn/report.pdf).
+To visit the full report including all references, please visit [report](/cdn/report.pdf).

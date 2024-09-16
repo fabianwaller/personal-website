@@ -232,3 +232,25 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: var(--text-color-light);
 }
+
+@layer darkImages {
+  @media (prefers-color-scheme: dark) {
+
+    img[src*="-Invert_B"] {
+      filter: invert(1) hue-rotate(180deg);
+    }
+
+    img[src*="-Invert_B_C"] {
+      filter: invert(1) hue-rotate(180deg) contrast(1.5);
+    }
+
+    img[src*="-Invert_W"] {
+      filter: invert(1) hue-rotate(180deg);
+    }
+
+    img[src*="-Invert_W_C"] {
+      filter: invert(1) hue-rotate(180deg) contrast(1.45);
+    }
+
+  }
+}

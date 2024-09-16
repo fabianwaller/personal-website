@@ -61,7 +61,7 @@ export default function Blog({ params }) {
   }
 
   return (
-    <Section name={"blog"} title={post.metadata.title} subtitle={post.metadata.summary} headerAlign="left" headerSpace='small'>
+    <Section name={"blog"} title={post.metadata.title} subtitle={post.metadata.summary} headerAlign="left" headerClassName='mb-4'>
       <script
         type="application/ld+json"
         suppressHydrationWarning
