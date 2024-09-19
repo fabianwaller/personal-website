@@ -1,11 +1,11 @@
 {
-    "name": "fabianwaller",
-    "short_name": "fabianwaller",
-    "icons": [
-        {
-            "src": "logo.png",
-            "sizes": "512x512"
-        }
-    ],
-    "display": "fullscreen"
+  "name": "fabianwaller",
+  "short_name": "fabianwaller",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "512x512"
+    }
+  ],
+  "display": "fullscreen"
 }

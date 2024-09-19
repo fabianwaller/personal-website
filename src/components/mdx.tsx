@@ -1,22 +1,22 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { MDXRemote } from 'next-mdx-remote/rsc'
-import { highlight } from 'sugar-high'
-import React from 'react'
-import StyledCode from './styledCode'
-import TypographyH1 from './ui/TypographyH1'
+import Link from "next/link";
+import Image from "next/image";
+import { MDXRemote } from "next-mdx-remote/rsc";
+import { highlight } from "sugar-high";
+import React from "react";
+import StyledCode from "./styledCode";
+import TypographyH1 from "./ui/TypographyH1";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
     <th key={index}>{header}</th>
-  ))
+  ));
   let rows = data.rows.map((row, index) => (
     <tr key={index}>
       {row.map((cell, cellIndex) => (
         <td key={cellIndex}>{cell}</td>
       ))}
     </tr>
-  ))
+  ));
 
   return (
     <table>
@@ -25,33 +25,33 @@ function Table({ data }) {
       </thead>
       <tbody>{rows}</tbody>
     </table>
-  )
+  );
 }
 
 function CustomLink(props) {
-  let href = props.href
+  let href = props.href;
 
-  if (href.startsWith('/')) {
+  if (href.startsWith("/")) {
     return (
       <Link href={href} {...props}>
         {props.children}
       </Link>
-    )
+    );
   }
 
-  if (href.startsWith('#')) {
-    return <a {...props} />
+  if (href.startsWith("#")) {
+    return <a {...props} />;
   }
 
-  return <a target="_blank" rel="noopener noreferrer" {...props} />
+  return <a target="_blank" rel="noopener noreferrer" {...props} />;
 }
 
 function RoundedImage(props) {
-  return <Image alt={props.alt} className="rounded-lg" {...props} />
+  return <Image alt={props.alt} className="rounded-lg" {...props} />;
 }
 
 function Code({ children, ...props }) {
-  return <StyledCode {...props}>{children}</StyledCode>
+  return <StyledCode {...props}>{children}</StyledCode>;
 }
 
 function slugify(str) {
@@ -59,32 +59,32 @@ function slugify(str) {
     .toString()
     .toLowerCase()
     .trim() // Remove whitespace from both ends of a string
-    .replace(/\s+/g, '-') // Replace spaces with -
-    .replace(/&/g, '-and-') // Replace & with 'and'
-    .replace(/[^\w\-]+/g, '') // Remove all non-word characters except for -
-    .replace(/\-\-+/g, '-') // Replace multiple - with single -
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(/&/g, "-and-") // Replace & with 'and'
+    .replace(/[^\w\-]+/g, "") // Remove all non-word characters except for -
+    .replace(/\-\-+/g, "-"); // Replace multiple - with single -
 }
 
 function createHeading(level: number) {
   const Heading = ({ children }) => {
-    let slug = slugify(children)
+    let slug = slugify(children);
     return React.createElement(
       `h${level}`,
       { id: slug },
       [
-        React.createElement('a', {
+        React.createElement("a", {
           href: `#${slug}`,
           key: `link-${slug}`,
-          className: 'anchor',
+          className: "anchor",
         }),
       ],
-      children
-    )
-  }
+      children,
+    );
+  };
 
-  Heading.displayName = `Heading${level}`
+  Heading.displayName = `Heading${level}`;
 
-  return Heading
+  return Heading;
 }
 
 let components = {
@@ -98,7 +98,7 @@ let components = {
   a: CustomLink,
   code: Code,
   Table,
-}
+};
 
 export function CustomMDX(props: any) {
   return (
@@ -106,5 +106,5 @@ export function CustomMDX(props: any) {
       {...props}
       components={{ ...components, ...(props.components || {}) }}
     />
-  )
+  );
 }

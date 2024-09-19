@@ -1,12 +1,12 @@
-import type { Config } from "tailwindcss"
+import type { Config } from "tailwindcss";
 
 const config = {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
   prefix: "",
   theme: {
@@ -58,14 +58,14 @@ const config = {
           dark: "hsl(var(--text-color-dark))",
         },
         title: {
-          normal: "hsl(var(--title-color))"
-        }
+          normal: "hsl(var(--title-color))",
+        },
       },
       maxWidth: {
-        'custom': 'calc(748px - var(--mb-3))',
+        custom: "calc(748px - var(--mb-3))",
       },
       padding: {
-        'header': "var(--header-height)"
+        header: "var(--header-height)",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -77,11 +77,11 @@ const config = {
         "1": "1px",
       },
       height: {
-        "header-height": 'var(--header-height)',
-        "page-minus-header": 'calc(100vh - var(--header-height))'
+        "header-height": "var(--header-height)",
+        "page-minus-header": "calc(100vh - var(--header-height))",
       },
       width: {
-        "full-plus": 'calc(100% + var(--mb-2))',
+        "full-plus": "calc(100% + var(--mb-2))",
       },
       keyframes: {
         "accordion-down": {
@@ -101,60 +101,60 @@ const config = {
         sans: ["var(--font-sans)", "sans"],
       },
       gridTemplateColumns: {
-        '1-max': '1fr max-content',
-        '2-max': 'repeat(2, max-content)',
+        "1-max": "1fr max-content",
+        "2-max": "repeat(2, max-content)",
       },
       gridTemplateRows: {
-        '1-max': 'repeat(1, 1fr)',
+        "1-max": "repeat(1, 1fr)",
       },
       boxShadow: {
-        custom: '0 0 .25rem var(--shadow-color)',
-        hover: '0 0 .5rem var(--shadow-color-intense)',
+        custom: "0 0 .25rem var(--shadow-color)",
+        hover: "0 0 .5rem var(--shadow-color-intense)",
       },
       spacing: {
-        "icon-small": "4"
+        "icon-small": "4",
       },
       typography: ({ theme }) => ({
         custom: {
           css: {
-            '--tw-prose-body': "hsl(var(--text-color))",
-            '--tw-prose-headings': "hsl(var(--title-color))",
-            '--tw-prose-lead': theme('colors.pink[700]'),
-            '--tw-prose-links': "hsl(var(--primary))",
-            '--tw-prose-bold': "hsl(var(--text-color))",
-            '--tw-prose-counters': "hsl(var(--title-color))",
-            '--tw-prose-bullets': "hsl(var(--title-color))",
-            '--tw-prose-hr': "hsl(var(--border))",
-            '--tw-prose-quotes': "hsl(var(--title-color))",
-            '--tw-prose-quote-borders': "hsl(var(--primary))",
-            '--tw-prose-captions': theme('colors.pink[700]'),
-            '--tw-prose-code': theme('colors.pink[900]'),
-            '--tw-prose-pre-code': "hsl(var(--title-color))",
-            '--tw-prose-pre-bg': "hsl(var(--card-foreground))",
-            '--tw-prose-th-borders': theme('colors.pink[300]'),
-            '--tw-prose-td-borders': theme('colors.pink[200]'),
-            '--tw-prose-invert-body': theme('colors.pink[200]'),
-            '--tw-prose-invert-headings': theme('colors.white'),
-            '--tw-prose-invert-lead': theme('colors.pink[300]'),
-            '--tw-prose-invert-links': theme('colors.white'),
-            '--tw-prose-invert-bold': theme('colors.white'),
-            '--tw-prose-invert-counters': theme('colors.pink[900]'),
-            '--tw-prose-invert-bullets': theme('colors.pink[600]'),
-            '--tw-prose-invert-hr': theme('colors.pink[700]'),
-            '--tw-prose-invert-quotes': theme('colors.pink[100]'),
-            '--tw-prose-invert-quote-borders': theme('colors.pink[700]'),
-            '--tw-prose-invert-captions': theme('colors.pink[400]'),
-            '--tw-prose-invert-code': theme('colors.white'),
-            '--tw-prose-invert-pre-code': theme('colors.pink[300]'),
-            '--tw-prose-invert-pre-bg': 'rgb(0 0 0 / 50%)',
-            '--tw-prose-invert-th-borders': theme('colors.pink[600]'),
-            '--tw-prose-invert-td-borders': theme('colors.pink[700]'),
+            "--tw-prose-body": "hsl(var(--text-color))",
+            "--tw-prose-headings": "hsl(var(--title-color))",
+            "--tw-prose-lead": theme("colors.pink[700]"),
+            "--tw-prose-links": "hsl(var(--primary))",
+            "--tw-prose-bold": "hsl(var(--text-color))",
+            "--tw-prose-counters": "hsl(var(--title-color))",
+            "--tw-prose-bullets": "hsl(var(--title-color))",
+            "--tw-prose-hr": "hsl(var(--border))",
+            "--tw-prose-quotes": "hsl(var(--title-color))",
+            "--tw-prose-quote-borders": "hsl(var(--primary))",
+            "--tw-prose-captions": theme("colors.pink[700]"),
+            "--tw-prose-code": theme("colors.pink[900]"),
+            "--tw-prose-pre-code": "hsl(var(--title-color))",
+            "--tw-prose-pre-bg": "hsl(var(--card-foreground))",
+            "--tw-prose-th-borders": theme("colors.pink[300]"),
+            "--tw-prose-td-borders": theme("colors.pink[200]"),
+            "--tw-prose-invert-body": theme("colors.pink[200]"),
+            "--tw-prose-invert-headings": theme("colors.white"),
+            "--tw-prose-invert-lead": theme("colors.pink[300]"),
+            "--tw-prose-invert-links": theme("colors.white"),
+            "--tw-prose-invert-bold": theme("colors.white"),
+            "--tw-prose-invert-counters": theme("colors.pink[900]"),
+            "--tw-prose-invert-bullets": theme("colors.pink[600]"),
+            "--tw-prose-invert-hr": theme("colors.pink[700]"),
+            "--tw-prose-invert-quotes": theme("colors.pink[100]"),
+            "--tw-prose-invert-quote-borders": theme("colors.pink[700]"),
+            "--tw-prose-invert-captions": theme("colors.pink[400]"),
+            "--tw-prose-invert-code": theme("colors.white"),
+            "--tw-prose-invert-pre-code": theme("colors.pink[300]"),
+            "--tw-prose-invert-pre-bg": "rgb(0 0 0 / 50%)",
+            "--tw-prose-invert-th-borders": theme("colors.pink[600]"),
+            "--tw-prose-invert-td-borders": theme("colors.pink[700]"),
           },
         },
       }),
     },
   },
-  plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography')],
-} satisfies Config
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+} satisfies Config;
 
-export default config
+export default config;

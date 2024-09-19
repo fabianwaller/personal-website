@@ -1,17 +1,19 @@
-import { getBlogPosts } from "@/app/blog/utils"
+import { getBlogPosts } from "@/app/blog/utils";
 
-export const baseUrl = process.env.URL
+export const baseUrl = process.env.URL;
 
 export default async function sitemap() {
-  let routes = ['', '/about', '/journey', '/projects', '/contact', '/blog'].map((route) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date().toISOString().split('T')[0],
-  }))
+  let routes = ["", "/about", "/journey", "/projects", "/contact", "/blog"].map(
+    (route) => ({
+      url: `${baseUrl}${route}`,
+      lastModified: new Date().toISOString().split("T")[0],
+    }),
+  );
 
   let blogs = getBlogPosts().map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: post.metadata.publishedAt,
-  }))
+  }));
 
-  return [...routes, ...blogs]
+  return [...routes, ...blogs];
 }

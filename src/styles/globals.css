@@ -52,7 +52,7 @@
     --body-s: 0%;
     --body-l: 96%;
 
-    --glass-opacity: .6;
+    --glass-opacity: 0.6;
     --background: var(--body-h), var(--body-s), var(--body-l);
     --foreground: var(--hue-color) 84% 4.9%;
     --card: var(--body-h), 5%, var(--body-l);
@@ -60,8 +60,8 @@
     --scroll-bar-color: hsla(var(--hue-color), 12%, 90, 0%);
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
 
-    --shadow-color: rgba(0, 0, 0, .05);
-    --shadow-color-intense: rgba(0, 0, 0, .1);
+    --shadow-color: rgba(0, 0, 0, 0.05);
+    --shadow-color-intense: rgba(0, 0, 0, 0.1);
 
     --accent-yellow: hsl(60, 100%, 70%);
     --accent-pink: hsl(330, 100%, 70%);
@@ -77,14 +77,14 @@
     --h1-font-size: 1.75rem;
     --h2-font-size: 1.25rem;
     --h3-font-size: 1.125rem;
-    --normal-font-size: .938rem;
-    --small-font-size: .813rem;
-    --smaller-font-size: .75rem;
+    --normal-font-size: 0.938rem;
+    --small-font-size: 0.813rem;
+    --smaller-font-size: 0.75rem;
 
     /* margens .25rem = 4px, .5rem = 8px, ... */
-    --mb-0-25: .25rem;
-    --mb-0-5: .5rem;
-    --mb-0-75: .75rem;
+    --mb-0-25: 0.25rem;
+    --mb-0-5: 0.5rem;
+    --mb-0-75: 0.75rem;
     --mb-1: 1rem;
     --mb-1-5: 1.5rem;
     --mb-2: 2rem;
@@ -92,7 +92,7 @@
     --mb-3: 3rem;
     --mb-4: 4rem;
 
-    --transition: .3s
+    --transition: 0.3s;
   }
 
   :root[class~="dark"] {
@@ -121,7 +121,6 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
 
-
     --primary: var(--hue-color), 49%, 60%;
     --primary-foreground: var(--hue-color), 61%, 90%;
     --secondary: var(--hue-color), 69%, 61%;
@@ -134,7 +133,6 @@
     --text-color-dark: var(--hue-color), 21%, 56%;
     --input: var(--hue-color), 70%, 98%;
     --border: var(--hue-color), 10%, 25%;
-
 
     /*     --first-color-second: hsl(var(--hue-color), 55%, 55%);
 
@@ -160,16 +158,13 @@
     --body-l: 4%;
     --background: var(--body-h), var(--body-s), var(--body-l);
 
-    --glass-opacity: .6;
+    --glass-opacity: 0.6;
     --card: var(--body-h), 5%, var(--body-l);
     --card-foreground: var(--body-h), 5%, 6%;
     --scroll-bar-color: hsla(var(--hue-color), 12%, 90, 0%);
     --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
   }
-
 }
-
-
 
 /* Font sizes for larger devices */
 @media screen and (min-width: 968px) {
@@ -179,14 +174,12 @@
     --h2-font-size: 1.5rem;
     --h3-font-size: 1.25rem;
     --normal-font-size: 1rem;
-    --small-font-size: .875rem;
-    --smaller-font-size: .813rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
   }
 }
 
 @layer gradients {
-
-
   .linear__gradient {
     background-clip: text;
     -webkit-background-clip: text;
@@ -195,24 +188,39 @@
 
   .linear__gradient-1 {
     color: var(--accent-pink);
-    background-image: -webkit-linear-gradient(0deg, var(--accent-pink), var(--accent-purple));
+    background-image: -webkit-linear-gradient(
+      0deg,
+      var(--accent-pink),
+      var(--accent-purple)
+    );
   }
 
   .linear__gradient-4 {
     color: var(--accent-cyan);
-    background-image: -webkit-linear-gradient(0deg, var(--accent-cyan), var(--accent-green));
+    background-image: -webkit-linear-gradient(
+      0deg,
+      var(--accent-cyan),
+      var(--accent-green)
+    );
   }
 
   .linear__gradient-3 {
     color: var(--accent-yellow);
-    background-image: -webkit-linear-gradient(0deg, var(--accent-yellow), var(--accent-pink));
+    background-image: -webkit-linear-gradient(
+      0deg,
+      var(--accent-yellow),
+      var(--accent-pink)
+    );
   }
 
   .linear__gradient-2 {
     color: var(--accent-purple);
-    background-image: -webkit-linear-gradient(0deg, var(--accent-purple), var(--accent-cyan));
+    background-image: -webkit-linear-gradient(
+      0deg,
+      var(--accent-purple),
+      var(--accent-cyan)
+    );
   }
-
 }
 
 /* ===== SCROLL BAR ===== */
@@ -233,7 +241,6 @@
 
 @layer darkImages {
   @media (prefers-color-scheme: dark) {
-
     img[src*="-Invert_B"] {
       filter: invert(1) hue-rotate(180deg);
     }
@@ -249,6 +256,5 @@
     img[src*="-Invert_W_C"] {
       filter: invert(1) hue-rotate(180deg) contrast(1.45);
     }
-
   }
 }
