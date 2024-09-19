@@ -46,7 +46,7 @@ export function Navigation() {
 
     return (
         <>
-            <NavigationMenu className={cn("duration-300 md:duration-0  -top-full md:top-0 left-0 right-0 pt-24 pb-12 px-6 md:p-0 fixed md:relative max-w-full md:max-w-fit rounded-b-2xl md:rounded-none shadow-xl md:shadow-none backdrop-blur-3xl bg-background", menuOpen ? "top-0 md:relative" : null)}>
+            <NavigationMenu className={cn("duration-300 md:duration-0 -top-full md:top-0 left-0 right-0 pt-24 pb-12 px-6 md:p-0 fixed md:relative max-w-full md:max-w-fit rounded-b-2xl md:rounded-none shadow-xl md:shadow-none backdrop-blur-3xl bg-background", menuOpen ? "top-0 md:relative" : null)}>
                 <NavigationMenuList className={cn("md:space-x-1",
                     menuOpen ? "grid grid-cols-3 gap-y-4 gap-x-4 md:gap-0 px-4 md:p-0 md:flex w-screen md:w-fit" : ""
                 )}>

@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
 
                     <div className="text-xl flex gap-6">
                         {socialItems.map((item) => (
-                            <Link key={item.href} href={item.href} target={item.blank ? "_blank" : "_self"} className="hover:text-primary">
+                            <Link key={item.href} href={item.href} target={item.blank ? "_blank" : "_self"} className="hover:text-primary w-8 h-8">
                                 {item.icon}
                             </Link>
                         ))}
