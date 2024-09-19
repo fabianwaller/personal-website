@@ -11,7 +11,6 @@ type SectionProps = {
     headerClassName?: string
     headerAlign?: 'left' | 'center'
     children?: React.ReactNode
-    className?: string
 }
 
 const Section: React.FC<SectionProps> = (props) => {
@@ -24,7 +23,7 @@ const Section: React.FC<SectionProps> = (props) => {
                 </div>
             </Container>
 
-            <Container className={cn([`p-0`, props.className])}>
+            <Container className={cn([`p-0`])}>
                 {props.children}
             </Container>
         </section>

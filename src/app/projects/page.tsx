@@ -58,74 +58,76 @@ const formatDate = (date: Date) => {
 const Projects: React.FC = async () => {
     const data: any[] = await getData()
     return (
-        <Section name='projects' title='Projects' subtitle='my private projects and public code repos' className={"md:grid gap-6 grid-cols-2"}>
-            {data.map(repo => {
-                if (repo.full_name == 'fabianwaller/fabianwaller') return
-                const topics: any[] = repo.topics
-                return (
-                    <Card key={repo.full_name} className="mb-6 grid gap-1">
-                        <CardHeader>
-                            <XStack className="items-start">
-                                <div className='text-sm text-text-light'>
-                                    {
-                                        repo.type != 'closed' ? (
-                                            <YStack className='text-sm gap-2 mb-0'>
-                                                <Github className="h-4 w-4" />
-                                                <span>GitHub</span>
-                                            </YStack>
-                                        ) : (
-                                            <YStack className='text-sm gap-2 mb-0'>
-                                                <Globe className="h-4 w-4" />
-                                                <span>Web</span>
-                                            </YStack>
-                                        )
-                                    }
-
-                                </div>
-                                <CardTitle>{repo.full_name}</CardTitle>
-                                <CardDescription>
-                                    {repo.description}
-                                </CardDescription>
-                                {
-                                    topics.length > 0 && (
-                                        <YStack>
-                                            {topics.map(topic => <Badge key={topic} variant={"uncolored"}>{topic}</Badge>)}
-                                        </YStack>
-                                    )
-                                }
-                            </XStack>
-                        </CardHeader>
-                        <CardFooter>
-                            <YStack className="w-full mb-0 h-full items-end">
-                                <YStack className="w-full justify-between items-center">
-                                    {
-                                        repo.type != 'closed' && (
-                                            <YStack className='text-sm text-text-light gap-2'>
-                                                <YStack className="gap-1">
-                                                    <Star className="h-4 w-4" />
-                                                    {repo.stargazers_count}
+        <Section name='projects' title='Projects' subtitle='my private projects and public code repos' >
+            <div className={"md:grid gap-6 grid-cols-2"}>
+                {data.map(repo => {
+                    if (repo.full_name == 'fabianwaller/fabianwaller') return
+                    const topics: any[] = repo.topics
+                    return (
+                        <Card key={repo.full_name} className="mb-6 grid gap-1">
+                            <CardHeader>
+                                <XStack className="items-start">
+                                    <div className='text-sm text-text-light'>
+                                        {
+                                            repo.type != 'closed' ? (
+                                                <YStack className='text-sm gap-2 mb-0'>
+                                                    <Github className="h-4 w-4" />
+                                                    <span>GitHub</span>
                                                 </YStack>
-                                                {repo.pushed_at &&
-                                                    <YStack className="gap-1">
-                                                        <Calendar className="h-4 w-4" />
-                                                        {formatDate(new Date(repo.pushed_at))}
-                                                    </YStack>
-                                                }
+                                            ) : (
+                                                <YStack className='text-sm gap-2 mb-0'>
+                                                    <Globe className="h-4 w-4" />
+                                                    <span>Web</span>
+                                                </YStack>
+                                            )
+                                        }
+
+                                    </div>
+                                    <CardTitle>{repo.full_name}</CardTitle>
+                                    <CardDescription>
+                                        {repo.description}
+                                    </CardDescription>
+                                    {
+                                        topics.length > 0 && (
+                                            <YStack>
+                                                {topics.map(topic => <Badge key={topic} variant={"uncolored"}>{topic}</Badge>)}
                                             </YStack>
                                         )
-
                                     }
-                                    <Link href={repo.html_url} target='_blank' legacyBehavior passHref >
-                                        <Button variant={"link"} className="ml-auto">
-                                            <ExternalLink className="h-4 w-4" />
-                                        </Button>
-                                    </Link>
+                                </XStack>
+                            </CardHeader>
+                            <CardFooter>
+                                <YStack className="w-full mb-0 h-full items-end">
+                                    <YStack className="w-full justify-between items-center">
+                                        {
+                                            repo.type != 'closed' && (
+                                                <YStack className='text-sm text-text-light gap-2'>
+                                                    <YStack className="gap-1">
+                                                        <Star className="h-4 w-4" />
+                                                        {repo.stargazers_count}
+                                                    </YStack>
+                                                    {repo.pushed_at &&
+                                                        <YStack className="gap-1">
+                                                            <Calendar className="h-4 w-4" />
+                                                            {formatDate(new Date(repo.pushed_at))}
+                                                        </YStack>
+                                                    }
+                                                </YStack>
+                                            )
+
+                                        }
+                                        <Link href={repo.html_url} target='_blank' legacyBehavior passHref >
+                                            <Button variant={"link"} className="ml-auto">
+                                                <ExternalLink className="h-4 w-4" />
+                                            </Button>
+                                        </Link>
+                                    </YStack>
                                 </YStack>
-                            </YStack>
-                        </CardFooter>
-                    </Card>
-                )
-            })}
+                            </CardFooter>
+                        </Card>
+                    )
+                })}
+            </div>
         </Section >
     )
 }

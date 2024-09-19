@@ -1,9 +1,9 @@
 "use client"
 
 import { useEffect, useState } from "react";
-import Container from "./Container"
-import Logo from "./logo"
-import { Navigation } from "./navigation"
+import Container from "./Container";
+import Logo from "./logo";
+import { Navigation } from "./navigation";
 
 const Header = () => {
     const [headerScroll, setHeaderScroll] = useState(false);
@@ -23,7 +23,7 @@ const Header = () => {
     }, []);
 
     return (
-        <header className={`fixed w-full z-50 bg-background ${headerScroll ? "shadow-sm" : ""}`} id="header" >
+        <header className={`fixed w-full z-50 bg-background opacity-95 ${headerScroll ? "shadow-sm" : ""}`} id="header" >
             <Container>
                 <nav className="h-header-height flex items-center justify-between">
                     <Logo />

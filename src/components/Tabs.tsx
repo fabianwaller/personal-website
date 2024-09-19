@@ -15,8 +15,8 @@ type JourneyDataProps = {
 
 const JourneyData: React.FC<JourneyDataProps> = ({ title, description, time, last }) => {
     return (
-        <div className="grid grid-cols-[max-content_1fr] gap-x-6">
-            <div className="px-2">
+        <div className="grid grid-cols-[max-content_1fr] gap-x-4 sm:gap-x-6">
+            <div className="sm:px-2">
                 <span className="block w-[13px] h-[13px] bg-primary rounded-full"></span>
                 {!last && (
                     <span
@@ -43,13 +43,11 @@ const JourneyData: React.FC<JourneyDataProps> = ({ title, description, time, las
 
 const JourneyTabs = () => {
     return (
-
-
-        <Tabs defaultValue="education" className="w-[500px]">
-            <TabsList className="bg-background grid w-full grid-cols-2 mb-6">
+        <Tabs defaultValue="education" className="w-[500px] max-w-full">
+            <TabsList className="bg-background grid w-full grid-cols-2 mb-6 " >
                 <TabsTrigger value="education">Education</TabsTrigger>
                 <TabsTrigger value="experience">Experience</TabsTrigger>
-            </TabsList>
+            </TabsList >
             <TabsContent value="education">
                 <JourneyData title='Bachelor of Computer Science' description='University of Saarland, Saarbrücken, Germany' time='2021 - 2024' />
                 <JourneyData title='Abitur' description='Peter-Wust-Gymnasium' time='2013 - 2021' last />
@@ -59,7 +57,7 @@ const JourneyTabs = () => {
                     time='Aug - Oct 2024'
                     last />
             </TabsContent>
-        </Tabs>
+        </Tabs >
     )
 }
 
