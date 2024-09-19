@@ -22,7 +22,7 @@ export default function About() {
                     <p>I&apos;m currently studying computer science at Saarland University in Germany and I share my knowledge and projects on this website.
                         I&apos;m mainly interested in full-stack web and native development, software engineering and artificial intelligence.
                         Currently working on the
-                        <Link href="https://squadmanagerapp.com" target='blank' legacyBehavior passHref>
+                        <Link href="https://squadmanagerapp.com" target="_blank" legacyBehavior passHref>
                             <Button variant={"link"}>Squadmanager</Button>
                         </Link>
                         app to gain experience in building and launching a product.
