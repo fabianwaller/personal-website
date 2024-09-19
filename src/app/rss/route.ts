@@ -15,11 +15,12 @@ export async function GET() {
       (post) =>
         `<item>
           <title>${post.metadata.title}</title>
-          <link>${baseUrl}/blog/${post.slug}</link>
           <description>${post.metadata.summary || ''}</description>
+          <link>${baseUrl}/blog/${post.slug}</link>
           <pubDate>${new Date(
           post.metadata.publishedAt
         ).toUTCString()}</pubDate>
+        <content>${post.content}</content>
         </item>`
     )
     .join('\n')
@@ -27,9 +28,12 @@ export async function GET() {
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>
   <rss version="2.0">
     <channel>
-        <title>My Portfolio</title>
+        <title>Fabian Waller</title>
         <link>${baseUrl}</link>
-        <description>This is my portfolio RSS feed</description>
+        <description>This is my personal blog as RSS feed</description>
+        <language>en</language>
+        <copyright>Fabian Waller</copyright>
+
         ${itemsXml}
     </channel>
   </rss>`
