@@ -9,6 +9,7 @@ import { Suspense } from "react";
 import { CommandMenu } from "@/components/CommandMenu";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const fontSans = Poppins({
   weight: "500",
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode; })
             <Footer />
           </CommandMenuProvider>
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   )
