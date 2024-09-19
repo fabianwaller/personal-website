@@ -1,6 +1,6 @@
 import { getBlogPosts } from "@/app/blog/utils"
 
-export const baseUrl = 'https://www.fabianwaller.de'
+export const baseUrl = process.env.URL
 
 export default async function sitemap() {
   let routes = ['', '/about', '/journey', '/projects', '/contact', '/blog'].map((route) => ({

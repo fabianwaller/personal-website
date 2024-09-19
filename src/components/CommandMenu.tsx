@@ -1,11 +1,7 @@
 "use client"
 
 import {
-    ArrowRight, CommandIcon, FolderKanban,
-    House,
-    Mail,
-    Newspaper,
-    Rocket, User
+    ArrowRight, CommandIcon
 } from "lucide-react"
 
 import {
@@ -20,12 +16,12 @@ import {
 
 import { useSearchParams } from 'next/navigation'
 
-import { FaXTwitter as Twitter, FaGithub as Github, FaLinkedin as LinkedIn } from "react-icons/fa6"
 
 import { useEffect } from "react"
 import { Button } from "./ui/button"
 import { useRouter } from "next/navigation"
 import { useCommandMenu } from "@/provider/CommandMenuContext"
+import { navigationItems, socialItems } from "./navigation"
 
 export function CommandMenuButton() {
     const { toggle } = useCommandMenu();
@@ -63,13 +59,12 @@ export function CommandMenuButton() {
 
     return (
         <Button variant="ghost" className="relative p-4 -left-4">
-            <div className="flex items-center  text-primary font-medium" onClick={toggle}>
+            <div className="flex items-center font-medium" onClick={toggle}>
                 <span>{action}</span>
                 {hotkey}
                 <span className="ml-2">for shortcuts</span>
                 <span className="ml-2"><ArrowRight /></span>
             </div>
-
         </Button>
     )
 }
@@ -103,45 +98,25 @@ export function CommandMenu() {
                 <CommandList>
                     <CommandEmpty>No results found.</CommandEmpty>
                     <CommandGroup heading="External">
-                        <CommandItem onSelect={() => handleSelect('https://github.com/fabianwaller')}>
-                            <Github className="mr-2 h-4 w-4" />
-                            <span>Github</span>
-                        </CommandItem>
-                        <CommandItem onSelect={() => handleSelect('https://twitter.com/fabianwallerr')}>
-                            <Twitter className="mr-2 h-4 w-4" />
-                            <span>X</span>
-                        </CommandItem>
-                        <CommandItem onSelect={() => handleSelect('https://www.linkedin.com/in/fabian-waller-974840213/')}>
-                            <LinkedIn className="mr-2 h-4 w-4" />
-                            <span>LinkedIn</span>
-                        </CommandItem>
+                        {
+                            socialItems.map((item) => (
+                                <CommandItem key={item.href} onSelect={() => handleSelect(item.href)}>
+                                    {item.icon}
+                                    <span>{item.title}</span>
+                                </CommandItem>
+                            ))
+                        }
                     </CommandGroup>
                     <CommandSeparator />
                     <CommandGroup heading="Links">
-                        <CommandItem onSelect={() => handleSelect('/')}>
-                            <House className="mr-2 h-4 w-4" />
-                            <span>Home</span>
-                        </CommandItem>
-                        <CommandItem onSelect={() => handleSelect('/about')}>
-                            <User className="mr-2 h-4 w-4" />
-                            <span>About</span>
-                        </CommandItem>
-                        <CommandItem onSelect={() => handleSelect('/journey')}>
-                            <Rocket className="mr-2 h-4 w-4" />
-                            <span>Journey</span>
-                        </CommandItem>
-                        <CommandItem onSelect={() => handleSelect('/projects')}>
-                            <FolderKanban className="mr-2 h-4 w-4" />
-                            <span>Projects</span>
-                        </CommandItem>
-                        <CommandItem onSelect={() => handleSelect('/blog')}>
-                            <Newspaper className="mr-2 h-4 w-4" />
-                            <span>Blog</span>
-                        </CommandItem>
-                        <CommandItem onSelect={() => handleSelect('/contact')}>
-                            <Mail className="mr-2 h-4 w-4" />
-                            <span>Contact</span>
-                        </CommandItem>
+                        {
+                            navigationItems.map((item) => (
+                                <CommandItem key={item.href} onSelect={() => handleSelect(item.href)}>
+                                    {item.icon}
+                                    <span>{item.title}</span>
+                                </CommandItem>
+                            ))
+                        }
                     </CommandGroup>
                 </CommandList>
             </CommandDialog>
