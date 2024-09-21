@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { formatDate, getBlogPosts } from "@/app/blog/utils";
 // import { baseUrl } from '@/app/sitemap'
 const baseUrl = "localhost:3000";
-import { CustomMDX } from "@/components/mdx";
+import { CustomMDX } from "@/components/Mdx";
 import Section from "@/components/Section";
 
 export async function generateStaticParams() {
@@ -53,7 +53,7 @@ export function generateMetadata({ params }) {
   };
 }
 
-export default function Blog({ params }) {
+export default function BlogEntry({ params }) {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
 
   if (!post) {

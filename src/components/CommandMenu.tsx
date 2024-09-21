@@ -16,7 +16,7 @@ import { useEffect } from "react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import { useCommandMenu } from "@/provider/CommandMenuContext";
-import { navigationItems, socialItems } from "./navigation";
+import { navigationItems, socialItems } from "./Navigation";
 
 export function CommandMenuButton() {
   const { toggle } = useCommandMenu();

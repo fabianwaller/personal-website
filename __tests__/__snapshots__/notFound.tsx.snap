@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Not found renders 404 page unchanged 1`] = `
+<DocumentFragment>
+  <div
+    class="container relative ml-auto mr-auto w-full max-w-custom px-4 flex flex-col items-center justify-center h-page-minus-header"
+  >
+    <div
+      class="flex flex-col items-center justify-center gap-4"
+    >
+      <h1
+        class="scroll-m-20 text-4xl font-semibold text-title-normal lg:text-5xl"
+      >
+         404 - Page Not Found
+      </h1>
+      <div
+        class="block"
+      >
+        <small
+          class="text-sm font-medium leading-none"
+        >
+          The page you are looking for does not exist.
+        </small>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Blog renders blog page unchanged 1`] = `
+<DocumentFragment>
+  <section
+    class="w-full py-8"
+    id="blog"
+  >
+    <div
+      class="container relative ml-auto mr-auto w-full max-w-custom px-4 mb-12"
+    >
+      <div
+        class="text-center"
+      >
+        <h2
+          class="mb-2 scroll-m-20 text-3xl font-semibold text-title-normal lg:text-4xl"
+        >
+          Personal Blog
+        </h2>
+        <span
+          class="block text-sm"
+        >
+          insight in my thoughts
+        </span>
+      </div>
+    </div>
+    <div
+      class="container relative ml-auto mr-auto w-full max-w-custom px-4"
+    >
+      <div
+        class="flex flex-col items-center justify-center gap-4"
+      >
+        <p>
+          Here you'll find all my public thoughts, notes, learnings and experiences. I share whatever I want, ranging from programming to math, over books and podcasts and much more. Scroll down to check them out!
+        </p>
+        <div
+          class="flex flex-col justify-center gap-4 items-stretch"
+        >
+          <a
+            href="/blog/caching-and-content-delivery-networks"
+          >
+            <div
+              class="relative -left-4 w-full-plus items-start rounded-lg px-4 py-3 hover:bg-card-foreground"
+            >
+              <h3
+                class="mb-1 scroll-m-20 text-xl font-semibold text-title-normal lg:text-2xl article__title"
+              >
+                Caching and Content Delivery Networks
+              </h3>
+              <p
+                class="article__text"
+              >
+                Using a CDN platform provides predictable end-to-end system
+              </p>
+            </div>
+          </a>
+          <a
+            href="/blog/heuristics-for-clean-code"
+          >
+            <div
+              class="relative -left-4 w-full-plus items-start rounded-lg px-4 py-3 hover:bg-card-foreground"
+            >
+              <h3
+                class="mb-1 scroll-m-20 text-xl font-semibold text-title-normal lg:text-2xl article__title"
+              >
+                Heuristics for clean code
+              </h3>
+              <p
+                class="article__text"
+              >
+                To write new code we have to read old code. So making it easy to read actually makes it easier to write.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

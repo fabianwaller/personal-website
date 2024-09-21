@@ -1,0 +1,164 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Logo renders Header unchanged 1`] = `
+<DocumentFragment>
+  <header
+    class="fixed z-50 w-full bg-background opacity-95 "
+    id="header"
+  >
+    <div
+      class="container relative ml-auto mr-auto w-full max-w-custom px-4"
+    >
+      <nav
+        class="flex h-header-height items-center justify-between"
+      >
+        <a
+          class="flex items-center text-title-normal"
+          href="/"
+        >
+          <svg
+            class="mr-1 h-8 w-8"
+            fill="none"
+            height="74"
+            viewBox="0 0 78 74"
+            width="78"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              class="fill-primary"
+              d="M43.1746 30.0684L68.5683 47.8492V47.8492C58.7482 61.8738 39.4183 65.2822 25.3937 55.4621V55.4621L43.1746 30.0684Z"
+            />
+            <path
+              class="fill-primary"
+              d="M13.1066 46.8583C17.8582 40.0722 27.2114 38.423 33.9975 43.1747V43.1747L25.3938 55.462L13.1066 46.8583V46.8583Z"
+            />
+            <path
+              class="fill-primary-foreground"
+              d="M33.9973 43.1746L8.6036 25.3937V25.3937C18.4237 11.3691 37.7536 7.96074 51.7782 17.7808V17.7808L33.9973 43.1746Z"
+            />
+            <path
+              class="fill-primary-foreground"
+              d="M64.0656 26.3848C59.3139 33.1709 49.9607 34.8201 43.1746 30.0685V30.0685L51.7783 17.7812L64.0656 26.3848V26.3848Z"
+            />
+          </svg>
+          <span
+            class="logo__text font-medium hover:text-primary"
+          >
+            Fabian
+          </span>
+        </a>
+        <nav
+          aria-label="Main"
+          class="z-10 flex flex-1 items-center justify-center fixed -top-full left-0 right-0 max-w-full rounded-b-2xl bg-background px-6 pb-12 pt-24 shadow-xl backdrop-blur-3xl duration-300 md:relative md:top-0 md:max-w-fit md:rounded-none md:p-0 md:shadow-none md:duration-0"
+          data-orientation="horizontal"
+          dir="ltr"
+        >
+          <div
+            style="position: relative;"
+          >
+            <ul
+              class="group flex flex-1 list-none items-center justify-center md:space-x-1"
+              data-orientation="horizontal"
+              dir="ltr"
+            >
+              <li
+                class="flex flex-col items-center"
+              >
+                <a
+                  class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-accent-foreground focus:bg-card-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary/50 data-[state=open]:bg-primary/50"
+                  data-radix-collection-item=""
+                  href="/"
+                >
+                  Home
+                </a>
+              </li>
+              <li
+                class="flex flex-col items-center"
+              >
+                <a
+                  class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-accent-foreground focus:bg-card-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary/50 data-[state=open]:bg-primary/50"
+                  data-radix-collection-item=""
+                  href="/about"
+                >
+                  About
+                </a>
+              </li>
+              <li
+                class="flex flex-col items-center"
+              >
+                <a
+                  class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-accent-foreground focus:bg-card-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary/50 data-[state=open]:bg-primary/50"
+                  data-radix-collection-item=""
+                  href="/journey"
+                >
+                  Journey
+                </a>
+              </li>
+              <li
+                class="flex flex-col items-center"
+              >
+                <a
+                  class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-accent-foreground focus:bg-card-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary/50 data-[state=open]:bg-primary/50"
+                  data-radix-collection-item=""
+                  href="/projects"
+                >
+                  Projects
+                </a>
+              </li>
+              <li
+                class="flex flex-col items-center"
+              >
+                <a
+                  class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:text-accent-foreground focus:bg-card-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary/50 data-[state=open]:bg-primary/50"
+                  data-radix-collection-item=""
+                  href="/blog"
+                >
+                  Blog
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="absolute left-0 top-full flex justify-center"
+          />
+        </nav>
+        <button
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 hover:bg-card-foreground hover:text-primary absolute right-2 md:hidden"
+        >
+          <svg
+            class="lucide lucide-menu"
+            fill="none"
+            height="24"
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <line
+              x1="4"
+              x2="20"
+              y1="12"
+              y2="12"
+            />
+            <line
+              x1="4"
+              x2="20"
+              y1="6"
+              y2="6"
+            />
+            <line
+              x1="4"
+              x2="20"
+              y1="18"
+              y2="18"
+            />
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+</DocumentFragment>
+`;
