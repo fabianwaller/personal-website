@@ -3,7 +3,7 @@ import { Poppins } from "next/font/google";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import Header from "@/components/Header";
+import Header from "@/components/header";
 import { CommandMenuProvider } from "@/provider/CommandMenuContext";
 import { Suspense } from "react";
 import { CommandMenu } from "@/components/CommandMenu";
