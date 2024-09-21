@@ -6,19 +6,34 @@
 
 ## Setup
 
+install dependencies
+
 ```bash
-# install dependencies
 $ npm install
+```
 
-# start dev server
+## Development
+
+start dev server
+```bash
 $ npm run dev
-
-# build for production
-$ npm run build
-
-# start production server
-$ npm run start
-
-# run tests
+```
+run linter
+```bash
+$ npm run lint
+```
+run tests
+```bash
 $ npm run test
+```
+
+## Build
+
+build for production
+```bash
+$ npm run build
+```
+start production server
+```bash
+$ npm run start
 ```

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Container from "./Container";
-import Logo from "./logo";
-import { Navigation } from "./navigation";
+import Logo from "@/components/logo";
+import { Navigation } from "@/components/navigation";
 
 const Header = () => {
   const [headerScroll, setHeaderScroll] = useState(false);

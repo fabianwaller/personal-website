@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`About renders about page unchanged 1`] = `
+<DocumentFragment>
+  <section
+    class="w-full py-8"
+    id="about"
+  >
+    <div
+      class="container relative ml-auto mr-auto w-full max-w-custom px-4 mb-12"
+    >
+      <div
+        class="text-center"
+      >
+        <h2
+          class="mb-2 scroll-m-20 text-3xl font-semibold text-title-normal lg:text-4xl"
+        >
+          About me
+        </h2>
+        <span
+          class="block text-sm"
+        >
+          What I'm Doing Now
+        </span>
+      </div>
+    </div>
+    <div
+      class="container relative ml-auto mr-auto w-full max-w-custom px-4"
+    >
+      <div
+        class="grid items-start gap-6 md:grid-cols-2"
+      >
+        <div
+          class="flex flex-wrap items-center justify-start gap-2"
+        >
+          <span
+            class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+          >
+            computer science student
+          </span>
+          <span
+            class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+          >
+            fullstack web + native development
+          </span>
+          <span
+            class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+          >
+            footballer
+          </span>
+          <span
+            class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+          >
+            learner
+          </span>
+          <span
+            class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+          >
+            reader
+          </span>
+          <span
+            class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+          >
+            traveller
+          </span>
+        </div>
+        <div>
+          <p>
+            I'm currently studying computer science at Saarland University in Germany and I share my knowledge and projects on this website. I'm mainly interested in full-stack web and native development, software engineering and artificial intelligence. Currently working on the
+            <button
+              class="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-md h-auto p-2 text-primary underline-offset-4 hover:underline"
+              href="https://squadmanagerapp.com"
+            >
+              Squadmanager
+            </button>
+            app to gain experience in building and launching a product. I also enjoy playing football, travelling around the world and reading books in my spare time.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

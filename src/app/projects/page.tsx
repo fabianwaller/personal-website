@@ -15,16 +15,12 @@ import { Calendar, ExternalLink, Globe, Star } from "lucide-react";
 import { FaGithub as Github } from "react-icons/fa6";
 import { Badge } from "@/components/ui/badge";
 
-const getData = async () => {
+const getRepos = async () => {
   // Revalidate at most every hour
   const res = await fetch("https://api.github.com/users/fabianwaller/repos", {
     next: { revalidate: 3600 },
   });
   const data = await res.json();
-
-  data.push(...getClosedSourceProjects());
-
-  data.sort(compare);
   return data;
 };
 
@@ -66,7 +62,10 @@ const formatDate = (date: Date) => {
 };
 
 const Projects: React.FC = async () => {
-  const data: any[] = await getData();
+  const data: any[] = await getRepos();
+  data.push(...getClosedSourceProjects());
+  data.sort(compare);
+
   return (
     <Section
       name="projects"

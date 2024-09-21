@@ -1,5 +1,6 @@
 import { baseUrl } from "@/app/sitemap";
 import { getBlogPosts } from "@/app/blog/utils";
+import { NextResponse } from "next/server";
 
 export async function GET() {
   let allBlogs = await getBlogPosts();
@@ -38,7 +39,7 @@ export async function GET() {
     </channel>
   </rss>`;
 
-  return new Response(rssFeed, {
+  return new NextResponse(rssFeed, {
     headers: {
       "Content-Type": "text/xml",
     },

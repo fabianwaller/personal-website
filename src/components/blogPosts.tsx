@@ -1,9 +1,9 @@
-import { getBlogPosts } from "@/app/blog/utils";
+import { BlogPost, getBlogPosts } from "@/app/blog/utils";
 import Link from "next/link";
 import XStack from "./XStack";
 import TypographyH3 from "./ui/TypographyH3";
 
-const sortByDate = (a, b) => {
+const sortByDate = (a: BlogPost, b: BlogPost) => {
   if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
     return -1;
   }
@@ -11,7 +11,7 @@ const sortByDate = (a, b) => {
 };
 
 const BlogPosts: React.FC = () => {
-  let posts = getBlogPosts();
+  let posts: BlogPost[] = getBlogPosts();
 
   return (
     <XStack className="items-stretch">

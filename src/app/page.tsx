@@ -6,11 +6,10 @@ import TypographyH1 from "@/components/ui/TypographyH1";
 import { parse, differenceInYears } from "date-fns";
 import { Suspense } from "react";
 
-const BIRTHDAY = "08-06-2003";
-
-const calculateAge = (birthday: string) => {
+export const calculateAge = () => {
+  const BIRTHDAY = "08-06-2003";
   const dateFormat = "dd-MM-yyyy";
-  const birthDate = parse(birthday, dateFormat, new Date());
+  const birthDate = parse(BIRTHDAY, dateFormat, new Date());
   return differenceInYears(new Date(), birthDate);
 };
 
@@ -22,9 +21,8 @@ export default function Home() {
         <XStack className="items-start pb-8">
           <TypographyH1>Fabian Waller</TypographyH1>
           <p>
-            {calculateAge(BIRTHDAY)} year old computer science student at
-            Saarland University interested in fullstack development and football
-            player.
+            {calculateAge()} year old computer science student at Saarland
+            University interested in fullstack development and football player.
           </p>
           <Suspense>
             <CommandMenuButton />
