@@ -14,7 +14,7 @@ const BlogPosts: React.FC = () => {
   let posts = getBlogPosts();
 
   return (
-    <XStack className="items-start">
+    <XStack className="items-stretch">
       {posts.sort(sortByDate).map((post) => (
         <Link key={post.slug} href={`/blog/${post.slug}`}>
           <div className="relative -left-4 w-full-plus items-start rounded-lg px-4 py-3 hover:bg-card-foreground">

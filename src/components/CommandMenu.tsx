@@ -12,8 +12,6 @@ import {
   CommandSeparator,
 } from "@/components/ui/command";
 
-import { useSearchParams } from "next/navigation";
-
 import { useEffect } from "react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
@@ -26,12 +24,6 @@ export function CommandMenuButton() {
   // const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent)
   const isMac = true;
   const isMobile = false;
-
-  const searchParams = useSearchParams();
-
-  const search = searchParams.get("viewport");
-
-  console.log(search);
 
   let action;
   let cmd;

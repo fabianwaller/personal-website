@@ -16,11 +16,10 @@ const Container: React.FC<ContainerProps> = ({
   return (
     <div
       className={cn([
-        "container relative ml-auto mr-auto w-full max-w-custom",
+        "container relative ml-auto mr-auto w-full max-w-custom px-4",
         center ? "flex flex-col items-center justify-center" : "",
         fullScreen ? "h-page-minus-header" : "",
         className,
-        "px-4",
       ])}
     >
       {children}

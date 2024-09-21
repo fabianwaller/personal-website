@@ -77,7 +77,7 @@ export const navigationItems = [
 ];
 
 export function Navigation() {
-  const [menuOpen, setMenuOpen] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);

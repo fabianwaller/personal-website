@@ -16,12 +16,12 @@ const calculateAge = (birthday: string) => {
 
 export default function Home() {
   return (
-    <section id="home">
-      <Container className={`p-0`} fullScreen>
+    <section className="w-full" id="home">
+      <Container fullScreen>
         <HeroBlob />
-        <XStack className="items-start">
+        <XStack className="items-start pb-8">
           <TypographyH1>Fabian Waller</TypographyH1>
-          <p className="relative">
+          <p>
             {calculateAge(BIRTHDAY)} year old computer science student at
             Saarland University interested in fullstack development and football
             player.
