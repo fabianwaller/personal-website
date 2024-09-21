@@ -1,0 +1,7 @@
+.stopo {
+  stop-color: hsl(var(--primary-foreground));
+}
+
+.stopb {
+  stop-color: hsl(var(--primary));
+}
