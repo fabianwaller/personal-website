@@ -73,7 +73,7 @@ const Projects: React.FC = async () => {
       title="Projects"
       subtitle="my private projects and public code repos"
     >
-      <div className={"md:grid gap-6 grid-cols-2"}>
+      <div className={"grid-cols-2 gap-6 md:grid"}>
         {data.map((repo) => {
           if (repo.full_name == "fabianwaller/fabianwaller") return;
           const topics: any[] = repo.topics;
@@ -83,12 +83,12 @@ const Projects: React.FC = async () => {
                 <XStack className="items-start">
                   <div className="text-sm text-text-light">
                     {repo.type != "closed" ? (
-                      <YStack className="text-sm gap-2 mb-0">
+                      <YStack className="mb-0 gap-2 text-sm">
                         <Github className="h-4 w-4" />
                         <span>GitHub</span>
                       </YStack>
                     ) : (
-                      <YStack className="text-sm gap-2 mb-0">
+                      <YStack className="mb-0 gap-2 text-sm">
                         <Globe className="h-4 w-4" />
                         <span>Web</span>
                       </YStack>
@@ -108,10 +108,10 @@ const Projects: React.FC = async () => {
                 </XStack>
               </CardHeader>
               <CardFooter>
-                <YStack className="w-full mb-0 h-full items-end">
-                  <YStack className="w-full justify-between items-center">
+                <YStack className="mb-0 h-full w-full items-end">
+                  <YStack className="w-full items-center justify-between">
                     {repo.type != "closed" && (
-                      <YStack className="text-sm text-text-light gap-2">
+                      <YStack className="gap-2 text-sm text-text-light">
                         <YStack className="gap-1">
                           <Star className="h-4 w-4" />
                           {repo.stargazers_count}

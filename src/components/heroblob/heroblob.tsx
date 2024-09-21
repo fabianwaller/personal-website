@@ -1,7 +1,7 @@
 import styles from "./heroblob.module.css";
 
 const HeroBlob = () => (
-  <div className="relative overflow-visible bg-transparent will-change-transform transform-gpu">
+  <div className="relative transform-gpu overflow-visible bg-transparent will-change-transform">
     <svg
       preserveAspectRatio="xMidYMid meet"
       xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +9,7 @@ const HeroBlob = () => (
       width="100%"
       height="100%"
       viewBox="0 0 500 500"
-      className={"absolute -z-10 blur-[60px] will-change-auto transform-gpu"}
+      className={"absolute -z-10 transform-gpu blur-[60px] will-change-auto"}
       colorInterpolationFilters="sRGB"
     >
       <defs>
@@ -40,7 +40,7 @@ const HeroBlob = () => (
       width="100%"
       height="100%"
       viewBox="0 0 500 500"
-      className="z-0 will-change-transform transform-gpu"
+      className="z-0 transform-gpu will-change-transform"
     >
       <defs>
         <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">

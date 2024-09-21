@@ -8,7 +8,7 @@ const Logo: React.FC<LogoProps> = ({ white }) => {
   return (
     <a href="/" className="flex items-center text-title-normal">
       <svg
-        className="h-8 w-8 mr-1"
+        className="mr-1 h-8 w-8"
         width="78"
         height="74"
         viewBox="0 0 78 74"

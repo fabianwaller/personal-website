@@ -24,11 +24,11 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed w-full z-50 bg-background opacity-95 ${headerScroll ? "shadow-sm" : ""}`}
+      className={`fixed z-50 w-full bg-background opacity-95 ${headerScroll ? "shadow-sm" : ""}`}
       id="header"
     >
       <Container>
-        <nav className="h-header-height flex items-center justify-between">
+        <nav className="flex h-header-height items-center justify-between">
           <Logo />
 
           <Navigation />

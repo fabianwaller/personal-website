@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const Keyword = ({ children }: { children: React.ReactNode }) => (
-  <span className="inline-block py-2 px-4 rounded-lg text-sm border-solid border-2 divide-border text-title-normal">
+  <span className="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal">
     {children}
   </span>
 );
@@ -11,8 +11,8 @@ const Keyword = ({ children }: { children: React.ReactNode }) => (
 export default function About() {
   return (
     <Section name="about" title="About me" subtitle="What I'm Doing Now">
-      <div className={"grid gap-6 md:grid-cols-2 items-start"}>
-        <div className="flex justify-start items-center flex-wrap gap-2">
+      <div className={"grid items-start gap-6 md:grid-cols-2"}>
+        <div className="flex flex-wrap items-center justify-start gap-2">
           <Keyword>computer science student</Keyword>
           <Keyword>fullstack web + native development</Keyword>
           <Keyword>footballer</Keyword>

@@ -91,7 +91,7 @@ export function Navigation() {
     <>
       <NavigationMenu
         className={cn(
-          "duration-300 md:duration-0 -top-full md:top-0 left-0 right-0 pt-24 pb-12 px-6 md:p-0 fixed md:relative max-w-full md:max-w-fit rounded-b-2xl md:rounded-none shadow-xl md:shadow-none backdrop-blur-3xl bg-background",
+          "fixed -top-full left-0 right-0 max-w-full rounded-b-2xl bg-background px-6 pb-12 pt-24 shadow-xl backdrop-blur-3xl duration-300 md:relative md:top-0 md:max-w-fit md:rounded-none md:p-0 md:shadow-none md:duration-0",
           menuOpen ? "top-0 md:relative" : null,
         )}
       >
@@ -99,7 +99,7 @@ export function Navigation() {
           className={cn(
             "md:space-x-1",
             menuOpen
-              ? "grid grid-cols-3 gap-y-4 gap-x-4 md:gap-0 px-4 md:p-0 md:flex w-screen md:w-fit"
+              ? "grid w-screen grid-cols-3 gap-x-4 gap-y-4 px-4 md:flex md:w-fit md:gap-0 md:p-0"
               : "",
           )}
         >
@@ -113,12 +113,12 @@ export function Navigation() {
                   className={cn([
                     navigationMenuTriggerStyle(),
                     pathname == item.href ? activeClass : null,
-                    menuOpen ? "flex flex-col h-fit" : null,
+                    menuOpen ? "flex h-fit flex-col" : null,
                   ])}
                   onClick={() => (menuOpen ? toggleMenu() : null)}
                 >
                   {menuOpen && (
-                    <div className="w-4 h-4 sm:w-6 sm:h-6 mb-2 md:w-0 md:h-0 sm:m-0">
+                    <div className="mb-2 h-4 w-4 sm:m-0 sm:h-6 sm:w-6 md:h-0 md:w-0">
                       {item.icon}
                     </div>
                   )}

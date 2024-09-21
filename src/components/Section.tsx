@@ -15,7 +15,7 @@ type SectionProps = {
 
 const Section: React.FC<SectionProps> = (props) => {
   return (
-    <section className="py-8 w-full" id={props.name}>
+    <section className="w-full py-8" id={props.name}>
       <Container className={"mb-12"}>
         <div
           className={props.headerAlign == "left" ? "text-left" : "text-center"}

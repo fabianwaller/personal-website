@@ -17,7 +17,7 @@ const BlogPosts: React.FC = () => {
     <XStack className="items-start">
       {posts.sort(sortByDate).map((post) => (
         <Link key={post.slug} href={`/blog/${post.slug}`}>
-          <div className="relative -left-4 hover:bg-card-foreground items-start px-4 py-3 rounded-lg w-full-plus">
+          <div className="relative -left-4 w-full-plus items-start rounded-lg px-4 py-3 hover:bg-card-foreground">
             <TypographyH3 className="article__title">
               {post.metadata.title}
             </TypographyH3>

@@ -36,7 +36,7 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "box-border min-h-screen bg-background font-sans antialiased text-text-normal max-w-full overflow-x-hidden",
+          "box-border min-h-screen max-w-full overflow-x-hidden bg-background font-sans text-text-normal antialiased",
           fontSans.variable,
         )}
       >

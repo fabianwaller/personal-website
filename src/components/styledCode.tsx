@@ -21,7 +21,7 @@ export default function StyledCode({ children }: { children: string }) {
       <Button
         variant="outline"
         size="icon"
-        className="absolute top-2 right-2 h-8 w-8"
+        className="absolute right-2 top-2 h-8 w-8"
         onClick={copyToClipboard}
         aria-label="Copy code to clipboard"
       >
@@ -31,7 +31,7 @@ export default function StyledCode({ children }: { children: string }) {
           <Copy className="h-4 w-4" />
         )}
       </Button>
-      <pre className="text-secondary-foreground rounded-lg overflow-x-auto">
+      <pre className="overflow-x-auto rounded-lg text-secondary-foreground">
         <code dangerouslySetInnerHTML={{ __html: codeHTML }} />
       </pre>
     </div>

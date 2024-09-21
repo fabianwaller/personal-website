@@ -23,8 +23,8 @@ const buttonVariants = cva(
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-card-foreground hover:text-primary",
-        link: "text-primary underline-offset-4 hover:underline p-2 h-auto text-md",
-        unstyled: "text-primary hover:text-accent-foreground p-0",
+        link: "text-md h-auto p-2 text-primary underline-offset-4 hover:underline",
+        unstyled: "p-0 text-primary hover:text-accent-foreground",
       },
     },
     defaultVariants: {

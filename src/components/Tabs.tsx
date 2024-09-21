@@ -23,7 +23,7 @@ const JourneyData: React.FC<JourneyDataProps> = ({
   return (
     <div className="grid grid-cols-[max-content_1fr] gap-x-4 sm:gap-x-6">
       <div className="sm:px-2">
-        <span className="block w-[13px] h-[13px] bg-primary rounded-full"></span>
+        <span className="block h-[13px] w-[13px] rounded-full bg-primary"></span>
         {!last && (
           <span
             className="block w-[1px] bg-primary-foreground"
@@ -35,7 +35,7 @@ const JourneyData: React.FC<JourneyDataProps> = ({
         )}
       </div>
 
-      <Card className="mb-6 grid gap-1 card">
+      <Card className="card mb-6 grid gap-1">
         <CardHeader className="pb-0">
           <CardTitle className="card__title">{title}</CardTitle>
           <CardDescription className="card__subtitle">
@@ -55,7 +55,7 @@ const JourneyData: React.FC<JourneyDataProps> = ({
 const JourneyTabs = () => {
   return (
     <Tabs defaultValue="education" className="w-[500px] max-w-full">
-      <TabsList className="bg-background grid w-full grid-cols-2 mb-6 ">
+      <TabsList className="mb-6 grid w-full grid-cols-2 bg-background">
         <TabsTrigger value="education">Education</TabsTrigger>
         <TabsTrigger value="experience">Experience</TabsTrigger>
       </TabsList>

@@ -17,7 +17,7 @@ const calculateAge = (birthday: string) => {
 export default function Home() {
   return (
     <section id="home">
-      <Container className={`p-0 `} fullScreen>
+      <Container className={`p-0`} fullScreen>
         <HeroBlob />
         <XStack className="items-start">
           <TypographyH1>Fabian Waller</TypographyH1>

@@ -48,14 +48,14 @@ export function CommandMenuButton() {
     }
     hotkey = (
       <>
-        <div className="mx-2 h-5 w-5 flex items-center">{cmd}</div>
+        <div className="mx-2 flex h-5 w-5 items-center">{cmd}</div>
         <span>K</span>
       </>
     );
   }
 
   return (
-    <Button variant="ghost" className="relative p-4 -left-4">
+    <Button variant="ghost" className="relative -left-4 p-4">
       <div className="flex items-center font-medium" onClick={toggle}>
         <span>{action}</span>
         {hotkey}
