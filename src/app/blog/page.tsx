@@ -1,4 +1,4 @@
-import BlogPosts from "@/components/BlogPosts";
+import BlogPosts from "@/components/blogPosts";
 import Section from "@/components/Section";
 import XStack from "@/components/XStack";
 

@@ -4,7 +4,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 import React from "react";
 import TypographyH1 from "./ui/TypographyH1";
-import StyledCode from "./StyledCode";
+import StyledCode from "@/components/styledCode";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (

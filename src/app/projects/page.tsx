@@ -21,7 +21,6 @@ const getRepos = async () => {
     next: { revalidate: 3600 },
   });
   const data = await res.json();
-  console.log(JSON.stringify(data[0]));
   return data;
 };
 

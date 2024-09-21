@@ -1,10 +1,10 @@
 "use client";
 
 import Container from "./Container";
-import Logo from "./Logo";
+import Logo from "@/components/logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navigationItems, socialItems } from "./Navigation";
+import { navigationItems, socialItems } from "@/components/navigation";
 
 const Footer: React.FC = () => {
   const pathname = usePathname();
