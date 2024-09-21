@@ -15,26 +15,20 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [18.x]
+        node-version: [20.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v3
-      - name: Use environment variable
-        run: echo ${{env.MONGODB_URI }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: npm install
-      - run: npm run build
+      - run: npm run lint
       - run: npm run test
+      - run: npm run build
         env:
-          MONGODB_URI: ${{ secrets.MONGODB_URI }}
-          EMAIL_HOST: ${{ secrets.EMAIL_HOST }}
-          EMAIL_PORT: ${{ secrets.EMAIL_PORT }}
-          EMAIL: ${{ secrets.EMAIL }}
-          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
