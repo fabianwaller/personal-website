@@ -4,61 +4,49 @@
 
 @layer base {
   :root {
-    /* --background: 0 0% 90%; */
-    /* --foreground: 222.2 84% 4.9%; */
-    /* --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%; */
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    /* --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%; */
-    /* --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%; */
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    /* --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%; */
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    /* --border: 214.3 31.8% 91.4%; 
-    --input: 214.3 31.8% 91.4%;  */
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-
     --header-height: 4rem;
+    --border-radius: 0.5rem;
 
-    /* colors */
-    --hue-color: 166;
-
-    --primary: var(--hue-color), 49%, 60%;
-    --primary-foreground: var(--hue-color), 61%, 80%;
-    --secondary: var(--hue-color), 69%, 61%;
-    --accent: var(--hue-color), 40%, 96.1%;
-    --accent-foreground: var(--hue-color), 47.4%, 41.2%;
-    --first-color-alt: var(--hue-color), 57%, 70%;
-    --title-color: var(--hue-color), 8%, 15%;
-    --text-color: var(--hue-color), 4%, 30%;
-    --text-color-light: var(--hue-color), 8%, 65%;
-    --text-color-dark: var(--hue-color), 21%, 56%;
-    --input: var(--hue-color), 70%, 98%;
-    --border: var(--hue-color), 40%, 92%;
-
-    --body-h: var(--hue-color);
+    --body-h: 166;
     --body-s: 0%;
     --body-l: 96%;
 
-    --glass-opacity: 0.6;
+    --border: var(--body-h), 40%, 92%;
+    --input: var(--body-h), 70%, 98%;
+    --ring: 222.2 84% 4.9%;
     --background: var(--body-h), var(--body-s), var(--body-l);
-    --foreground: var(--hue-color) 84% 4.9%;
+    --foreground: var(--body-h) 84% 4.9%;
+
+    --primary: var(--body-h), 49%, 60%;
+    --primary-foreground: var(--body-h), 61%, 80%;
+
+    --secondary: var(--body-h), 57%, 70%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: var(--body-h), 40%, 96.1%;
+    --accent-foreground: var(--body-h), 47.4%, 41.2%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
     --card: var(--body-h), 5%, var(--body-l);
     --card-foreground: var(--body-h), 5%, 98%;
-    --scroll-bar-color: hsla(var(--hue-color), 12%, 90, 0%);
-    --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
+
+    --text-color: var(--body-h), 4%, 30%;
+    --text-color-light: var(--body-h), 8%, 65%;
+    --text-color-dark: var(--body-h), 21%, 56%;
+
+    --title-color: var(--body-h), 8%, 15%;
+
+    /* --------- */
+
+    --scroll-bar-color: hsla(var(--body-h), 12%, 90, 0%);
+    --scroll-thumb-color: hsl(var(--body-h), 12%, 80%);
 
     --shadow-color: rgba(0, 0, 0, 0.05);
     --shadow-color-intense: rgba(0, 0, 0, 0.1);
@@ -72,14 +60,6 @@
     --accent-cyan: hsl(170, 100%, 70%);
 
     --first-color-shape: hsl(253, 33%, 32%);
-
-    --big-font-size: 2rem;
-    --h1-font-size: 1.75rem;
-    --h2-font-size: 1.25rem;
-    --h3-font-size: 1.125rem;
-    --normal-font-size: 0.938rem;
-    --small-font-size: 0.813rem;
-    --smaller-font-size: 0.75rem;
 
     /* margens .25rem = 4px, .5rem = 8px, ... */
     --mb-0-25: 0.25rem;
@@ -96,86 +76,45 @@
   }
 
   :root[class~="dark"] {
-    /* --background: 222.2 84% 4.9%; */
-    --foreground: var(--hue-color) 90% 50%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 350 80% 60%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-
-    --primary: var(--hue-color), 49%, 60%;
-    --primary-foreground: var(--hue-color), 61%, 90%;
-    --secondary: var(--hue-color), 69%, 61%;
-    --accent: var(--hue-color), 40%, 96.1%;
-    --accent-foreground: var(--hue-color), 47.4%, 41.2%;
-    --first-color-alt: var(--hue-color), 57%, 70%;
-    --title-color: var(--hue-color), 8%, 95%;
-    --text-color: var(--hue-color), 8%, 80%;
-    --text-color-light: var(--hue-color), 8%, 65%;
-    --text-color-dark: var(--hue-color), 21%, 56%;
-    --input: var(--hue-color), 70%, 98%;
-    --border: var(--hue-color), 10%, 25%;
-
-    /*     --first-color-second: hsl(var(--hue-color), 55%, 55%);
-
-
-    --shadow-color: hsla(var(--body-h), var(--body-s), 70%, .1);
-    --shadow-color-intense: hsla(var(--body-h), var(--body-s), 90%, .1);
-
-    --accent-yellow: hsl(60, 100%, 75%);
-    --accent-pink: hsl(330, 100%, 75%);
-    --accent-purple: hsl(250, 100%, 75%);
-    --accent-red: hsl(10, 100%, 75%);
-    --accent-orange: hsl(35, 100%, 75%);
-    --accent-green: hsl(115, 100%, 75%);
-    --accent-cyan: hsl(170, 100%, 75%);
-
-    --container-color: hsl(var(--body-h), 8%, 6%);
-    --input-color: hsl(var(--hue-color), 7%, 13%);
-    --scroll-bar-color: hsl(--hue-color, 12%, 48%);
-    --scroll-thumb-color: hsl(--hue-color, 12%, 36%); */
-
-    --body-h: var(--hue-color);
     --body-s: 4%;
     --body-l: 4%;
+
+    --border: var(--body-h), 10%, 25%;
+
+    --input: var(--body-h), 70%, 98%;
+
+    --ring: 212.7 26.8% 83.9%;
+
     --background: var(--body-h), var(--body-s), var(--body-l);
 
-    --glass-opacity: 0.6;
+    --foreground: var(--body-h) 90% 50%;
+
+    --primary: var(--body-h), 49%, 60%;
+    --primary-foreground: var(--body-h), 61%, 90%;
+
+    --secondary: var(--body-h), 69%, 61%;
+    --secondary-foreground: 210 40% 98%;
+
+    --destructive: 350 80% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: var(--body-h), 40%, 96.1%;
+    --accent-foreground: var(--body-h), 47.4%, 41.2%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
     --card: var(--body-h), 5%, var(--body-l);
     --card-foreground: var(--body-h), 5%, 6%;
-    --scroll-bar-color: hsla(var(--hue-color), 12%, 90, 0%);
-    --scroll-thumb-color: hsl(var(--hue-color), 12%, 80%);
-  }
-}
 
-/* Font sizes for larger devices */
-@media screen and (min-width: 968px) {
-  :root {
-    --big-font-size: 3rem;
-    --h1-font-size: 2.25rem;
-    --h2-font-size: 1.5rem;
-    --h3-font-size: 1.25rem;
-    --normal-font-size: 1rem;
-    --small-font-size: 0.875rem;
-    --smaller-font-size: 0.813rem;
+    --text-color: var(--body-h), 8%, 80%;
+    --text-color-light: var(--body-h), 8%, 65%;
+    --text-color-dark: var(--body-h), 21%, 56%;
+
+    --title-color: var(--body-h), 8%, 95%;
   }
 }
 

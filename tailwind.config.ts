@@ -68,9 +68,9 @@ const config = {
         header: "var(--header-height)",
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "var(--border-radius)",
+        md: "calc(var(--border-radius) - 2px)",
+        sm: "calc(var(--border-radius) - 4px)",
       },
       borderWidth: {
         // '1-25': '1.25px',
