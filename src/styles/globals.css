@@ -17,7 +17,7 @@
     --background: var(--body-h), var(--body-s), var(--body-l);
     --foreground: var(--body-h) 84% 4.9%;
 
-    --primary: var(--body-h), 49%, 60%;
+    --primary: var(--body-h), 49%, 50%;
     --primary-foreground: var(--body-h), 61%, 80%;
 
     --secondary: var(--body-h), 57%, 70%;
@@ -89,7 +89,7 @@
 
     --foreground: var(--body-h) 90% 50%;
 
-    --primary: var(--body-h), 49%, 60%;
+    --primary: var(--body-h), 49%, 40%;
     --primary-foreground: var(--body-h), 61%, 70%;
 
     --secondary: var(--body-h), 69%, 61%;

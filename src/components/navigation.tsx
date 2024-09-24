@@ -149,6 +149,7 @@ export function Navigation() {
           variant="ghost"
           className={cn("absolute right-2 md:hidden")}
           onClick={toggleMenu}
+          aria-label="Open menu"
         >
           <Menu />
         </Button>

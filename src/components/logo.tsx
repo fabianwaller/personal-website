@@ -32,7 +32,7 @@ const Logo: React.FC<LogoProps> = ({ white }) => {
           d="M64.0656 26.3848C59.3139 33.1709 49.9607 34.8201 43.1746 30.0685V30.0685L51.7783 17.7812L64.0656 26.3848V26.3848Z"
         />
       </svg>
-      <span className="logo__text font-medium hover:text-primary">Fabian</span>
+      <span className="text-md font-semibold hover:text-primary">Fabian</span>
     </a>
   );
 };
