@@ -12,7 +12,7 @@
     --body-l: 96%;
 
     --border: var(--body-h), 40%, 92%;
-    --input: var(--body-h), 70%, 98%;
+    --input: var(--body-h), 10%, 22%;
     --ring: 222.2 84% 4.9%;
     --background: var(--body-h), var(--body-s), var(--body-l);
     --foreground: var(--body-h) 84% 4.9%;
@@ -90,7 +90,7 @@
     --foreground: var(--body-h) 90% 50%;
 
     --primary: var(--body-h), 49%, 60%;
-    --primary-foreground: var(--body-h), 61%, 90%;
+    --primary-foreground: var(--body-h), 61%, 70%;
 
     --secondary: var(--body-h), 69%, 61%;
     --secondary-foreground: 210 40% 98%;
