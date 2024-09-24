@@ -5,7 +5,7 @@ name: Test runner
 
 on:
   push:
-    branches: ["dev"]
+    branches: ["main", "dev"]
   pull_request:
     branches: ["dev"]
 
@@ -38,8 +38,8 @@ jobs:
           lhci autorun --upload.target=filesystem --upload.outputDir=./lhci_reports
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-      - name: Upload Lighthouse Report
-        uses: actions/upload-artifact@v3
+      - name: upload lighthouse report
+        uses: actions/upload-artifact@v4
         with:
           name: lighthouse-report
           path: ./lhci_reports
