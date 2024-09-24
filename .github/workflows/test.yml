@@ -28,3 +28,11 @@ jobs:
       - run: npm install
       - run: npm run lint
       - run: npm run test
+      - run: npm run build
+      - name: run Lighthouse CI
+        run: |
+          echo ${{ secrets.BASE_URL }}
+          npm install -g @lhci/cli@0.14.x
+          lhci autorun
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
