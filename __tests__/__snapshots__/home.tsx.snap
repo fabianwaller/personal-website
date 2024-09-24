@@ -106,13 +106,13 @@ exports[`Home renders home page unchanged 1`] = `
             />
           </path>
           <image
-            height="800"
+            height="400"
             mask="url(#mask)"
-            width="800"
-            x="-150"
-            xlink:href="/images/profile.png"
+            width="400"
+            x="40"
+            xlink:href="/images/profile.webp"
             xmlns:xlink="http://www.w3.org/1999/xlink"
-            y="75"
+            y="115"
           />
         </svg>
       </div>
