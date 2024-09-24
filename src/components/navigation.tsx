@@ -21,6 +21,7 @@ import {
   Menu,
   Newspaper,
   Rocket,
+  Rss,
   User,
   X,
 } from "lucide-react";
@@ -53,6 +54,11 @@ export const socialItems = [
     title: "LinkedIn",
     icon: <LinkedIn className="h-full w-full" />,
     blank: true,
+  },
+  {
+    href: "/rss",
+    title: "Feed",
+    icon: <Rss className="h-full w-full" />,
   },
 ];
 
