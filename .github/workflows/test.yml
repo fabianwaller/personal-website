@@ -29,12 +29,17 @@ jobs:
       - run: npm run lint
       - run: npm run test
       - run: npm run build
-      - run: echo ${{ secrets.BASE_URL }}
+      - run: echo "${{ secrets.BASE_URL }}"
       - name: Debug Environment Variables
         run: printenv
       - name: run Lighthouse CI
         run: |
           npm install -g @lhci/cli@0.14.x
-          lhci autorun
+          lhci autorun --upload.target=filesystem --upload.outputDir=./lhci_reports
         env:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      - name: Upload Lighthouse Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: lighthouse-report
+          path: ./lhci_reports
