@@ -5,12 +5,12 @@ name: Test runner
 
 on:
   push:
-    branches: ["dev"]
+    branches: ["main", "dev"]
   pull_request:
     branches: ["dev"]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
@@ -28,3 +28,18 @@ jobs:
       - run: npm install
       - run: npm run lint
       - run: npm run test
+      - run: npm run build
+      - run: echo "${{ secrets.BASE_URL }}"
+      - name: Debug Environment Variables
+        run: printenv
+      - name: run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.14.x
+          lhci autorun --upload.target=filesystem --upload.outputDir=./lhci_reports
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      - name: upload lighthouse report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: ./lhci_reports

@@ -1,6 +1,6 @@
 import { getBlogPosts } from "@/app/blog/utils";
 
-export const baseUrl = process.env.URL;
+export const baseUrl = process.env.BASE_URL;
 
 export default async function sitemap() {
   let routes = ["", "/about", "/journey", "/projects", "/contact", "/blog"].map(
