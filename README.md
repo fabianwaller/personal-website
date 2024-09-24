@@ -2,7 +2,7 @@
 
 ## Test runner
 
-[![run tests](https://github.com/fabianwaller/personal-website/actions/workflows/test.yml/badge.svg?branch=dev)](https://github.com/fabianwaller/personal-website/actions/workflows/test.yml)
+[![Test runner dev](https://github.com/fabianwaller/personal-website/actions/workflows/test.yml/badge.svg?branch=dev)](https://github.com/fabianwaller/personal-website/actions/workflows/test.yml)
 
 ## Setup
 
