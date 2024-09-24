@@ -89,11 +89,11 @@ const HeroBlob = () => {
         <image
           mask="url(#mask)"
           xmlnsXlink="http://www.w3.org/1999/xlink"
-          xlinkHref="/images/profile.png"
-          width="800"
-          height="800"
-          x="-150"
-          y="75"
+          xlinkHref="/images/profile.webp"
+          width="400"
+          height="400"
+          x="40"
+          y="115"
         />
       </svg>
     </div>
