@@ -32,7 +32,7 @@ exports[`Logo renders Logo unchanged 1`] = `
       />
     </svg>
     <span
-      class="logo__text font-medium hover:text-primary"
+      class="text-md font-semibold hover:text-primary"
     >
       Fabian
     </span>
@@ -72,7 +72,7 @@ exports[`Logo renders white Logo unchanged 1`] = `
       />
     </svg>
     <span
-      class="logo__text font-medium hover:text-primary"
+      class="text-md font-semibold hover:text-primary"
     >
       Fabian
     </span>
