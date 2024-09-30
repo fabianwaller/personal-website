@@ -12,45 +12,49 @@ import {
   CommandSeparator,
 } from "@/components/ui/command";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import { useCommandMenu } from "@/provider/CommandMenuContext";
 import { navigationItems, socialItems } from "@/components/navigation";
+import { useBlogPosts } from "@/provider/BlogPostsContext";
 
 export function CommandMenuButton() {
   const { toggle } = useCommandMenu();
-  // const isMac = /(Mac)/i.test(navigator.userAgent)
-  // const isMobile = /iPhone|iPad|Android/i.test(navigator.userAgent)
-  const isMac = true;
-  const isMobile = false;
 
-  let action;
-  let cmd;
-  let hotkey;
+  const [action, setAction] = useState("Tap ");
+  const [cmd, setCmd] = useState<React.ReactNode>(null);
+  const [hotkey, setHotkey] = useState<React.ReactNode>(null);
 
-  if (isMobile) {
-    action = "Tap ";
-  } else {
-    action = "Press ";
-    if (isMac) {
-      cmd = <CommandIcon />;
+  useEffect(() => {
+    if (!window) return null;
+    console.log(window.navigator.userAgent);
+    const isMac = /(Mac)/i.test(window.navigator.userAgent);
+    const isMobile = /iPhone|iPad|Android/i.test(window.navigator.userAgent);
+    console.log(isMac, isMobile);
+    if (isMobile) {
+      setAction("Tap ");
     } else {
-      cmd = <span>ctrl</span>;
+      setAction("Press ");
+      if (isMac) {
+        setCmd(<CommandIcon />);
+      } else {
+        setCmd(<span>ctrl</span>);
+      }
+      setHotkey(<span>K</span>);
     }
-    hotkey = (
-      <>
-        <div className="mx-2 flex h-5 w-5 items-center">{cmd}</div>
-        <span>K</span>
-      </>
-    );
-  }
+  }, []);
 
   return (
-    <Button variant="ghost" className="relative -left-4 p-4">
+    <Button variant="ghost" className="relative -left-4">
       <div className="flex items-center font-medium" onClick={toggle}>
         <span>{action}</span>
-        {hotkey}
+        {cmd && hotkey && (
+          <>
+            <div className="mx-2 flex h-5 w-5 items-center">{cmd}</div>
+            {hotkey}
+          </>
+        )}
         <span className="ml-2">for shortcuts</span>
         <span className="ml-2">
           <ArrowRight />
@@ -64,6 +68,8 @@ export function CommandMenu() {
   const router = useRouter();
 
   const { open, toggle } = useCommandMenu();
+
+  const { blogPosts } = useBlogPosts();
 
   const handleSelect = (path: string) => {
     toggle();
@@ -108,6 +114,16 @@ export function CommandMenu() {
               >
                 {item.icon}
                 <span>{item.title}</span>
+              </CommandItem>
+            ))}
+          </CommandGroup>
+          <CommandGroup heading="Blog">
+            {blogPosts.map((post) => (
+              <CommandItem
+                key={post.slug}
+                onSelect={() => handleSelect(`/blog/${post.slug}`)}
+              >
+                <span>{post.metadata.title}</span>
               </CommandItem>
             ))}
           </CommandGroup>
