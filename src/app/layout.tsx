@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
@@ -13,6 +12,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { calculateAge } from "./page";
 import { getBlogPosts } from "./blog/utils";
 import { BlogPostsProvider } from "@/provider/BlogPostsContext";
+import { Metadata } from "next/types";
 
 const fontSans = Poppins({
   weight: "500",
@@ -38,7 +38,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"
+        />
       </head>
       <body
         className={cn(
