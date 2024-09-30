@@ -28,10 +28,8 @@ export function CommandMenuButton() {
 
   useEffect(() => {
     if (!window) return null;
-    console.log(window.navigator.userAgent);
     const isMac = /(Mac)/i.test(window.navigator.userAgent);
     const isMobile = /iPhone|iPad|Android/i.test(window.navigator.userAgent);
-    console.log(isMac, isMobile);
     if (isMobile) {
       setAction("Tap ");
     } else {
@@ -117,6 +115,7 @@ export function CommandMenu() {
               </CommandItem>
             ))}
           </CommandGroup>
+          <CommandSeparator />
           <CommandGroup heading="Blog">
             {blogPosts.map((post) => (
               <CommandItem
