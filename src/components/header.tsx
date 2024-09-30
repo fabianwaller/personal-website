@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed z-50 w-full bg-background opacity-95 ${headerScroll ? "shadow-sm" : ""}`}
+      className={`fixed z-50 w-screen bg-background opacity-95 ${headerScroll ? "shadow-sm" : ""}`}
       id="header"
     >
       <Container>
