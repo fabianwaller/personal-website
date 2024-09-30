@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
 import { formatDate, getBlogPosts } from "@/app/blog/utils";
-// import { baseUrl } from '@/app/sitemap'
 const baseUrl = "localhost:3000";
 import { CustomMDX } from "@/components/mdx";
 import Section from "@/components/Section";
+import { Metadata } from "next/types";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -13,8 +13,8 @@ export async function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+export const generateMetadata = ({ params }) => {
+  const post = getBlogPosts().find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
@@ -25,33 +25,34 @@ export function generateMetadata({ params }) {
     summary: description,
     image,
   } = post.metadata;
-  let ogImage = image
-    ? image
-    : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
+
+  // const ogImage = image
+  //   ? image
+  //   : `${baseUrl}/og?title=${encodeURIComponent(title)}`;
 
   return {
     title,
     description,
-    openGraph: {
-      title,
-      description,
-      type: "article",
-      publishedTime,
-      url: `${baseUrl}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [ogImage],
-    },
+    // openGraph: {
+    //   title,
+    //   description,
+    //   type: "article",
+    //   publishedTime,
+    //   url: `${baseUrl}/blog/${post.slug}`,
+    //   images: [
+    //     {
+    //       url: ogImage,
+    //     },
+    //   ],
+    // },
+    // twitter: {
+    //   card: "summary_large_image",
+    //   title,
+    //   description,
+    //   images: [ogImage],
+    // },
   };
-}
+};
 
 export default function BlogEntry({ params }) {
   let post = getBlogPosts().find((post) => post.slug === params.slug);
@@ -68,7 +69,7 @@ export default function BlogEntry({ params }) {
       headerAlign="left"
       headerClassName="mb-4"
     >
-      <script
+      {/* <script
         type="application/ld+json"
         suppressHydrationWarning
         dangerouslySetInnerHTML={{
@@ -89,7 +90,7 @@ export default function BlogEntry({ params }) {
             },
           }),
         }}
-      />
+      /> */}
       <article className="prose prose-custom">
         <CustomMDX source={post.content} />
       </article>
