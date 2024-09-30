@@ -67,7 +67,7 @@ export default async function Image({ params }: { params: { slug: string } }) {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: 15 }}>
-          <Logo />
+          {/* <Logo /> */}
           <span style={{ fontSize: 50 }}>Fabian</span>
         </div>
         <h1 style={{ fontSize: 80 }}>{post.metadata.title}</h1>
