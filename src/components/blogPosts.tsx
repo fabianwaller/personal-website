@@ -1,6 +1,6 @@
 import { BlogPost, getBlogPosts } from "@/app/blog/utils";
 import Link from "next/link";
-import XStack from "./XStack";
+import VStack from "./VStack";
 import TypographyH3 from "./ui/TypographyH3";
 
 const sortByDate = (a: BlogPost, b: BlogPost) => {
@@ -14,7 +14,7 @@ const BlogPosts: React.FC = () => {
   let posts: BlogPost[] = getBlogPosts();
 
   return (
-    <XStack className="items-stretch">
+    <VStack className="items-stretch">
       {posts.sort(sortByDate).map((post) => (
         <Link key={post.slug} href={`/blog/${post.slug}`}>
           <div className="relative -left-4 w-full-plus items-start rounded-lg px-4 py-3 hover:bg-card-foreground">
@@ -25,7 +25,7 @@ const BlogPosts: React.FC = () => {
           </div>
         </Link>
       ))}
-    </XStack>
+    </VStack>
   );
 };
 

@@ -1,6 +1,6 @@
 import BlogPosts from "@/components/blogPosts";
 import Section from "@/components/Section";
-import XStack from "@/components/XStack";
+import VStack from "@/components/VStack";
 
 const Blog: React.FC = () => {
   return (
@@ -9,7 +9,7 @@ const Blog: React.FC = () => {
       title="Personal Blog"
       subtitle="insight in my thoughts"
     >
-      <XStack>
+      <VStack>
         <p>
           Here you&apos;ll find all my public thoughts, notes, learnings and
           experiences. I share whatever I want, ranging from programming to
@@ -17,7 +17,7 @@ const Blog: React.FC = () => {
           out!
         </p>
         <BlogPosts />
-      </XStack>
+      </VStack>
     </Section>
   );
 };
