@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact renders contact page unchanged 1`] = `
+<DocumentFragment>
+  <section
+    class="w-full py-8"
+    id="contact"
+  >
+    <div
+      class="container relative ml-auto mr-auto w-screen max-w-custom px-8 md:px-0 mb-12"
+    >
+      <div
+        class="text-center"
+      >
+        <h2
+          class="mb-2 scroll-m-20 text-3xl font-semibold text-title-normal lg:text-4xl"
+        >
+          Contact
+        </h2>
+        <span
+          class="block text-sm"
+        >
+          Send me a message.
+        </span>
+      </div>
+    </div>
+    <div
+      class="container relative ml-auto mr-auto w-screen max-w-custom px-8 md:px-0"
+    >
+      <form>
+        <div
+          class="flex flex-col justify-center gap-4 items-stretch"
+        >
+          <div
+            class="space-y-2"
+          >
+            <label
+              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for=":r0:-form-item"
+            >
+              Name
+            </label>
+            <input
+              aria-describedby=":r0:-form-item-description"
+              aria-invalid="false"
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-2 focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              id=":r0:-form-item"
+              name="name"
+              placeholder="Name"
+              value=""
+            />
+            <p
+              class="text-sm text-muted-foreground"
+              id=":r0:-form-item-description"
+            >
+              Please enter your full name.
+            </p>
+          </div>
+          <div
+            class="space-y-2"
+          >
+            <label
+              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for=":r1:-form-item"
+            >
+              Email
+            </label>
+            <input
+              aria-describedby=":r1:-form-item-description"
+              aria-invalid="false"
+              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-2 focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              id=":r1:-form-item"
+              name="email"
+              placeholder="example@icloud.com"
+              value=""
+            />
+            <p
+              class="text-sm text-muted-foreground"
+              id=":r1:-form-item-description"
+            >
+              I need your email to answer to your message.
+            </p>
+          </div>
+          <div
+            class="space-y-2"
+          >
+            <label
+              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+              for=":r2:-form-item"
+            >
+              Message
+            </label>
+            <textarea
+              aria-describedby=":r2:-form-item-description"
+              aria-invalid="false"
+              class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:border-2 focus-visible:outline-none focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+              id=":r2:-form-item"
+              name="message"
+              placeholder="Your message..."
+            />
+            <p
+              class="text-sm text-muted-foreground"
+              id=":r2:-form-item-description"
+            >
+              Please enter your message.
+            </p>
+          </div>
+          <button
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-primary text-title-normal hover:bg-primary-foreground"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</DocumentFragment>
+`;

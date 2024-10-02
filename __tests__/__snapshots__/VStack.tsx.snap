@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VStack renders VStack unchanged 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-col items-center justify-center gap-4"
+  >
+    <p>
+      1
+    </p>
+    <p>
+      2
+    </p>
+  </div>
+</DocumentFragment>
+`;

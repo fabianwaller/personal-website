@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Logo renders Header unchanged 1`] = `
+exports[`Header renders Header unchanged 1`] = `
 <DocumentFragment>
   <header
     class="fixed z-50 w-screen bg-background opacity-95 "
