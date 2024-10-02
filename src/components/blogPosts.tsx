@@ -30,7 +30,7 @@ const BlogPosts = () => {
         <Link
           key={post.slug}
           href={`/blog/${post.slug}`}
-          className="relative block h-full w-full p-2"
+          className="relative block h-full w-full"
           onMouseEnter={() => setHoveredIndex(index)}
           onMouseLeave={() => setHoveredIndex(null)}
         >

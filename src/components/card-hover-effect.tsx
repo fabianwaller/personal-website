@@ -36,7 +36,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "relative -left-4 z-20 w-full-plus items-start overflow-hidden rounded-lg px-2 py-3",
+        "relative -left-4 z-20 w-full-plus items-start overflow-hidden rounded-lg px-4 py-3",
         className,
       )}
     >
