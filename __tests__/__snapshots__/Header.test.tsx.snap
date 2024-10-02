@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Logo renders Header unchanged 1`] = `
+exports[`Header renders Header unchanged 1`] = `
 <DocumentFragment>
   <header
-    class="fixed z-50 w-full bg-background opacity-95 "
+    class="fixed z-50 w-screen bg-background opacity-95 "
     id="header"
   >
     <div
-      class="container relative ml-auto mr-auto w-full max-w-custom px-4"
+      class="container relative ml-auto mr-auto w-screen max-w-custom px-8 md:px-0"
     >
       <nav
         class="flex h-header-height items-center justify-between"
@@ -124,7 +124,7 @@ exports[`Logo renders Header unchanged 1`] = `
         </nav>
         <button
           aria-label="Open menu"
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 hover:bg-card-foreground hover:text-primary absolute right-2 md:hidden"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 hover:bg-card-foreground hover:text-primary absolute right-4 md:hidden"
         >
           <svg
             class="lucide lucide-menu"

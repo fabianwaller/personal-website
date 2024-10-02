@@ -7,7 +7,7 @@ exports[`Blog renders blog page unchanged 1`] = `
     id="blog"
   >
     <div
-      class="container relative ml-auto mr-auto w-full max-w-custom px-4 mb-12"
+      class="container relative ml-auto mr-auto w-screen max-w-custom px-8 md:px-0 mb-12"
     >
       <div
         class="text-center"
@@ -25,7 +25,7 @@ exports[`Blog renders blog page unchanged 1`] = `
       </div>
     </div>
     <div
-      class="container relative ml-auto mr-auto w-full max-w-custom px-4"
+      class="container relative ml-auto mr-auto w-screen max-w-custom px-8 md:px-0"
     >
       <div
         class="flex flex-col items-center justify-center gap-4"
@@ -34,41 +34,39 @@ exports[`Blog renders blog page unchanged 1`] = `
           Here you'll find all my public thoughts, notes, learnings and experiences. I share whatever I want, ranging from programming to math, over books and podcasts and much more. Scroll down to check them out!
         </p>
         <div
-          class="flex flex-col justify-center gap-4 items-stretch"
+          class="flex flex-col items-center justify-center gap-4"
         >
           <a
-            href="/blog/caching-and-content-delivery-networks"
+            class="relative block h-full w-full"
+            href="/blog/slug"
           >
             <div
-              class="relative -left-4 w-full-plus items-start rounded-lg px-4 py-3 hover:bg-card-foreground"
+              class="relative -left-4 z-20 w-full-plus items-start overflow-hidden rounded-lg px-4 py-3"
             >
               <h3
-                class="mb-1 scroll-m-20 text-xl font-semibold text-title-normal lg:text-2xl article__title"
+                class="mb-1 scroll-m-20 text-xl font-semibold text-title-normal lg:text-2xl"
               >
-                Caching and Content Delivery Networks
+                Title
               </h3>
-              <p
-                class="article__text"
-              >
-                Using a CDN platform provides predictable end-to-end system
+              <p>
+                summary
               </p>
             </div>
           </a>
           <a
-            href="/blog/heuristics-for-clean-code"
+            class="relative block h-full w-full"
+            href="/blog/slug"
           >
             <div
-              class="relative -left-4 w-full-plus items-start rounded-lg px-4 py-3 hover:bg-card-foreground"
+              class="relative -left-4 z-20 w-full-plus items-start overflow-hidden rounded-lg px-4 py-3"
             >
               <h3
-                class="mb-1 scroll-m-20 text-xl font-semibold text-title-normal lg:text-2xl article__title"
+                class="mb-1 scroll-m-20 text-xl font-semibold text-title-normal lg:text-2xl"
               >
-                Heuristics for clean code
+                Title
               </h3>
-              <p
-                class="article__text"
-              >
-                To write new code we have to read old code. So making it easy to read actually makes it easier to write.
+              <p>
+                summary
               </p>
             </div>
           </a>

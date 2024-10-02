@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Separator renders horizontal Separator unchanged 1`] = `
+<DocumentFragment>
+  <div
+    class="shrink-0 bg-border h-[1px] w-full"
+    data-orientation="horizontal"
+    role="none"
+  />
+</DocumentFragment>
+`;
+
+exports[`Separator renders vertical Separator unchanged 1`] = `
+<DocumentFragment>
+  <div
+    class="shrink-0 bg-border h-full w-[1px]"
+    data-orientation="vertical"
+    role="none"
+  />
+</DocumentFragment>
+`;

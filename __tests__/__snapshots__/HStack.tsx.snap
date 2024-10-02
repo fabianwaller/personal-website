@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HStack renders HStack unchanged 1`] = `
+<DocumentFragment>
+  <div
+    class="flex flex-row flex-wrap items-center justify-start gap-x-4 gap-y-3"
+  >
+    <p>
+      1
+    </p>
+    <p>
+      2
+    </p>
+  </div>
+</DocumentFragment>
+`;

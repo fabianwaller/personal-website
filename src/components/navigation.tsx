@@ -29,6 +29,7 @@ import {
   FaXTwitter as Twitter,
   FaGithub as Github,
   FaLinkedin as LinkedIn,
+  FaInstagram,
 } from "react-icons/fa6";
 
 export const socialItems = [
@@ -56,6 +57,12 @@ export const socialItems = [
     blank: true,
   },
   {
+    href: "https://www.instagram.com/fabianwallerr/",
+    title: "Instagram",
+    icon: <FaInstagram className="h-full w-full" />,
+    blank: true,
+  },
+  {
     href: "/rss",
     title: "Feed",
     icon: <Rss className="h-full w-full" />,
@@ -63,8 +70,16 @@ export const socialItems = [
 ];
 
 export const navigationItems = [
-  { href: "/", title: "Home", icon: <House className="h-full w-full" /> },
-  { href: "/about", title: "About", icon: <User className="h-full w-full" /> },
+  {
+    href: "/",
+    title: "Home",
+    icon: <House className="h-full w-full" />,
+  },
+  {
+    href: "/about",
+    title: "About",
+    icon: <User className="h-full w-full" />,
+  },
   {
     href: "/journey",
     title: "Journey",
@@ -147,7 +162,7 @@ export function Navigation() {
       {!menuOpen && (
         <Button
           variant="ghost"
-          className={cn("absolute right-2 md:hidden")}
+          className={cn("absolute right-4 md:hidden")}
           onClick={toggleMenu}
           aria-label="Open menu"
         >

@@ -7,8 +7,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import XStack from "@/components/XStack";
-import YStack from "@/components/YStack";
+import VStack from "@/components/VStack";
+import HStack from "@/components/HStack";
 import Link from "next/link";
 import { Calendar, ExternalLink, Globe, Star } from "lucide-react";
 
@@ -79,49 +79,49 @@ const Projects: React.FC = async () => {
           return (
             <Card key={repo.full_name} className="mb-6 grid gap-1">
               <CardHeader>
-                <XStack className="items-start">
+                <VStack className="items-start">
                   <div className="text-sm text-text-light">
                     {repo.type != "closed" ? (
-                      <YStack className="mb-0 gap-2 text-sm">
+                      <HStack className="mb-0 gap-2 text-sm">
                         <Github className="h-4 w-4" />
                         <span>GitHub</span>
-                      </YStack>
+                      </HStack>
                     ) : (
-                      <YStack className="mb-0 gap-2 text-sm">
+                      <HStack className="mb-0 gap-2 text-sm">
                         <Globe className="h-4 w-4" />
                         <span>Web</span>
-                      </YStack>
+                      </HStack>
                     )}
                   </div>
                   <CardTitle>{repo.full_name}</CardTitle>
                   <CardDescription>{repo.description}</CardDescription>
                   {topics.length > 0 && (
-                    <YStack>
+                    <HStack>
                       {topics.map((topic) => (
                         <Badge key={topic} variant={"uncolored"}>
                           {topic}
                         </Badge>
                       ))}
-                    </YStack>
+                    </HStack>
                   )}
-                </XStack>
+                </VStack>
               </CardHeader>
               <CardFooter>
-                <YStack className="mb-0 h-full w-full items-end">
-                  <YStack className="w-full items-center justify-between">
+                <HStack className="mb-0 h-full w-full items-end">
+                  <HStack className="w-full items-center justify-between">
                     {repo.type != "closed" && (
-                      <YStack className="gap-2 text-sm text-text-light">
-                        <YStack className="gap-1">
+                      <HStack className="gap-2 text-sm text-text-light">
+                        <HStack className="gap-1">
                           <Star className="h-4 w-4" />
                           {repo.stargazers_count}
-                        </YStack>
+                        </HStack>
                         {repo.pushed_at && (
-                          <YStack className="gap-1">
+                          <HStack className="gap-1">
                             <Calendar className="h-4 w-4" />
                             {formatDate(new Date(repo.pushed_at))}
-                          </YStack>
+                          </HStack>
                         )}
-                      </YStack>
+                      </HStack>
                     )}
                     <Link
                       href={repo.html_url}
@@ -133,8 +133,8 @@ const Projects: React.FC = async () => {
                         <ExternalLink className="h-4 w-4" />
                       </Button>
                     </Link>
-                  </YStack>
-                </YStack>
+                  </HStack>
+                </HStack>
               </CardFooter>
             </Card>
           );

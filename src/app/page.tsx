@@ -1,4 +1,4 @@
-import XStack from "@/components/XStack";
+import VStack from "@/components/VStack";
 import { CommandMenuButton } from "@/components/CommandMenu";
 import Container from "@/components/Container";
 import HeroBlob from "@/components/heroblob/heroblob";
@@ -18,7 +18,7 @@ export default function Home() {
     <section className="w-full" id="home">
       <Container fullScreen>
         <HeroBlob />
-        <XStack className="items-start pb-8">
+        <VStack className="items-start pb-8">
           <TypographyH1>Fabian Waller</TypographyH1>
           <p>
             {calculateAge()} year old computer science student at Saarland
@@ -27,7 +27,7 @@ export default function Home() {
           <Suspense>
             <CommandMenuButton />
           </Suspense>
-        </XStack>
+        </VStack>
       </Container>
     </section>
   );

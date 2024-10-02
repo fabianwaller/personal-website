@@ -1,7 +1,16 @@
-import { BlogPost, getBlogPosts } from "@/app/blog/utils";
+"use client";
+
+import { BlogPost } from "@/app/blog/utils";
 import Link from "next/link";
-import XStack from "./XStack";
-import TypographyH3 from "./ui/TypographyH3";
+import VStack from "./VStack";
+import { useState } from "react";
+import {
+  Card,
+  CardDescription,
+  CardHoverEffect,
+  CardTitle,
+} from "./card-hover-effect";
+import { useBlogPosts } from "@/provider/BlogPostsContext";
 
 const sortByDate = (a: BlogPost, b: BlogPost) => {
   if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
@@ -10,22 +19,29 @@ const sortByDate = (a: BlogPost, b: BlogPost) => {
   return 1;
 };
 
-const BlogPosts: React.FC = () => {
-  let posts: BlogPost[] = getBlogPosts();
+const BlogPosts = () => {
+  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  const { blogPosts } = useBlogPosts();
 
   return (
-    <XStack className="items-stretch">
-      {posts.sort(sortByDate).map((post) => (
-        <Link key={post.slug} href={`/blog/${post.slug}`}>
-          <div className="relative -left-4 w-full-plus items-start rounded-lg px-4 py-3 hover:bg-card-foreground">
-            <TypographyH3 className="article__title">
-              {post.metadata.title}
-            </TypographyH3>
-            <p className="article__text">{post.metadata.summary}</p>
-          </div>
+    <VStack>
+      {blogPosts.sort(sortByDate).map((post, index) => (
+        <Link
+          key={post.slug}
+          href={`/blog/${post.slug}`}
+          className="relative block h-full w-full"
+          onMouseEnter={() => setHoveredIndex(index)}
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
+          <CardHoverEffect active={hoveredIndex === index} />
+          <Card>
+            <CardTitle>{post.metadata.title}</CardTitle>
+            <CardDescription>{post.metadata.summary}</CardDescription>
+          </Card>
         </Link>
       ))}
-    </XStack>
+    </VStack>
   );
 };
 

@@ -7,7 +7,7 @@ exports[`Home renders home page unchanged 1`] = `
     id="home"
   >
     <div
-      class="container relative ml-auto mr-auto w-full max-w-custom px-4 h-page-minus-header"
+      class="container relative ml-auto mr-auto w-screen max-w-custom px-8 md:px-0 h-page-minus-header"
     >
       <div
         class="relative transform-gpu overflow-visible bg-transparent"
@@ -128,7 +128,7 @@ exports[`Home renders home page unchanged 1`] = `
           21 year old computer science student at Saarland University interested in fullstack development and football player.
         </p>
         <button
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 hover:bg-card-foreground hover:text-primary relative -left-4 p-4"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 hover:bg-card-foreground hover:text-primary relative -left-4"
         >
           <div
             class="flex items-center font-medium"
@@ -139,22 +139,9 @@ exports[`Home renders home page unchanged 1`] = `
             <div
               class="mx-2 flex h-5 w-5 items-center"
             >
-              <svg
-                class="lucide lucide-command"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M15 6v12a3 3 0 1 0 3-3H6a3 3 0 1 0 3 3V6a3 3 0 1 0-3 3h12a3 3 0 1 0-3-3"
-                />
-              </svg>
+              <span>
+                ctrl
+              </span>
             </div>
             <span>
               K

@@ -1,11 +1,11 @@
 import { cn } from "@/lib/utils";
 
-type XStackProps = {
+type VStackProps = {
   children: React.ReactNode;
   className?: string;
 };
 
-const XStack: React.FC<XStackProps> = ({ children, className }) => (
+const VStack: React.FC<VStackProps> = ({ children, className }) => (
   <div
     className={cn([
       "flex flex-col items-center justify-center gap-4",
@@ -16,4 +16,4 @@ const XStack: React.FC<XStackProps> = ({ children, className }) => (
   </div>
 );
 
-export default XStack;
+export default VStack;

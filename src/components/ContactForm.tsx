@@ -17,7 +17,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { ToastAction } from "@/components/ui/toast";
 import { Textarea } from "@/components/ui/textarea";
-import XStack from "./XStack";
+import VStack from "./VStack";
 import { toast } from "@/hooks/use-toast";
 import { sendContact } from "@/app/contact/actions/sendContact";
 
@@ -71,7 +71,7 @@ const ContactForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
-        <XStack className="items-stretch">
+        <VStack className="items-stretch">
           <FormField
             control={form.control}
             name="name"
@@ -117,7 +117,7 @@ const ContactForm = () => {
             )}
           />
           <Button type="submit">Submit</Button>
-        </XStack>
+        </VStack>
       </form>
     </Form>
   );
