@@ -12,9 +12,7 @@ exports[`Contact renders contact page unchanged 1`] = `
       <div
         class="text-center"
       >
-        <h2
-          class="mb-2 scroll-m-20 text-3xl font-semibold text-title-normal lg:text-4xl"
-        >
+        <h2>
           Contact
         </h2>
         <span

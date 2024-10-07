@@ -119,9 +119,7 @@ exports[`Home renders home page unchanged 1`] = `
       <div
         class="flex flex-col justify-center gap-4 items-start pb-8"
       >
-        <h1
-          class="scroll-m-20 text-4xl font-semibold text-title-normal lg:text-5xl"
-        >
+        <h1>
           Fabian Waller
         </h1>
         <p>
