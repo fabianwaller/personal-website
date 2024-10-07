@@ -12,9 +12,7 @@ exports[`Journey renders journey page unchanged 1`] = `
       <div
         class="text-center"
       >
-        <h2
-          class="mb-2 scroll-m-20 text-3xl font-semibold text-title-normal lg:text-4xl"
-        >
+        <h2>
           My journey
         </h2>
         <span
@@ -97,28 +95,30 @@ exports[`Journey renders journey page unchanged 1`] = `
                 />
               </div>
               <div
-                class="rounded-lg border bg-card shadow-sm hover:shadow-md card mb-6 grid gap-1"
+                class="border border-border hover:bg-card-foreground grid gap-4 overflow-hidden rounded-lg bg-card px-4 py-3 mb-6"
               >
                 <div
-                  class="flex flex-col space-y-1.5 p-6 pb-0"
+                  class=""
                 >
-                  <h3
-                    class="text-lg font-medium leading-none tracking-tight text-title-normal card__title"
+                  <div
+                    class="flex flex-col justify-center gap-2 items-start"
                   >
-                    Bachelor of Computer Science
-                  </h3>
-                  <p
-                    class="text-normal card__subtitle"
-                  >
-                    University of Saarland, Saarbrücken, Germany
-                  </p>
-                </div>
-                <div
-                  class="p-6 pt-0"
-                >
-                  <p>
-                    2021 - 2024
-                  </p>
+                    <div>
+                      <h3
+                        class="text-lg font-medium leading-none tracking-tight text-title-normal"
+                      >
+                        Bachelor of Computer Science
+                      </h3>
+                      <p
+                        class="text-normal"
+                      >
+                        University of Saarland, Saarbrücken, Germany
+                      </p>
+                    </div>
+                    <p>
+                      2021 - 2024
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -133,28 +133,30 @@ exports[`Journey renders journey page unchanged 1`] = `
                 />
               </div>
               <div
-                class="rounded-lg border bg-card shadow-sm hover:shadow-md card mb-6 grid gap-1"
+                class="border border-border hover:bg-card-foreground grid gap-4 overflow-hidden rounded-lg bg-card px-4 py-3 mb-6"
               >
                 <div
-                  class="flex flex-col space-y-1.5 p-6 pb-0"
+                  class=""
                 >
-                  <h3
-                    class="text-lg font-medium leading-none tracking-tight text-title-normal card__title"
+                  <div
+                    class="flex flex-col justify-center gap-2 items-start"
                   >
-                    Abitur
-                  </h3>
-                  <p
-                    class="text-normal card__subtitle"
-                  >
-                    Peter-Wust-Gymnasium
-                  </p>
-                </div>
-                <div
-                  class="p-6 pt-0"
-                >
-                  <p>
-                    2013 - 2021
-                  </p>
+                    <div>
+                      <h3
+                        class="text-lg font-medium leading-none tracking-tight text-title-normal"
+                      >
+                        Abitur
+                      </h3>
+                      <p
+                        class="text-normal"
+                      >
+                        Peter-Wust-Gymnasium
+                      </p>
+                    </div>
+                    <p>
+                      2013 - 2021
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>

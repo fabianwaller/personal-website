@@ -2,7 +2,6 @@ import VStack from "@/components/VStack";
 import { CommandMenuButton } from "@/components/CommandMenu";
 import Container from "@/components/Container";
 import HeroBlob from "@/components/heroblob/heroblob";
-import TypographyH1 from "@/components/ui/TypographyH1";
 import { parse, differenceInYears } from "date-fns";
 import { Suspense } from "react";
 
@@ -19,7 +18,7 @@ export default function Home() {
       <Container fullScreen>
         <HeroBlob />
         <VStack className="items-start pb-8">
-          <TypographyH1>Fabian Waller</TypographyH1>
+          <h1>Fabian Waller</h1>
           <p>
             {calculateAge()} year old computer science student at Saarland
             University interested in fullstack development and football player.

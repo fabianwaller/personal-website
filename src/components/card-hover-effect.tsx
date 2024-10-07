@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import TypographyH3 from "./ui/TypographyH3";
+import { Card as BaseCart } from "./ui/card";
 
 export const CardHoverEffect = ({ active }: { active: boolean }) => {
   return (
@@ -34,33 +34,14 @@ export const Card = ({
   children: React.ReactNode;
 }) => {
   return (
-    <div
+    <BaseCart
       className={cn(
-        "relative -left-4 z-20 w-full-plus items-start overflow-hidden rounded-lg px-4 py-3",
+        "border-none hover:bg-transparent",
+        "relative -left-4 z-20 w-full-plus bg-transparent",
         className,
       )}
     >
       {children}
-    </div>
+    </BaseCart>
   );
-};
-
-export const CardTitle = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) => {
-  return <TypographyH3 className={className}>{children}</TypographyH3>;
-};
-
-export const CardDescription = ({
-  className,
-  children,
-}: {
-  className?: string;
-  children: React.ReactNode;
-}) => {
-  return <p className={className}>{children}</p>;
 };

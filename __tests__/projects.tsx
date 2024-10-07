@@ -1,6 +1,6 @@
+import ProjectCards from "@/app/projects/ProjectCards";
 import "@testing-library/jest-dom";
-
-global.fetch = jest.fn();
+import { render } from "@testing-library/react";
 
 export const mockProjectData = [
   {
@@ -131,11 +131,8 @@ export const mockProjectData = [
 ];
 
 describe("Projects", () => {
-  (fetch as jest.Mock).mockResolvedValue({
-    json: jest.fn().mockResolvedValue(mockProjectData),
-  });
-  it("renders projects page unchanged", () => {
-    // const component = render(<Projects />);
-    // expect(component.asFragment()).toMatchSnapshot();
+  it("renders projects page unchanged", async () => {
+    const component = render(<ProjectCards data={mockProjectData} />);
+    expect(component.asFragment()).toMatchSnapshot();
   });
 });

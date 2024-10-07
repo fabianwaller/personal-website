@@ -12,9 +12,7 @@ exports[`About renders about page unchanged 1`] = `
       <div
         class="text-center"
       >
-        <h2
-          class="mb-2 scroll-m-20 text-3xl font-semibold text-title-normal lg:text-4xl"
-        >
+        <h2>
           About me
         </h2>
         <span

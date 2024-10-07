@@ -12,9 +12,7 @@ exports[`Blog renders blog page unchanged 1`] = `
       <div
         class="text-center"
       >
-        <h2
-          class="mb-2 scroll-m-20 text-3xl font-semibold text-title-normal lg:text-4xl"
-        >
+        <h2>
           Personal Blog
         </h2>
         <span
@@ -38,36 +36,44 @@ exports[`Blog renders blog page unchanged 1`] = `
         >
           <a
             class="relative block h-full w-full"
-            href="/blog/slug"
+            href="/blog/slug1"
           >
             <div
-              class="relative -left-4 z-20 w-full-plus items-start overflow-hidden rounded-lg px-4 py-3"
+              class="border border-border grid gap-4 overflow-hidden rounded-lg px-4 py-3 border-none hover:bg-transparent relative -left-4 z-20 w-full-plus bg-transparent"
             >
-              <h3
-                class="mb-1 scroll-m-20 text-xl font-semibold text-title-normal lg:text-2xl"
+              <div
+                class=""
               >
-                Title
-              </h3>
-              <p>
-                summary
-              </p>
+                <h3>
+                  Title
+                </h3>
+                <p
+                  class="text-normal"
+                >
+                  summary
+                </p>
+              </div>
             </div>
           </a>
           <a
             class="relative block h-full w-full"
-            href="/blog/slug"
+            href="/blog/slug2"
           >
             <div
-              class="relative -left-4 z-20 w-full-plus items-start overflow-hidden rounded-lg px-4 py-3"
+              class="border border-border grid gap-4 overflow-hidden rounded-lg px-4 py-3 border-none hover:bg-transparent relative -left-4 z-20 w-full-plus bg-transparent"
             >
-              <h3
-                class="mb-1 scroll-m-20 text-xl font-semibold text-title-normal lg:text-2xl"
+              <div
+                class=""
               >
-                Title
-              </h3>
-              <p>
-                summary
-              </p>
+                <h3>
+                  Title
+                </h3>
+                <p
+                  class="text-normal"
+                >
+                  summary
+                </p>
+              </div>
             </div>
           </a>
         </div>

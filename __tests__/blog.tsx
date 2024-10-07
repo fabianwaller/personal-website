@@ -12,7 +12,7 @@ const blogPostsMock: BlogPost[] = [
       summary: "summary",
       image: "",
     },
-    slug: "slug",
+    slug: "slug1",
     content: "content",
   },
   {
@@ -22,7 +22,7 @@ const blogPostsMock: BlogPost[] = [
       summary: "summary",
       image: "",
     },
-    slug: "slug",
+    slug: "slug2",
     content: "content",
   },
 ];

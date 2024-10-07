@@ -3,7 +3,6 @@ import Image from "next/image";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { highlight } from "sugar-high";
 import React from "react";
-import TypographyH1 from "./ui/TypographyH1";
 import StyledCode from "@/components/styledCode";
 
 function Table({ data }) {
@@ -88,7 +87,7 @@ function createHeading(level: number) {
 }
 
 let components = {
-  h1: TypographyH1,
+  h1: createHeading(1),
   h2: createHeading(2),
   h3: createHeading(3),
   h4: createHeading(4),

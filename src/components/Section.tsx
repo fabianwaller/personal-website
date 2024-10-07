@@ -1,7 +1,5 @@
 import React from "react";
-import { cn } from "@/lib/utils";
 import Container from "./Container";
-import TypographyH2 from "./ui/TypographyH2";
 import Subtitle from "./ui/Subtitle";
 
 type SectionProps = {
@@ -20,9 +18,7 @@ const Section: React.FC<SectionProps> = (props) => {
         <div
           className={props.headerAlign == "left" ? "text-left" : "text-center"}
         >
-          <TypographyH2 className={props.headerClassName}>
-            {props.title}
-          </TypographyH2>
+          <h2 className={props.headerClassName}>{props.title}</h2>
           <Subtitle>{props.subtitle}</Subtitle>
         </div>
       </Container>

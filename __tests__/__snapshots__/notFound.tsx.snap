@@ -8,20 +8,12 @@ exports[`Not found renders 404 page unchanged 1`] = `
     <div
       class="flex flex-col items-center justify-center gap-4"
     >
-      <h1
-        class="scroll-m-20 text-4xl font-semibold text-title-normal lg:text-5xl"
-      >
+      <h1>
          404 - Page Not Found
       </h1>
-      <div
-        class="block"
-      >
-        <small
-          class="text-sm font-medium leading-none"
-        >
-          The page you are looking for does not exist.
-        </small>
-      </div>
+      <small>
+        The page you are looking for does not exist.
+      </small>
     </div>
   </div>
 </DocumentFragment>
