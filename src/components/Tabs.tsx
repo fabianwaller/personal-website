@@ -1,11 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "./ui/card";
+import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
+import VStack from "./VStack";
 
 type JourneyDataProps = {
   title: string;
@@ -35,18 +30,16 @@ const JourneyData: React.FC<JourneyDataProps> = ({
         )}
       </div>
 
-      <Card className="card mb-6 grid gap-1">
-        <CardHeader className="pb-0">
-          <CardTitle className="card__title">{title}</CardTitle>
-          <CardDescription className="card__subtitle">
-            {description}
-          </CardDescription>
-        </CardHeader>
-        {time && (
-          <CardContent>
-            <p>{time}</p>
-          </CardContent>
-        )}
+      <Card className="mb-6">
+        <CardContent>
+          <VStack className="items-start" narrow>
+            <div>
+              <CardTitle>{title}</CardTitle>
+              <CardDescription>{description}</CardDescription>
+            </div>
+            {time && <p>{time}</p>}
+          </VStack>
+        </CardContent>
       </Card>
     </div>
   );

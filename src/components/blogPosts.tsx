@@ -4,13 +4,9 @@ import { BlogPost } from "@/app/blog/utils";
 import Link from "next/link";
 import VStack from "./VStack";
 import { useState } from "react";
-import {
-  Card,
-  CardDescription,
-  CardHoverEffect,
-  CardTitle,
-} from "./card-hover-effect";
+import { Card, CardHoverEffect } from "./card-hover-effect";
 import { useBlogPosts } from "@/provider/BlogPostsContext";
+import { CardContent, CardDescription } from "./ui/card";
 
 const sortByDate = (a: BlogPost, b: BlogPost) => {
   if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
@@ -36,8 +32,10 @@ const BlogPosts = () => {
         >
           <CardHoverEffect active={hoveredIndex === index} />
           <Card>
-            <CardTitle>{post.metadata.title}</CardTitle>
-            <CardDescription>{post.metadata.summary}</CardDescription>
+            <CardContent>
+              <h3>{post.metadata.title}</h3>
+              <CardDescription>{post.metadata.summary}</CardDescription>
+            </CardContent>
           </Card>
         </Link>
       ))}

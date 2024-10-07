@@ -72,12 +72,12 @@ const Projects: React.FC = async () => {
       title="Projects"
       subtitle="my private projects and public code repos"
     >
-      <div className={"grid-cols-2 gap-6 md:grid"}>
+      <div className={"flex grid-cols-2 flex-col gap-6 md:grid"}>
         {data.map((repo) => {
           if (repo.full_name == "fabianwaller/fabianwaller") return;
           const topics: any[] = repo.topics;
           return (
-            <Card key={repo.full_name} className="mb-6 grid gap-1">
+            <Card key={repo.full_name}>
               <CardHeader>
                 <VStack className="items-start">
                   <div className="text-sm text-text-light">
@@ -93,8 +93,10 @@ const Projects: React.FC = async () => {
                       </HStack>
                     )}
                   </div>
-                  <CardTitle>{repo.full_name}</CardTitle>
-                  <CardDescription>{repo.description}</CardDescription>
+                  <VStack className="items-start" narrow>
+                    <CardTitle>{repo.full_name}</CardTitle>
+                    <CardDescription>{repo.description}</CardDescription>
+                  </VStack>
                   {topics.length > 0 && (
                     <HStack>
                       {topics.map((topic) => (
