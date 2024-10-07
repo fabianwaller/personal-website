@@ -1,7 +1,5 @@
 import React from "react";
-import { cn } from "@/lib/utils";
 import Container from "./Container";
-import TypographyH2 from "./ui/TypographyH2";
 import Subtitle from "./ui/Subtitle";
 
 type SectionProps = {
