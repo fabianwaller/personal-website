@@ -20,9 +20,7 @@ const Section: React.FC<SectionProps> = (props) => {
         <div
           className={props.headerAlign == "left" ? "text-left" : "text-center"}
         >
-          <TypographyH2 className={props.headerClassName}>
-            {props.title}
-          </TypographyH2>
+          <h2 className={props.headerClassName}>{props.title}</h2>
           <Subtitle>{props.subtitle}</Subtitle>
         </div>
       </Container>
