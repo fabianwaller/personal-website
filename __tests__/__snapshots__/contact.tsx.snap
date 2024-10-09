@@ -25,92 +25,131 @@ exports[`Contact renders contact page unchanged 1`] = `
     <div
       class="container relative ml-auto mr-auto w-screen max-w-custom px-8 md:px-0"
     >
-      <form>
-        <div
-          class="flex flex-col justify-center gap-4 items-stretch"
-        >
+      <div
+        class="w-full rounded-none bg-card p-4 shadow-custom md:rounded-lg md:p-8"
+      >
+        <form>
           <div
-            class="space-y-2"
+            class="flex flex-col justify-center gap-4 items-stretch"
           >
-            <label
-              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-              for=":r0:-form-item"
+            <div
+              class="flex flex-col space-y-4 md:flex-row md:space-x-2 md:space-y-0"
             >
-              Name
-            </label>
-            <input
-              aria-describedby=":r0:-form-item-description"
-              aria-invalid="false"
-              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-2 focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-              id=":r0:-form-item"
-              name="name"
-              placeholder="Name"
-              value=""
-            />
-            <p
-              class="text-sm text-muted-foreground"
-              id=":r0:-form-item-description"
+              <div
+                class="w-full space-y-2"
+              >
+                <label
+                  class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  for=":r0:-form-item"
+                >
+                  First name
+                </label>
+                <div
+                  class="group/input rounded-lg p-[2px] transition duration-300"
+                >
+                  <input
+                    aria-describedby=":r0:-form-item-description"
+                    aria-invalid="false"
+                    class="dark:placeholder-text-neutral-600 duration-400 transitionplaceholder:text-neutral-400 flex h-10 w-full rounded-md border border-none border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-2 focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 shadow-input group-hover/input:shadow-none"
+                    id=":r0:-form-item"
+                    name="firstname"
+                    placeholder="Tyler"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+              <div
+                class="w-full space-y-2"
+              >
+                <label
+                  class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                  for=":r1:-form-item"
+                >
+                  Last name
+                </label>
+                <div
+                  class="group/input rounded-lg p-[2px] transition duration-300"
+                >
+                  <input
+                    aria-describedby=":r1:-form-item-description"
+                    aria-invalid="false"
+                    class="dark:placeholder-text-neutral-600 duration-400 transitionplaceholder:text-neutral-400 flex h-10 w-full rounded-md border border-none border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-2 focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 shadow-input group-hover/input:shadow-none"
+                    id=":r1:-form-item"
+                    name="lastname"
+                    placeholder="Durden"
+                    type="text"
+                    value=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div
+              class="w-full space-y-2"
             >
-              Please enter your full name.
-            </p>
+              <label
+                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for=":r2:-form-item"
+              >
+                Email
+              </label>
+              <div
+                class="group/input rounded-lg p-[2px] transition duration-300"
+              >
+                <input
+                  aria-describedby=":r2:-form-item-description"
+                  aria-invalid="false"
+                  class="dark:placeholder-text-neutral-600 duration-400 transitionplaceholder:text-neutral-400 flex h-10 w-full rounded-md border border-none border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-2 focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 shadow-input group-hover/input:shadow-none"
+                  id=":r2:-form-item"
+                  name="email"
+                  placeholder="name@domain.com"
+                  value=""
+                />
+              </div>
+              <p
+                class="text-sm text-muted-foreground"
+                id=":r2:-form-item-description"
+              >
+                I need your email to answer to your message.
+              </p>
+            </div>
+            <div
+              class="w-full space-y-2"
+            >
+              <label
+                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                for=":r3:-form-item"
+              >
+                Message
+              </label>
+              <div
+                class="group/input rounded-lg p-[2px] transition duration-300"
+              >
+                <textarea
+                  aria-describedby=":r3:-form-item-description"
+                  aria-invalid="false"
+                  class="dark:placeholder-text-neutral-600 duration-400 transitionplaceholder:text-neutral-400 flex min-h-[80px] w-full rounded-md border border-none border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-2 focus-visible:outline-none focus-visible:ring-[2px] focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 shadow-input group-hover/input:shadow-none"
+                  id=":r3:-form-item"
+                  name="message"
+                  placeholder="Your message..."
+                />
+              </div>
+            </div>
+            <button
+              class="items-center justify-center whitespace-nowrap text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 px-4 py-2 group/btn relative block h-10 w-full rounded-md bg-gradient-to-br from-black to-neutral-600 font-medium text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] dark:bg-zinc-800 dark:from-zinc-900 dark:to-zinc-900 dark:shadow-[0px_1px_0px_0px_var(--zinc-800)_inset,0px_-1px_0px_0px_var(--zinc-800)_inset]"
+              type="submit"
+            >
+              Submit →
+              <span
+                class="absolute inset-x-0 -bottom-px block h-px w-full bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 transition duration-500 group-hover/btn:opacity-100"
+              />
+              <span
+                class="absolute inset-x-10 -bottom-px mx-auto block h-px w-1/2 bg-gradient-to-r from-transparent via-primary-foreground to-transparent opacity-0 blur-sm transition duration-500 group-hover/btn:opacity-100"
+              />
+            </button>
           </div>
-          <div
-            class="space-y-2"
-          >
-            <label
-              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-              for=":r1:-form-item"
-            >
-              Email
-            </label>
-            <input
-              aria-describedby=":r1:-form-item-description"
-              aria-invalid="false"
-              class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:border-2 focus-visible:outline-none focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-              id=":r1:-form-item"
-              name="email"
-              placeholder="example@icloud.com"
-              value=""
-            />
-            <p
-              class="text-sm text-muted-foreground"
-              id=":r1:-form-item-description"
-            >
-              I need your email to answer to your message.
-            </p>
-          </div>
-          <div
-            class="space-y-2"
-          >
-            <label
-              class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-              for=":r2:-form-item"
-            >
-              Message
-            </label>
-            <textarea
-              aria-describedby=":r2:-form-item-description"
-              aria-invalid="false"
-              class="flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:border-2 focus-visible:outline-none focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-              id=":r2:-form-item"
-              name="message"
-              placeholder="Your message..."
-            />
-            <p
-              class="text-sm text-muted-foreground"
-              id=":r2:-form-item-description"
-            >
-              Please enter your message.
-            </p>
-          </div>
-          <button
-            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 bg-primary text-title-normal hover:bg-primary-foreground"
-            type="submit"
-          >
-            Submit
-          </button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </section>
 </DocumentFragment>
