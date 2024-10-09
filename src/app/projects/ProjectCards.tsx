@@ -31,12 +31,13 @@ const ProjectCards = ({ data }: { data: any[] }) => {
         const topics: any[] = repo.topics;
         return (
           <motion.div
+            key={repo.full_name}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.3 }}
             viewport={{ once: true }}
           >
-            <Card key={repo.full_name}>
+            <Card>
               <CardHeader>
                 <VStack className="items-start">
                   <div className="text-sm text-text-light">
