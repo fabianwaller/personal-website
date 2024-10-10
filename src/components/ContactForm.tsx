@@ -21,6 +21,7 @@ import { sendContact } from "@/app/contact/actions/sendContact";
 import { Input } from "./ui/animated-input";
 import { Textarea } from "./ui/animated-textarea";
 import { BottomGradient } from "./ui/animated-bottom-gradient";
+import { ArrowRight } from "lucide-react";
 
 const formSchema = z.object({
   firstname: z.string().min(2, {
@@ -86,7 +87,7 @@ const ContactForm = () => {
                 <FormItem>
                   <FormLabel>First name</FormLabel>
                   <FormControl>
-                    <Input type="text" placeholder="Tyler" {...field} />
+                    <Input type="text" placeholder="Joel" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -99,7 +100,7 @@ const ContactForm = () => {
                 <FormItem>
                   <FormLabel>Last name</FormLabel>
                   <FormControl>
-                    <Input type="text" placeholder="Durden" {...field} />
+                    <Input type="text" placeholder="Miller" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -113,7 +114,7 @@ const ContactForm = () => {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="name@domain.com" {...field} />
+                  <Input placeholder="joel@miller.com" {...field} />
                 </FormControl>
                 <FormDescription>
                   I need your email to answer to your message.
@@ -135,8 +136,8 @@ const ContactForm = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" variant="black">
-            Submit &rarr;
+          <Button type="submit" variant="secondary">
+            Send <ArrowRight />
             <BottomGradient />
           </Button>
         </VStack>
