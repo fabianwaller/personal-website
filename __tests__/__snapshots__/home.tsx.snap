@@ -125,55 +125,63 @@ exports[`Home renders home page unchanged 1`] = `
         <p>
           21 year old computer science student at Saarland University interested in fullstack development and football player.
         </p>
-        <button
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 hover:bg-card-foreground hover:text-primary relative -left-4"
+        <div
+          style="opacity: 0;"
         >
-          <div
-            class="flex items-center font-medium"
+          <button
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 hover:bg-card-foreground hover:text-primary relative -left-4"
           >
-            <span>
-              Press 
-            </span>
             <div
-              class="mx-2 flex h-5 w-5 items-center"
+              class="flex items-center font-medium"
             >
               <span>
-                ctrl
+                Press 
+              </span>
+              <div
+                class="mx-2 flex h-5 w-5 items-center"
+              >
+                <span>
+                  ctrl
+                </span>
+              </div>
+              <span>
+                K
+              </span>
+              <span
+                class="ml-2"
+              >
+                for shortcuts
+              </span>
+              <span
+                class="ml-2"
+              >
+                <div
+                  style="opacity: 0;"
+                >
+                  <svg
+                    class="lucide lucide-arrow-right"
+                    fill="none"
+                    height="24"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M5 12h14"
+                    />
+                    <path
+                      d="m12 5 7 7-7 7"
+                    />
+                  </svg>
+                </div>
               </span>
             </div>
-            <span>
-              K
-            </span>
-            <span
-              class="ml-2"
-            >
-              for shortcuts
-            </span>
-            <span
-              class="ml-2"
-            >
-              <svg
-                class="lucide lucide-arrow-right"
-                fill="none"
-                height="24"
-                stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                width="24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M5 12h14"
-                />
-                <path
-                  d="m12 5 7 7-7 7"
-                />
-              </svg>
-            </span>
-          </div>
-        </button>
+          </button>
+        </div>
       </div>
     </div>
   </section>

@@ -25,19 +25,9 @@ export default function About() {
             I&apos;m currently studying computer science at Saarland University
             in Germany and I share my knowledge and projects on this website.
             I&apos;m mainly interested in full-stack web and native development,
-            software engineering and artificial intelligence. Currently working
-            on the
-            <Link
-              href="https://squadmanagerapp.com"
-              target="_blank"
-              legacyBehavior
-              passHref
-            >
-              <Button variant={"link"}>Squadmanager</Button>
-            </Link>
-            app to gain experience in building and launching a product. I also
-            enjoy playing football, travelling around the world and reading
-            books in my spare time.
+            software engineering and artificial intelligence. I also enjoy
+            playing football, travelling around the world and reading books in
+            my spare time.
           </p>
         </div>
       </div>
