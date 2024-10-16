@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Card as BaseCart } from "./ui/card";
@@ -36,7 +34,7 @@ export const Card = ({
   return (
     <BaseCart
       className={cn(
-        "border-none hover:bg-transparent",
+        "border-none shadow-none hover:bg-transparent",
         "relative -left-4 z-20 w-full-plus bg-transparent",
         className,
       )}

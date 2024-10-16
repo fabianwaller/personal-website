@@ -95,7 +95,7 @@ exports[`Journey renders journey page unchanged 1`] = `
                 />
               </div>
               <div
-                class="border border-border hover:bg-card-foreground grid gap-4 overflow-hidden rounded-lg bg-card px-4 py-3 mb-6"
+                class="border border-border shadow-custom hover:bg-card-foreground grid gap-4 overflow-hidden rounded-lg bg-card px-4 py-3 mb-6"
               >
                 <div
                   class=""
@@ -133,7 +133,7 @@ exports[`Journey renders journey page unchanged 1`] = `
                 />
               </div>
               <div
-                class="border border-border hover:bg-card-foreground grid gap-4 overflow-hidden rounded-lg bg-card px-4 py-3 mb-6"
+                class="border border-border shadow-custom hover:bg-card-foreground grid gap-4 overflow-hidden rounded-lg bg-card px-4 py-3 mb-6"
               >
                 <div
                   class=""

@@ -18,6 +18,7 @@ import { useRouter } from "next/navigation";
 import { useCommandMenu } from "@/provider/CommandMenuContext";
 import { navigationItems, socialItems } from "@/components/navigation";
 import { useBlogPosts } from "@/provider/BlogPostsContext";
+import { motion } from "framer-motion";
 
 export function CommandMenuButton() {
   const { toggle } = useCommandMenu();
@@ -44,21 +45,33 @@ export function CommandMenuButton() {
   }, []);
 
   return (
-    <Button variant="ghost" className="relative -left-4">
-      <div className="flex items-center font-medium" onClick={toggle}>
-        <span>{action}</span>
-        {cmd && hotkey && (
-          <>
-            <div className="mx-2 flex h-5 w-5 items-center">{cmd}</div>
-            {hotkey}
-          </>
-        )}
-        <span className="ml-2">for shortcuts</span>
-        <span className="ml-2">
-          <ArrowRight />
-        </span>
-      </div>
-    </Button>
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.8 }}
+    >
+      <Button variant="ghost" className="relative -left-4">
+        <div className="flex items-center font-medium" onClick={toggle}>
+          <span>{action}</span>
+          {cmd && hotkey && (
+            <>
+              <div className="mx-2 flex h-5 w-5 items-center">{cmd}</div>
+              {hotkey}
+            </>
+          )}
+          <span className="ml-2">for shortcuts</span>
+          <span className="ml-2">
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 1 }}
+            >
+              <ArrowRight />
+            </motion.div>
+          </span>
+        </div>
+      </Button>
+    </motion.div>
   );
 }
 

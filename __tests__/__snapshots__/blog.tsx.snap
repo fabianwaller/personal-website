@@ -39,7 +39,7 @@ exports[`Blog renders blog page unchanged 1`] = `
             href="/blog/slug1"
           >
             <div
-              class="border border-border grid gap-4 overflow-hidden rounded-lg px-4 py-3 border-none hover:bg-transparent relative -left-4 z-20 w-full-plus bg-transparent"
+              class="border border-border shadow-custom grid gap-4 overflow-hidden rounded-lg px-4 py-3 border-none shadow-none hover:bg-transparent relative -left-4 z-20 w-full-plus bg-transparent"
             >
               <div
                 class=""
@@ -60,7 +60,7 @@ exports[`Blog renders blog page unchanged 1`] = `
             href="/blog/slug2"
           >
             <div
-              class="border border-border grid gap-4 overflow-hidden rounded-lg px-4 py-3 border-none hover:bg-transparent relative -left-4 z-20 w-full-plus bg-transparent"
+              class="border border-border shadow-custom grid gap-4 overflow-hidden rounded-lg px-4 py-3 border-none shadow-none hover:bg-transparent relative -left-4 z-20 w-full-plus bg-transparent"
             >
               <div
                 class=""

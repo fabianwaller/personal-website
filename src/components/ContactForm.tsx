@@ -14,15 +14,20 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
 import { ToastAction } from "@/components/ui/toast";
-import { Textarea } from "@/components/ui/textarea";
 import VStack from "./VStack";
 import { toast } from "@/hooks/use-toast";
 import { sendContact } from "@/app/contact/actions/sendContact";
+import { Input } from "./ui/animated-input";
+import { Textarea } from "./ui/animated-textarea";
+import { BottomGradient } from "./ui/animated-bottom-gradient";
+import { ArrowRight } from "lucide-react";
 
 const formSchema = z.object({
-  name: z.string().min(2, {
+  firstname: z.string().min(2, {
+    message: "Name must be at least 2 characters.",
+  }),
+  lastname: z.string().min(2, {
     message: "Name must be at least 2 characters.",
   }),
   email: z.string().email({
@@ -39,7 +44,8 @@ const ContactForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
+      firstname: "",
+      lastname: "",
       email: "",
       message: "",
     },
@@ -51,6 +57,7 @@ const ContactForm = () => {
       await sendContact(values);
       form.reset();
       toast({
+        variant: "success",
         title: "Your message has been sent.",
         description: "I will answer as soon as possible.",
       });
@@ -72,20 +79,34 @@ const ContactForm = () => {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
         <VStack className="items-stretch">
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
-                <FormControl>
-                  <Input placeholder="Name" {...field} />
-                </FormControl>
-                <FormDescription>Please enter your full name.</FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className="flex flex-col space-y-4 md:flex-row md:space-x-2 md:space-y-0">
+            <FormField
+              control={form.control}
+              name="firstname"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>First name</FormLabel>
+                  <FormControl>
+                    <Input type="text" placeholder="Joel" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="lastname"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Last name</FormLabel>
+                  <FormControl>
+                    <Input type="text" placeholder="Miller" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
           <FormField
             control={form.control}
             name="email"
@@ -93,7 +114,7 @@ const ContactForm = () => {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="example@icloud.com" {...field} />
+                  <Input placeholder="joel@miller.com" {...field} />
                 </FormControl>
                 <FormDescription>
                   I need your email to answer to your message.
@@ -111,12 +132,14 @@ const ContactForm = () => {
                 <FormControl>
                   <Textarea placeholder="Your message..." {...field} />
                 </FormControl>
-                <FormDescription>Please enter your message.</FormDescription>
                 <FormMessage />
               </FormItem>
             )}
           />
-          <Button type="submit">Submit</Button>
+          <Button type="submit" variant="secondary">
+            Send <ArrowRight />
+            <BottomGradient />
+          </Button>
         </VStack>
       </form>
     </Form>
