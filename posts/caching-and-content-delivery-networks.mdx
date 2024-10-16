@@ -26,12 +26,11 @@ such as latency, packet loss, network outages, inefficient protocols,
 and inter-network friction. These limitations within the Internet
 architecture hinder its ability to deliver static and dynamic web
 content efficiently and with guaranteed end-to-end system quality.
-[@Akamai]
 
 In addition to these challenges, basic routing protocols such as the
 Transmission Control Protocol (TCP) were not designed for optimal
-performance [@TCP]. Route calculations for internet traffic rely
-primarily on an Autonomous System (AS) [@AutonomousSystem]. The AS lacks
+performance. Route calculations for internet traffic rely
+primarily on an Autonomous System (AS). The AS lacks
 knowledge about topologies, latencies, and real-time congestion in
 subnetworks.
 
@@ -49,7 +48,7 @@ server availability. Since then, the Internet has evolved significantly,
 with bandwidth prices falling, customer demand for rich media content
 increasing and server costs rising. As more people consume digital
 content, the need for enhanced security, additional cloud functionality
-and support for market metrics and analytics has grown. [@Evolution]
+and support for market metrics and analytics has grown.
 
 A highly distributed network emerges as the most effective architectural
 solution, especially for interactive and bandwidth-intensive content.
@@ -57,7 +56,7 @@ CDNs enable companies to achieve very acceptable levels of performance,
 reliability and cost-effective scalability, but also provide the ability
 to iterate and ship faster - with much less worry about infrastructure
 provisioning, capacity planning, architecture for scalability and
-breaking production code. [@Akamai]
+breaking production code.
 
 In the following, this report will provide a broad overview of CDNs by
 explaining how they work as a virtual network over the existing Internet
@@ -87,13 +86,12 @@ available.
 ### Virtual Networks
 
 A CDN, defined as a geographically distributed network of Points of
-Presence (PoPs) [@POP] where edge servers are hosted in data centres
-[@CDN], operates seamlessly over the existing Internet infrastructure as
+Presence (PoPs) where edge servers are hosted in data centres, operates seamlessly over the existing Internet infrastructure as
 an adaptable virtual network without requiring client software or
-changes to the underlying networks. [@Akamai] CDN nodes are typically
+changes to the underlying networks. CDN nodes are typically
 deployed on a widely distributed hardware infrastructure comprising tens
 of thousands of servers around the world, spanning various major data
-routes [@Backbone]. The widespread presence of PoPs around the world
+routes. The widespread presence of PoPs around the world
 ensures that users can access a high-speed server in their proximity,
 ideally within their local ISP's network, as shown in
 
@@ -133,7 +131,6 @@ content to end users quickly and reliably.
     terms of both current and historical server performance and network
     congestion), performance, cost considerations, or the dynamic
     likelihood that the requested content is already in cache.
-    [@RoutingMeachnisms] [@ContentNetworking]
 
 2.  Subsequently, the end user's browser initiates an HTTP request to
     the obtained **edge server** IP address to retrieve the content. The
@@ -161,7 +158,7 @@ logs, user data, and network and server information. The **management
 portal** acts as a configuration management platform and provides
 analytics based on the collected data, such as audience demographic
 reports and insights into user interactions with the application,
-traffic metrics, monitoring, alerting, reporting and billing. [@Akamai]
+traffic metrics, monitoring, alerting, reporting and billing.
 
 ### Difference from other caching problems
 
@@ -173,7 +170,7 @@ Internet. In contrast, database buffers, file system caches and L2
 caches operate at the database, operating system and hardware levels
 respectively. And unlike a local browser cache, which is exclusive to a
 single user, a CDN is a shared cache accessible to all users of a
-service. [@BrowserCache] These different caching mechanisms are
+service. These different caching mechanisms are
 complementary. For example, a web application benefits from the shared
 use of a database buffer to speed up dynamic data retrieval, a CDN to
 deliver web content quickly, and each user's local browser cache to
@@ -205,7 +202,7 @@ stream transport system then propagates the stream packets from the
 entry point to a subset of edge servers. Reflectors, an intermediate
 layer of servers, enable scalable replication of streams to multiple
 edge clusters, providing alternate paths for improved end-to-end quality
-through path optimisation. [@Akamai]
+through path optimisation.
 
 The distributed nature of the CDN network is key to the effectiveness of
 the overlay network, ensuring highly optimised long-haul tunnels with
@@ -243,7 +240,7 @@ but also close to the end user. But it also brings new challenges,
 including more complex session management, multi-machine replication,
 security sandboxing, fault management, distributed load balancing, and
 resource monitoring and management, as well as advanced requirements for
-testing and deployment tools. [@Akamai]
+testing and deployment tools.
 
 Not all types of applications can run entirely on the edge, especially
 those that rely heavily on large transactional databases. However,
@@ -254,7 +251,7 @@ components at the edge offers performance benefits by streamlining
 communications with the origin server and reducing load. For example,
 the origin server can generate a small dynamic page that references
 cachable fragments, allowing the final HTML page to be assembled and
-served at the edge. [@Akamai]
+served at the edge.
 
 ![places](/cdn/places-Invert_B.png)
 
@@ -297,7 +294,7 @@ explained below.
 
 With modern web frameworks, it is also easy to run all site
 functionality in edge functions only, without using an origin server at
-all. [@NDC_OSLO]
+all.
 
 ## Benefits
 
@@ -355,7 +352,6 @@ benefits, such as
     prevents downtime and cost explosions. This approach is particularly
     effective when the CDN is built on an anycast network, allowing
     attack traffic to be distributed across a large number of servers.
-    [@BYTE_BYTE_GO_CDN]
 
 -   **Improved Availability and Reliability**: The inherent design of a
     CDN is one of high distribution. By having copies of content across
@@ -381,7 +377,6 @@ benefits, such as
     connectivity issues, where degraded connections are quickly detected
     and mitigated through path optimisation technology that finds good
     alternative paths through intermediate nodes in the CDN network.
-    [@BYTE_BYTE_GO_CDN] [@NDC_OSLO]
 
 -   **Lower costs** can be a significant financial consideration. CDN
     egress costs, which refer to the costs associated with data leaving
@@ -402,7 +397,7 @@ benefits, such as
     visualised in the figure below, the latency for users to establish an
     encrypted connection is significantly reduced. This optimisation is
     one of the reasons why many modern applications even send dynamic,
-    uncacheable HTTP content via a CDN. [@BYTE_BYTE_GO_CDN]
+    uncacheable HTTP content via a CDN.
 
      ![availability](/cdn/ssl_termination-Invert_B.png)
      *By terminating the secure connection at the edge, the
@@ -423,7 +418,7 @@ benefits, such as
     origins. Users can configure routing rules directly within the CDN.
     This allows customers to define specific rules for content delivery,
     intelligently routing static file requests to specific storage
-    bucket servers or other appropriate origins. [@NDC_OSLO]
+    bucket servers or other appropriate origins.
 
 -   Robust **logging and analytics** capabilities are critical to
     gaining comprehensive insight into system performance. CDNs often
@@ -436,7 +431,7 @@ benefits, such as
     delivery and actively **transform static content** into more
     optimised formats. This includes minimising the file size of script
     bundles, transforming image files into modern formats such as webp,
-    and compressing content. [@ImageOptimisation] [@BYTE_BYTE_GO_CDN]
+    and compressing content.
 
 ## Conclusion
 
@@ -457,7 +452,5 @@ end users. Overall, the multi-level failover capabilities of a CDN give
 customers the reliability, availability, security and flexibility they
 want for their web applications. Today, entire applications can be made
 highly performant by moving application logic closer to the user.
-
----
 
 To visit the full report including all references, please visit [report](/cdn/report.pdf).
