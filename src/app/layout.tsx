@@ -22,11 +22,12 @@ const fontSans = Poppins({
   display: "swap",
 });
 
+export const title = "Fabian Waller";
+export const description = `${calculateAge()} year old computer science student at Saarland University obsessed with fullstack web and mobile development.`;
+
 export const metadata: Metadata = {
-  title: "Fabian Waller",
-  description: `${calculateAge()} year old computer science student at
-            Saarland University interested in fullstack development and football
-            player.`,
+  title: title,
+  description: description,
 };
 
 export default function RootLayout({

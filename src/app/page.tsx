@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import HeroBlob from "@/components/heroblob/heroblob";
 import { parse, differenceInYears } from "date-fns";
 import { Suspense } from "react";
+import { description, title } from "./layout";
 
 export const calculateAge = () => {
   const BIRTHDAY = "08-06-2003";
@@ -18,11 +19,8 @@ export default function Home() {
       <Container fullScreen>
         <HeroBlob />
         <VStack className="items-start pb-8">
-          <h1>Fabian Waller</h1>
-          <p>
-            {calculateAge()} year old computer science student at Saarland
-            University interested in fullstack development and football player.
-          </p>
+          <h1>{title}</h1>
+          <p>{description}</p>
           <Suspense>
             <CommandMenuButton />
           </Suspense>

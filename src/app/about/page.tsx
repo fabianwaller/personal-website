@@ -14,30 +14,17 @@ export default function About() {
       <div className={"grid items-start gap-6 md:grid-cols-2"}>
         <div className="flex flex-wrap items-center justify-start gap-2">
           <Keyword>computer science student</Keyword>
-          <Keyword>fullstack web + native development</Keyword>
-          <Keyword>footballer</Keyword>
-          <Keyword>learner</Keyword>
-          <Keyword>reader</Keyword>
-          <Keyword>traveller</Keyword>
+          <Keyword>fullstack web development</Keyword>
+          <Keyword>mobile development</Keyword>
         </div>
         <div>
           <p>
             I&apos;m currently studying computer science at Saarland University
             in Germany and I share my knowledge and projects on this website.
-            I&apos;m mainly interested in full-stack web and native development,
-            software engineering and artificial intelligence. Currently working
-            on the
-            <Link
-              href="https://squadmanagerapp.com"
-              target="_blank"
-              legacyBehavior
-              passHref
-            >
-              <Button variant={"link"}>Squadmanager</Button>
-            </Link>
-            app to gain experience in building and launching a product. I also
-            enjoy playing football, travelling around the world and reading
-            books in my spare time.
+            I&apos;m mainly interested in fullstack web and mobile development,
+            software engineering and artificial intelligence. I also enjoy
+            playing football, travelling around the world and reading books in
+            my spare time.
           </p>
         </div>
       </div>
