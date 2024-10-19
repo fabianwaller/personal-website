@@ -100,6 +100,17 @@ exports[`Header renders Header unchanged 1`] = `
                 <a
                   class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-semibold transition-colors hover:text-accent-foreground focus:bg-card-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary/50 data-[state=open]:bg-primary/50"
                   data-radix-collection-item=""
+                  href="/uses"
+                >
+                  Uses
+                </a>
+              </li>
+              <li
+                class="flex flex-col items-center"
+              >
+                <a
+                  class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-semibold transition-colors hover:text-accent-foreground focus:bg-card-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary/50 data-[state=open]:bg-primary/50"
+                  data-radix-collection-item=""
                   href="/projects"
                 >
                   Projects
@@ -124,7 +135,7 @@ exports[`Header renders Header unchanged 1`] = `
         </nav>
         <button
           aria-label="Open menu"
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 hover:bg-card-foreground hover:text-primary absolute right-4 md:hidden"
+          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 p-2 hover:bg-card-foreground hover:text-primary absolute right-4 md:hidden"
         >
           <svg
             class="lucide lucide-menu"

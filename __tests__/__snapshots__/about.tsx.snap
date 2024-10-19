@@ -39,39 +39,17 @@ exports[`About renders about page unchanged 1`] = `
           <span
             class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
           >
-            fullstack web + native development
+            fullstack web development
           </span>
           <span
             class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
           >
-            footballer
-          </span>
-          <span
-            class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
-          >
-            learner
-          </span>
-          <span
-            class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
-          >
-            reader
-          </span>
-          <span
-            class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
-          >
-            traveller
+            mobile development
           </span>
         </div>
         <div>
           <p>
-            I'm currently studying computer science at Saarland University in Germany and I share my knowledge and projects on this website. I'm mainly interested in full-stack web and native development, software engineering and artificial intelligence. Currently working on the
-            <button
-              class="inline-flex items-center justify-center whitespace-nowrap rounded-md font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-md h-auto p-2 text-primary underline-offset-4 hover:underline"
-              href="https://squadmanagerapp.com"
-            >
-              Squadmanager
-            </button>
-            app to gain experience in building and launching a product. I also enjoy playing football, travelling around the world and reading books in my spare time.
+            I'm currently studying computer science at Saarland University in Germany and I share my knowledge and projects on this website. I'm mainly interested in fullstack web and mobile development, software engineering and artificial intelligence. I also enjoy playing football, travelling around the world and reading books in my spare time.
           </p>
         </div>
       </div>
