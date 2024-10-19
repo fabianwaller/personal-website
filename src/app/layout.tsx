@@ -9,10 +9,10 @@ import { CommandMenu } from "@/components/CommandMenu";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { calculateAge } from "./page";
 import { getBlogPosts } from "./blog/utils";
 import { BlogPostsProvider } from "@/provider/BlogPostsContext";
 import { Metadata } from "next/types";
+import { description, title } from "./info";
 
 const fontSans = Poppins({
   weight: "500",
@@ -21,9 +21,6 @@ const fontSans = Poppins({
   fallback: ["sans-serif"],
   display: "swap",
 });
-
-export const title = "Fabian Waller";
-export const description = `${calculateAge()} year old computer science student at Saarland University obsessed with fullstack web and mobile development.`;
 
 export const metadata: Metadata = {
   title: title,
