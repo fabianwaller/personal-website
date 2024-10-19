@@ -44,7 +44,7 @@ export function CommandMenuButton() {
   }, []);
 
   return (
-    <Button variant="ghost" className="relative -left-4">
+    <Button variant="ghost" className="relative -left-2">
       <div className="flex items-center font-medium" onClick={toggle}>
         <span>{action}</span>
         {cmd && hotkey && (
