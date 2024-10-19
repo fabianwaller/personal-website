@@ -81,7 +81,7 @@ const ProjectCards = ({ data }: { data: any[] }) => {
                     legacyBehavior
                     passHref
                   >
-                    <Button variant={"link"} className="ml-auto">
+                    <Button variant={"ghost"} className="ml-auto">
                       <ExternalLink className="h-4 w-4" />
                     </Button>
                   </Link>

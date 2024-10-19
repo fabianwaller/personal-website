@@ -211,7 +211,15 @@
     @apply mb-1 scroll-m-20 text-xl font-semibold text-title-normal lg:text-2xl;
   }
 
+  h4 {
+    @apply mb-1 scroll-m-20 text-lg font-semibold text-title-normal lg:text-xl;
+  }
+
   small {
     @apply text-sm font-medium leading-none;
+  }
+
+  li {
+    @apply ml-4 list-disc;
   }
 }
