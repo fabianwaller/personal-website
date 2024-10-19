@@ -45,7 +45,7 @@ exports[`Blog renders blog page unchanged 1`] = `
                 class=""
               >
                 <div
-                  class="flex items-center justify-between"
+                  class="flex items-center justify-between gap-4"
                 >
                   <div>
                     <h3>
@@ -75,7 +75,7 @@ exports[`Blog renders blog page unchanged 1`] = `
                 class=""
               >
                 <div
-                  class="flex items-center justify-between"
+                  class="flex items-center justify-between gap-4"
                 >
                   <div>
                     <h3>
