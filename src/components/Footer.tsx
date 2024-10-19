@@ -22,16 +22,14 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="grid grid-cols-2-max gap-x-16">
-            <ul className="flex flex-col gap-y-4">
+            <div className="flex flex-col gap-y-4">
               <span className="mb-4 block font-semibold">Links</span>
               {navigationItems.map((item) => (
-                <li key={item.href}>
-                  <Link href={item.href}>
-                    <span className="hover:text-primary">{item.title}</span>
-                  </Link>
-                </li>
+                <Link key={item.href} href={item.href}>
+                  <span className="hover:text-primary">{item.title}</span>
+                </Link>
               ))}
-            </ul>
+            </div>
           </div>
 
           <div className="flex gap-6 text-xl">

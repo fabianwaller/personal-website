@@ -123,13 +123,13 @@ exports[`Home renders home page unchanged 1`] = `
           Fabian Waller
         </h1>
         <p>
-          21 year old computer science student at Saarland University interested in fullstack development and football player.
+          21 year old computer science student at Saarland University obsessed with fullstack web and mobile development.
         </p>
         <div
           style="opacity: 0;"
         >
           <button
-            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 hover:bg-card-foreground hover:text-primary relative -left-4"
+            class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 p-2 hover:bg-card-foreground hover:text-primary relative -left-2"
           >
             <div
               class="flex items-center font-medium"

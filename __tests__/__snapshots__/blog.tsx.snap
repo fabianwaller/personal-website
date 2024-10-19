@@ -44,14 +44,23 @@ exports[`Blog renders blog page unchanged 1`] = `
               <div
                 class=""
               >
-                <h3>
-                  Title
-                </h3>
-                <p
-                  class="text-normal"
+                <div
+                  class="flex items-center justify-between"
                 >
-                  summary
-                </p>
+                  <div>
+                    <h3>
+                      Title
+                    </h3>
+                    <p
+                      class="text-normal"
+                    >
+                      summary
+                    </p>
+                  </div>
+                  <span>
+                    02.10.2024
+                  </span>
+                </div>
               </div>
             </div>
           </a>
@@ -65,14 +74,23 @@ exports[`Blog renders blog page unchanged 1`] = `
               <div
                 class=""
               >
-                <h3>
-                  Title
-                </h3>
-                <p
-                  class="text-normal"
+                <div
+                  class="flex items-center justify-between"
                 >
-                  summary
-                </p>
+                  <div>
+                    <h3>
+                      Title
+                    </h3>
+                    <p
+                      class="text-normal"
+                    >
+                      summary
+                    </p>
+                  </div>
+                  <span>
+                    02.10.2024
+                  </span>
+                </div>
               </div>
             </div>
           </a>

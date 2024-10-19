@@ -56,12 +56,12 @@ export const socialItems = [
     icon: <LinkedIn className="h-full w-full" />,
     blank: true,
   },
-  {
-    href: "https://www.instagram.com/fabianwallerr/",
-    title: "Instagram",
-    icon: <FaInstagram className="h-full w-full" />,
-    blank: true,
-  },
+  // {
+  //   href: "https://www.instagram.com/fabianwallerr/",
+  //   title: "Instagram",
+  //   icon: <FaInstagram className="h-full w-full" />,
+  //   blank: true,
+  // },
   {
     href: "/rss",
     title: "Feed",
@@ -83,6 +83,11 @@ export const navigationItems = [
   {
     href: "/journey",
     title: "Journey",
+    icon: <Rocket className="h-full w-full" />,
+  },
+  {
+    href: "/uses",
+    title: "Uses",
     icon: <Rocket className="h-full w-full" />,
   },
   {
