@@ -1,0 +1,188 @@
+---
+title: 'Handling Server Error Messages'
+publishedAt: '2024-01-19'
+summary: 'Learn how to handle different error messages from a server in the client, with a focus on internalization and decoupling error types from their visual representation.'
+---
+
+## Introduction
+
+Handling server error messages on the client side is crucial for providing a seamless user experience. This is especially important when considering internalization, as error messages need to be displayed in different languages. Additionally, decoupling error types from their visual representation ensures a clean and maintainable codebase.
+
+In this post, we will explore how to handle different error messages in a client application using Next.js Server Actions. But this is applicable to every client server architecture. We will define error messages on the client side and show them based on the server side errors without comparing untyped strings and ensure that the error type is decoupled from its visual representation.
+
+## Server-Side Error Handling
+
+As suggested in the [Next.js Server Actions documentation](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations), the server-side code can throw a new Error, which will be caught by the nearest error boundary on the client.
+
+### Example Server Action
+
+```ts
+'use server'
+
+export async function createTodo(prevState: any, formData: FormData) {
+  try {
+    // Mutate data
+  } catch (e) {
+    throw new Error('Failed to create task')
+  }
+}
+```
+
+In this example, the server defines the error message. However, we want to define custom typed errors on the client side.
+
+## Alternative Approach
+
+Returning serializable error objects from the server is a better approach for server-side validation and error handling.
+
+### Example Server Action with Serializable Errors
+
+```ts
+'use server'
+
+import { z } from 'zod'
+
+const schema = z.object({
+  email: z.string({
+    invalid_type_error: 'Invalid Email',
+  }),
+})
+
+export default async function createUser(formData: FormData) {
+  const validatedFields = schema.safeParse({
+    email: formData.get('email'),
+  })
+
+  // Return early if the form data is invalid
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+    }
+  }
+
+  // Mutate data
+}
+```
+
+```ts
+'use server'
+
+export async function createUser(prevState: any, formData: FormData) {
+  // ...
+  return {
+    message: 'Please enter a valid email',
+  }
+}
+```
+
+In this approach, the server still defines the error message. Let's explore a solution where the client defines the error messages.
+
+## Proposed Solution
+
+First, we define a type for the error to allow only specific errors thrown on the server.
+
+### Defining Error Types
+
+
+```ts
+export enum ErrorType {
+  UNAUTHORIZED = 'UNAUTHORIZED',
+  DEFAULT = 'DEFAULT',
+  // Add more error types as needed
+}
+```
+
+An actual error in the client is now a single entity of the error type. You can later define whatever properties you need to display the error.
+
+### Defining Error Entities
+
+```ts
+export type ErrorEntity = {
+  title: string;
+  text: string;
+  severity: AlertColor;
+};
+```
+
+### Client-Side Error Handling
+
+In our UI component, we can call the server action by the click of a button. If an error occurs, we get back a serialized enum string. Note how we can define error messages inside the client component and have access to all available client hooks like translation ones.
+
+```tsx
+'use client'
+
+import { useState } from 'react';
+
+export type ErrorState = {
+  title: string;
+  text: string;
+  severity: AlertColor;
+} | null;
+
+export function Signup() {
+  const [error, setError] = useState<ErrorState>(null);
+  const [data, setData] = useState<DataType>({});
+
+  const onClick = async () => {
+    const res = await serverAction({ /* parameters */ });
+
+    if (res.error) {
+      setError(errorMessages[res.error]);
+      return;
+    }
+
+    setData(res.data);
+  };
+
+  const errorMessages: { [key in ErrorType]: ErrorEntity } = {
+    [ErrorType.UNAUTHORIZED]: {
+      title: 'Unauthorized',
+      text: 'You are not authorized to perform this action.',
+      severity: 'warning',
+    },
+    [ErrorType.DEFAULT]: {
+      title: 'Error',
+      text: 'An unexpected error occurred.',
+      severity: 'error',
+    },
+  };
+
+  return (
+    <div>
+      {error && (
+        <div className={`alert alert-${error.severity}`}>
+          <strong>{error.title}</strong> {error.text}
+        </div>
+      )}
+      <button onClick={onClick}>Sign up</button>
+    </div>
+  );
+}
+```
+
+### Server Actions
+
+```ts
+export const serverAction = async ({
+  // parameters
+}): Promise<{ error?: ErrorType; data?: DataType }> => {
+  // Server logic
+  if (!user) {
+    return { error: ErrorType.UNAUTHORIZED };
+  }
+  try {
+    // Mutate data
+    return { data: 'abc' };
+  } catch (error) {
+    console.error('serverAction error', error);
+    return { error: ErrorType.DEFAULT };
+  }
+};
+```
+
+## Conlusion
+
+Everything is well typed there are no possibilities of spelling errors or typos in error type strings. The error messages are decoupled from their visual representation, which makes it easy to change the UI without changing the error type.
+
+If you have only one error message, you don't need this approach. You can simply catch the error and show the appropriate error UI. However, if you end up comparing strings to find out what type of error is thrown, this is the way to go.
+
+Please let me know if you know a better, cleaner, and more developer-friendly way to achieve this.
