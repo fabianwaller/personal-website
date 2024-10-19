@@ -5,9 +5,9 @@ import VStack from "@/components/VStack";
 const deskItems: itemsType = [
   {
     href: "https://www.apple.com/de/",
-    title: 'MacBook Pro (14" M1 Pro 2021, 16GB, 512GB)',
+    title: `MacBook Pro (14" M1 Pro 2021, 16GB, 512GB)`,
     description: `MacBook Pro is my main computer for everything. 
-            It’s so powerful and really a good foundation to create digital stuff.`,
+            It&apos;s so powerful and really a good foundation to create digital stuff.`,
   },
   {
     title: "Logitech MX Master 3s",
@@ -86,7 +86,7 @@ const techStackItems: itemsType = [
   },
   {
     title: "Typescript",
-    description: `TypeScript, can't live without it!`,
+    description: `TypeScript, can&apos;t live without it!`,
   },
   {
     title: "Tailwind",
@@ -108,10 +108,10 @@ export default function Uses() {
     >
       <VStack>
         <p>
-          As an developer, I've been spending hours and hours at my desk every
-          day. So, I've been continuously improving my workspace in order to
-          boost my productivity. So, here is a living snapshot and a place to
-          point curious developers to when I get asked.
+          As an developer, I&apos;ve been spending hours and hours at my desk
+          every day. So, I&apos;ve been continuously improving my workspace in
+          order to boost my productivity. So, here is a living snapshot and a
+          place to point curious developers to when I get asked.
         </p>
         <VStack className="w-full items-start">
           <ItemList title="Desk" items={deskItems} />
