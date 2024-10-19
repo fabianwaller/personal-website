@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -13,6 +14,7 @@ import { Calendar, ExternalLink, Globe, Star } from "lucide-react";
 
 import { FaGithub as Github } from "react-icons/fa6";
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 
 const formatDate = (date: Date) => {
   return (
@@ -27,68 +29,76 @@ const ProjectCards = ({ data }: { data: any[] }) => {
         if (repo.full_name == "fabianwaller/fabianwaller") return;
         const topics: any[] = repo.topics;
         return (
-          <Card key={repo.full_name}>
-            <CardHeader>
-              <VStack className="items-start">
-                <div className="text-sm text-text-light">
-                  {repo.type != "closed" ? (
-                    <HStack className="mb-0 gap-2 text-sm">
-                      <Github className="h-4 w-4" />
-                      <span>GitHub</span>
-                    </HStack>
-                  ) : (
-                    <HStack className="mb-0 gap-2 text-sm">
-                      <Globe className="h-4 w-4" />
-                      <span>Web</span>
-                    </HStack>
-                  )}
-                </div>
-                <VStack className="items-start" narrow>
-                  <CardTitle>{repo.full_name}</CardTitle>
-                  <CardDescription>{repo.description}</CardDescription>
-                </VStack>
-                {topics.length > 0 && (
-                  <HStack>
-                    {topics.map((topic) => (
-                      <Badge key={topic} variant={"uncolored"}>
-                        {topic}
-                      </Badge>
-                    ))}
-                  </HStack>
-                )}
-              </VStack>
-            </CardHeader>
-            <CardFooter>
-              <HStack className="mb-0 h-full w-full items-end">
-                <HStack className="w-full items-center justify-between">
-                  {repo.type != "closed" && (
-                    <HStack className="gap-2 text-sm text-text-light">
-                      <HStack className="gap-1">
-                        <Star className="h-4 w-4" />
-                        {repo.stargazers_count}
+          <motion.div
+            key={repo.full_name}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <Card className="h-full">
+              <CardHeader>
+                <VStack className="items-start">
+                  <div className="text-sm text-text-light">
+                    {repo.type != "closed" ? (
+                      <HStack className="mb-0 gap-2 text-sm">
+                        <Github className="h-4 w-4" />
+                        <span>GitHub</span>
                       </HStack>
-                      {repo.pushed_at && (
-                        <HStack className="gap-1">
-                          <Calendar className="h-4 w-4" />
-                          {formatDate(new Date(repo.pushed_at))}
-                        </HStack>
-                      )}
+                    ) : (
+                      <HStack className="mb-0 gap-2 text-sm">
+                        <Globe className="h-4 w-4" />
+                        <span>Web</span>
+                      </HStack>
+                    )}
+                  </div>
+                  <VStack className="items-start" narrow>
+                    <CardTitle>{repo.full_name}</CardTitle>
+                    <CardDescription>{repo.description}</CardDescription>
+                  </VStack>
+                  {topics.length > 0 && (
+                    <HStack>
+                      {topics.map((topic) => (
+                        <Badge key={topic} variant={"uncolored"}>
+                          {topic}
+                        </Badge>
+                      ))}
                     </HStack>
                   )}
-                  <Link
-                    href={repo.html_url}
-                    target="_blank"
-                    legacyBehavior
-                    passHref
-                  >
-                    <Button variant={"ghost"} className="ml-auto">
-                      <ExternalLink className="h-4 w-4" />
-                    </Button>
-                  </Link>
+                </VStack>
+              </CardHeader>
+              <CardFooter>
+                <HStack className="mb-0 h-full w-full items-end">
+                  <HStack className="w-full items-center justify-between">
+                    {repo.type != "closed" && (
+                      <HStack className="gap-2 text-sm text-text-light">
+                        <HStack className="gap-1">
+                          <Star className="h-4 w-4" />
+                          {repo.stargazers_count}
+                        </HStack>
+                        {repo.pushed_at && (
+                          <HStack className="gap-1">
+                            <Calendar className="h-4 w-4" />
+                            {formatDate(new Date(repo.pushed_at))}
+                          </HStack>
+                        )}
+                      </HStack>
+                    )}
+                    <Link
+                      href={repo.html_url}
+                      target="_blank"
+                      legacyBehavior
+                      passHref
+                    >
+                      <Button variant={"ghost"} className="left-2 ml-auto">
+                        <ExternalLink className="h-4 w-4" />
+                      </Button>
+                    </Link>
+                  </HStack>
                 </HStack>
-              </HStack>
-            </CardFooter>
-          </Card>
+              </CardFooter>
+            </Card>
+          </motion.div>
         );
       })}
     </div>
