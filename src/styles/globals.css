@@ -15,15 +15,15 @@
     --input: var(--body-h), 10%, 22%;
     --ring: 222.2 84% 4.9%;
     --background: var(--body-h), var(--body-s), var(--body-l);
-    --foreground: var(--body-h) 84% 4.9%;
+    --foreground: var(--body-h), 84%, 4.9%;
 
     --primary: var(--body-h), 49%, 50%;
     --primary-foreground: var(--body-h), 61%, 80%;
 
     --secondary: var(--body-h), 57%, 70%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0, 50%, 50%;
+    --destructive-foreground: 210, 40%, 98%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
@@ -87,7 +87,7 @@
 
     --background: var(--body-h), var(--body-s), var(--body-l);
 
-    --foreground: var(--body-h) 90% 50%;
+    --foreground: var(--body-h), 90%, 50%;
 
     --primary: var(--body-h), 49%, 40%;
     --primary-foreground: var(--body-h), 61%, 70%;
@@ -95,7 +95,7 @@
     --secondary: var(--body-h), 69%, 61%;
     --secondary-foreground: 210 40% 98%;
 
-    --destructive: 350 80% 60%;
+    --destructive: 350, 50%, 40%;
     --destructive-foreground: 210 40% 98%;
 
     --muted: 217.2 32.6% 17.5%;

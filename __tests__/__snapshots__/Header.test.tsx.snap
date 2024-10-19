@@ -3,7 +3,7 @@
 exports[`Header renders Header unchanged 1`] = `
 <DocumentFragment>
   <header
-    class="fixed z-50 w-screen bg-background opacity-95 "
+    class="fixed z-50 w-screen bg-background opacity-95"
     id="header"
   >
     <div

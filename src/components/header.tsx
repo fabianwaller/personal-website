@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Container from "./Container";
 import Logo from "@/components/logo";
 import { Navigation } from "@/components/navigation";
+import { cn } from "@/lib/utils";
 
 const Header = () => {
   const [headerScroll, setHeaderScroll] = useState(false);
@@ -24,7 +25,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed z-50 w-screen bg-background opacity-95 ${headerScroll ? "shadow-sm" : ""}`}
+      className={cn(
+        "fixed z-50 w-screen bg-background opacity-95",
+        headerScroll && "shadow-sm",
+      )}
       id="header"
     >
       <Container>
