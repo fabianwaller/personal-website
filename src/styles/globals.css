@@ -259,16 +259,11 @@ code[data-line-numbers]>[data-line]::before {
   @apply inline-block w-4 mr-4 text-right text-text-light;
 }
 
-/* .prose {
-  @apply max-w-[55rem] leading-7 sm:leading-9;
-} */
-
 pre [data-line] {
   @apply px-4 border-l-2 border-l-transparent;
 }
 
 [data-highlighted-line] {
-  /* background: rgba(200, 200, 255, 0.1); */
   @apply !bg-primary-highlight border-l-primary;
 }
 
@@ -313,7 +308,3 @@ code,
 figure {
   @apply overflow-x-auto;
 }
-
-/* article p {
-  @apply leading-9;
-} */
