@@ -98,7 +98,7 @@ export type ErrorEntity = {
 
 In our UI component, we invoke the server action by clicking a button. If an error occurs, we get back a serialized enum string and map it typesafe to the error entity. Notice how we can define error messages inside the client component and have access to all available client hooks such as translation hooks.
 
-```tsx {5-9, 12, 19} /ErrorType/ /ErrorEntity/
+```tsx {6-10, 13, 20} /ErrorType/ /ErrorEntity/
 'use client'
 
 import { useState } from 'react';
@@ -152,7 +152,7 @@ export function Signup() {
 }
 ```
 
-```ts {6, 13}
+```ts {5, 12}
 export const serverAction = async ({
   // parameters
 }): Promise<{ error?: ErrorType; data?: DataType }> => {
