@@ -5,7 +5,8 @@ import Subtitle from "./ui/Subtitle";
 type SectionProps = {
   name: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
+  description?: string;
   headerClassName?: string;
   headerAlign?: "left" | "center";
   children?: React.ReactNode;
@@ -19,7 +20,8 @@ const Section: React.FC<SectionProps> = (props) => {
           className={props.headerAlign == "left" ? "text-left" : "text-center"}
         >
           <h2 className={props.headerClassName}>{props.title}</h2>
-          <Subtitle>{props.subtitle}</Subtitle>
+          {props.subtitle && <Subtitle>{props.subtitle}</Subtitle>}
+          {props.description && <p>{props.description}</p>}
         </div>
       </Container>
 

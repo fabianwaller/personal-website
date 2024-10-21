@@ -67,7 +67,7 @@ export default function BlogEntry({ params }) {
     <Section
       name={"blog"}
       title={post.metadata.title}
-      subtitle={post.metadata.summary}
+      description={post.metadata.summary}
       headerAlign="left"
       headerClassName="mb-4"
     >
