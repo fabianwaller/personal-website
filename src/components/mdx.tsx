@@ -6,9 +6,11 @@ import {
   MDXRemoteSerializeResult,
 } from "next-mdx-remote/rsc";
 import React from "react";
-import StyledCode from "@/components/styledCode";
 import remarkGfm from "remark-gfm";
 import remarkToc from "remark-toc";
+import rehypePrettyCode from "rehype-pretty-code";
+import CopyButton from "./anchorHeading";
+import HStack from "./HStack";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -54,9 +56,9 @@ function RoundedImage(props) {
   return <Image alt={props.alt} className="rounded-lg" {...props} />;
 }
 
-function Code({ children, ...props }) {
-  return <StyledCode {...props}>{children}</StyledCode>;
-}
+// function Code({ children, ...props }) {
+//   return <StyledCode {...props}>{children}</StyledCode>;
+// }
 
 function slugify(str) {
   return str
@@ -82,7 +84,10 @@ function createHeading(level: number) {
           className: "anchor",
         }),
       ],
-      children,
+      <HStack className="group relative gap-x-2 hover:-left-8">
+        <CopyButton href={`#${slug}`} />
+        {children}
+      </HStack>,
     );
   };
 
@@ -91,11 +96,7 @@ function createHeading(level: number) {
   return Heading;
 }
 
-interface Props {
-  mdxSource: MDXRemoteSerializeResult;
-}
-
-let components = {
+const components = {
   h1: createHeading(1),
   h2: createHeading(2),
   h3: createHeading(3),
@@ -104,8 +105,21 @@ let components = {
   h6: createHeading(6),
   Image: RoundedImage,
   a: CustomLink,
-  code: Code,
+  // code: Code,
   Table,
+};
+
+interface Props {
+  mdxSource: MDXRemoteSerializeResult;
+}
+
+/** @type {import('rehype-pretty-code').Options} */
+const options = {
+  keepBackground: false,
+  theme: {
+    dark: "github-dark-default",
+    light: "github-light-default",
+  },
 };
 
 export function CustomMDX({ mdxSource }: Props) {
@@ -115,6 +129,7 @@ export function CustomMDX({ mdxSource }: Props) {
     options: {
       mdxOptions: {
         remarkPlugins: [remarkGfm, remarkToc],
+        rehypePlugins: [[rehypePrettyCode, options]],
       },
     },
   };
