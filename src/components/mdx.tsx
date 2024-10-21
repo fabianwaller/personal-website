@@ -1,9 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import { highlight } from "sugar-high";
+import {
+  MDXRemote,
+  MDXRemoteProps,
+  MDXRemoteSerializeResult,
+} from "next-mdx-remote/rsc";
 import React from "react";
 import StyledCode from "@/components/styledCode";
+import remarkGfm from "remark-gfm";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -86,6 +90,10 @@ function createHeading(level: number) {
   return Heading;
 }
 
+interface Props {
+  mdxSource: MDXRemoteSerializeResult;
+}
+
 let components = {
   h1: createHeading(1),
   h2: createHeading(2),
@@ -99,11 +107,15 @@ let components = {
   Table,
 };
 
-export function CustomMDX(props: any) {
-  return (
-    <MDXRemote
-      {...props}
-      components={{ ...components, ...(props.components || {}) }}
-    />
-  );
+export function CustomMDX({ mdxSource }: Props) {
+  const props: MDXRemoteProps = {
+    source: mdxSource,
+    components: components,
+    options: {
+      mdxOptions: {
+        remarkPlugins: [remarkGfm],
+      },
+    },
+  };
+  return <MDXRemote {...props} />;
 }
