@@ -8,6 +8,7 @@ import {
 import React from "react";
 import StyledCode from "@/components/styledCode";
 import remarkGfm from "remark-gfm";
+import remarkToc from "remark-toc";
 
 function Table({ data }) {
   let headers = data.headers.map((header, index) => (
@@ -113,7 +114,7 @@ export function CustomMDX({ mdxSource }: Props) {
     components: components,
     options: {
       mdxOptions: {
-        remarkPlugins: [remarkGfm],
+        remarkPlugins: [remarkGfm, remarkToc],
       },
     },
   };
