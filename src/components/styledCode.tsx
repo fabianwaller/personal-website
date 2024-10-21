@@ -3,12 +3,9 @@
 import { useState } from "react";
 import { Check, Copy } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { highlight } from "sugar-high";
 
 export default function StyledCode({ children }: { children: string }) {
   const [isCopied, setIsCopied] = useState(false);
-
-  let codeHTML = highlight(children);
 
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(children);
@@ -32,7 +29,7 @@ export default function StyledCode({ children }: { children: string }) {
         )}
       </Button>
       <pre className="overflow-x-auto rounded-lg text-secondary-foreground">
-        <code dangerouslySetInnerHTML={{ __html: codeHTML }} />
+        <code dangerouslySetInnerHTML={{ __html: children }} />
       </pre>
     </div>
   );

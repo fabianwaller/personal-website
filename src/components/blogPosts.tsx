@@ -35,7 +35,7 @@ const BlogPosts = () => {
           <CardHoverEffect active={hoveredIndex === index} />
           <Card>
             <CardContent>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between gap-4">
                 <div>
                   <h3>{post.metadata.title}</h3>
                   <CardDescription>{post.metadata.summary}</CardDescription>

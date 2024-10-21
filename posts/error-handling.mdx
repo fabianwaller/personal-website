@@ -1,0 +1,178 @@
+---
+title: Flexible Client-Side Error Handling of different Server Errors
+publishedAt: '2024-10-21'
+summary: 'How I handle different error messages from a server in the client, focusing on separating concerns and flexibility.'
+---
+
+## Introduction
+
+Displaying error messages on the client side is critical to providing a seamless user experience. As a server function becomes more complex, the possibility of having multiple different error messages increases.
+Decoupling error types from their visual representation ensures that the client can define and display error messages in a consistent way. This is especially important when considering internalization, as error messages may need to be displayed in different languages using some form of client-side translation hook. 
+In addition, separating concerns ensures a cleaner and more maintainable codebase.
+
+In this post, we will explore how to handle different error messages in a client application using Next.js server actions. However, this is applicable to any client-server architecture. We will define client-side error messages and display them based on server-side errors, without comparing untyped strings and ensuring that the error type is decoupled from its visual representation.
+
+## The Problem
+
+### Problem with server-side error handling
+
+As suggested in the [Next.js Server Actions documentation](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations), the server-side code can throw a new error that will be caught by the nearest error boundary on the client. This is the most common way to handle errors in server actions.
+
+```ts
+'use server'
+
+export async function createUser(formData: FormData) {
+  try {
+    // Mutate data
+  } catch (e) {
+    throw new Error('Failed to create user')
+  }
+}
+```
+
+In this example, the error message itself is defined by the server as an untyped string.  This is a common approach and works well for simple applications. However, as described above, we want to define custom typed errors on the client side.
+
+### Example server action with serializable errors
+
+Returning serializable error objects from the server is an alternative approach to gain more control over the structure of the response. Look again at the nextjs example for server-side validation and error handling.
+
+```ts
+'use server'
+
+import { z } from 'zod'
+
+const schema = z.object({
+  email: z.string({
+    invalid_type_error: 'Invalid Email',
+  }),
+})
+
+export default async function createUser(formData: FormData) {
+  const validatedFields = schema.safeParse({
+    email: formData.get('email'),
+  })
+
+  if (!validatedFields.success) {
+    return {
+      errors: validatedFields.error.flatten().fieldErrors,
+    }
+  }
+
+  // Mutate data ...
+
+  return {
+    message: 'Please enter a valid email',
+  }
+}
+```
+
+In this approach, the server still defines the error message. Let's explore a solution where the client defines the error message.
+
+## Solution
+
+### Defining error types
+
+First, we use Typescript to define a type for the error to allow only certain errors to be thrown on the server.
+
+```ts
+export enum ErrorType {
+  UNAUTHORIZED = 'UNAUTHORIZED',
+  DEFAULT = 'DEFAULT',
+  // Add more error types as needed
+}
+```
+
+### Defining error entities
+
+An actual error in the client is now a single entity of the `ErrorType`. You can later define whatever properties you need in your user interface to display the error.
+
+```ts
+export type ErrorEntity = {
+  title: string;
+  text: string;
+  severity: AlertColor;
+};
+```
+
+### Client side error handling
+
+In our UI component, we invoke the server action by clicking a button. If an error occurs, we get back a serialized enum string and map it typesafe to the error entity. Notice how we can define error messages inside the client component and have access to all available client hooks such as translation hooks.
+
+```tsx {6-10, 13, 20} /ErrorType/ /ErrorEntity/
+'use client'
+
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+
+export type ErrorState = {
+  title: string;
+  text: string;
+  severity: AlertColor;
+} | null;
+
+export function Signup() {
+  const [error, setError] = useState<ErrorState>(null);
+  const [data, setData] = useState<DataType>({});
+  const {t} = useTranslation();
+
+  const onClick = async () => {
+    const res = await serverAction({ /* parameters */ });
+
+    if (res.error) {
+      setError(errorMessages[res.error]);
+      return;
+    }
+
+    setData(res.data);
+  };
+
+  const errorMessages: { [key in ErrorType]: ErrorEntity } = {
+    [ErrorType.UNAUTHORIZED]: {
+      title: t('Unauthorized'),
+      text: t('You are not authorized to perform this action.'),
+      severity: 'warning',
+    },
+    [ErrorType.DEFAULT]: {
+      title: t('Error'),
+      text: t('An unexpected error occurred.'),
+      severity: 'error',
+    },
+  };
+
+  return (
+    <div>
+      {error && (
+        <div className={`alert alert-${error.severity}`}>
+          <strong>{error.title}</strong> {error.text}
+        </div>
+      )}
+      <button onClick={onClick}>Sign up</button>
+    </div>
+  );
+}
+```
+
+```ts {5, 12}
+export const serverAction = async ({
+  // parameters
+}): Promise<{ error?: ErrorType; data?: DataType }> => {
+  if (!user) {
+    return { error: ErrorType.UNAUTHORIZED };
+  }
+  try {
+    // Mutate data ...
+    return { data: 'abc' };
+  } catch (error) {
+    console.error('serverAction error', error);
+    return { error: ErrorType.DEFAULT };
+  }
+};
+```
+
+## Conclusion
+
+Everything is well typed, there is no possibility of misspellings or typos in error type strings. The error messages are decoupled from their visual representation, which makes it easy to change the UI without changing the error type.
+
+If you only have one error message, you don't need this approach. You can just catch the error and display the appropriate error UI. However, if you end up comparing strings to find out what type of error is being thrown, this is my way to go.
+
+Please let me know if you know of a better, cleaner, and more developer-friendly way to do this.

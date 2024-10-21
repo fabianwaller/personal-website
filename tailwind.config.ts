@@ -27,6 +27,7 @@ const config = {
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          highlight: "hsla(var(--primary), .2)",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -135,7 +136,7 @@ const config = {
             "--tw-prose-captions": theme("colors.pink[700]"),
             "--tw-prose-code": theme("colors.pink[900]"),
             "--tw-prose-pre-code": "hsl(var(--title-color))",
-            "--tw-prose-pre-bg": "hsl(var(--card-foreground))",
+            "--tw-prose-pre-bg": "hsl(var(--card))",
             "--tw-prose-th-borders": theme("colors.pink[300]"),
             "--tw-prose-td-borders": theme("colors.pink[200]"),
             "--tw-prose-invert-body": theme("colors.pink[200]"),
