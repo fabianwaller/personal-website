@@ -1,9 +1,9 @@
 import { notFound } from "next/navigation";
-import { formatDate, getBlogPosts } from "@/app/blog/utils";
-const baseUrl = "localhost:3000";
-import { CustomMDX } from "@/components/mdx";
+import { getBlogPosts } from "@/app/blog/utils";
 import Section from "@/components/Section";
-import { Metadata } from "next/types";
+import { CustomMDX } from "@/components/mdx";
+import { MDXRemoteSerializeResult } from "next-mdx-remote/rsc";
+const baseUrl = "localhost:3000";
 
 export async function generateStaticParams() {
   let posts = getBlogPosts();
@@ -61,6 +61,8 @@ export default function BlogEntry({ params }) {
     notFound();
   }
 
+  const mdxRemote = post.content as unknown as MDXRemoteSerializeResult;
+
   return (
     <Section
       name={"blog"}
@@ -92,7 +94,7 @@ export default function BlogEntry({ params }) {
         }}
       /> */}
       <article className="prose prose-custom">
-        <CustomMDX source={post.content} />
+        <CustomMDX mdxSource={mdxRemote} />
       </article>
     </Section>
   );
