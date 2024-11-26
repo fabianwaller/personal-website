@@ -67,7 +67,7 @@ const config = {
         },
       },
       maxWidth: {
-        custom: "calc(748px - var(--mb-3))",
+        custom: "calc(748px - 3rem)",
       },
       padding: {
         header: "var(--header-height)",
@@ -86,7 +86,7 @@ const config = {
         "page-minus-header": "calc(100vh - var(--header-height))",
       },
       width: {
-        "full-plus": "calc(100% + var(--mb-2))",
+        "full-plus": "calc(100% + 2rem)",
       },
       keyframes: {
         "accordion-down": {
