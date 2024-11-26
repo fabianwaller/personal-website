@@ -61,17 +61,6 @@
 
     --first-color-shape: hsl(253, 33%, 32%);
 
-    /* margens .25rem = 4px, .5rem = 8px, ... */
-    --mb-0-25: 0.25rem;
-    --mb-0-5: 0.5rem;
-    --mb-0-75: 0.75rem;
-    --mb-1: 1rem;
-    --mb-1-5: 1.5rem;
-    --mb-2: 2rem;
-    --mb-2-5: 2.5rem;
-    --mb-3: 3rem;
-    --mb-4: 4rem;
-
     --transition: 0.3s;
   }
 

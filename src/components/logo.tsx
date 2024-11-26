@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 type LogoProps = {
@@ -6,7 +7,7 @@ type LogoProps = {
 
 const Logo: React.FC<LogoProps> = ({ white }) => {
   return (
-    <a href="/" className="flex items-center text-title-normal">
+    <Link href="/" className="flex items-center text-title-normal">
       <svg
         className="mr-1 h-8 w-8"
         width="78"
@@ -33,7 +34,7 @@ const Logo: React.FC<LogoProps> = ({ white }) => {
         />
       </svg>
       <span className="text-md font-semibold hover:text-primary">Fabian</span>
-    </a>
+    </Link>
   );
 };
 
