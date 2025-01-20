@@ -12,7 +12,7 @@ export default function Home() {
         <HeroBlob />
         <VStack className="items-start pb-8">
           <h1>{title}</h1>
-          <p>{description}</p>
+          <p className="max-w-[35em]">{description}</p>
           <Suspense>
             <CommandMenuButton />
           </Suspense>
