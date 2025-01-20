@@ -39,7 +39,7 @@ const ProjectCards = ({ data }: { data: any[] }) => {
             <Card className="h-full">
               <CardHeader>
                 <VStack className="items-start">
-                  <div className="text-sm text-text-light">
+                  <div className="pt-2 text-sm text-text-light">
                     {repo.type != "closed" ? (
                       <HStack className="mb-0 gap-2 text-sm">
                         <Github className="h-4 w-4" />
@@ -71,7 +71,7 @@ const ProjectCards = ({ data }: { data: any[] }) => {
                 <HStack className="mb-0 h-full w-full items-end">
                   <HStack className="w-full items-center justify-between">
                     {repo.type != "closed" && (
-                      <HStack className="gap-2 text-sm text-text-light">
+                      <HStack className="gap-4 text-sm text-text-light">
                         <HStack className="gap-1">
                           <Star className="h-4 w-4" />
                           {repo.stargazers_count}
