@@ -123,7 +123,7 @@ exports[`Home renders home page unchanged 1`] = `
           Fabian Waller
         </h1>
         <p
-          class="max-w-[35em]"
+          class="max-w-[35em] leading-relaxed"
         >
           21 year old computer science student at Saarland University obsessed with fullstack web and mobile development.
         </p>

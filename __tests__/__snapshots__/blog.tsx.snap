@@ -28,7 +28,9 @@ exports[`Blog renders blog page unchanged 1`] = `
       <div
         class="flex flex-col items-center justify-center gap-4"
       >
-        <p>
+        <p
+          class="leading-relaxed"
+        >
           Here you'll find all my public thoughts, notes, learnings and experiences. I share whatever I want, ranging from programming to math, over books and podcasts and much more. Scroll down to check them out!
         </p>
         <div
