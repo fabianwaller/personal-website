@@ -12,13 +12,13 @@ export default function About() {
   return (
     <Section name="about" title="About me" subtitle="What I'm Doing Now">
       <div className={"grid items-start gap-6 md:grid-cols-2"}>
-        <div className="flex flex-wrap items-center justify-start gap-2">
+        <div className="flex flex-wrap items-center justify-start gap-4">
           <Keyword>computer science student</Keyword>
           <Keyword>fullstack web development</Keyword>
           <Keyword>mobile development</Keyword>
         </div>
         <div>
-          <p>
+          <p className="leading-relaxed">
             I&apos;m currently studying computer science at Saarland University
             in Germany and I share my knowledge and projects on this website.
             I&apos;m mainly interested in fullstack web and mobile development,

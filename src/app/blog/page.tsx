@@ -10,7 +10,7 @@ const Blog: React.FC = () => {
       subtitle="insight in my thoughts"
     >
       <VStack>
-        <p>
+        <p className="leading-relaxed">
           Here you&apos;ll find all my public thoughts, notes, learnings and
           experiences. I share whatever I want, ranging from programming to
           math, over books and podcasts and much more. Scroll down to check them

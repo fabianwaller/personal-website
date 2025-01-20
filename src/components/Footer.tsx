@@ -45,9 +45,9 @@ const Footer: React.FC = () => {
             ))}
           </div>
 
-          <p className="text-left text-sm text-text-light">
+          <span className="text-left text-sm text-text-light">
             &#169; Fabian Waller. All rights reserved.
-          </p>
+          </span>
         </Container>
       </div>
     </footer>
