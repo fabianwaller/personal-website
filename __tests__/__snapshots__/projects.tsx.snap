@@ -9,7 +9,7 @@ exports[`Projects renders projects page unchanged 1`] = `
       style="opacity: 0;"
     >
       <div
-        class="border border-border shadow-custom hover:bg-card-foreground grid gap-4 overflow-hidden rounded-lg bg-card px-4 py-3 h-full"
+        class="border border-border shadow-custom hover:bg-card-foreground grid gap-4 overflow-hidden rounded-lg bg-card px-6 py-4 h-full"
       >
         <div
           class="flex flex-col"
@@ -18,7 +18,7 @@ exports[`Projects renders projects page unchanged 1`] = `
             class="flex flex-col justify-center gap-4 items-start"
           >
             <div
-              class="text-sm text-text-light"
+              class="pt-2 text-sm text-text-light"
             >
               <div
                 class="flex flex-row flex-wrap items-center justify-start mb-0 gap-2 text-sm"
@@ -68,7 +68,7 @@ exports[`Projects renders projects page unchanged 1`] = `
               class="flex flex-row flex-wrap gap-x-4 gap-y-3 w-full items-center justify-between"
             >
               <div
-                class="flex flex-row flex-wrap items-center justify-start gap-2 text-sm text-text-light"
+                class="flex flex-row flex-wrap items-center justify-start gap-4 text-sm text-text-light"
               >
                 <div
                   class="flex flex-row flex-wrap items-center justify-start gap-1"
