@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import { Card as BaseCart } from "./ui/card";
+import { Card as BaseCard } from "./ui/card";
 
 export const CardHoverEffect = ({ active }: { active: boolean }) => {
   return (
@@ -32,7 +32,7 @@ export const Card = ({
   children: React.ReactNode;
 }) => {
   return (
-    <BaseCart
+    <BaseCard
       className={cn(
         "border-none shadow-none hover:bg-transparent",
         "relative -left-4 z-20 w-full-plus bg-transparent",
@@ -40,6 +40,6 @@ export const Card = ({
       )}
     >
       {children}
-    </BaseCart>
+    </BaseCard>
   );
 };
