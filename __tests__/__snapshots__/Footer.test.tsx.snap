@@ -240,11 +240,11 @@ exports[`Footer renders Footer unchanged 1`] = `
             </svg>
           </a>
         </div>
-        <p
+        <span
           class="text-left text-sm text-text-light"
         >
           © Fabian Waller. All rights reserved.
-        </p>
+        </span>
       </div>
     </div>
   </footer>

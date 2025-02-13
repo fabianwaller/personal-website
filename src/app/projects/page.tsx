@@ -15,12 +15,20 @@ const getRepos = async () => {
 
 const getClosedSourceProjects = () => {
   return [
+    // {
+    //   type: "closed",
+    //   full_name: "Squadmanager",
+    //   html_url: "https://www.squadmanagerapp.com",
+    //   description: "A mobile app to manage your sports team.",
+    //   topics: ["react native", "expo", "supabase", "typescript"],
+    //   pushed_at: new Date().toISOString(),
+    // },
     {
       type: "closed",
-      full_name: "Squadmanager",
-      html_url: "https://www.squadmanagerapp.com",
-      description: "A mobile app to manage your sports team.",
-      topics: ["react native", "expo", "supabase", "typescript"],
+      full_name: "Website SSV Oppen",
+      html_url: "https://ssvoppen.fabianwaller.de/",
+      description: "Vereinswebsite Entwurf des SSV Oppen",
+      topics: ["nextjs", "typescript", "tailwindcss", "payloadcms"],
       pushed_at: new Date().toISOString(),
     },
     {

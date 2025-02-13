@@ -103,6 +103,9 @@ const components = {
   h4: createHeading(4),
   h5: createHeading(5),
   h6: createHeading(6),
+  p: ({ children }) => (
+    <p className="hyphens-auto text-justify leading-relaxed">{children}</p>
+  ),
   Image: RoundedImage,
   a: CustomLink,
   // code: Code,

@@ -107,7 +107,7 @@ export default function Uses() {
       subtitle="what software and hardware I use"
     >
       <VStack>
-        <p>
+        <p className="leading-relaxed">
           As an developer, I&apos;ve been spending hours and hours at my desk
           every day. So, I&apos;ve been continuously improving my workspace in
           order to boost my productivity. So, here is a living snapshot and a

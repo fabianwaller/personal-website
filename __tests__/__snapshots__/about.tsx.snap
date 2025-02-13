@@ -29,7 +29,7 @@ exports[`About renders about page unchanged 1`] = `
         class="grid items-start gap-6 md:grid-cols-2"
       >
         <div
-          class="flex flex-wrap items-center justify-start gap-2"
+          class="flex flex-wrap items-center justify-start gap-4"
         >
           <span
             class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
@@ -48,7 +48,9 @@ exports[`About renders about page unchanged 1`] = `
           </span>
         </div>
         <div>
-          <p>
+          <p
+            class="leading-relaxed"
+          >
             I'm currently studying computer science at Saarland University in Germany and I share my knowledge and projects on this website. I'm mainly interested in fullstack web and mobile development, software engineering and artificial intelligence. I also enjoy playing football, travelling around the world and reading books in my spare time.
           </p>
         </div>

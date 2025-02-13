@@ -1,9 +1,20 @@
 import { baseUrl } from "@/app/sitemap";
-import { getBlogPosts } from "@/app/blog/utils";
+import { BlogPost, getBlogPosts } from "@/app/blog/utils";
 import { NextResponse } from "next/server";
+import { escapeXml } from "@/lib/escape";
+
+const RssItem = (post: BlogPost) => (
+  `<item>
+        <title>${post.metadata.title}</title>
+        <description>${post.metadata.summary || ""}</description>
+        <link>${baseUrl}/blog/${post.slug}</link>
+        <pubDate>${new Date(post.metadata.publishedAt,).toUTCString()}</pubDate>
+        <content>${escapeXml(post.content)}</content>
+   </item>`
+)
 
 export async function GET() {
-  let allBlogs = await getBlogPosts();
+  let allBlogs = getBlogPosts();
 
   const itemsXml = allBlogs
     .sort((a, b) => {
@@ -12,18 +23,7 @@ export async function GET() {
       }
       return 1;
     })
-    .map(
-      (post) =>
-        `<item>
-          <title>${post.metadata.title}</title>
-          <description>${post.metadata.summary || ""}</description>
-          <link>${baseUrl}/blog/${post.slug}</link>
-          <pubDate>${new Date(
-            post.metadata.publishedAt,
-          ).toUTCString()}</pubDate>
-        <content>${post.content}</content>
-        </item>`,
-    )
+    .map((post) => RssItem(post))
     .join("\n");
 
   const rssFeed = `<?xml version="1.0" encoding="UTF-8" ?>

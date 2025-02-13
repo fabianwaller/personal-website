@@ -9,9 +9,9 @@ export type itemsType = {
 
 const ItemList = ({ title, items }: { title: string; items: itemsType }) => {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-2">
       <h3>{title}</h3>
-      <ul className="flex flex-col gap-1">
+      <ul className="flex flex-col gap-2">
         {items.map((item, index) => (
           <li key={index}>
             {item.href ? (
