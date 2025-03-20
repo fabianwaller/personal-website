@@ -15,6 +15,7 @@ import { Calendar, ExternalLink, Globe, Star } from "lucide-react";
 import { FaGithub as Github } from "react-icons/fa6";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
+import { Glow, GlowArea } from "@/components/glow";
 
 const formatDate = (date: Date) => {
   return (
@@ -24,17 +25,22 @@ const formatDate = (date: Date) => {
 
 const ProjectCards = ({ data }: { data: any[] }) => {
   return (
-    <div className={"flex grid-cols-2 flex-col gap-6 md:grid"}>
+    <GlowArea className={"flex grid-cols-2 flex-col gap-6 md:grid"}>
       {data.map((repo) => {
         if (repo.full_name == "fabianwaller/fabianwaller") return;
         const topics: any[] = repo.topics;
         return (
-          <motion.div
+          // <motion.div
+          //   key={repo.full_name}
+          //   initial={{ opacity: 0 }}
+          //   whileInView={{ opacity: 1 }}
+          //   transition={{ duration: 0.3 }}
+          //   viewport={{ once: true }}
+          // >
+          <Glow
             key={repo.full_name}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            viewport={{ once: true }}
+            color="hsl(var(--card-foreground))"
+            className="h-full rounded-xl"
           >
             <Card className="h-full">
               <CardHeader>
@@ -98,10 +104,11 @@ const ProjectCards = ({ data }: { data: any[] }) => {
                 </HStack>
               </CardFooter>
             </Card>
-          </motion.div>
+          </Glow>
+          // </motion.div>
         );
       })}
-    </div>
+    </GlowArea>
   );
 };
 
