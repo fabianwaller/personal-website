@@ -66,6 +66,7 @@ export const socialItems = [
     href: "/rss",
     title: "Feed",
     icon: <Rss className="h-full w-full" />,
+    blank: true,
   },
 ];
 
