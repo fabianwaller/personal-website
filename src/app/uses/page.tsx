@@ -7,7 +7,7 @@ const deskItems: itemsType = [
     href: "https://www.apple.com/de/",
     title: `MacBook Pro (14" M1 Pro 2021, 16GB, 512GB)`,
     description: `MacBook Pro is my main computer for everything. 
-            It&apos;s so powerful and really a good foundation to create digital stuff.`,
+            It's so powerful and really a good foundation to create digital stuff.`,
   },
   {
     title: "Logitech MX Master 3s",
@@ -81,21 +81,21 @@ const techStackItems: itemsType = [
   },
   {
     title: "React",
-    description: `React , underlying library of Next.js. I love the declarative
+    description: `React, underlying library of Next.js. I love the declarative
             approach and the ecosystem.`,
   },
   {
     title: "Typescript",
-    description: `TypeScript, can&apos;t live without it!`,
+    description: `TypeScript, can't live without it!`,
   },
   {
     title: "Tailwind",
     description: `Tailwind CSS is awesome, I have never achieved this much
-            reusability. Make sure you get the extension .`,
+            reusability. Make sure you get the extension to see the complete CSS for a Tailwind class name by hovering over it.`,
   },
   {
     title: "Supabase",
-    description: `Best backend`,
+    description: `Best backend without vendor lock-in.`,
   },
 ];
 

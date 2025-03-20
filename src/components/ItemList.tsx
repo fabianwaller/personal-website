@@ -15,7 +15,7 @@ const ItemList = ({ title, items }: { title: string; items: itemsType }) => {
         {items.map((item, index) => (
           <li key={index}>
             {item.href ? (
-              <Link href={item.href} target="_blank" legacyBehavior passHref>
+              <Link href={item.href} target="_blank">
                 <Button variant={"link"} className="ml-auto">
                   <b>{item.title}</b>
                 </Button>

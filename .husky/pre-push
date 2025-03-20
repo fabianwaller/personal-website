@@ -1,2 +1,2 @@
-npm run lint
-npm run test -- -u
+pnpm run lint
+pnpm run test -u

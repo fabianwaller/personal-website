@@ -10,7 +10,7 @@ import {
 import VStack from "@/components/VStack";
 import HStack from "@/components/HStack";
 import Link from "next/link";
-import { Calendar, ExternalLink, Globe, Star } from "lucide-react";
+import { Calendar, ExternalLink, GitFork, Globe, Star } from "lucide-react";
 
 import { FaGithub as Github } from "react-icons/fa6";
 import { Badge } from "@/components/ui/badge";
@@ -31,8 +31,8 @@ const ProjectCards = ({ data }: { data: any[] }) => {
         return (
           <motion.div
             key={repo.full_name}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
+            initial={{ opacity: 0, y: 15 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
             viewport={{ once: true }}
           >
@@ -57,7 +57,7 @@ const ProjectCards = ({ data }: { data: any[] }) => {
                     <CardDescription>{repo.description}</CardDescription>
                   </VStack>
                   {topics.length > 0 && (
-                    <HStack>
+                    <HStack className="gap-2">
                       {topics.map((topic) => (
                         <Badge key={topic} variant={"uncolored"}>
                           {topic}
@@ -70,26 +70,26 @@ const ProjectCards = ({ data }: { data: any[] }) => {
               <CardFooter>
                 <HStack className="mb-0 h-full w-full items-end">
                   <HStack className="w-full items-center justify-between">
-                    {repo.type != "closed" && (
-                      <HStack className="gap-4 text-sm text-text-light">
+                    <HStack className="gap-4 text-sm text-text-light">
+                      {repo.type != "closed" && (
                         <HStack className="gap-1">
                           <Star className="h-4 w-4" />
                           {repo.stargazers_count}
                         </HStack>
-                        {repo.pushed_at && (
-                          <HStack className="gap-1">
-                            <Calendar className="h-4 w-4" />
-                            {formatDate(new Date(repo.pushed_at))}
-                          </HStack>
-                        )}
-                      </HStack>
-                    )}
-                    <Link
-                      href={repo.html_url}
-                      target="_blank"
-                      legacyBehavior
-                      passHref
-                    >
+                      )}
+                      {repo.pushed_at && (
+                        <HStack className="gap-1">
+                          <Calendar className="h-4 w-4" />
+                          {formatDate(new Date(repo.pushed_at))}
+                        </HStack>
+                      )}
+                      {repo.fork && (
+                        <HStack className="gap-1">
+                          <GitFork className="h-4 w-4" />
+                        </HStack>
+                      )}
+                    </HStack>
+                    <Link href={repo.html_url} target="_blank">
                       <Button variant={"ghost"} className="left-2 ml-auto">
                         <ExternalLink className="h-4 w-4" />
                       </Button>
