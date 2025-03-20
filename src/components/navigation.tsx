@@ -12,25 +12,22 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { usePathname } from "next/navigation";
-import { Button } from "./ui/button";
 import { useState } from "react";
 import {
   FolderKanban,
   House,
   Mail,
-  Menu,
   Newspaper,
   Rocket,
   Rss,
   User,
-  X,
 } from "lucide-react";
 import {
   FaXTwitter as Twitter,
   FaGithub as Github,
   FaLinkedin as LinkedIn,
-  FaInstagram,
 } from "react-icons/fa6";
+import MenuButton from "./MenuButton";
 
 export const socialItems = [
   {
@@ -133,7 +130,7 @@ export function Navigation() {
           {navigationItems.map((item) => (
             <NavigationMenuItem
               key={item.href}
-              className="flex flex-col items-center"
+              className="m-0 flex flex-col items-center"
             >
               <Link href={item.href} legacyBehavior passHref>
                 <NavigationMenuLink
@@ -156,25 +153,7 @@ export function Navigation() {
           ))}
         </NavigationMenuList>
       </NavigationMenu>
-      {menuOpen && (
-        <Button
-          variant="ghost"
-          className={cn("absolute right-2 z-50 md:hidden")}
-          onClick={toggleMenu}
-        >
-          <X />
-        </Button>
-      )}
-      {!menuOpen && (
-        <Button
-          variant="ghost"
-          className={cn("absolute right-4 md:hidden")}
-          onClick={toggleMenu}
-          aria-label="Open menu"
-        >
-          <Menu />
-        </Button>
-      )}
+      <MenuButton menuOpen={menuOpen} toggleMenu={toggleMenu} />
     </>
   );
 }
