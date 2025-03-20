@@ -37,7 +37,7 @@ const getClosedSourceProjects = () => {
       html_url: "https://www.fcdüppenweiler.de",
       description: "Vereinswebsite des FC Düppenweiler",
       topics: ["nextjs", "typescript", "css"],
-      pushed_at: new Date().toISOString(),
+      pushed_at: "2021-11-22T09:54:02Z",
     },
   ];
 };
