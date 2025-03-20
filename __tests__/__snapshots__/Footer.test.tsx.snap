@@ -212,7 +212,7 @@ exports[`Footer renders Footer unchanged 1`] = `
           <a
             class="h-8 w-8 hover:text-primary"
             href="/rss"
-            target="_self"
+            target="_blank"
           >
             <svg
               class="lucide lucide-rss h-full w-full"

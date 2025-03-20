@@ -29,7 +29,7 @@ exports[`About renders about page unchanged 1`] = `
         class="grid items-start gap-6 md:grid-cols-2"
       >
         <div
-          class="flex flex-wrap items-center justify-start gap-4"
+          class="flex flex-wrap items-center justify-start gap-2"
         >
           <span
             class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
