@@ -142,15 +142,15 @@ exports[`Header renders Header unchanged 1`] = `
           >
             <span
               class="absolute block h-0.5 w-4 rounded-full bg-current"
-              style="left: 50%; top: 20%; will-change: transform; transform: translateX(-50%);"
+              style="left: 50%; top: 20%; transform: translateX(-50%);"
             />
             <span
               class="absolute block h-0.5 w-4 rounded-full bg-current"
-              style="left: 50%; top: 50%; opacity: 1; will-change: transform,opacity; transform: translateX(-50%) translateY(-50%);"
+              style="left: 50%; top: 50%; opacity: 1; transform: translateX(-50%) translateY(-50%);"
             />
             <span
               class="absolute block h-0.5 w-4 rounded-full bg-current"
-              style="left: 50%; bottom: 20%; will-change: transform; transform: translateX(-50%);"
+              style="left: 50%; bottom: 20%; transform: translateX(-50%);"
             />
           </div>
         </button>
