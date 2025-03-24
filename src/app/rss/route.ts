@@ -14,7 +14,7 @@ const RssItem = (post: BlogPost) => (
 )
 
 export async function GET() {
-  let allBlogs = getBlogPosts();
+  let allBlogs = await getBlogPosts();
 
   const itemsXml = allBlogs
     .sort((a, b) => {

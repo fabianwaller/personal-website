@@ -22,17 +22,14 @@ const fontSans = Poppins({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: title,
-  description: description,
-};
+export const metadata: Metadata = { title: title, description: description };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const blogPosts = getBlogPosts();
+  const blogPosts = await getBlogPosts();
   return (
     <html lang="en">
       <head>

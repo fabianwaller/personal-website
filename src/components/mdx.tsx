@@ -119,13 +119,10 @@ interface Props {
 /** @type {import('rehype-pretty-code').Options} */
 const options = {
   keepBackground: false,
-  theme: {
-    dark: "github-dark-default",
-    light: "github-light-default",
-  },
+  theme: { dark: "github-dark-default", light: "github-light-default" },
 };
 
-export function CustomMDX({ mdxSource }: Props) {
+export async function CustomMDX({ mdxSource }: Props) {
   const props: MDXRemoteProps = {
     source: mdxSource,
     components: components,

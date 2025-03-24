@@ -5,10 +5,7 @@ import { notFound } from "next/navigation";
 export const runtime = "nodejs";
 
 export const alt = "Fabian's Blog";
-export const size = {
-  width: 1200,
-  height: 630,
-};
+export const size = { width: 1200, height: 630 };
 
 export const contentType = "image/png";
 
@@ -46,7 +43,9 @@ export default async function Image({ params }: { params: { slug: string } }) {
   //     new URL("./Inter-SemiBold.ttf", import.meta.url),
   //   ).then((res) => res.arrayBuffer());
 
-  const post = getBlogPosts().find((post) => post.slug === params.slug);
+  const blogPosts = await getBlogPosts();
+
+  const post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
