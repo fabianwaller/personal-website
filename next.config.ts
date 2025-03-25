@@ -1,11 +1,14 @@
 import createMDX from "@next/mdx";
+import { NextConfig } from "next";
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   // Configure `pageExtensions` to include markdown and MDX files
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   // Optionally, add any other Next.js config below
   transpilePackages: ['next-mdx-remote'],
+  experimental: {
+    viewTransition: true,
+  },
 };
 
 const withMDX = createMDX({

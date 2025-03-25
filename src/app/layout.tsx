@@ -13,6 +13,7 @@ import { getBlogPosts } from "./blog/utils";
 import { BlogPostsProvider } from "@/provider/BlogPostsContext";
 import { Metadata } from "next/types";
 import { description, title } from "./info";
+import { unstable_ViewTransition as ViewTransition } from "react";
 
 const fontSans = Poppins({
   weight: "500",
@@ -56,10 +57,12 @@ export default async function RootLayout({
                 <CommandMenu />
               </Suspense>
               <Header />
-              <main className="flex flex-col items-center justify-between pt-header">
-                {children}
-              </main>
-              <Toaster />
+              <ViewTransition name="page">
+                <main className="flex flex-col items-center justify-between pt-header">
+                  {children}
+                </main>
+                <Toaster />
+              </ViewTransition>
               <Footer />
             </BlogPostsProvider>
           </CommandMenuProvider>
