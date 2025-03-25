@@ -28,74 +28,86 @@ exports[`Blog renders blog page unchanged 1`] = `
       <div
         class="flex flex-col items-center justify-center gap-4"
       >
-        <p
-          class="leading-relaxed"
+        <div
+          style="opacity: 0; transform: translateY(10px);"
         >
-          Here you'll find all my public thoughts, notes, learnings and experiences. I share whatever I want, ranging from programming to math, over books and podcasts and much more. Scroll down to check them out!
-        </p>
+          <p
+            class="leading-relaxed"
+          >
+            Here you'll find all my public thoughts, notes, learnings and experiences. I share whatever I want, ranging from programming to math, over books and podcasts and much more. Scroll down to check them out!
+          </p>
+        </div>
         <div
           class="flex flex-col items-center justify-center gap-4"
         >
-          <a
-            class="relative block h-full w-full"
-            href="/blog/slug1"
+          <div
+            style="opacity: 0; transform: translateY(10px);"
           >
-            <div
-              class="border border-border shadow-custom grid gap-4 overflow-hidden rounded-lg px-6 py-4 border-none shadow-none hover:bg-transparent relative -left-4 z-20 w-full-plus bg-transparent"
+            <a
+              class="relative block h-full w-full"
+              href="/blog/slug1"
             >
               <div
-                class=""
+                class="border border-border shadow-custom grid gap-4 overflow-hidden rounded-lg px-6 py-4 border-none shadow-none hover:bg-transparent relative -left-4 z-20 w-full-plus bg-transparent"
               >
                 <div
-                  class="flex items-center justify-between gap-4"
+                  class=""
                 >
-                  <div>
-                    <h3>
-                      Title
-                    </h3>
-                    <p
-                      class="text-normal"
-                    >
-                      summary
-                    </p>
+                  <div
+                    class="flex items-center justify-between gap-4"
+                  >
+                    <div>
+                      <h3>
+                        Title
+                      </h3>
+                      <p
+                        class="text-normal"
+                      >
+                        summary
+                      </p>
+                    </div>
+                    <span>
+                      02.10.2024
+                    </span>
                   </div>
-                  <span>
-                    02.10.2024
-                  </span>
                 </div>
               </div>
-            </div>
-          </a>
-          <a
-            class="relative block h-full w-full"
-            href="/blog/slug2"
+            </a>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
           >
-            <div
-              class="border border-border shadow-custom grid gap-4 overflow-hidden rounded-lg px-6 py-4 border-none shadow-none hover:bg-transparent relative -left-4 z-20 w-full-plus bg-transparent"
+            <a
+              class="relative block h-full w-full"
+              href="/blog/slug2"
             >
               <div
-                class=""
+                class="border border-border shadow-custom grid gap-4 overflow-hidden rounded-lg px-6 py-4 border-none shadow-none hover:bg-transparent relative -left-4 z-20 w-full-plus bg-transparent"
               >
                 <div
-                  class="flex items-center justify-between gap-4"
+                  class=""
                 >
-                  <div>
-                    <h3>
-                      Title
-                    </h3>
-                    <p
-                      class="text-normal"
-                    >
-                      summary
-                    </p>
+                  <div
+                    class="flex items-center justify-between gap-4"
+                  >
+                    <div>
+                      <h3>
+                        Title
+                      </h3>
+                      <p
+                        class="text-normal"
+                      >
+                        summary
+                      </p>
+                    </div>
+                    <span>
+                      02.10.2024
+                    </span>
                   </div>
-                  <span>
-                    02.10.2024
-                  </span>
                 </div>
               </div>
-            </div>
-          </a>
+            </a>
+          </div>
         </div>
       </div>
     </div>
