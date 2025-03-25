@@ -1,4 +1,5 @@
 import ItemList, { itemsType } from "@/components/ItemList";
+import ScrollAnimated from "@/components/ScrollAnimated";
 import Section from "@/components/Section";
 import VStack from "@/components/VStack";
 
@@ -107,12 +108,14 @@ export default function Uses() {
       subtitle="what software and hardware I use"
     >
       <VStack>
-        <p className="leading-relaxed">
-          As an developer, I&apos;ve been spending hours and hours at my desk
-          every day. So, I&apos;ve been continuously improving my workspace in
-          order to boost my productivity. So, here is a living snapshot and a
-          place to point curious developers to when I get asked.
-        </p>
+        <ScrollAnimated>
+          <p className="leading-relaxed">
+            As an developer, I&apos;ve been spending hours and hours at my desk
+            every day. So, I&apos;ve been continuously improving my workspace in
+            order to boost my productivity. So, here is a living snapshot and a
+            place to point curious developers to when I get asked.
+          </p>
+        </ScrollAnimated>
         <VStack className="w-full items-start">
           <ItemList title="Desk" items={deskItems} />
           <ItemList title="Coding" items={codingItems} />

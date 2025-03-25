@@ -9,6 +9,7 @@ import { useBlogPosts } from "@/provider/BlogPostsContext";
 import { CardContent, CardDescription } from "./ui/card";
 import { format } from "date-fns";
 import { de } from "date-fns/locale";
+import ScrollAnimated from "./ScrollAnimated";
 
 const sortByDate = (a: BlogPost, b: BlogPost) => {
   if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
@@ -25,30 +26,31 @@ const BlogPosts = () => {
   return (
     <VStack>
       {blogPosts.sort(sortByDate).map((post, index) => (
-        <Link
-          key={post.slug}
-          href={`/blog/${post.slug}`}
-          className="relative block h-full w-full"
-          onMouseEnter={() => setHoveredIndex(index)}
-          onMouseLeave={() => setHoveredIndex(null)}
-        >
-          <CardHoverEffect active={hoveredIndex === index} />
-          <Card>
-            <CardContent>
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <h3>{post.metadata.title}</h3>
-                  <CardDescription>{post.metadata.summary}</CardDescription>
+        <ScrollAnimated key={post.slug}>
+          <Link
+            href={`/blog/${post.slug}`}
+            className="relative block h-full w-full"
+            onMouseEnter={() => setHoveredIndex(index)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
+            <CardHoverEffect active={hoveredIndex === index} />
+            <Card>
+              <CardContent>
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <h3>{post.metadata.title}</h3>
+                    <CardDescription>{post.metadata.summary}</CardDescription>
+                  </div>
+                  <span>
+                    {format(post.metadata.publishedAt, "dd.MM.yyyy", {
+                      locale: de,
+                    })}
+                  </span>
                 </div>
-                <span>
-                  {format(post.metadata.publishedAt, "dd.MM.yyyy", {
-                    locale: de,
-                  })}
-                </span>
-              </div>
-            </CardContent>
-          </Card>
-        </Link>
+              </CardContent>
+            </Card>
+          </Link>
+        </ScrollAnimated>
       ))}
     </VStack>
   );
