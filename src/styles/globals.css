@@ -215,14 +215,14 @@
 
     100% {
       opacity: 0;
-      transform: translateY(-2rem);
+      transform: translateY(-1rem);
     }
   }
 
   @keyframes slide-in {
     0% {
       opacity: 0;
-      transform: translateY(-2rem);
+      transform: translateY(-1rem);
     }
 
     100% {
@@ -232,12 +232,12 @@
   }
 
   ::view-transition-old(page) {
-    animation: slide-out .3s ease-out both;
+    animation: slide-out .15s ease-out both;
   }
 
   ::view-transition-new(page) {
-    animation: slide-in .3s ease-out both;
-    animation-delay: 300ms;
+    animation: slide-in .15s ease-out both;
+    animation-delay: 150ms;
   }
 }
 
