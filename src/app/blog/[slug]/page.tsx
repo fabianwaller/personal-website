@@ -3,18 +3,17 @@ import { getBlogPosts } from "@/app/blog/utils";
 import Section from "@/components/Section";
 import { CustomMDX } from "@/components/mdx";
 import { MDXRemoteSerializeResult } from "next-mdx-remote/rsc";
-const baseUrl = "localhost:3000";
 
 export async function generateStaticParams() {
-  let posts = getBlogPosts();
+  let posts = await getBlogPosts();
 
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
-export const generateMetadata = ({ params }) => {
-  const post = getBlogPosts().find((post) => post.slug === params.slug);
+export const generateMetadata = async (props) => {
+  const params = await props.params;
+  const blogPosts = await getBlogPosts();
+  const post = blogPosts.find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
@@ -54,8 +53,11 @@ export const generateMetadata = ({ params }) => {
   };
 };
 
-export default function BlogEntry({ params }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+export default async function BlogEntry(props) {
+  const params = await props.params;
+  const blogPosts = await getBlogPosts();
+
+  let post = blogPosts.find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();

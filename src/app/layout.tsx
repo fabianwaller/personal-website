@@ -13,6 +13,7 @@ import { getBlogPosts } from "./blog/utils";
 import { BlogPostsProvider } from "@/provider/BlogPostsContext";
 import { Metadata } from "next/types";
 import { description, title } from "./info";
+import { unstable_ViewTransition as ViewTransition } from "react";
 
 const fontSans = Poppins({
   weight: "500",
@@ -22,17 +23,14 @@ const fontSans = Poppins({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: title,
-  description: description,
-};
+export const metadata: Metadata = { title: title, description: description };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const blogPosts = getBlogPosts();
+  const blogPosts = await getBlogPosts();
   return (
     <html lang="en">
       <head>
@@ -59,10 +57,12 @@ export default function RootLayout({
                 <CommandMenu />
               </Suspense>
               <Header />
-              <main className="flex flex-col items-center justify-between pt-header">
-                {children}
-              </main>
-              <Toaster />
+              <ViewTransition name="page">
+                <main className="flex flex-col items-center justify-between pt-header">
+                  {children}
+                </main>
+                <Toaster />
+              </ViewTransition>
               <Footer />
             </BlogPostsProvider>
           </CommandMenuProvider>

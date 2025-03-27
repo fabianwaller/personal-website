@@ -31,28 +31,48 @@ exports[`About renders about page unchanged 1`] = `
         <div
           class="flex flex-wrap items-center justify-start gap-2"
         >
-          <span
-            class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+          <div
+            style="opacity: 0; transform: translateY(10px);"
           >
-            computer science student
-          </span>
-          <span
-            class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+            <span
+              class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+            >
+              computer science student
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
           >
-            fullstack web development
-          </span>
-          <span
-            class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+             
+            <span
+              class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+            >
+              fullstack web development
+            </span>
+             
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
           >
-            mobile development
-          </span>
+             
+            <span
+              class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+            >
+              mobile development
+            </span>
+             
+          </div>
         </div>
         <div>
-          <p
-            class="leading-relaxed"
+          <div
+            style="opacity: 0; transform: translateY(10px);"
           >
-            I'm currently studying computer science at Saarland University in Germany and I share my knowledge and projects on this website. I'm mainly interested in fullstack web and mobile development, software engineering and artificial intelligence. I also enjoy playing football, travelling around the world and reading books in my spare time.
-          </p>
+            <p
+              class="leading-relaxed"
+            >
+              I'm currently studying computer science at Saarland University in Germany and I share my knowledge and projects on this website. I'm mainly interested in fullstack web and mobile development, software engineering and artificial intelligence. I also enjoy playing football, travelling around the world and reading books in my spare time.
+            </p>
+          </div>
         </div>
       </div>
     </div>

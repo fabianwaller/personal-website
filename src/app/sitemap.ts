@@ -10,7 +10,9 @@ export default async function sitemap() {
     }),
   );
 
-  let blogs = getBlogPosts().map((post) => ({
+  const blogPosts = await getBlogPosts()
+
+  let blogs = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${post.slug}`,
     lastModified: post.metadata.publishedAt,
   }));

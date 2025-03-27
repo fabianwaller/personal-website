@@ -203,6 +203,42 @@
   li {
     @apply ml-4 list-disc;
   }
+
+}
+
+@layer animations {
+  @keyframes slide-out {
+    0% {
+      opacity: 1;
+      transform: translateY(0rem);
+    }
+
+    100% {
+      opacity: 0;
+      transform: translateY(-1rem);
+    }
+  }
+
+  @keyframes slide-in {
+    0% {
+      opacity: 0;
+      transform: translateY(-1rem);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0rem);
+    }
+  }
+
+  ::view-transition-old(page) {
+    animation: slide-out .15s ease-out both;
+  }
+
+  ::view-transition-new(page) {
+    animation: slide-in .15s ease-out both;
+    animation-delay: 150ms;
+  }
 }
 
 /* pre {

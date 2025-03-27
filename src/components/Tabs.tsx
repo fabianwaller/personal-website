@@ -1,6 +1,7 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardTitle } from "./ui/card";
 import VStack from "./VStack";
+import ScrollAnimated from "./ScrollAnimated";
 
 type JourneyDataProps = {
   title: string;
@@ -30,17 +31,19 @@ const JourneyData: React.FC<JourneyDataProps> = ({
         )}
       </div>
 
-      <Card className="mb-6">
-        <CardContent>
-          <VStack className="items-start" narrow>
-            <div>
-              <CardTitle>{title}</CardTitle>
-              <CardDescription>{description}</CardDescription>
-            </div>
-            {time && <p>{time}</p>}
-          </VStack>
-        </CardContent>
-      </Card>
+      <ScrollAnimated initial={{ opacity: 0, y: 0 }}>
+        <Card className="mb-6">
+          <CardContent>
+            <VStack className="items-start" narrow>
+              <div>
+                <CardTitle>{title}</CardTitle>
+                <CardDescription>{description}</CardDescription>
+              </div>
+              {time && <p>{time}</p>}
+            </VStack>
+          </CardContent>
+        </Card>
+      </ScrollAnimated>
     </div>
   );
 };

@@ -55,7 +55,8 @@ function getMDXData(dir) {
   });
 }
 
-export function getBlogPosts(): BlogPost[] {
+export async function getBlogPosts(): Promise<BlogPost[]> {
+  "use server"
   return getMDXData(path.join(process.cwd(), "posts"));
 }
 

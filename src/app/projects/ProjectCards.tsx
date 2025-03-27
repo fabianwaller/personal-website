@@ -14,7 +14,7 @@ import { Calendar, ExternalLink, GitFork, Globe, Star } from "lucide-react";
 
 import { FaGithub as Github } from "react-icons/fa6";
 import { Badge } from "@/components/ui/badge";
-import { motion } from "framer-motion";
+import ScrollAnimated from "@/components/ScrollAnimated";
 
 const formatDate = (date: Date) => {
   return (
@@ -29,13 +29,7 @@ const ProjectCards = ({ data }: { data: any[] }) => {
         if (repo.full_name == "fabianwaller/fabianwaller") return;
         const topics: any[] = repo.topics;
         return (
-          <motion.div
-            key={repo.full_name}
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            viewport={{ once: true }}
-          >
+          <ScrollAnimated key={repo.full_name}>
             <Card className="h-full">
               <CardHeader>
                 <VStack className="items-start">
@@ -98,7 +92,7 @@ const ProjectCards = ({ data }: { data: any[] }) => {
                 </HStack>
               </CardFooter>
             </Card>
-          </motion.div>
+          </ScrollAnimated>
         );
       })}
     </div>
