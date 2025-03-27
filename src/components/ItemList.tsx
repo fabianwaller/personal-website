@@ -20,7 +20,10 @@ const ItemList = ({ title, items }: { title: string; items: itemsType }) => {
             <li>
               {item.href ? (
                 <Link href={item.href} target="_blank">
-                  <Button variant={"link"} className="ml-auto">
+                  <Button
+                    variant={"link"}
+                    className="ml-auto whitespace-normal break-words text-left"
+                  >
                     <b>{item.title}</b>
                   </Button>
                 </Link>
