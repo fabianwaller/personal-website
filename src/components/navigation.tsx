@@ -21,6 +21,7 @@ import {
   Rocket,
   Rss,
   User,
+  Wrench,
 } from "lucide-react";
 import {
   FaXTwitter as Twitter,
@@ -86,7 +87,7 @@ export const navigationItems = [
   {
     href: "/uses",
     title: "Uses",
-    icon: <Rocket className="h-full w-full" />,
+    icon: <Wrench className="h-full w-full" />,
   },
   {
     href: "/projects",
