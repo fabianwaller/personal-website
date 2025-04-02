@@ -110,7 +110,7 @@ exports[`Home renders home page unchanged 1`] = `
             mask="url(#mask)"
             width="400"
             x="40"
-            xlink:href="/images/profile.webp"
+            xlink:href="/images/hero.png"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             y="115"
           />
