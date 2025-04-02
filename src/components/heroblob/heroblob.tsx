@@ -89,7 +89,7 @@ const HeroBlob = () => {
         <image
           mask="url(#mask)"
           xmlnsXlink="http://www.w3.org/1999/xlink"
-          xlinkHref="/images/profile.webp"
+          xlinkHref="/images/hero.png"
           width="400"
           height="400"
           x="40"
