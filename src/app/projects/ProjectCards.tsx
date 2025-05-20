@@ -30,12 +30,12 @@ const ProjectCards = ({ data }: { data: any[] }) => {
         if (repo.full_name == "fabianwaller/fabianwaller") return;
         const topics: any[] = repo.topics;
         return (
-          <ScrollAnimated key={repo.full_name}>
-            <Glow
-              key={repo.full_name}
-              color="hsl(var(--card-foreground))"
-              className="h-full rounded-xl"
-            >
+          <Glow
+            key={repo.full_name}
+            color="hsl(var(--accent))"
+            className="h-full rounded-xl"
+          >
+            <ScrollAnimated className="h-full">
               <Card className="h-full">
                 <CardHeader>
                   <VStack className="items-start">
@@ -98,8 +98,8 @@ const ProjectCards = ({ data }: { data: any[] }) => {
                   </HStack>
                 </CardFooter>
               </Card>
-            </Glow>
-          </ScrollAnimated>
+            </ScrollAnimated>
+          </Glow>
         );
       })}
     </GlowArea>
