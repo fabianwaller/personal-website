@@ -7,18 +7,18 @@ exports[`Projects renders projects page unchanged 1`] = `
     style="position: relative; --glow-size: 300px;"
   >
     <div
-      class="h-full rounded-xl relative"
+      class="h-full rounded-lg relative"
       style="--glow-top: 0px; --glow-left: 0px;"
     >
       <div
-        class="h-full rounded-xl after:inset-0.25 pointer-events-none absolute inset-0 mix-blend-multiply after:absolute after:rounded-[inherit] after:bg-background/90 after:content-['']"
+        class="h-full rounded-lg after:inset-0.25 pointer-events-none absolute inset-0 mix-blend-soft-light after:absolute after:rounded-[inherit] after:bg-background/90 after:content-['']"
       />
       <div
         class="h-full"
         style="opacity: 0; transform: translateY(10px);"
       >
         <div
-          class="border border-border shadow-custom grid gap-4 overflow-hidden rounded-lg bg-card px-6 py-4 h-full"
+          class="shadow-custom-soft grid gap-4 overflow-hidden rounded-lg bg-card px-6 py-4 h-full"
         >
           <div
             class="flex flex-col"

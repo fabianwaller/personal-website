@@ -142,11 +142,15 @@ exports[`Home renders home page unchanged 1`] = `
               <div
                 class="mx-2 flex h-5 w-5 items-center"
               >
-                <span>
+                <span
+                  class="motion-safe:animate-pulse"
+                >
                   ctrl
                 </span>
               </div>
-              <span>
+              <span
+                class="motion-safe:animate-pulse"
+              >
                 K
               </span>
               <span
