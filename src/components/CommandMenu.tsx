@@ -36,11 +36,11 @@ export function CommandMenuButton() {
     } else {
       setAction("Press ");
       if (isMac) {
-        setCmd(<CommandIcon />);
+        setCmd(<CommandIcon className="motion-safe:animate-pulse" />);
       } else {
-        setCmd(<span>ctrl</span>);
+        setCmd(<span className="motion-safe:animate-pulse">ctrl</span>);
       }
-      setHotkey(<span>K</span>);
+      setHotkey(<span className="motion-safe:animate-pulse">K</span>);
     }
   }, []);
 
