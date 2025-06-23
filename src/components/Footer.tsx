@@ -4,7 +4,8 @@ import Container from "./Container";
 import Logo from "@/components/logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navigationItems, socialItems } from "@/components/navigation";
+import { navigationItems } from "@/components/navigation";
+import { socialItems } from "@/socialItems";
 
 const Footer: React.FC = () => {
   const pathname = usePathname();
