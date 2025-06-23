@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getBlogPosts } from "@/app/blog/utils";
+import { getBlogPosts } from "@/app/(website)/blog/utils";
 import Section from "@/components/Section";
 import { CustomMDX } from "@/components/mdx";
 import { MDXRemoteSerializeResult } from "next-mdx-remote/rsc";

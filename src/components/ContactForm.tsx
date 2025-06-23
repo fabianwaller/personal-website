@@ -17,7 +17,7 @@ import {
 import { ToastAction } from "@/components/ui/toast";
 import VStack from "./VStack";
 import { toast } from "@/hooks/use-toast";
-import { sendContact } from "@/app/contact/actions/sendContact";
+import { sendContact } from "@/app/(website)/contact/actions/sendContact";
 import { Input } from "./ui/animated-input";
 import { Textarea } from "./ui/animated-textarea";
 import { BottomGradient } from "./ui/animated-bottom-gradient";

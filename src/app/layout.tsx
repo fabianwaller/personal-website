@@ -9,9 +9,9 @@ import { CommandMenu } from "@/components/CommandMenu";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { getBlogPosts } from "./blog/utils";
+import { getBlogPosts } from "./(website)/blog/utils";
 import { BlogPostsProvider } from "@/provider/BlogPostsContext";
-import { Metadata } from "next/types";
+import type { Metadata } from "next";
 import { description, title } from "./info";
 import { unstable_ViewTransition as ViewTransition } from "react";
 
@@ -51,21 +51,7 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <CommandMenuProvider>
-            <BlogPostsProvider blogPosts={blogPosts}>
-              <Suspense>
-                <CommandMenu />
-              </Suspense>
-              <Header />
-              <ViewTransition name="page">
-                <main className="flex flex-col items-center justify-between pt-header">
-                  {children}
-                </main>
-                <Toaster />
-              </ViewTransition>
-              <Footer />
-            </BlogPostsProvider>
-          </CommandMenuProvider>
+          {children}
         </ThemeProvider>
         <SpeedInsights />
       </body>

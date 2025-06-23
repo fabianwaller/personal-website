@@ -1,5 +1,5 @@
 import { baseUrl } from "@/app/sitemap";
-import { BlogPost, getBlogPosts } from "@/app/blog/utils";
+import { BlogPost, getBlogPosts } from "@/app/(website)/blog/utils";
 import { NextResponse } from "next/server";
 import { escapeXml } from "@/lib/escape";
 
