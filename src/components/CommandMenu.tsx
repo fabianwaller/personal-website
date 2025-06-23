@@ -16,9 +16,10 @@ import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import { useCommandMenu } from "@/provider/CommandMenuContext";
-import { navigationItems, socialItems } from "@/components/navigation";
+import { navigationItems } from "@/components/navigation";
 import { useBlogPosts } from "@/provider/BlogPostsContext";
 import { motion } from "framer-motion";
+import { socialItems } from "@/socialItems";
 
 export function CommandMenuButton() {
   const { toggle } = useCommandMenu();
@@ -51,7 +52,10 @@ export function CommandMenuButton() {
       viewport={{ once: true, amount: 0.8 }}
     >
       <Button variant="ghost" className="relative -left-4">
-        <div className="flex items-center font-medium" onClick={toggle}>
+        <div
+          className="flex items-center font-medium hover:animate-none motion-safe:animate-pulse"
+          onClick={toggle}
+        >
           <span>{action}</span>
           {cmd && hotkey && (
             <>

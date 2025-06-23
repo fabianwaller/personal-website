@@ -1,6 +1,6 @@
 "use client";
 
-import { BlogPost } from "@/app/blog/utils";
+import { BlogPost } from "@/app/(website)/blog/utils";
 import { createContext, useContext, ReactNode } from "react";
 
 interface BlogPostsContextProps {

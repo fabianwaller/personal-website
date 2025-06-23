@@ -1,6 +1,6 @@
 "use client";
 
-import { BlogPost } from "@/app/blog/utils";
+import { BlogPost } from "@/app/(website)/blog/utils";
 import Link from "next/link";
 import VStack from "./VStack";
 import { useState } from "react";

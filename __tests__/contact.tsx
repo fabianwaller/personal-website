@@ -1,4 +1,4 @@
-import Contact from "@/app/contact/page";
+import Contact from "@/app/(website)/contact/page";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 

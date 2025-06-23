@@ -1,5 +1,5 @@
-import About from "@/app/about/page";
-import Journey from "@/app/journey/page";
+import About from "@/app/(website)/about/page";
+import Journey from "@/app/(website)/journey/page";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 

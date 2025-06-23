@@ -3,7 +3,7 @@ import { CommandMenuButton } from "@/components/CommandMenu";
 import Container from "@/components/Container";
 import HeroBlob from "@/components/heroblob/heroblob";
 import { Suspense } from "react";
-import { description, title } from "./info";
+import { description, title } from "../info";
 
 export default function Home() {
   return (

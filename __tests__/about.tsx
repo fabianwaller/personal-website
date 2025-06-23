@@ -1,4 +1,4 @@
-import About from "@/app/about/page";
+import About from "@/app/(website)/about/page";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 

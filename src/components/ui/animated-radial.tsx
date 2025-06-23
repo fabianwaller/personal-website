@@ -2,7 +2,7 @@ import * as React from "react";
 import { useMotionTemplate, useMotionValue, motion } from "framer-motion";
 
 const AnimatedRadial = ({ children }: { children: React.ReactNode }) => {
-  const radius = 100; // change this to increase the rdaius of the hover effect
+  const radius = 600;
   const [visible, setVisible] = React.useState(false);
 
   let mouseX = useMotionValue(0);

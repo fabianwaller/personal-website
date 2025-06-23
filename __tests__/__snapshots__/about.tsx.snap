@@ -26,7 +26,7 @@ exports[`About renders about page unchanged 1`] = `
       class="container relative ml-auto mr-auto w-screen max-w-custom px-8 md:px-0"
     >
       <div
-        class="grid items-start gap-6 md:grid-cols-2"
+        class="grid items-start gap-6 md:grid-cols-1"
       >
         <div
           class="flex flex-wrap items-center justify-start gap-2"
@@ -35,7 +35,7 @@ exports[`About renders about page unchanged 1`] = `
             style="opacity: 0; transform: translateY(10px);"
           >
             <span
-              class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+              class="inline-block rounded-lg px-4 py-2 text-sm text-title-normal shadow-custom-soft"
             >
               computer science student
             </span>
@@ -43,24 +43,20 @@ exports[`About renders about page unchanged 1`] = `
           <div
             style="opacity: 0; transform: translateY(10px);"
           >
-             
             <span
-              class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+              class="inline-block rounded-lg px-4 py-2 text-sm text-title-normal shadow-custom-soft"
             >
               fullstack web development
             </span>
-             
           </div>
           <div
             style="opacity: 0; transform: translateY(10px);"
           >
-             
             <span
-              class="inline-block divide-border rounded-lg border-2 border-solid px-4 py-2 text-sm text-title-normal"
+              class="inline-block rounded-lg px-4 py-2 text-sm text-title-normal shadow-custom-soft"
             >
               mobile development
             </span>
-             
           </div>
         </div>
         <div>
@@ -70,7 +66,7 @@ exports[`About renders about page unchanged 1`] = `
             <p
               class="leading-relaxed"
             >
-              I'm currently studying computer science at Saarland University in Germany and I share my knowledge and projects on this website. I'm mainly interested in fullstack web and mobile development, software engineering and artificial intelligence. I also enjoy playing football, travelling around the world and reading books in my spare time.
+              I'm currently studying computer science at Saarland University in Germany and I share my knowledge and projects on this website. I'm mainly interested in fullstack web and mobile development, as well as software engineering and artificial intelligence. I also enjoy playing football, travelling around the world and reading books in my spare time.
             </p>
           </div>
         </div>

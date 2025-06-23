@@ -72,7 +72,7 @@ const JourneyTabs = () => {
         <JourneyData
           title="UX Software Engineering Intern"
           description="at Ergosign Saarbrücken, Germany"
-          time="Aug 2024 - Apr 2025"
+          time="August 2024 - July 2025"
           last
         />
       </TabsContent>

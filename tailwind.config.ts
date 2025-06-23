@@ -114,6 +114,10 @@ const config = {
       },
       boxShadow: {
         custom: "0 0 .25rem var(--shadow-color)",
+        'custom-outline': `0px 0px 0px 1px hsla(var(--foreground),0.08)`,
+        'custom-soft': `0px 0px 0px 1px hsla(var(--foreground),0.08),
+                        0px 1px 2px -1px hsla(var(--foreground), 0.08),
+                        0px 2px 4px 0px hsla(var(--foreground), 0.04)`,
         hover: "0 0 .5rem var(--shadow-color-intense)",
         input: `0px 2px 3px -1px rgba(0,0,0,0.1), 0px 1px 0px 0px rgba(25,28,33,0.02), 0px 0px 0px 1px rgba(25,28,33,0.08)`,
       },

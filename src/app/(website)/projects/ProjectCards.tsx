@@ -32,8 +32,8 @@ const ProjectCards = ({ data }: { data: any[] }) => {
         return (
           <Glow
             key={repo.full_name}
-            color="hsl(var(--accent))"
-            className="h-full rounded-xl"
+            color="hsl(var(--foreground))"
+            className="h-full rounded-lg"
           >
             <ScrollAnimated className="h-full">
               <Card className="h-full">

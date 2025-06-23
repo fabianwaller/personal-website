@@ -1,4 +1,4 @@
-import ProjectCards from "@/app/projects/ProjectCards";
+import ProjectCards from "@/app/(website)/projects/ProjectCards";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 

@@ -1,5 +1,5 @@
-import Blog from "@/app/blog/page";
-import { BlogPost } from "@/app/blog/utils";
+import Blog from "@/app/(website)/blog/page";
+import { BlogPost } from "@/app/(website)/blog/utils";
 import { BlogPostsProvider } from "@/provider/BlogPostsContext";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";

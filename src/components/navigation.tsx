@@ -23,50 +23,7 @@ import {
   User,
   Wrench,
 } from "lucide-react";
-import {
-  FaXTwitter as Twitter,
-  FaGithub as Github,
-  FaLinkedin as LinkedIn,
-} from "react-icons/fa6";
 import MenuButton from "./MenuButton";
-
-export const socialItems = [
-  {
-    href: "/contact",
-    title: "Contact",
-    icon: <Mail className="h-full w-full" />,
-  },
-  {
-    href: "https://github.com/fabianwaller",
-    title: "Github",
-    icon: <Github className="h-full w-full" />,
-    blank: true,
-  },
-  {
-    href: "https://x.com/fabianwallerr",
-    title: "X",
-    icon: <Twitter className="h-full w-full" />,
-    blank: true,
-  },
-  {
-    href: "https://www.linkedin.com/in/fabian-waller-974840213/",
-    title: "LinkedIn",
-    icon: <LinkedIn className="h-full w-full" />,
-    blank: true,
-  },
-  // {
-  //   href: "https://www.instagram.com/fabianwallerr/",
-  //   title: "Instagram",
-  //   icon: <FaInstagram className="h-full w-full" />,
-  //   blank: true,
-  // },
-  {
-    href: "/rss",
-    title: "Feed",
-    icon: <Rss className="h-full w-full" />,
-    blank: true,
-  },
-];
 
 export const navigationItems = [
   {
@@ -98,6 +55,11 @@ export const navigationItems = [
     href: "/blog",
     title: "Blog",
     icon: <Newspaper className="h-full w-full" />,
+  },
+  {
+    href: "/contact",
+    title: "Contact",
+    icon: <Mail className="h-full w-full" />,
   },
 ];
 
