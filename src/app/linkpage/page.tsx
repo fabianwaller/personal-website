@@ -36,7 +36,7 @@ export default function Linkpage() {
             className="h-full w-full max-w-lg rounded-lg"
           >
             <ScrollAnimated className="h-full">
-              <Link href={item.href}>
+              <Link href={item.href} legacyBehavior>
                 <Card className="h-full py-6 shadow-custom-soft hover:shadow-custom-outline lg:py-4">
                   <CardContent>
                     <HStack className="items-center">

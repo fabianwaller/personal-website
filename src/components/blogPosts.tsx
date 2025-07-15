@@ -32,7 +32,7 @@ const BlogPosts = () => {
             className="relative block h-full w-full"
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}
-          >
+            legacyBehavior>
             <CardHoverEffect active={hoveredIndex === index} />
             <Card>
               <CardContent>

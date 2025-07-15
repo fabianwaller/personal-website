@@ -19,7 +19,7 @@ const ItemList = ({ title, items }: { title: string; items: itemsType }) => {
           <ScrollAnimated key={index}>
             <li>
               {item.href ? (
-                <Link href={item.href} target="_blank">
+                <Link href={item.href} target="_blank" legacyBehavior>
                   <Button
                     variant={"link"}
                     className="ml-auto whitespace-normal break-words text-left"

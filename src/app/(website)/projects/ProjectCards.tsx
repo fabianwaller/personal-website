@@ -89,7 +89,7 @@ const ProjectCards = ({ data }: { data: any[] }) => {
                           </HStack>
                         )}
                       </HStack>
-                      <Link href={repo.html_url} target="_blank">
+                      <Link href={repo.html_url} target="_blank" legacyBehavior>
                         <Button variant={"ghost"} className="left-2 ml-auto">
                           <ExternalLink className="h-4 w-4" />
                         </Button>

@@ -11,7 +11,7 @@ const PageNotFound = () => {
           <h1>Page Not Found</h1>
           <span>The page you are looking for does not exist.</span>
         </VStack>
-        <Link href={"/"}>
+        <Link href={"/"} legacyBehavior>
           <Button>Bring me back</Button>
         </Link>
       </VStack>

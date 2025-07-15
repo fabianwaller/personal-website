@@ -39,7 +39,7 @@ function CustomLink(props) {
 
   if (href.startsWith("/")) {
     return (
-      <Link href={href} {...props}>
+      <Link href={href} {...props} legacyBehavior>
         {props.children}
       </Link>
     );
