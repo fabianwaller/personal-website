@@ -7,7 +7,7 @@
     --header-height: 4rem;
     --border-radius: 0.5rem;
 
-    --body-h: 166;
+    --body-h: 203;
     --body-s: 0%;
     --body-l: 96%;
 
@@ -17,7 +17,7 @@
     --background: var(--body-h), var(--body-s), var(--body-l);
     --foreground: var(--body-h), 84%, 4.9%;
 
-    --primary: var(--body-h), 49%, 50%;
+    --primary: var(--body-h), 100%, 43.9%;
     --primary-foreground: var(--body-h), 61%, 80%;
 
     --secondary: var(--body-h), 57%, 70%;

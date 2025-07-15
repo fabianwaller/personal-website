@@ -53,7 +53,7 @@ export function CommandMenuButton() {
     >
       <Button variant="ghost" className="relative -left-4">
         <div
-          className="flex items-center font-medium hover:animate-none motion-safe:animate-pulse"
+          className="flex items-center font-medium hover:animate-none motion-safe:animate-in"
           onClick={toggle}
         >
           <span>{action}</span>

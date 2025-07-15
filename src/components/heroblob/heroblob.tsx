@@ -1,5 +1,3 @@
-"use client";
-
 import { isSafari } from "@/lib/utils";
 import styles from "./heroblob.module.css";
 
@@ -14,19 +12,25 @@ const HeroBlob = () => {
         width="100%"
         height="100%"
         viewBox="0 0 500 500"
-        className={
-          "absolute z-0 transform-gpu blur-xl will-change-transform lg:blur-3xl"
-        }
+        className={"absolute z-0 transform-gpu blur-2xl will-change-transform"}
         colorInterpolationFilters="sRGB"
         overflow={"visible"}
       >
-        <defs>
-          <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop className={styles.stopo} offset="0%"></stop>
-            <stop className={styles.stopb} offset="100%"></stop>
-          </linearGradient>
-        </defs>
-        <path fill="url(#gradient1)">
+        <image
+          mask="url(#mask)"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+          xlinkHref="/images/avatar.jpeg"
+          width="600"
+          height="600"
+          x="0"
+          y="60"
+        />
+
+        {/* <path
+          fill="url(#gradient1)"
+          filter="url(#backdrop-shadow)"
+          mask="url(#mask)"
+        >
           <animate
             attributeName="d"
             dur={isSafari() ? 0 : animationDuration}
@@ -40,7 +44,7 @@ const HeroBlob = () => {
       M430.5,295.5Q375,341,345,395Q315,449,254.5,436Q194,423,148,390Q102,357,59,303.5Q16,250,58.5,196Q101,142,144,99Q187,56,246,68.5Q305,81,357.5,107.5Q410,134,448,192Q486,250,430.5,295.5Z
       "
           ></animate>
-        </path>
+        </path> */}
       </svg>
 
       <svg
@@ -73,7 +77,7 @@ const HeroBlob = () => {
             ></animate>
           </path>
         </mask>
-        <path fill="url(#gradient2)">
+        {/* <path fill="url(#gradient2)">
           <animate
             attributeName="d"
             dur={isSafari() ? 0 : animationDuration}
@@ -85,15 +89,15 @@ const HeroBlob = () => {
       M430.5,295.5Q375,341,345,395Q315,449,254.5,436Q194,423,148,390Q102,357,59,303.5Q16,250,58.5,196Q101,142,144,99Q187,56,246,68.5Q305,81,357.5,107.5Q410,134,448,192Q486,250,430.5,295.5Z
       "
           ></animate>
-        </path>
+        </path> */}
         <image
           mask="url(#mask)"
           xmlnsXlink="http://www.w3.org/1999/xlink"
-          xlinkHref="/images/hero.png"
-          width="400"
-          height="400"
-          x="40"
-          y="115"
+          xlinkHref="/images/avatar.jpeg"
+          width="500"
+          height="500"
+          x="0"
+          y="60"
         />
       </svg>
     </div>
