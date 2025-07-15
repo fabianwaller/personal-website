@@ -103,12 +103,6 @@ exports[`Contact renders contact page unchanged 1`] = `
                 value=""
               />
             </div>
-            <p
-              class="text-sm text-muted-foreground"
-              id=":r2:-form-item-description"
-            >
-              I need your email to answer to your message.
-            </p>
           </div>
           <div
             class="w-full space-y-2"

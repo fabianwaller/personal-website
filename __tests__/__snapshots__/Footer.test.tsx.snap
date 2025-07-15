@@ -80,15 +80,6 @@ exports[`Footer renders Footer unchanged 1`] = `
               </span>
             </a>
             <a
-              href="/journey"
-            >
-              <span
-                class="hover:text-primary"
-              >
-                Journey
-              </span>
-            </a>
-            <a
               href="/uses"
             >
               <span

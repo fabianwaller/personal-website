@@ -125,7 +125,7 @@ exports[`Home renders home page unchanged 1`] = `
         <p
           class="max-w-[35em] leading-relaxed"
         >
-          22 year old computer science student at Saarland University obsessed with fullstack web and mobile development.
+          22 year old computer science student at Saarland University obsessed with fullstack web development at Ergosign.
         </p>
         <div
           style="opacity: 0;"
