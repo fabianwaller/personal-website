@@ -3,7 +3,7 @@ import { getBlogPosts } from "@/app/(website)/blog/utils";
 export const baseUrl = process.env.BASE_URL;
 
 export default async function sitemap() {
-  let routes = ["", "/about", "/journey", "/projects", "/contact", "/blog"].map(
+  let routes = ["", "/about", "/uses", "/projects", "/contact", "/blog"].map(
     (route) => ({
       url: `${baseUrl}${route}`,
       lastModified: new Date().toISOString().split("T")[0],

@@ -37,11 +37,6 @@ export const navigationItems = [
     icon: <User className="h-full w-full" />,
   },
   {
-    href: "/journey",
-    title: "Journey",
-    icon: <Rocket className="h-full w-full" />,
-  },
-  {
     href: "/uses",
     title: "Uses",
     icon: <Wrench className="h-full w-full" />,

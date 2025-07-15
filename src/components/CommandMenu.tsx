@@ -116,7 +116,7 @@ export function CommandMenu() {
                 onSelect={() => handleSelect(item.href)}
               >
                 {item.icon}
-                <span>{item.title}</span>
+                <span>{item.titleShort ?? item.title}</span>
               </CommandItem>
             ))}
           </CommandGroup>
