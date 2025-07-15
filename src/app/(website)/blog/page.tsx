@@ -19,7 +19,7 @@ const Blog: React.FC = () => {
             them out!
           </p>
         </ScrollAnimated>
-        <BlogPosts />
+        {/* <BlogPosts /> */}
       </VStack>
     </Section>
   );
