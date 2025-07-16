@@ -33,7 +33,8 @@ export const socialItems = [
   },
   {
     href: "/rss",
-    title: "Feed",
+    title: "RSS Feed",
+    titleShort: "Feed",
     icon: <Rss className="h-full w-full" />,
     blank: true,
   },

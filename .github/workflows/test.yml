@@ -6,8 +6,8 @@ name: Test runner
 on:
   push:
     branches: ["**"] # Run on every branch after every push
-  pull_request:
-    branches: ["main", "dev"] # Run when a PR is merged into main or dev
+  # pull_request:
+  # branches: ["main", "dev"] # Run when a PR is merged into main or dev
 
 jobs:
   test:

@@ -3,39 +3,42 @@
 exports[`Logo renders Logo unchanged 1`] = `
 <DocumentFragment>
   <a
-    class="flex items-center text-title-normal"
     href="/"
   >
-    <svg
-      class="mr-1 h-8 w-8"
-      fill="none"
-      height="74"
-      viewBox="0 0 78 74"
-      width="78"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="flex items-center text-title-normal"
     >
-      <path
-        class="fill-primary"
-        d="M43.1746 30.0684L68.5683 47.8492V47.8492C58.7482 61.8738 39.4183 65.2822 25.3937 55.4621V55.4621L43.1746 30.0684Z"
-      />
-      <path
-        class="fill-primary"
-        d="M13.1066 46.8583C17.8582 40.0722 27.2114 38.423 33.9975 43.1747V43.1747L25.3938 55.462L13.1066 46.8583V46.8583Z"
-      />
-      <path
-        class="fill-primary-foreground"
-        d="M33.9973 43.1746L8.6036 25.3937V25.3937C18.4237 11.3691 37.7536 7.96074 51.7782 17.7808V17.7808L33.9973 43.1746Z"
-      />
-      <path
-        class="fill-primary-foreground"
-        d="M64.0656 26.3848C59.3139 33.1709 49.9607 34.8201 43.1746 30.0685V30.0685L51.7783 17.7812L64.0656 26.3848V26.3848Z"
-      />
-    </svg>
-    <span
-      class="text-md font-semibold hover:text-primary"
-    >
-      Fabian
-    </span>
+      <svg
+        class="mr-1 h-8 w-8"
+        fill="none"
+        height="74"
+        viewBox="0 0 78 74"
+        width="78"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="fill-primary"
+          d="M43.1746 30.0684L68.5683 47.8492V47.8492C58.7482 61.8738 39.4183 65.2822 25.3937 55.4621V55.4621L43.1746 30.0684Z"
+        />
+        <path
+          class="fill-primary"
+          d="M13.1066 46.8583C17.8582 40.0722 27.2114 38.423 33.9975 43.1747V43.1747L25.3938 55.462L13.1066 46.8583V46.8583Z"
+        />
+        <path
+          class="fill-primary-foreground"
+          d="M33.9973 43.1746L8.6036 25.3937V25.3937C18.4237 11.3691 37.7536 7.96074 51.7782 17.7808V17.7808L33.9973 43.1746Z"
+        />
+        <path
+          class="fill-primary-foreground"
+          d="M64.0656 26.3848C59.3139 33.1709 49.9607 34.8201 43.1746 30.0685V30.0685L51.7783 17.7812L64.0656 26.3848V26.3848Z"
+        />
+      </svg>
+      <span
+        class="text-md font-semibold hover:text-primary"
+      >
+        Fabian
+      </span>
+    </div>
   </a>
 </DocumentFragment>
 `;
@@ -43,39 +46,42 @@ exports[`Logo renders Logo unchanged 1`] = `
 exports[`Logo renders white Logo unchanged 1`] = `
 <DocumentFragment>
   <a
-    class="flex items-center text-title-normal"
     href="/"
   >
-    <svg
-      class="mr-1 h-8 w-8"
-      fill="none"
-      height="74"
-      viewBox="0 0 78 74"
-      width="78"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="flex items-center text-title-normal"
     >
-      <path
-        class="fill-white"
-        d="M43.1746 30.0684L68.5683 47.8492V47.8492C58.7482 61.8738 39.4183 65.2822 25.3937 55.4621V55.4621L43.1746 30.0684Z"
-      />
-      <path
-        class="fill-white"
-        d="M13.1066 46.8583C17.8582 40.0722 27.2114 38.423 33.9975 43.1747V43.1747L25.3938 55.462L13.1066 46.8583V46.8583Z"
-      />
-      <path
-        class="fill-white"
-        d="M33.9973 43.1746L8.6036 25.3937V25.3937C18.4237 11.3691 37.7536 7.96074 51.7782 17.7808V17.7808L33.9973 43.1746Z"
-      />
-      <path
-        class="fill-white"
-        d="M64.0656 26.3848C59.3139 33.1709 49.9607 34.8201 43.1746 30.0685V30.0685L51.7783 17.7812L64.0656 26.3848V26.3848Z"
-      />
-    </svg>
-    <span
-      class="text-md font-semibold hover:text-primary"
-    >
-      Fabian
-    </span>
+      <svg
+        class="mr-1 h-8 w-8"
+        fill="none"
+        height="74"
+        viewBox="0 0 78 74"
+        width="78"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="fill-white"
+          d="M43.1746 30.0684L68.5683 47.8492V47.8492C58.7482 61.8738 39.4183 65.2822 25.3937 55.4621V55.4621L43.1746 30.0684Z"
+        />
+        <path
+          class="fill-white"
+          d="M13.1066 46.8583C17.8582 40.0722 27.2114 38.423 33.9975 43.1747V43.1747L25.3938 55.462L13.1066 46.8583V46.8583Z"
+        />
+        <path
+          class="fill-white"
+          d="M33.9973 43.1746L8.6036 25.3937V25.3937C18.4237 11.3691 37.7536 7.96074 51.7782 17.7808V17.7808L33.9973 43.1746Z"
+        />
+        <path
+          class="fill-white"
+          d="M64.0656 26.3848C59.3139 33.1709 49.9607 34.8201 43.1746 30.0685V30.0685L51.7783 17.7812L64.0656 26.3848V26.3848Z"
+        />
+      </svg>
+      <span
+        class="text-md font-semibold hover:text-primary"
+      >
+        Fabian
+      </span>
+    </div>
   </a>
 </DocumentFragment>
 `;

@@ -116,9 +116,9 @@ const ContactForm = () => {
                 <FormControl>
                   <Input placeholder="joel@miller.com" {...field} />
                 </FormControl>
-                <FormDescription>
+                {/* <FormDescription>
                   I need your email to answer to your message.
-                </FormDescription>
+                </FormDescription> */}
                 <FormMessage />
               </FormItem>
             )}

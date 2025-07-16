@@ -20,7 +20,7 @@ export default function Linkpage() {
 
   return (
     <VStack className="p-8 py-16">
-      <Avatar className="mb-8 h-32 w-32 shadow-xl lg:h-56 lg:w-56">
+      <Avatar className="mb-8 h-32 w-32 shadow-2xl lg:h-56 lg:w-56">
         <AvatarImage src="/images/avatar.png" alt="@fabianwaller" />
         <AvatarFallback>FW</AvatarFallback>
       </Avatar>
@@ -37,7 +37,7 @@ export default function Linkpage() {
           >
             <ScrollAnimated className="h-full">
               <Link href={item.href}>
-                <Card className="hover:shadow-custom-outline h-full py-6 shadow-custom-soft lg:py-4">
+                <Card className="h-full py-6 shadow-custom-soft hover:shadow-custom-outline lg:py-4">
                   <CardContent>
                     <HStack className="items-center">
                       <span className="h-8 w-8">{item.icon}</span>

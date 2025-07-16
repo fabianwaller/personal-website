@@ -53,7 +53,7 @@ export function CommandMenuButton() {
     >
       <Button variant="ghost" className="relative -left-4">
         <div
-          className="flex items-center font-medium hover:animate-none motion-safe:animate-pulse"
+          className="flex items-center font-medium hover:animate-none motion-safe:animate-in"
           onClick={toggle}
         >
           <span>{action}</span>
@@ -86,8 +86,12 @@ export function CommandMenu() {
 
   const { blogPosts } = useBlogPosts();
 
-  const handleSelect = (path: string) => {
+  const handleSelect = (path: string, external: boolean | undefined) => {
     toggle();
+    if (external) {
+      window.open(path, "_blank", "noopener,noreferrer");
+      return;
+    }
     router.push(path);
   };
 
@@ -113,10 +117,10 @@ export function CommandMenu() {
             {socialItems.map((item) => (
               <CommandItem
                 key={item.href}
-                onSelect={() => handleSelect(item.href)}
+                onSelect={() => handleSelect(item.href, true)}
               >
                 {item.icon}
-                <span>{item.title}</span>
+                <span>{item.titleShort ?? item.title}</span>
               </CommandItem>
             ))}
           </CommandGroup>
@@ -125,7 +129,7 @@ export function CommandMenu() {
             {navigationItems.map((item) => (
               <CommandItem
                 key={item.href}
-                onSelect={() => handleSelect(item.href)}
+                onSelect={() => handleSelect(item.href, false)}
               >
                 {item.icon}
                 <span>{item.title}</span>
@@ -137,7 +141,7 @@ export function CommandMenu() {
             {blogPosts.map((post) => (
               <CommandItem
                 key={post.slug}
-                onSelect={() => handleSelect(`/blog/${post.slug}`)}
+                onSelect={() => handleSelect(`/blog/${post.slug}`, false)}
               >
                 <span>{post.metadata.title}</span>
               </CommandItem>

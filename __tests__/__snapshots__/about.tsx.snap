@@ -26,7 +26,7 @@ exports[`About renders about page unchanged 1`] = `
       class="container relative ml-auto mr-auto w-screen max-w-custom px-8 md:px-0"
     >
       <div
-        class="grid items-start gap-6 md:grid-cols-1"
+        class="grid items-start gap-6 md:grid-cols-2"
       >
         <div
           class="flex flex-wrap items-center justify-start gap-2"
@@ -35,27 +35,189 @@ exports[`About renders about page unchanged 1`] = `
             style="opacity: 0; transform: translateY(10px);"
           >
             <span
-              class="inline-block rounded-lg px-4 py-2 text-sm text-title-normal shadow-custom-soft"
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
             >
-              computer science student
+              TypeScript
             </span>
           </div>
           <div
             style="opacity: 0; transform: translateY(10px);"
           >
             <span
-              class="inline-block rounded-lg px-4 py-2 text-sm text-title-normal shadow-custom-soft"
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
             >
-              fullstack web development
+              JavaScript
             </span>
           </div>
           <div
             style="opacity: 0; transform: translateY(10px);"
           >
             <span
-              class="inline-block rounded-lg px-4 py-2 text-sm text-title-normal shadow-custom-soft"
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
             >
-              mobile development
+              Python
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              Java
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              C++
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              C
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              React
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              NextJs
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              Supabase
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              React Native
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              HTML
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              CSS
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              Sass
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              Tailwind
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              Node
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              Jest
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              Express
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              SQL
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              Docker
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              Git
+            </span>
+          </div>
+          <div
+            style="opacity: 0; transform: translateY(10px);"
+          >
+            <span
+              class="inline-block rounded-lg px-2 py-2 text-sm text-title-normal shadow-custom-soft"
+            >
+              Unix
             </span>
           </div>
         </div>
@@ -66,7 +228,7 @@ exports[`About renders about page unchanged 1`] = `
             <p
               class="leading-relaxed"
             >
-              I'm currently studying computer science at Saarland University in Germany and I share my knowledge and projects on this website. I'm mainly interested in fullstack web and mobile development, as well as software engineering and artificial intelligence. I also enjoy playing football, travelling around the world and reading books in my spare time.
+              Full-stack software engineer with a strong foundation in JavaScript, and TypeScript, mainly interested in user interfaces and user experiences, and artificial intelligence. Skilled in building scalable solutions across diverse tech stacks, including Next.js, Supabase, and Tailwind CSS, with a keen interest in privacy-focused and developer-centric tools.
             </p>
           </div>
         </div>
