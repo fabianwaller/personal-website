@@ -12,7 +12,7 @@
     "test:coverage": "jest --coverage --collectCoverageFrom='src/**/*.{ts,tsx}'",
     "test:watch": "jest --watch",
     "apple-icon": "cd src/app && sips -s format png -Z 740 780 icon.svg --out apple-icon.png && sips -g all apple-icon.png",
-    "favicon": "cd src/app && sips -s format png -Z 512 512 icon.svg --out base.png && sips -z 16 16 base.png --out favicon16.ico && sips -z 32 32 base.png --out favicon32.ico && sips -z 64 64 base.png --out favicon64.ico && rm base.png",
+    "favicon": "cd src/app && sips -s format png -z 512 512 icon.svg --out base.png && magick base.png -resize 16x16 16.png && magick base.png -resize 32x32 32.png && magick base.png -resize 48x48 48.png && magick 16.png 32.png 48.png favicon.ico && rm base.png 16.png 32.png 48.png",
     "icons": "npm run apple-icon && npm run favicon"
   },
   "lint-staged": {
