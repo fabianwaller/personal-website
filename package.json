@@ -10,7 +10,10 @@
     "prepare": "husky",
     "test": "jest",
     "test:coverage": "jest --coverage --collectCoverageFrom='src/**/*.{ts,tsx}'",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "apple-icon": "cd src/app && sips -s format png -Z 740 780 icon.svg --out apple-icon.png && sips -g all apple-icon.png",
+    "favicon": "cd src/app && sips -s format png -Z 512 512 icon.svg --out base.png && sips -z 16 16 base.png --out favicon16.ico && sips -z 32 32 base.png --out favicon32.ico && sips -z 64 64 base.png --out favicon64.ico && rm base.png",
+    "icons": "npm run apple-icon && npm run favicon"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"

@@ -27,6 +27,11 @@ run tests
 $ npm run test
 ```
 
+build icons
+```bash
+$ npm run icons
+```
+
 ## Build
 
 build for production
