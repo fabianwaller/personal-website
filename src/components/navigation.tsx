@@ -90,7 +90,7 @@ export function Navigation() {
               key={item.href}
               className="m-0 flex flex-col items-center"
             >
-              <Link href={item.href} legacyBehavior passHref>
+              <Link href={item.href} passHref>
                 <NavigationMenuLink
                   className={cn([
                     navigationMenuTriggerStyle(),

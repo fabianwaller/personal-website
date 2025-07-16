@@ -24,10 +24,12 @@ const Footer: React.FC = () => {
 
           <div className="grid grid-cols-2-max gap-x-16">
             <div className="flex flex-col gap-y-4">
-              <span className="mb-4 block font-semibold">Links</span>
+              <span className="mb-4 block text-lg font-semibold">Links</span>
               {navigationItems.map((item) => (
-                <Link key={item.href} href={item.href} legacyBehavior>
-                  <span className="hover:text-primary">{item.title}</span>
+                <Link key={item.href} href={item.href}>
+                  <span className="hover:text-primary hover:underline">
+                    {item.title}
+                  </span>
                 </Link>
               ))}
             </div>
@@ -40,7 +42,7 @@ const Footer: React.FC = () => {
                 href={item.href}
                 target={item.blank ? "_blank" : "_self"}
                 className="h-8 w-8 hover:text-primary"
-                legacyBehavior>
+              >
                 {item.icon}
               </Link>
             ))}
