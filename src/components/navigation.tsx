@@ -90,23 +90,22 @@ export function Navigation() {
               key={item.href}
               className="m-0 flex flex-col items-center"
             >
-              <Link href={item.href} passHref>
-                <NavigationMenuLink
-                  className={cn([
-                    navigationMenuTriggerStyle(),
-                    pathname == item.href ? activeClass : null,
-                    menuOpen ? "flex h-fit flex-col" : null,
-                  ])}
-                  onClick={() => (menuOpen ? toggleMenu() : null)}
-                >
-                  {menuOpen && (
-                    <div className="mb-2 h-4 w-4 sm:m-0 sm:h-6 sm:w-6 md:h-0 md:w-0">
-                      {item.icon}
-                    </div>
-                  )}
-                  {item.title}
-                </NavigationMenuLink>
-              </Link>
+              <NavigationMenuLink
+                href={item.href}
+                className={cn([
+                  navigationMenuTriggerStyle(),
+                  pathname == item.href ? activeClass : null,
+                  menuOpen ? "flex h-fit flex-col" : null,
+                ])}
+                onClick={() => (menuOpen ? toggleMenu() : null)}
+              >
+                {menuOpen && (
+                  <div className="mb-2 h-4 w-4 sm:m-0 sm:h-6 sm:w-6 md:h-0 md:w-0">
+                    {item.icon}
+                  </div>
+                )}
+                {item.title}
+              </NavigationMenuLink>
             </NavigationMenuItem>
           ))}
         </NavigationMenuList>
