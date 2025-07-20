@@ -62,7 +62,7 @@ export function Navigation() {
 
   const pathname = usePathname();
 
-  const activeClass = "text-primary";
+  const activeClass = "text-primary underline underline-offset-4";
 
   return (
     <>
