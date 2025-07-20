@@ -1,4 +1,4 @@
-import { Rss } from "lucide-react";
+import { Mail, Rss } from "lucide-react";
 import {
   FaXTwitter as Twitter,
   FaGithub as Github,
@@ -7,6 +7,11 @@ import {
 } from "react-icons/fa6";
 
 export const socialItems = [
+  {
+    href: "/contact",
+    title: "Contact",
+    icon: <Mail className="h-full w-full" />,
+  },
   {
     href: "https://x.com/fabianwallerr",
     title: "X",

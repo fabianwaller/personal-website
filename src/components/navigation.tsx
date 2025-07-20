@@ -37,24 +37,19 @@ export const navigationItems = [
     icon: <User className="h-full w-full" />,
   },
   {
-    href: "/uses",
-    title: "Uses",
-    icon: <Wrench className="h-full w-full" />,
-  },
-  {
     href: "/projects",
     title: "Projects",
     icon: <FolderKanban className="h-full w-full" />,
   },
   {
+    href: "/uses",
+    title: "Uses",
+    icon: <Wrench className="h-full w-full" />,
+  },
+  {
     href: "/blog",
     title: "Blog",
     icon: <Newspaper className="h-full w-full" />,
-  },
-  {
-    href: "/contact",
-    title: "Contact",
-    icon: <Mail className="h-full w-full" />,
   },
 ];
 
