@@ -1,4 +1,4 @@
-name: Test runner
+name: Performance runner
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
   # branches: ["main", "dev"] # Run when a PR is merged into main or dev
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     strategy:
@@ -23,5 +23,15 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: npm install
-      - run: npm run lint
-      - run: npm run test
+      - run: npm run build
+      - name: run Lighthouse CI
+        run: |
+          npm install -g @lhci/cli@0.14.x
+          lhci autorun --upload.target=filesystem --upload.outputDir=./lhci_reports
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+      - name: upload lighthouse report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: ./lhci_reports
