@@ -15,40 +15,11 @@ exports[`Header renders Header unchanged 1`] = `
         <a
           href="/"
         >
-          <div
-            class="flex items-center text-title-normal"
+          <span
+            class="text-md font-semibold tracking-wide text-title-normal hover:text-primary"
           >
-            <svg
-              class="mr-1 h-8 w-8"
-              fill="none"
-              height="74"
-              viewBox="0 0 78 74"
-              width="78"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                class="fill-primary"
-                d="M43.1746 30.0684L68.5683 47.8492V47.8492C58.7482 61.8738 39.4183 65.2822 25.3937 55.4621V55.4621L43.1746 30.0684Z"
-              />
-              <path
-                class="fill-primary"
-                d="M13.1066 46.8583C17.8582 40.0722 27.2114 38.423 33.9975 43.1747V43.1747L25.3938 55.462L13.1066 46.8583V46.8583Z"
-              />
-              <path
-                class="fill-primary-foreground"
-                d="M33.9973 43.1746L8.6036 25.3937V25.3937C18.4237 11.3691 37.7536 7.96074 51.7782 17.7808V17.7808L33.9973 43.1746Z"
-              />
-              <path
-                class="fill-primary-foreground"
-                d="M64.0656 26.3848C59.3139 33.1709 49.9607 34.8201 43.1746 30.0685V30.0685L51.7783 17.7812L64.0656 26.3848V26.3848Z"
-              />
-            </svg>
-            <span
-              class="text-md font-semibold hover:text-primary"
-            >
-              Fabian
-            </span>
-          </div>
+            Fabian
+          </span>
         </a>
         <nav
           aria-label="Main"
@@ -92,9 +63,9 @@ exports[`Header renders Header unchanged 1`] = `
                 <a
                   class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-semibold transition-colors hover:text-accent-foreground focus:bg-card-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary/50 data-[state=open]:bg-primary/50"
                   data-radix-collection-item=""
-                  href="/uses"
+                  href="/projects"
                 >
-                  Uses
+                  Projects
                 </a>
               </li>
               <li
@@ -103,9 +74,9 @@ exports[`Header renders Header unchanged 1`] = `
                 <a
                   class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-semibold transition-colors hover:text-accent-foreground focus:bg-card-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary/50 data-[state=open]:bg-primary/50"
                   data-radix-collection-item=""
-                  href="/projects"
+                  href="/uses"
                 >
-                  Projects
+                  Uses
                 </a>
               </li>
               <li
@@ -119,17 +90,6 @@ exports[`Header renders Header unchanged 1`] = `
                   Blog
                 </a>
               </li>
-              <li
-                class="m-0 flex flex-col items-center"
-              >
-                <a
-                  class="group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-semibold transition-colors hover:text-accent-foreground focus:bg-card-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary/50 data-[state=open]:bg-primary/50"
-                  data-radix-collection-item=""
-                  href="/contact"
-                >
-                  Contact
-                </a>
-              </li>
             </ul>
           </div>
           <div
@@ -138,7 +98,7 @@ exports[`Header renders Header unchanged 1`] = `
         </nav>
         <button
           aria-label="Open menu"
-          class="inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 hover:bg-card-foreground hover:text-primary absolute right-4 z-50 md:hidden"
+          class="inline-flex items-center justify-center gap-1 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 hover:bg-card-foreground hover:text-primary absolute right-4 z-50 md:hidden"
         >
           <div
             class="relative h-6 w-6"

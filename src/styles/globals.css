@@ -17,7 +17,7 @@
     --background: var(--body-h), var(--body-s), var(--body-l);
     --foreground: var(--body-h), 84%, 4.9%;
 
-    --primary: var(--body-h), 84.1%, 49.4%;
+    --primary: var(--body-h), 84.1%, 40.4%;
     --primary-foreground: var(--body-h), 84.1%, 80%;
 
     --secondary: var(--body-h), 57%, 70%;
@@ -37,9 +37,9 @@
     --card: var(--body-h), var(--body-s), 97%;
     --card-foreground: var(--body-h), var(--body-s), 98%;
 
-    --text-color: var(--body-h), 4%, 30%;
-    --text-color-light: var(--body-h), 8%, 65%;
-    --text-color-dark: var(--body-h), 21%, 56%;
+    --text-color: var(--body-h), 8%, 30%;
+    --text-color-light: var(--body-h), 8%, 35%;
+    --text-color-dark: var(--body-h), 8%, 25%;
 
     --title-color: var(--body-h), 8%, 15%;
 
@@ -78,7 +78,7 @@
 
     --foreground: var(--body-h), 24%, 99%;
 
-    --primary: var(--body-h), 84.1%, 49.4%;
+    --primary: var(--body-h), 84.1%, 50.4%;
     --primary-foreground: var(--body-h), 84.1%, 77%;
 
     --secondary: var(--body-h), 69%, 61%;
@@ -100,8 +100,8 @@
     --card-foreground: var(--body-h), var(--body-s), 7%;
 
     --text-color: var(--body-h), 8%, 80%;
-    --text-color-light: var(--body-h), 8%, 65%;
-    --text-color-dark: var(--body-h), 21%, 56%;
+    --text-color-light: var(--body-h), 8%, 75%;
+    --text-color-dark: var(--body-h), 8%, 90%;
 
     --title-color: var(--body-h), 8%, 95%;
   }
@@ -157,7 +157,7 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: hsl(var(--primary));
+  background-color: hsl(var(--foreground));
 }
 
 @layer darkImages {

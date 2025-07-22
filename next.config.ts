@@ -8,6 +8,7 @@ const nextConfig: NextConfig = {
   transpilePackages: ['next-mdx-remote'],
   experimental: {
     viewTransition: true,
+    browserDebugInfoInTerminal: true,
   },
 };
 

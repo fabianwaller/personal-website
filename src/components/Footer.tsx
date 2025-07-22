@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
     <footer className="relative mt-8">
       <div className="rounded-t-xl border-t-1 border-solid py-16">
         <Container className="grid gap-y-14">
-          <div className="footer__logobox">
+          {/* <div>
             <Logo />
           </div>
 
@@ -33,24 +33,26 @@ const Footer: React.FC = () => {
                 </Link>
               ))}
             </div>
-          </div>
+          </div> */}
 
-          <div className="flex gap-6 text-xl">
-            {socialItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                target={item.blank ? "_blank" : "_self"}
-                className="h-8 w-8 hover:text-primary"
-              >
-                {item.icon}
-              </Link>
-            ))}
-          </div>
+          <div className="flex flex-col justify-between gap-8 lg:flex-row lg:items-center">
+            <div className="flex gap-6 text-xl">
+              {socialItems.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  target={item.blank ? "_blank" : "_self"}
+                  className="h-8 w-8 hover:text-primary"
+                >
+                  {item.icon}
+                </Link>
+              ))}
+            </div>
 
-          <span className="text-left text-sm text-text-light">
-            &#169; Fabian Waller. All rights reserved.
-          </span>
+            <span className="text-left text-sm text-text-light">
+              &#169; Fabian Waller. All rights reserved.
+            </span>
+          </div>
         </Container>
       </div>
     </footer>
