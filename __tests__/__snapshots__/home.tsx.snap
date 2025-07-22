@@ -13,7 +13,7 @@ exports[`Home renders home page unchanged 1`] = `
         class="relative transform-gpu overflow-visible bg-transparent"
       >
         <svg
-          class="absolute z-0 transform-gpu blur-2xl will-change-transform"
+          class="absolute z-0 transform-gpu blur-md will-change-transform md:blur-lg lg:blur-xl xl:blur-2xl"
           color-interpolation-filters="sRGB"
           height="100%"
           overflow="visible"

@@ -12,7 +12,9 @@ const HeroBlob = () => {
         width="100%"
         height="100%"
         viewBox="0 0 500 500"
-        className={"absolute z-0 transform-gpu blur-2xl will-change-transform"}
+        className={
+          "absolute z-0 transform-gpu blur-md will-change-transform md:blur-lg lg:blur-xl xl:blur-2xl"
+        }
         colorInterpolationFilters="sRGB"
         overflow={"visible"}
       >
