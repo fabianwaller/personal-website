@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-
 import { cn } from "@/lib/utils";
 
 import {
@@ -13,16 +11,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import {
-  FolderKanban,
-  House,
-  Mail,
-  Newspaper,
-  Rocket,
-  Rss,
-  User,
-  Wrench,
-} from "lucide-react";
+import { FolderKanban, House, Newspaper, User, Wrench } from "lucide-react";
 import MenuButton from "./MenuButton";
 
 export const navigationItems = [
@@ -68,16 +57,13 @@ export function Navigation() {
     <>
       <NavigationMenu
         className={cn(
-          "fixed -top-full left-0 right-0 max-w-full rounded-b-2xl bg-background px-6 pb-12 pt-24 shadow-xl backdrop-blur-3xl duration-300 md:relative md:top-0 md:max-w-fit md:rounded-none md:p-0 md:shadow-none md:duration-0",
-          menuOpen ? "top-0 md:relative" : null,
+          "ease-out-expo fixed left-0 right-0 top-0 max-w-full -translate-y-full rounded-b-2xl bg-background p-0 px-6 pb-12 pt-24 opacity-0 shadow-xl backdrop-blur-3xl duration-300 md:relative md:max-w-fit md:translate-y-0 md:rounded-none md:p-0 md:opacity-100 md:shadow-none md:duration-0",
+          menuOpen ? "translate-y-0 opacity-100 md:relative" : null,
         )}
       >
         <NavigationMenuList
           className={cn(
-            "md:space-x-1",
-            menuOpen
-              ? "grid w-screen grid-cols-3 gap-x-4 gap-y-4 px-4 md:flex md:w-fit md:gap-0 md:p-0"
-              : "",
+            "grid w-screen grid-cols-3 gap-x-4 gap-y-4 px-4 md:flex md:w-fit md:gap-0 md:space-x-1 md:p-0",
           )}
         >
           {navigationItems.map((item) => (
@@ -90,15 +76,11 @@ export function Navigation() {
                 className={cn([
                   navigationMenuTriggerStyle(),
                   pathname == item.href ? activeClass : null,
-                  menuOpen ? "flex h-fit flex-col" : null,
+                  "flex h-fit flex-col gap-2",
                 ])}
                 onClick={() => (menuOpen ? toggleMenu() : null)}
               >
-                {menuOpen && (
-                  <div className="mb-2 h-4 w-4 sm:m-0 sm:h-6 sm:w-6 md:h-0 md:w-0">
-                    {item.icon}
-                  </div>
-                )}
+                <div className="size-4 sm:size-6 md:hidden">{item.icon}</div>
                 {item.title}
               </NavigationMenuLink>
             </NavigationMenuItem>
