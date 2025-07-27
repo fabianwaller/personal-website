@@ -4,10 +4,10 @@ import { CommandMenuProvider } from "@/provider/CommandMenuContext";
 import { Suspense } from "react";
 import { CommandMenu } from "@/components/CommandMenu";
 import Footer from "@/components/Footer";
-import { Toaster } from "@/components/ui/toaster";
 import { BlogPostsProvider } from "@/provider/BlogPostsContext";
 import { unstable_ViewTransition as ViewTransition } from "react";
 import { getBlogPosts } from "./blog/utils";
+import { Toaster } from "@/components/ui/sonner";
 
 export default async function WebsiteLayout({
   children,

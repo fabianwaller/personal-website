@@ -11,7 +11,7 @@ export const sendContact = async (values: ValuesType) => {
   try {
     await bot.sendMessage({
       chat_id: chatId,
-      text: `Name: ${values.firstname + values.lastname} \nEmail: ${values.email} \nMessage: ${values.message}`,
+      text: `Name: ${values.firstname + " " + values.lastname} \nEmail: ${values.email} \nMessage: ${values.message}`,
     });
   } catch (error) {
     console.error(error);
