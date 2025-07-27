@@ -254,12 +254,12 @@
   }
 
   ::view-transition-old(page) {
-    animation: slide-out .15s ease-out both;
+    animation: slide-out .3s var(--ease-out-expo) both;
   }
 
   ::view-transition-new(page) {
-    animation: slide-in .15s ease-out both;
-    animation-delay: 150ms;
+    animation: slide-in .3s var(--ease-out-expo) both;
+    /* animation-delay: .3s; */
   }
 }
 
