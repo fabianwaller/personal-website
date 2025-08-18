@@ -55,9 +55,16 @@ function getMDXData(dir) {
   });
 }
 
+const sortByDate = (a: BlogPost, b: BlogPost) => {
+  if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
+    return -1;
+  }
+  return 1;
+};
+
 export async function getBlogPosts(): Promise<BlogPost[]> {
   "use server"
-  return getMDXData(path.join(process.cwd(), "posts"));
+  return getMDXData(path.join(process.cwd(), "posts")).sort(sortByDate);
 }
 
 export function formatDate(date: string, includeRelative = false) {

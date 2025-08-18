@@ -11,21 +11,14 @@ import { format } from "date-fns";
 import { de } from "date-fns/locale";
 import ScrollAnimated from "./ScrollAnimated";
 
-const sortByDate = (a: BlogPost, b: BlogPost) => {
-  if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
-    return -1;
-  }
-  return 1;
-};
-
 const BlogPosts = () => {
-  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const { blogPosts } = useBlogPosts();
 
   return (
     <VStack>
-      {blogPosts.sort(sortByDate).map((post, index) => (
+      {blogPosts.map((post, index) => (
         <ScrollAnimated key={post.slug}>
           <Link href={`/blog/${post.slug}`}>
             <div
