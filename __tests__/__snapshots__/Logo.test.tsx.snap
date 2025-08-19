@@ -6,7 +6,7 @@ exports[`Logo renders Logo unchanged 1`] = `
     href="/"
   >
     <span
-      class="text-md font-semibold tracking-wide text-title-normal hover:text-primary"
+      class="text-md font-semibold tracking-wide text-title-normal underline-offset-4 hover:text-primary-foreground hover:underline"
     >
       Fabian
     </span>
@@ -20,7 +20,7 @@ exports[`Logo renders white Logo unchanged 1`] = `
     href="/"
   >
     <span
-      class="text-md font-semibold tracking-wide text-title-normal hover:text-primary"
+      class="text-md font-semibold tracking-wide text-title-normal underline-offset-4 hover:text-primary-foreground hover:underline"
     >
       Fabian
     </span>

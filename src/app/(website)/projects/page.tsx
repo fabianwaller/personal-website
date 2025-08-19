@@ -25,19 +25,11 @@ const getClosedSourceProjects = () => {
     // },
     {
       type: "closed",
-      full_name: "Website SSV Oppen",
-      html_url: "https://ssvoppen.fabianwaller.de/",
-      description: "Vereinswebsite Design",
+      full_name: "Website FC Düppenweiler",
+      html_url: "https://www.xn--fcdppenweiler-yob.de/",
+      description: "Vereinswebsite",
       topics: ["nextjs", "typescript", "tailwindcss", "payloadcms"],
       pushed_at: new Date().toISOString(),
-    },
-    {
-      type: "closed",
-      full_name: "Website FC Düppenweiler",
-      html_url: "https://www.fcdüppenweiler.de",
-      description: "Vereinswebsite",
-      topics: ["nextjs", "typescript", "css"],
-      pushed_at: "2021-11-22T09:54:02Z",
     },
   ];
 };

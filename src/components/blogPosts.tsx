@@ -26,7 +26,10 @@ const BlogPosts = () => {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <CardHoverEffect active={hoveredIndex === index} />
+              <CardHoverEffect
+                active={hoveredIndex === index}
+                className="-left-4 w-full-plus"
+              />
               <Card>
                 <CardContent>
                   <div className="flex items-center justify-between gap-4">
