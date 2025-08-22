@@ -8,20 +8,19 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { ToastAction } from "@/components/ui/toast";
 import VStack from "./VStack";
-import { toast } from "@/hooks/use-toast";
 import { sendContact } from "@/app/(website)/contact/actions/sendContact";
 import { Input } from "./ui/animated-input";
 import { Textarea } from "./ui/animated-textarea";
 import { BottomGradient } from "./ui/animated-bottom-gradient";
 import { ArrowRight } from "lucide-react";
+import { useState } from "react";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   firstname: z.string().min(2, {
@@ -41,6 +40,8 @@ const formSchema = z.object({
 export type ValuesType = z.infer<typeof formSchema>;
 
 const ContactForm = () => {
+  const [sending, setSending] = useState(false);
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -53,26 +54,26 @@ const ContactForm = () => {
 
   async function onSubmit(values: ValuesType) {
     // ✅ This will be type-safe and validated.
-    try {
-      await sendContact(values);
-      form.reset();
-      toast({
-        variant: "success",
-        title: "Your message has been sent.",
-        description: "I will answer as soon as possible.",
-      });
-    } catch (error) {
-      toast({
-        variant: "destructive",
-        title: "Uh oh! Something went wrong.",
-        description: "There was a problem with your request.",
-        action: (
-          <ToastAction altText="Try again" onClick={() => onSubmit(values)}>
-            Try again
-          </ToastAction>
-        ),
-      });
-    }
+    setSending(true);
+    toast.promise(sendContact(values), {
+      loading: "Sending...",
+      success: () => {
+        form.reset();
+        setSending(false);
+        return {
+          message: "Your message has been sent.",
+          description: "I will answer as soon as possible.",
+        };
+      },
+      error: () => {
+        setSending(false);
+        return {
+          message: "Uh oh! Something went wrong.",
+          description:
+            "There was a problem with your request. Try again later.",
+        };
+      },
+    });
   }
 
   return (
@@ -136,7 +137,7 @@ const ContactForm = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" variant="secondary">
+          <Button type="submit" variant="secondary" disabled={sending}>
             Send <ArrowRight />
             <BottomGradient />
           </Button>

@@ -2,18 +2,9 @@ import { Poppins } from "next/font/google";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import Header from "@/components/header";
-import { CommandMenuProvider } from "@/provider/CommandMenuContext";
-import { Suspense } from "react";
-import { CommandMenu } from "@/components/CommandMenu";
-import Footer from "@/components/Footer";
-import { Toaster } from "@/components/ui/toaster";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { getBlogPosts } from "./(website)/blog/utils";
-import { BlogPostsProvider } from "@/provider/BlogPostsContext";
 import type { Metadata } from "next";
 import { description, title } from "./info";
-import { unstable_ViewTransition as ViewTransition } from "react";
 
 const fontSans = Poppins({
   weight: "500",
@@ -30,7 +21,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const blogPosts = await getBlogPosts();
   return (
     <html lang="en">
       <head>

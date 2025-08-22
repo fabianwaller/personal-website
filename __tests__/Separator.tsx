@@ -1,5 +1,4 @@
 import { Separator } from "@/components/ui/separator";
-import VStack from "@/components/VStack";
 import "@testing-library/jest-dom";
 import { render } from "@testing-library/react";
 

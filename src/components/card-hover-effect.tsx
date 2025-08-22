@@ -2,12 +2,21 @@ import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Card as BaseCard } from "./ui/card";
 
-export const CardHoverEffect = ({ active }: { active: boolean }) => {
+export const CardHoverEffect = ({
+  active,
+  className,
+}: {
+  active: boolean;
+  className?: string;
+}) => {
   return (
     <AnimatePresence>
       {active && (
         <motion.span
-          className="absolute inset-0 -left-4 block h-full w-full-plus rounded-lg bg-card-foreground"
+          className={cn(
+            "absolute inset-0 block h-full rounded-lg bg-card-foreground",
+            className,
+          )}
           layoutId="hoverBackground"
           initial={{ opacity: 0 }}
           animate={{
